@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Joachim Boenisch (eska Ingenieurgesellschaft mbH) -->
 <!-- ***************************************************************************** 
 Issue		: SDSComXML XSD 4.0.
 Purpose	: Complex Types Schema Definition      					
@@ -57,6 +56,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					 Changed LowerExplosionLimit from PhysChemValue to PhysChemUnitValue
 					 Changed UpperExplosionLimit from PhysChemValue to PhysChemUnitValue
 										
+2015.07.30 Extended Component with TransportInformation
+					 IsDangerReleasingSubstanceAdrRidAdn
+					 IsDangerReleasingSubstanceImdg
+					 IsDangerReleasingSubstanceIcao
+														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
@@ -282,6 +286,15 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="PhysicalChemicalProperties" type="PhysicalChemicalProperties" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ToxicologicalInformation" type="ToxicologicalInformation" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EcologicalInformation" type="EcologicalInformation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TransportInformation" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="IsDangerReleasingSubstanceAdrRidAdn" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsDangerReleasingSubstanceImdg" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsDangerReleasingSubstanceIcao" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="ComponentId" type="xs:integer" default="0"/>
 		<xs:attribute name="ComponentInternalSdsId" type="string64" default=""/>
