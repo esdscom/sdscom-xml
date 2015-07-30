@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Joachim Boenisch (eska Ingenieurgesellschaft mbH) -->
+<!-- ***************************************************************************** -->
+<!-- * Issue		: 	SDSComXMLNE_VA.xsd 1.0.0, release 2012.09.29. Vatican.         * -->
+<!-- * Purpose	: 	SDSComXml National Extension Schema Definition                 * -->
+<!-- * 			  		to enable xml-based	distribution of Safety Data Sheets (SDS)   * -->
+<!-- * 			  		as specified in the general format extended with the national  * -->
+<!-- * 			  		extensions below. For detailed information please refer to	 	 * -->
+<!-- * 			  		http://www.eSDSCom.eu									                      	 * -->
+<!-- * Version	: 	1.0.0 Empty structure initially.										           * -->
+<!-- * Rev. Date: 	2012.09.29																                     * -->
+<!-- * History	:  																			                      		 * -->
+<!-- * [When  ]		[What] 															                      		 * -->
+<!-- ***************************************************************************** -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
+	<xs:include schemaLocation="SDSComXmlCT4.2.0.xsd"/>
+	<!-- *******************************************************************  NationalExtension *************  -->
+	<xs:complexType name="NationalExtensionVA">
+		<xs:annotation>
+			<xs:documentation>
+				Elements related to national legislation
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- TO DO -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
