@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Joachim Boenisch (eska Ingenieurgesellschaft mbH) -->
+<!-- ***************************************************************************** -->
+<!-- * Issue		: 	SDSComXML XSD 4.0, release 2012.09.06        	* -->
+<!-- * Purpose	: 	Norwegian Extension Schema Definition      			* -->
+<!-- * 			  		to enable a xml-based		 									* -->
+<!-- * 			  		distribution of Safety Data Sheets (SDS)		 		* -->
+<!-- * 			  		as specified in the Format. For detailed 				 	* -->
+<!-- * 			  		information please refer to 									* -->
+<!-- * 			  		http://www.eSDSCom.eu										* -->
+<!-- * Version	: 	4.0                   														* -->
+<!-- * Rev. Date: 	2012.09.06																* -->
+<!-- * History	:  																					* -->
+<!-- * [When  ]		[What] 																	* -->
+<!-- ***************************************************************************** -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
+	<xs:include schemaLocation="SDSComXmlCT4.2.0.xsd"/>
+	<!-- *******************************************************************  Datasheet *************  -->
+	<xs:complexType name="NationalExtensionNO">
+		<xs:annotation>
+			<xs:documentation>
+				Elements related to Norwegian legislation
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AssessedRegulations" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationsDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrProductRegistrationNo" type="PrProductRegistrationNo" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OccupationalAirRequirement" type="OccupationalAirRequirement" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalWasteLegislation" type="NationalWasteLegislation" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************** PrProductRegistrationNo ********************* -->
+	<xs:complexType name="PrProductRegistrationNo">
+		<xs:annotation>
+			<xs:documentation>
+				PrProductRegistrationNo
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PrProductNo" type="string128" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NotApplicableReason" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrProductCode" type="string20" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="UcnCode" type="string20" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SicCode" type="string20" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NorwegianPrFunctionCode" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************** OccupationalAirRequirement ********************* -->
+	<xs:complexType name="OccupationalAirRequirement">
+		<xs:annotation>
+			<xs:documentation>
+				OccupationalAirRequirement
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OarGroup" type="string2" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OarValue" type="string32" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************** NationalWasteLegislation ********************* -->
+	<xs:complexType name="NationalWasteLegislation">
+		<xs:annotation>
+			<xs:documentation>
+				NationalWasteLegislation
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NationalWasteCode" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
