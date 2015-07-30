@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Joachim Boenisch (eska Ingenieurgesellschaft mbH) -->
+<!-- *****************************************************************************
+Issue		: SDSComXML XSD 4.0   	
+Purpose	: Schema Definition to enable a xml-based      
+ 			  		distribution of Safety Data Sheets (SDS)		 
+ 			  		as specified in the Format. For detailed 			
+ 			  		information please refer to 									
+ 			  		http://www.eSDSCom.eu									
+Version	:  4.2.0. Release Candidate																	
+Rev. date: 2015.05.21												
+History	:  
+																				
+2013.04.12 The file names and the corresponding includes has been updated from version "4.0" 
+           to "4.0.2" to handle minor changes in the included files.	
+
+2013.05.24 The ClpSignalWord type was chenged from Phrase tol SingalWordEnum.
+
+2013.05.25 Changed the type PictogramCodeEnum to HazardPictogram including both a 
+					 Phrase and the old PictogramCodeEnum. Needed to specify a text.
+
+2013.09.22 Added the the optional attribute PrintAsAttachment to exposure scenarios.
+
+2013.10.16 AdditionalInformation under HazardLabelling missed a minOccurence=0. Added.
+
+2013.11.21 LegalDocumentSignature updated from type string64 to string128.
+
+2013.11.29 Several fields in section 0 has been updated with minOccurence and maxOccurrence
+					 values as defined in the Excel sheet.
+
+2013.12.02 Missing or incorrect minOccur/maxOccur added on the fields Role, RoleCode, Name,
+					 Address and Phone.
+
+2013.12.03 Missing or incorrect minOccur/maxOccur to RelevantIdentifiedUse.
+
+2014.02.12 Added the optional attributes IdentifiedUseId and PrintAsAttachment to the
+					 field NotToBeUsedIn in the same way as for IdentifiedUse.
+
+2014.02.12 MaxOccurs set to 1 for RelevantIdentfiedUse and UseAdvisedAgainst according to
+					 the Excel sheet.
+
+2014.05.26 MinOccurence=1 added to Classification in HazardIdentification as defined in
+					 the Excel sheet.
+
+2014.07.22 LegalDocumentFileName minOccur changed to 1
+					 New element XMLStandardSubset
+					 New element RelatedDocuments
+					 Updated Section 13 minOccurrence to 0 for EuRequirements and EuropeanWasteList  according to Excel sheet.
+
+2015.05.21 SectorOfUse maxOccur changed to unbound
+					 ProductIdentity maxOccur changed to unbound
+					 ReachRegNo maxOccur changed to unbound
+					 Emergency Phone No string length has been changed from 40 to 255
+2015.06.18 SupplierPhone No string length has been changed from 40 to 255
+					 Fax string length has been changed from 40 to 255
+					 ImdgEmsCode has been changed from phrase to string40 
+														
+***************************************************************************** -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
+	<xs:include schemaLocation="SDSComXmlCT4.2.0.xsd"/>
+	<!-- National extensions to the standard. Initially empty. -->
+	<xs:include schemaLocation="SDSComXmlNE_AD.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_AL.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_AM.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_AT.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_BA.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_BE.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_BG.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_BY.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_CH.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_CZ.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_DE.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_DK.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_EE.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_ES.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_FI.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_FR.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_GB.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_GE.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_GR.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_HR.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_HU.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_IE.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_IS.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_IT.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_KZ.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_LI.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_LT.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_LU.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_LV.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_MC.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_MD.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_ME.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_MK.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_MT.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_NL.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_NO.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_PL.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_PT.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_RO.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_RS.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_RU.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_SE.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_SI.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_SK.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_SM.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_TR.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_UA.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_UZ.xsd"/>
+	<xs:include schemaLocation="SDSComXmlNE_VA.xsd"/>
+	<!-- *******************************************************************  DatasheetFeed *************  -->
+	<xs:element name="DatasheetFeed">
+		<xs:annotation>
+			<xs:documentation>
+            The chemical safety datasheet using the included data types. To be filled in...
+        </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<!-- *******************************************************************  Datasheet *************  -->
+				<xs:element name="Datasheet">
+					<xs:annotation>
+						<xs:documentation>
+						  The chemical safety datasheet using the included data types. To be filled in...
+					  </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<!-- *******************************************************************  CHAPTER 0 (Header informations) ************************  -->
+							<xs:element name="InformationFromExportingSystem" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="XmlStandardVersionNo" type="XmlStandardVersionEnum" minOccurs="1" maxOccurs="1"/>
+										<xs:element name="PhraseCatalogue" type="PhraseCatalogue" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="Language" minOccurs="1" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="FreetextLanguageCode" type="LanguageCodeEnum" minOccurs="1" maxOccurs="1"/>
+													<xs:element name="FreetextLanguageName" type="Phrase" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<!-- 4.0.3 New element XMLStandardSubset -->
+										<xs:element name="RegulationsRelatedToCountryOrRegion" minOccurs="1" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="RegulationsRelatedToCountryOrRegionCode" type="CountryCodeEnum" minOccurs="1" maxOccurs="1"/>
+													<xs:element name="RegulationsRelatedToCountryOrRegionName" type="Phrase" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SystemUsedInPreparation" type="string64" minOccurs="1" maxOccurs="1"/>
+										<xs:element name="DateGeneratedExport" type="xs:date" minOccurs="0"/>
+										<!-- 4.0.3 LegalDocumentFileName minOccurs changed to 1 -->
+										<xs:element name="LegalDocument" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="LegalDocumentFileName" type="string256" minOccurs="1" maxOccurs="1"/>
+													<xs:element name="LegalDocumentPrintDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="LegalDocumentSignature" type="string128" minOccurs="0" maxOccurs="1"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<!-- 4.0.3 New element RelatedDocuments -->
+										<xs:element name="SpecialExtensions" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Extension" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ExtensionIssuerId" type="string32" minOccurs="1" maxOccurs="1"/>
+																<xs:element name="ExtensionName" type="string40" minOccurs="1" maxOccurs="1"/>
+																<xs:element name="ExtensionValue" type="string256" minOccurs="1" maxOccurs="1"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RelatedDocuments" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="FileName" type="string256"/>
+													<xs:element name="Description" type="string256" minOccurs="0" maxOccurs="1"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="XMLStandardSubset" type="XMLStandardSubsetEnum" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 1 (Identification of the substance/mixture and of the company/undertaking) ************************  -->
+							<xs:element name="IdentificationSubstPrep" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="IssueDate" type="xs:date"/>
+										<xs:element name="RevisionDate" type="xs:date" minOccurs="0"/>
+										<xs:element name="VersionNo" type="string10" minOccurs="0"/>
+										<xs:element name="SpecificationNo" type="string16" minOccurs="0"/>
+										<xs:element name="ItemNo" type="string128" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ProductNo" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="UserId" type="string128" minOccurs="0"/>
+													<xs:element name="ProductNoUser" type="string128" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ProductIdentity" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TradeName" type="string512"/>
+													<xs:element name="Synonym" type="string512" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="ProductGtin" type="ProductGtin" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="ProductDefinition" type="Phrase" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="InformationOnTheSds" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="SdsNotLegallyRequired" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="CompleteSdsWithEsIncorporated" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ExtendedSdsWithEsIncorporated" type="xs:boolean" minOccurs="0"/>
+																<xs:element name="ExtendedSdsWithEsIncorporatedComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="DistributionStoppedDate" type="xs:date" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ProductDiscontinuedFromMarket" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="RelevantIdentifiedUse" minOccurs="0" maxOccurs="1">
+											<!-- 4.0.2 maxOccur was unbound -->
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="IdentifiedUse" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="SectorOfUse" type="SectorOfUse" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ProductCategory" type="ProductCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ProcessCategory" type="ProcessCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="EnvironmentalReleaseCategory" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="ErcCode" type="EnvironmentalReleaseCategoryCodeEnum" minOccurs="0"/>
+																			<xs:element name="ErcFulltext" type="Phrase" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="SpecificEnvironmentalReleaseCategory" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="SpercCode" type="SpecificEnvironmentalReleaseCategoryCodeEnum" minOccurs="0"/>
+																			<xs:element name="SpercFulltext" type="Phrase" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="ArticleCategoryNoIntendedRelease" type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ArticleCategoryWithIntendedRelease" type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="CorrespondingExposureScenario" type="CorrespondingEs" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+															<xs:attribute name="IdentifiedUseId" type="xs:integer" default="0"/>
+															<xs:attribute name="PrintAsAttachment" type="xs:boolean" default="true"/>
+															<!-- Added in 4.0.2 -->
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ProductType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="ProductFunction" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ProductFunctionDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ProductFunctionCode" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="UseAdvisedAgainst" minOccurs="0" maxOccurs="1">
+											<!-- 4.0.2 maxOccur was undefined -->
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="NotToBeUsedIn" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="SectorOfUse" type="SectorOfUse" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ProductCategory" type="ProductCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ProcessCategory" type="ProcessCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ArticleCategoryNoIntendedRelease" type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ArticleCategoryWithIntendedRelease" type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+															<xs:attribute name="IdentifiedUseId" type="xs:integer" default="0"/>
+															<xs:attribute name="PrintAsAttachment" type="xs:boolean" default="true"/>
+															<!-- Added in 4.0.2 -->
+															<!-- Added in 4.0.2 -->
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="OtherUseAdvisedAgainst" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ChemicalUsedByTheGeneralPublic" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CanBeUsedByTheGeneralPublic" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="UsedByTheGeneralPublicOnly" type="xs:boolean" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="UseOfChemicalComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="SupplierInformation" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Role" minOccurs="0" maxOccurs="1">
+														<!-- 4.0.2 minOccurs and maxOccurs added. -->
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="RoleCode" type="RoleDescriptionEnum" minOccurs="1" maxOccurs="1"/>
+																<!-- 4.0.2 minOccurs and maxOccurs set. -->
+																<xs:element name="RoleDescription" type="Phrase" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Name" type="string256" minOccurs="1" maxOccurs="1"/>
+													<!-- 4.0.2 minOccurs and maxOccurs set. -->
+													<xs:element name="Address" minOccurs="1" maxOccurs="1">
+														<!-- 4.0.2 minOccurs and maxOccurs set. -->
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="VisitingAddressLine1" type="string256" minOccurs="0"/>
+																<xs:element name="VisitingAddressLine2" type="string256" minOccurs="0"/>
+																<xs:element name="VisitingAddressLine3" type="string256" minOccurs="0"/>
+																<xs:element name="VisitingAddressPostCode" type="string16" minOccurs="0"/>
+																<xs:element name="VisitingAddressCity" type="string80" minOccurs="0"/>
+																<xs:element name="VisitingCountry" type="string64" minOccurs="0"/>
+																<xs:element name="PostAddressLine1" type="string256" minOccurs="0"/>
+																<xs:element name="PostAddressLine2" type="string256" minOccurs="0"/>
+																<xs:element name="PostAddressLine3" type="string256" minOccurs="0"/>
+																<xs:element name="PostCode" type="string16" minOccurs="0"/>
+																<xs:element name="PostCity" type="string80" minOccurs="0"/>
+																<xs:element name="PostCountry" type="string64" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Phone" type="string256" minOccurs="1" maxOccurs="unbounded"/>
+													<!-- 4.0.2 minOccurs set. -->
+													<xs:element name="Fax" type="string256" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="Email" type="string256" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="CompanyUrl" type="string256" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="CompanyContact" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Name" type="string512" minOccurs="0"/>
+																<xs:element name="Phone" type="string256" minOccurs="0"/>
+																<xs:element name="Fax" type="string256" minOccurs="0"/>
+																<xs:element name="Url" type="string256" minOccurs="0"/>
+																<xs:element name="Email" type="string256" minOccurs="0"/>
+																<xs:element name="NationalContact" type="string256" minOccurs="0"/>
+																<xs:element name="EmailCompetentPerson" type="string256" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="LegalRegistrationNo" type="string24" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="EmergencyPhone" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="No" type="string256" minOccurs="0"/>
+													<xs:element name="EmergencyPhoneDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="InternalSdsId" type="string64" minOccurs="0"/>
+										<xs:element name="IdentificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 2 (Hazards identification) *******************************************************************************  -->
+							<xs:element name="HazardIdentification" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Classification" type="Classification" minOccurs="0"/>
+										<!-- 4.0.2 minOccurence=1 added according to Excel sheet. -->
+										<xs:element name="HazardLabelling" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ClpLabellingInfo" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClpHazardPictogram" type="HazardPictogram" minOccurs="0" maxOccurs="6"/>
+																<xs:element name="ClpSignalWord" type="SignalWord" minOccurs="0" maxOccurs="1"/>
+																<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpPrecautionaryStatement" type="PrecautionaryStatement" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpSupplementalHazardInformation" type="SupplementalHazardInformation" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SpecialSupplementalLabelInfo" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpAdditionalLabellingInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpSpecialRulesOnPackaging" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="DpdDsdHazardLabelling" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="DpdDsdHazardSymbol" type="HazardSymbolCodeEnum" minOccurs="0" maxOccurs="4"/>
+																<xs:element name="DpdDsdRiskPhrase" type="RiskPhrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DpdDsdSafetyPhrase" type="SafetyPhrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DpdDsdOtherLabellingInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DpdDsdStandardPhrasesForSpecialRisks" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DpdDsdStandardPhrasesForSafetyPrecautions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DpdDsdLabellingComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<!-- 4.0.2 Added missing minOccurs=0 here -->
+													<xs:element name="EcLabel" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="TactileWarning" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="ChildResistantOpening" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="LabellingAccordingToOtherEuLegislation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="VocLabelling" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="ProductSubcategory" type="Phrase" minOccurs="0"/>
+																			<xs:element name="VocLimitForSubcategory" type="UnitValue" minOccurs="0"/>
+																			<xs:element name="MaxVocConcInMixture" type="UnitValue" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DetergentLabelling" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AerosolLabelling" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="OtherEuLabellingRequirements" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OtherHazardsInfo" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="HazardDescriptionGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="PhysicochemicalEffect" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="HealthEffect" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="EnvironmentalEffect" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="EffectsOfMisuse" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="OtherHazards" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 3 (Composition/information on ingredients) ***********************************************************  -->
+							<xs:element name="Composition" type="Composition" minOccurs="1" maxOccurs="1"/>
+							<!-- *******************************************************************  CHAPTER 4 (First aid measures) **********************************************************************************  -->
+							<xs:element name="FirstAidMeasures" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DescriptionOfFirstAidMeasures" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="GeneralInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="FirstAidInhalation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="FirstAidSkin" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="FirstAidEye" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="FirstAidIngestion" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="PersonalProtectionFirstAider" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="InformationToHealthProfessionals" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="SymptomsAndEffectsGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="AcuteSymptomsAndEffects" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="DelayedSymptomsAndEffects" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="MedicalAttentionAndSpecialTreatmentNeeded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="MedicalTreatment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="RequiredClinicalTesting" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="RequiredMedicalMonitoring" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="SpecificAntidotes" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="Contraindications" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SpecificFirstAidEquipment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="FirstAidComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 5 (Firefighting measures) ******************************************************************************  -->
+							<xs:element name="FireFightingMeasures" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ExtinguishingMedia" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="MediaToBeUsed" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="MediaNotBeUsed" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="FireAndExplosionHazards" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="HazardCombustionProd" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="FireFightingPrecautions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="FireFightingProcedures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="SpecialProtectiveEquipmentForFirefighters" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="FireAndExplosionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 6 (Accidental release measures) *********************************************************************  -->
+							<xs:element name="AccidentalReleaseMeasures" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="GeneralMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ForNonEmergencyPersonnel" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="PersonalPrecautions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="ProtectiveEquipment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="EmergencyProcedures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ForEmergencyResponders" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="EnvironmentalPrecautions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ContainmentAndCleaningUp" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Containment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="CleaningUp" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="OtherInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ReferenceToOtherSections" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 7 (Handling and storage) *****************************************************************************  -->
+							<xs:element name="HandlingAndStorage" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- Precautions for safe handling -->
+										<xs:element name="SafeHandling" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="HandlingPrecautions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="SafeHandlingOfGasContainers" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="PrecautionaryMeasures" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ProtectiveMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="MeasuresToPreventFire" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="MeasuresToPreventAerosolAndDust" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="MeasuresToProtectEnvironment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="FurtherInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="GeneralOccupationalHygiene" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="StoragePrecautions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ConditionsToAvoid" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ConditionsForSafeStorage" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TechnicalMeasuresAndStorageConditions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="PackagingContainer" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="RequirementsForStorageRoomsAndVessels" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="HintsOnStorageAssembly" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="FurtherInformationOnStorageConditions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="StorageTemperature" type="PhysChemUnitValue" minOccurs="0"/>
+													<xs:element name="StoragePressure" type="PhysChemUnitValue" minOccurs="0"/>
+													<xs:element name="StorageAirHumidity" type="PhysChemUnitValue" minOccurs="0"/>
+													<xs:element name="StorageStability" type="StorageStability" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SpecificEndUses" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Recommendations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="IndustrialSectorSpecificSolutions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 8 (Exposure controls / personal protection) ***************************************************************  -->
+							<xs:element name="ExposureControlPersonalProtection" type="ExposureControlPersonalProtection" minOccurs="1" maxOccurs="1"/>
+							<!-- *******************************************************************  CHAPTER 9 (Physical and chemical properties) ***************************************************************  -->
+							<xs:element name="PhysicalChemicalProperties" type="PhysicalChemicalProperties" minOccurs="1" maxOccurs="1"/>
+							<!-- *******************************************************************  CHAPTER 10 (Stability and reactivity) ************************************************************************  -->
+							<xs:element name="StabilityReactivity" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ReactivityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="StabilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="HazardousReactions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ConditionsToAvoid" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="MaterialsToAvoid" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="HazardousDecompositionProducts" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 11 (Toxicological information) *********************************************************************  -->
+							<xs:element name="ToxicologicalInformation" type="ToxicologicalInformation" minOccurs="1" maxOccurs="1"/>
+							<!-- *******************************************************************  CHAPTER 12 (Ecological information) *************************************************************************  -->
+							<xs:element name="EcologicalInformation" type="EcologicalInformation" minOccurs="1" maxOccurs="1"/>
+							<!-- *******************************************************************  CHAPTER 13 (Disposal considerations) ***********************************************************************  -->
+							<!-- Elements "NationalWasteCode" and "NationalWasteRegulations" moved to chapter 15 -->
+							<!-- 4.0.3 EuRequirements and EuropeanWasteList minOccurs changed to 0 -->
+							<xs:element name="DisposalConsiderations" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="WasteTreatmentMethods" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="EuRequirements" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="EuropeanWasteList" minOccurs="0" maxOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="EWLProduct" type="WasteListEntry" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="EWLPacking" type="WasteListEntry" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="EuWasteRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 14 (Transport information) **************************************************************************  -->
+							<xs:element name="TransportInformation" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- (Not following EuphraC) -->
+										<xs:element name="DangerousGoodsAdrRidAdnImdgIcaoIata" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="UnNo" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="UnNoAdrRidAdn" type="int4" minOccurs="0"/>
+													<xs:element name="UnNoImdg" type="int4" minOccurs="0"/>
+													<xs:element name="UnNoIcao" type="int4" minOccurs="0"/>
+													<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ProperShippingName" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="AdrRidAdn" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ProperShippingNameEnglishAdrRidAdn" type="Phrase" minOccurs="0"/>
+																<xs:element name="ProperShippingNameNationalAdrRidAdn" type="Phrase" minOccurs="0"/>
+																<xs:element name="DangerReleasingSubstanceAdrRidAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Imdg" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ProperShippingNameEnglishImdg" type="Phrase" minOccurs="0"/>
+																<!-- Updated from English only -->
+																<xs:element name="DangerReleasingSubstanceImdg" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Icao" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ProperShippingNameEnglishIcao" type="Phrase" minOccurs="0"/>
+																<xs:element name="DangerReleasingSubstanceIcao" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ProperShippingNameComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="TransportHazardClassification" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="AdrRidAdn" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClassAdrRidAdn" type="Phrase" minOccurs="0"/>
+																<xs:element name="ClassCodeAdrRidAdn" type="Phrase" minOccurs="0"/>
+																<xs:element name="SubsidiaryRiskAdrRidAdn" type="Phrase" minOccurs="0" maxOccurs="2"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Imdg" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClassImdg" type="Phrase" minOccurs="0"/>
+																<xs:element name="ClassCodeImdg" type="Phrase" minOccurs="0"/>
+																<xs:element name="SubsidiaryRiskImdg" type="Phrase" minOccurs="0" maxOccurs="2"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="IcaoIata" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClassIcaoIata" type="Phrase" minOccurs="0"/>
+																<xs:element name="ClassCodeIcaoIata" type="Phrase" minOccurs="0"/>
+																<xs:element name="SubsidiaryRiskIcaoIata" type="Phrase" minOccurs="0" maxOccurs="2"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="TransportHazardClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="PackingGroup" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="PackingGroupAdrRidAdn" type="PackingGroupEnum" minOccurs="0"/>
+													<xs:element name="PackingGroupImdg" type="PackingGroupEnum" minOccurs="0"/>
+													<xs:element name="PackingGroupIcaoIata" type="PackingGroupEnum" minOccurs="0"/>
+													<xs:element name="PackingGroupComments" type="Phrase" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="EnvironmentalHazards" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="EnvironmHazardAccordAdrRidAdn" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="Imdg" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="EnvironmHazardAccordImdg" type="xs:boolean" minOccurs="0"/>
+																<xs:element name="MarinePollutant" type="xs:boolean" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="EnvironmHazardAccordIcaoIata" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="EnvironmentalHazardsDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SpecialPrecautionUser" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="TransportInBulk" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TransportInBulkValue" type="xs:boolean"/>
+													<xs:element name="ProductName" type="string128" minOccurs="0"/>
+													<xs:element name="ShipType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="PollutionCategory" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OtherTransportInformation" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TransportHazardLabels" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="AdrRidAdnHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
+																<xs:element name="ImdgHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
+																<xs:element name="IcaoIataHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="OtherTransportGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="AdrOtherInformation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="AdrOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdrTunnelRestrictionCode" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdrLimitedQty" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdrTransportCategory" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdrHazardIdentificationNo" type="Phrase" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="RidOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="AdnOtherInformation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="AdnOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdnSpecialProvisions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ImdgOtherInformation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ImdgOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ImdgEmsCode" type="string40" minOccurs="0" maxOccurs="3"/>
+																<xs:element name="ImdgLimitedQty" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="IcaoIataOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- ******************************************************************  CHAPTER 15 (Regulatory information) ************************************************************************  -->
+							<xs:element name="RegulatoryInfo" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="SpecificProvisionsRelatedToProduct" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="EuLegislation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="AssessedLegislation" type="AssessmentEnum" minOccurs="0"/>
+																<xs:element name="EuAuthorisation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="EuRestrictionsOnUse" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="RestrictionsAccordingReach" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="Detergents" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="Voc" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="VocInPercentByWeight" type="PercentageValue" minOccurs="0"/>
+																			<xs:element name="VocValue" type="UnitValue" minOccurs="0"/>
+																			<xs:element name="VocRestrictionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="CertainFluorinatedGreenhouseGases" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="FluorinatedGreenhouseGasesMethod" type="Phrase" minOccurs="0"/>
+																			<xs:element name="FluorinatedGreenhouseGasesComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="OtherEuLegislation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="EuRestrictionsOfOccupation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NationalLegislation" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<!-- National Extensions introduced in SdsXmlNE_<Regioncode>.xsd  schema files -->
+													<xs:element name="NationalLegislationAndorra" type="NationalExtensionAD" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationAlbania" type="NationalExtensionAL" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationArmenia" type="NationalExtensionAM" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationAustria" type="NationalExtensionAT" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationBosniaAndHerzegovina" type="NationalExtensionBA" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationBelgium" type="NationalExtensionBE" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationBulgaria" type="NationalExtensionBG" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationBelarus" type="NationalExtensionBY" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSwitzerland" type="NationalExtensionCH" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationCzechRepublic" type="NationalExtensionCZ" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationGermany" type="NationalExtensionDE" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationDemnark" type="NationalExtensionDK" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationEstonia" type="NationalExtensionEE" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSpain" type="NationalExtensionES" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationFinland" type="NationalExtensionFI" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationFrance" type="NationalExtensionFR" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationUnitedKingdom" type="NationalExtensionGB" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationGeorgia" type="NationalExtensionGE" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationGreece" type="NationalExtensionGR" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationCroatia" type="NationalExtensionHR" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationHungary" type="NationalExtensionHU" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationIreland" type="NationalExtensionIE" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationIceland" type="NationalExtensionIS" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationItaly" type="NationalExtensionIT" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationKazakhstan" type="NationalExtensionKZ" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationLiechtenstein" type="NationalExtensionLI" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationLithuania" type="NationalExtensionLT" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationLuxembourg" type="NationalExtensionLU" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationLatvia" type="NationalExtensionLV" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationMonaco" type="NationalExtensionMC" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationRepublicOfMoldova" type="NationalExtensionMD" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationMontenegro" type="NationalExtensionME" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="NationalExtensionMK" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationMalta" type="NationalExtensionMT" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationNetherlands" type="NationalExtensionNL" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationNorway" type="NationalExtensionNO" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationPoland" type="NationalExtensionPL" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationPortugal" type="NationalExtensionPT" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationRomania" type="NationalExtensionRO" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSerbia" type="NationalExtensionRS" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationRussianFederation" type="NationalExtensionRU" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSweden" type="NationalExtensionSE" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSlovenia" type="NationalExtensionSI" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSlovakia" type="NationalExtensionSK" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationSanMarino" type="NationalExtensionSM" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationTurkey" type="NationalExtensionTR" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationUkraine" type="NationalExtensionUA" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationUzbekistan" type="NationalExtensionUZ" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationVaticanCityState" type="NationalExtensionVA" minOccurs="0" maxOccurs="1"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RegulatoryInformationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ChemicalSafetyAssessmentInfo" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ChemicalSafetyAssessmentCarriedOut" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="ChemicalSafetyAssessment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ChemicalSafetyReport" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CsrRequired" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="CsrLocation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ExposureScenario" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="MixtureExposureScenarioInAnnex" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="ExposureScenarioComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RegulatoryInfoAdditionalInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER 16 (Other information) ****************************************************************************  -->
+							<xs:element name="OtherInformation" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ManufacturersNotes" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="RelevantRiskPhrases" type="RiskPhrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="RelevantHazardStatements" type="HazardStatement" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ClassificationAccordingClp" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ClpHazardClassification" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClpHazardClassCategory" type="HazardClassCategoryEnum"/>
+																<xs:element name="ClpHazardStatement" type="HazardStatement"/>
+																<xs:element name="ClpClassificationProcedure" type="Phrase" minOccurs="0"/>
+																<xs:element name="MultiplyingFactor" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="FactorValue" type="int20" minOccurs="0"/>
+																			<xs:element name="FactorComments" type="Phrase" minOccurs="0" maxOccurs="4"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ClpClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="ClpClassificationNotes" type="Phrase" minOccurs="0" maxOccurs="4"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="EducationalRecommendations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="RecommendedRestriction" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="FurtherInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="MainInformationSource" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="AbbreviationsAndAcronymsUsed" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="RevisionInformation" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="RevisionNo" type="string16" minOccurs="0"/>
+													<xs:element name="RevisionComments" type="Phrase" minOccurs="0"/>
+													<xs:element name="RevisionResponsible" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="LastUpdateDate" type="xs:date" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="QualityAssuranceStatement" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="SdsStatus" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ResponsibleOwnerSds" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="SdsPreparedBy" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Name" type="string512" minOccurs="0"/>
+													<xs:element name="Phone" type="string40" minOccurs="0"/>
+													<xs:element name="Email" type="string256" minOccurs="0" maxOccurs="4"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="PositiveEcolabelling" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="EcoLabelName" type="string64" minOccurs="0"/>
+													<xs:element name="ExpirationDate" type="xs:date" minOccurs="0"/>
+													<xs:element name="LicenceNo" type="string64" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ContentsOrIndexOfAnnexedEs" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<!-- *******************************************************************  CHAPTER END ***********************************************************************************************  -->
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
