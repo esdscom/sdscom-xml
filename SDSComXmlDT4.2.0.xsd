@@ -1,0 +1,3558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Nils Jattkowski (eska Ingenieurgesellschaft mbH) bearbeitet -->
+<!-- ********************************************************************************************** 
+ Issue		: 	SDSComXML XSD 4.0    	
+ Purpose	: 	Basic data types Schema Definition      					
+ 			  	  	to enable a xml-based		 									
+ 			  	  	distribution of Safety Data Sheets (SDS)		 		
+ 			  	  	specified in the Format. For detailed 				 	
+			  		  information please refer to 									
+ 			  		  http://www.SDSComXml.eu										
+ Version	: 	4.2.0. Release Candidate        																		
+ Rev. date: 	2015.05.21
+																
+ History, ie., changes made since version 4.0.1 which was the first to be implemented by anyone. 
+ 																					
+ 2013.03.15: HazardClassCategoryEnum changed by adding "Acute Tox. 1","Acute Tox. 2","Acute Tox. 3"
+             and "Acute Tox. 4". The non-standard Acute Tox values with exposure route oral/dermal/inhalation
+						 have been removed. Keeping them for backward compatibilty was discussed and rejected. See also
+						 comments in the code.	
+
+ 2013.04.23 Added "4.0.2" to the legal set of versions in the type XmlStandardVersionEnum. 
+
+ 2013.05.24 Changed the ClpSignalWord from Phrase to Enumeration with values "DGR", "WNG" or empty.
+
+ 2013.05.25 Added the type HazardPictogram refering to Phrase and HazardPictogramEnum. The previous version
+						had no option for adding a text, only the code. 
+
+ 2013.08.30 The set of leagl CLP H-phrass in HazardPhraseEnum and CLP P-phrases PrecautionPhraseEnum 
+						have been update with new entries. Such phrases to be removed in the future, are commented
+						in the code.
+
+ 2013.10.11 The minOccur="0" and maxOccurs="1" consistently for the FullText in all variants of Phrases.
+						A text is not needed if a PhraseId identifies a sentance in a PhraseCatalogue. 
+
+ 2013.10.16 MinOccurs=0 og MaxOccur=1 set consistently on ExactValue, UpperValue and LowerValue in
+						UnitValue and value. 
+
+ 2013.10.29 SafetySign and SafetySignEnum added to make SafetySign an enum instead of a phrase.
+
+ 2013.11.26 Updates in CLP HazardClassCategoryEnum. Flam. Aerosol 1 & 2 renamed to Aerosol 1 og Aerosol 2.
+						In addition Aerosol 3, which is not flammable, is introdused. Flammable gasses has two new
+						values Chem.Unst.Gas A og Chem.Unst.Gas B.See also comments i code.
+
+ 2014.04.10 The PhysChemUnitValueWithTemperature element Temperature is given minOccurs=1 to be consistent
+						with PhysChemValueWithTemperature.
+
+2014.07.22 Pattern of RechRegNo adapted (make X available in the last section of the number, e.g  01-0000017295-68-XXXX )
+						New XMLStandardSubsetEnum, PackingGroupEnum
+2015.05.21  XMLStandardSubset has a new Enum value "undefined"
+					 Changed "Value" to a choice between ExactValue or Upper/Lower
+					 Added Enum for UnitId (UnitIdEnum)
+2015.06.18  derive "UnitValue" from "Value"
+					 derive "PercentageValue" from "Value"
+					 Added SimpleType "string3"
+					 Changed "Delimiter" from string 2 to string3
+					 Rename Flam. Aerosol 1,2,3 to Aerosol 1,2,3
+														
+********************************************************************************************** -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- ******************************************************************** string2 ********  -->
+	<xs:simpleType name="string2">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 2 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string3 ********  -->
+	<xs:simpleType name="string3">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 3 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string10 ********  -->
+	<xs:simpleType name="string10">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 10 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string16 ********  -->
+	<xs:simpleType name="string16">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 16 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string20 ********  -->
+	<xs:simpleType name="string20">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 20 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string24 ********  -->
+	<xs:simpleType name="string24">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 24 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string32 ********  -->
+	<xs:simpleType name="string32">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 32 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string40 ********  -->
+	<xs:simpleType name="string40">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 40 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string50 ********  -->
+	<xs:simpleType name="string50">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 50 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string64 ********  -->
+	<xs:simpleType name="string64">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 64 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string80 ********  -->
+	<xs:simpleType name="string80">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 80 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string128 ********  -->
+	<xs:simpleType name="string128">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 128 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string256 ********  -->
+	<xs:simpleType name="string256">
+		<xs:annotation>
+			<xs:documentation>A string of maximum length 256 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string512 ********  -->
+	<xs:simpleType name="string512">
+		<xs:annotation>
+			<xs:documentation>A string of maximum length 512 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="512"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string1024 ********  -->
+	<xs:simpleType name="string1024">
+		<xs:annotation>
+			<xs:documentation>A string of maximum length 1024 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1024"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** string4096 ********  -->
+	<xs:simpleType name="string4096">
+		<xs:annotation>
+			<xs:documentation>A string of maximum 4096 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4096"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ********************************************************************** int4 ***********  -->
+	<xs:simpleType name="int4">
+		<xs:annotation>
+			<xs:documentation>A positive integer number with 4 digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ********************************************************************** int16 ***********  -->
+	<xs:simpleType name="int16">
+		<xs:annotation>
+			<xs:documentation>A positive integer number with 16 digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ********************************************************************** int20 ***********  -->
+	<xs:simpleType name="int20">
+		<xs:annotation>
+			<xs:documentation>A positive integer number with 1 to 20 digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ********************************************************************** float8 ***********  -->
+	<xs:simpleType name="float8">
+		<xs:annotation>
+			<xs:documentation>
+				A float value with precision, that is pH 7.0 differs from pH 7.00 which is a more precise 
+				specification. Exponential values like "-1.235E5" are allowed. Max 8 characters allowed. 
+				Strings with no digits at all should not be allowed.
+		</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ********************************************************************** float11 ***********  -->
+	<xs:simpleType name="float11">
+		<xs:annotation>
+			<xs:documentation>
+				A float value with precision, that is pH 7.0 differs from pH 7.00 which is	a more precise
+				specification. Exponential values like "-1.235E5" are allowed. Max 11 characters allowed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ********************************************************************** float16 ***********  -->
+	<xs:simpleType name="float16">
+		<xs:annotation>
+			<xs:documentation>
+				A float value with precision, that is pH 7.0 differs from pH 7.00 which is	a more precise
+				specification. Exponential values like "-1.235E5" are allowed. Max 16 chracters allowed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16"/>
+			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
+	<xs:simpleType name="XmlStandardVersionEnum">
+		<xs:annotation id="F0.1">
+			<xs:documentation>
+				The version of the XML standard which is applied in the transmission of datasheet information. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.0"/>
+			<xs:enumeration value="2.0"/>
+			<xs:enumeration value="3.0"/>
+			<xs:enumeration value="3.5"/>
+			<xs:enumeration value="4.0"/>
+			<xs:enumeration value="4.0.1"/>
+			<xs:enumeration value="4.0.2"/>
+			<xs:enumeration value="4.0.3"/>
+			<xs:enumeration value="4.2.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** LanguageCodeEnum ******  -->
+	<xs:simpleType name="LanguageCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Language according to ISO standard ISO 639-1 (2 letters). Language name as comment.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="aa"/>
+			<xs:enumeration value="ab"/>
+			<xs:enumeration value="ae"/>
+			<xs:enumeration value="af"/>
+			<xs:enumeration value="ak"/>
+			<xs:enumeration value="am"/>
+			<xs:enumeration value="an"/>
+			<xs:enumeration value="ar"/>
+			<xs:enumeration value="as"/>
+			<xs:enumeration value="av"/>
+			<xs:enumeration value="ay"/>
+			<xs:enumeration value="az"/>
+			<xs:enumeration value="ba"/>
+			<xs:enumeration value="be"/>
+			<xs:enumeration value="bg"/>
+			<xs:enumeration value="bh"/>
+			<xs:enumeration value="bi"/>
+			<xs:enumeration value="bm"/>
+			<xs:enumeration value="bn"/>
+			<xs:enumeration value="bo"/>
+			<xs:enumeration value="br"/>
+			<xs:enumeration value="bs"/>
+			<xs:enumeration value="ca"/>
+			<xs:enumeration value="ce"/>
+			<xs:enumeration value="ch"/>
+			<xs:enumeration value="co"/>
+			<xs:enumeration value="cr"/>
+			<xs:enumeration value="cs"/>
+			<xs:enumeration value="cu"/>
+			<xs:enumeration value="cv"/>
+			<xs:enumeration value="cy"/>
+			<xs:enumeration value="da"/>
+			<xs:enumeration value="de"/>
+			<xs:enumeration value="dv"/>
+			<xs:enumeration value="dz"/>
+			<xs:enumeration value="ee"/>
+			<xs:enumeration value="el"/>
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="eo"/>
+			<xs:enumeration value="es"/>
+			<xs:enumeration value="et"/>
+			<xs:enumeration value="eu"/>
+			<xs:enumeration value="fa"/>
+			<xs:enumeration value="ff"/>
+			<xs:enumeration value="fi"/>
+			<xs:enumeration value="fj"/>
+			<xs:enumeration value="fo"/>
+			<xs:enumeration value="fr"/>
+			<xs:enumeration value="fy"/>
+			<xs:enumeration value="ga"/>
+			<xs:enumeration value="gd"/>
+			<xs:enumeration value="gl"/>
+			<xs:enumeration value="gn"/>
+			<xs:enumeration value="gu"/>
+			<xs:enumeration value="gv"/>
+			<xs:enumeration value="ha"/>
+			<xs:enumeration value="he"/>
+			<xs:enumeration value="hi"/>
+			<xs:enumeration value="ho"/>
+			<xs:enumeration value="hr"/>
+			<xs:enumeration value="ht"/>
+			<xs:enumeration value="hu"/>
+			<xs:enumeration value="hy"/>
+			<xs:enumeration value="hz"/>
+			<xs:enumeration value="ia"/>
+			<xs:enumeration value="id"/>
+			<xs:enumeration value="ie"/>
+			<xs:enumeration value="ig"/>
+			<xs:enumeration value="ii"/>
+			<xs:enumeration value="ik"/>
+			<xs:enumeration value="io"/>
+			<xs:enumeration value="is"/>
+			<xs:enumeration value="it"/>
+			<xs:enumeration value="iu"/>
+			<xs:enumeration value="ja"/>
+			<xs:enumeration value="jv"/>
+			<xs:enumeration value="ka"/>
+			<xs:enumeration value="kg"/>
+			<xs:enumeration value="ki"/>
+			<xs:enumeration value="kj"/>
+			<xs:enumeration value="kk"/>
+			<xs:enumeration value="kl"/>
+			<xs:enumeration value="km"/>
+			<xs:enumeration value="kn"/>
+			<xs:enumeration value="ko"/>
+			<xs:enumeration value="kr"/>
+			<xs:enumeration value="ks"/>
+			<xs:enumeration value="ku"/>
+			<xs:enumeration value="kv"/>
+			<xs:enumeration value="kw"/>
+			<xs:enumeration value="ky"/>
+			<xs:enumeration value="la"/>
+			<xs:enumeration value="lb"/>
+			<xs:enumeration value="lg"/>
+			<xs:enumeration value="li"/>
+			<xs:enumeration value="ln"/>
+			<xs:enumeration value="lo"/>
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="lu"/>
+			<xs:enumeration value="lv"/>
+			<xs:enumeration value="mg"/>
+			<xs:enumeration value="mh"/>
+			<xs:enumeration value="mi"/>
+			<xs:enumeration value="mk"/>
+			<xs:enumeration value="ml"/>
+			<xs:enumeration value="mn"/>
+			<xs:enumeration value="mr"/>
+			<xs:enumeration value="ms"/>
+			<xs:enumeration value="mt"/>
+			<xs:enumeration value="my"/>
+			<xs:enumeration value="na"/>
+			<xs:enumeration value="nb"/>
+			<xs:enumeration value="nd"/>
+			<xs:enumeration value="ne"/>
+			<xs:enumeration value="ng"/>
+			<xs:enumeration value="nl"/>
+			<xs:enumeration value="nn"/>
+			<xs:enumeration value="no"/>
+			<xs:enumeration value="nr"/>
+			<xs:enumeration value="nv"/>
+			<xs:enumeration value="ny"/>
+			<xs:enumeration value="oc"/>
+			<xs:enumeration value="oj"/>
+			<xs:enumeration value="om"/>
+			<xs:enumeration value="or"/>
+			<xs:enumeration value="os"/>
+			<xs:enumeration value="pa"/>
+			<xs:enumeration value="pi"/>
+			<xs:enumeration value="pl"/>
+			<xs:enumeration value="ps"/>
+			<xs:enumeration value="pt"/>
+			<xs:enumeration value="qu"/>
+			<xs:enumeration value="rm"/>
+			<xs:enumeration value="rn"/>
+			<xs:enumeration value="ro"/>
+			<xs:enumeration value="ru"/>
+			<xs:enumeration value="rw"/>
+			<xs:enumeration value="sa"/>
+			<xs:enumeration value="sc"/>
+			<xs:enumeration value="sd"/>
+			<xs:enumeration value="se"/>
+			<xs:enumeration value="sg"/>
+			<xs:enumeration value="si"/>
+			<xs:enumeration value="sk"/>
+			<xs:enumeration value="sl"/>
+			<xs:enumeration value="sm"/>
+			<xs:enumeration value="sn"/>
+			<xs:enumeration value="so"/>
+			<xs:enumeration value="sq"/>
+			<xs:enumeration value="sr"/>
+			<xs:enumeration value="ss"/>
+			<xs:enumeration value="st"/>
+			<xs:enumeration value="su"/>
+			<xs:enumeration value="sv"/>
+			<xs:enumeration value="sw"/>
+			<xs:enumeration value="ta"/>
+			<xs:enumeration value="te"/>
+			<xs:enumeration value="tg"/>
+			<xs:enumeration value="th"/>
+			<xs:enumeration value="ti"/>
+			<xs:enumeration value="tk"/>
+			<xs:enumeration value="tl"/>
+			<xs:enumeration value="tn"/>
+			<xs:enumeration value="to"/>
+			<xs:enumeration value="tr"/>
+			<xs:enumeration value="ts"/>
+			<xs:enumeration value="tt"/>
+			<xs:enumeration value="tw"/>
+			<xs:enumeration value="ty"/>
+			<xs:enumeration value="ug"/>
+			<xs:enumeration value="uk"/>
+			<xs:enumeration value="ur"/>
+			<xs:enumeration value="uz"/>
+			<xs:enumeration value="ve"/>
+			<xs:enumeration value="vi"/>
+			<xs:enumeration value="vo"/>
+			<xs:enumeration value="wa"/>
+			<xs:enumeration value="wo"/>
+			<xs:enumeration value="xh"/>
+			<xs:enumeration value="yi"/>
+			<xs:enumeration value="yo"/>
+			<xs:enumeration value="za"/>
+			<xs:enumeration value="zh"/>
+			<xs:enumeration value="zu"/>
+			<!-- Afar -->
+			<!-- Afar -->
+			<!-- Abkhaz -->
+			<!-- Avestan -->
+			<!-- Afrikaans -->
+			<!-- Akan -->
+			<!-- Amharic -->
+			<!-- Aragonese -->
+			<!-- Arabic -->
+			<!-- Assamese -->
+			<!-- Avaric -->
+			<!-- Aymara -->
+			<!-- Azerbaijani -->
+			<!-- Bashkir -->
+			<!-- Belarusian -->
+			<!-- Bulgarian -->
+			<!-- Bihari -->
+			<!-- Bislama -->
+			<!-- Bambara -->
+			<!-- Bengali -->
+			<!-- Tibetan Standard, Tibetan, Central -->
+			<!-- Breton -->
+			<!-- Bosnian -->
+			<!-- Catalan; Valencian -->
+			<!-- Chechen -->
+			<!-- Chamorro -->
+			<!-- Corsican -->
+			<!-- Cree -->
+			<!-- Czech -->
+			<!-- Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic -->
+			<!-- Chuvash -->
+			<!-- Welsh -->
+			<!-- Danish -->
+			<!-- German -->
+			<!-- Divehi; Dhivehi; Maldivian; -->
+			<!-- Dzongkha -->
+			<!-- Ewe -->
+			<!-- Greek, Modern -->
+			<!-- English -->
+			<!-- Esperanto -->
+			<!-- Spanish; Castilian -->
+			<!-- Estonian -->
+			<!-- Basque -->
+			<!-- Persian -->
+			<!-- Fula; Fulah; Pulaar; Pular -->
+			<!-- Finnish -->
+			<!-- Fijian -->
+			<!-- Faroese -->
+			<!-- French -->
+			<!-- Western Frisian -->
+			<!-- Irish -->
+			<!-- Scottish Gaelic; Gaelic -->
+			<!-- Galician -->
+			<!-- Guaraní -->
+			<!-- Gujarati -->
+			<!-- Manx -->
+			<!-- Hausa -->
+			<!-- Hebrew (modern) -->
+			<!-- Hindi -->
+			<!-- Hiri Motu -->
+			<!-- Croatian -->
+			<!-- Haitian; Haitian Creole -->
+			<!-- Hungarian -->
+			<!-- Armenian -->
+			<!-- Herero -->
+			<!-- Interlingua -->
+			<!-- Indonesian -->
+			<!-- Interlingue -->
+			<!-- Igbo -->
+			<!-- Nuosu -->
+			<!-- Inupiaq -->
+			<!-- Ido -->
+			<!-- Icelandic -->
+			<!-- Italian -->
+			<!-- Inuktitut -->
+			<!-- Japanese -->
+			<!-- Javanese -->
+			<!-- Georgian -->
+			<!-- Kongo -->
+			<!-- Kikuyu, Gikuyu -->
+			<!-- Kwanyama, Kuanyama -->
+			<!-- Kazakh -->
+			<!-- Kalaallisut, Greenlandic -->
+			<!-- Khmer -->
+			<!-- Kannada -->
+			<!-- Korean -->
+			<!-- Kanuri -->
+			<!-- Kashmiri -->
+			<!-- Kurdish -->
+			<!-- Komi -->
+			<!-- Cornish -->
+			<!-- Kirghiz, Kyrgyz -->
+			<!-- Latin -->
+			<!-- Luxembourgish, Letzeburgesch -->
+			<!-- Ganda -->
+			<!-- Limburgish, Limburgan, Limburger -->
+			<!-- Lingala -->
+			<!-- Lao -->
+			<!-- Lithuanian -->
+			<!-- Luba-Katanga -->
+			<!-- Latvian -->
+			<!-- Malagasy -->
+			<!-- Marshallese -->
+			<!-- Maori -->
+			<!-- Macedonian -->
+			<!-- Malayalam -->
+			<!-- Mongolian -->
+			<!-- Marathi (Mara?hi) -->
+			<!-- Malay -->
+			<!-- Maltese -->
+			<!-- Burmese -->
+			<!-- Nauru -->
+			<!-- Norwegian Bokmål -->
+			<!-- North Ndebele -->
+			<!-- Nepali -->
+			<!-- Ndonga -->
+			<!-- Dutch -->
+			<!-- Norwegian Nynorsk -->
+			<!-- Norwegian -->
+			<!-- South Ndebele -->
+			<!-- Navajo, Navaho -->
+			<!-- Chichewa; Chewa; Nyanja -->
+			<!-- Occitan -->
+			<!-- Ojibwe, Ojibwa -->
+			<!-- Oromo -->
+			<!-- Oriya -->
+			<!-- Ossetian, Ossetic -->
+			<!-- Panjabi, Punjabi -->
+			<!-- Pali -->
+			<!-- Polish -->
+			<!-- Pashto, Pushto -->
+			<!-- Portuguese -->
+			<!-- Quechua -->
+			<!-- Romansh -->
+			<!-- Kirundi -->
+			<!-- Romanian, Moldavian, Moldovan -->
+			<!-- Russian -->
+			<!-- Kinyarwanda -->
+			<!-- Sanskrit (Sa?sk?ta) -->
+			<!-- Sardinian -->
+			<!-- Sindhi -->
+			<!-- Northern Sami -->
+			<!-- Sango -->
+			<!-- Sinhala, Sinhalese -->
+			<!-- Slovak -->
+			<!-- Slovene -->
+			<!-- Samoan -->
+			<!-- Shona -->
+			<!-- Somali -->
+			<!-- Albanian -->
+			<!-- Serbian -->
+			<!-- Swati -->
+			<!-- Southern Sotho -->
+			<!-- Sundanese -->
+			<!-- Swedish -->
+			<!-- Swahili -->
+			<!-- Tamil -->
+			<!-- Telugu -->
+			<!-- Tajik -->
+			<!-- Thai -->
+			<!-- Tigrinya -->
+			<!-- Turkmen -->
+			<!-- Tagalog -->
+			<!-- Tswana -->
+			<!-- Tonga (Tonga Islands) -->
+			<!-- Turkish -->
+			<!-- Tsonga -->
+			<!-- Tatar -->
+			<!-- Twi -->
+			<!-- Tahitian -->
+			<!-- Uighur, Uyghur -->
+			<!-- Ukrainian -->
+			<!-- Urdu -->
+			<!-- Uzbek -->
+			<!-- Venda -->
+			<!-- Vietnamese -->
+			<!-- Volapük -->
+			<!-- Walloon -->
+			<!-- Wolof -->
+			<!-- Xhosa -->
+			<!-- Yiddish -->
+			<!-- Yoruba -->
+			<!-- Zhuang, Chuang -->
+			<!-- Chinese -->
+			<!-- Zulu -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** CountryCodeEnum ********** -->
+	<xs:simpleType name="CountryCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Country according to ISO standard ISO 3166 (2 letters). Country name as comment.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AD"/>
+			<xs:enumeration value="AE"/>
+			<xs:enumeration value="AF"/>
+			<xs:enumeration value="AG"/>
+			<xs:enumeration value="AI"/>
+			<xs:enumeration value="AL"/>
+			<xs:enumeration value="AM"/>
+			<xs:enumeration value="AO"/>
+			<xs:enumeration value="AQ"/>
+			<xs:enumeration value="AR"/>
+			<xs:enumeration value="AS"/>
+			<xs:enumeration value="AT"/>
+			<xs:enumeration value="AU"/>
+			<xs:enumeration value="AW"/>
+			<xs:enumeration value="AX"/>
+			<xs:enumeration value="AZ"/>
+			<xs:enumeration value="BA"/>
+			<xs:enumeration value="BB"/>
+			<xs:enumeration value="BD"/>
+			<xs:enumeration value="BE"/>
+			<xs:enumeration value="BF"/>
+			<xs:enumeration value="BG"/>
+			<xs:enumeration value="BH"/>
+			<xs:enumeration value="BI"/>
+			<xs:enumeration value="BJ"/>
+			<xs:enumeration value="BL"/>
+			<xs:enumeration value="BM"/>
+			<xs:enumeration value="BN"/>
+			<xs:enumeration value="BO"/>
+			<xs:enumeration value="BQ"/>
+			<xs:enumeration value="BR"/>
+			<xs:enumeration value="BS"/>
+			<xs:enumeration value="BT"/>
+			<xs:enumeration value="BV"/>
+			<xs:enumeration value="BW"/>
+			<xs:enumeration value="BY"/>
+			<xs:enumeration value="BZ"/>
+			<xs:enumeration value="CA"/>
+			<xs:enumeration value="CC"/>
+			<xs:enumeration value="CD"/>
+			<xs:enumeration value="CF"/>
+			<xs:enumeration value="CG"/>
+			<xs:enumeration value="CH"/>
+			<xs:enumeration value="CI"/>
+			<xs:enumeration value="CK"/>
+			<xs:enumeration value="CL"/>
+			<xs:enumeration value="CM"/>
+			<xs:enumeration value="CN"/>
+			<xs:enumeration value="CO"/>
+			<xs:enumeration value="CR"/>
+			<xs:enumeration value="CU"/>
+			<xs:enumeration value="CV"/>
+			<xs:enumeration value="CW"/>
+			<xs:enumeration value="CX"/>
+			<xs:enumeration value="CY"/>
+			<xs:enumeration value="CZ"/>
+			<xs:enumeration value="DE"/>
+			<xs:enumeration value="DJ"/>
+			<xs:enumeration value="DK"/>
+			<xs:enumeration value="DM"/>
+			<xs:enumeration value="DO"/>
+			<xs:enumeration value="DZ"/>
+			<xs:enumeration value="EC"/>
+			<xs:enumeration value="EE"/>
+			<xs:enumeration value="EG"/>
+			<xs:enumeration value="EH"/>
+			<xs:enumeration value="ER"/>
+			<xs:enumeration value="ES"/>
+			<xs:enumeration value="ET"/>
+			<xs:enumeration value="FI"/>
+			<xs:enumeration value="FJ"/>
+			<xs:enumeration value="FK"/>
+			<xs:enumeration value="FM"/>
+			<xs:enumeration value="FO"/>
+			<xs:enumeration value="FR"/>
+			<xs:enumeration value="GA"/>
+			<xs:enumeration value="GB"/>
+			<xs:enumeration value="GD"/>
+			<xs:enumeration value="GE"/>
+			<xs:enumeration value="GF"/>
+			<xs:enumeration value="GG"/>
+			<xs:enumeration value="GH"/>
+			<xs:enumeration value="GI"/>
+			<xs:enumeration value="GL"/>
+			<xs:enumeration value="GM"/>
+			<xs:enumeration value="GN"/>
+			<xs:enumeration value="GP"/>
+			<xs:enumeration value="GQ"/>
+			<xs:enumeration value="GR"/>
+			<xs:enumeration value="GS"/>
+			<xs:enumeration value="GT"/>
+			<xs:enumeration value="GU"/>
+			<xs:enumeration value="GW"/>
+			<xs:enumeration value="GY"/>
+			<xs:enumeration value="HK"/>
+			<xs:enumeration value="HM"/>
+			<xs:enumeration value="HN"/>
+			<xs:enumeration value="HR"/>
+			<xs:enumeration value="HT"/>
+			<xs:enumeration value="HU"/>
+			<xs:enumeration value="ID"/>
+			<xs:enumeration value="IE"/>
+			<xs:enumeration value="IL"/>
+			<xs:enumeration value="IM"/>
+			<xs:enumeration value="IN"/>
+			<xs:enumeration value="IO"/>
+			<xs:enumeration value="IQ"/>
+			<xs:enumeration value="IR"/>
+			<xs:enumeration value="IS"/>
+			<xs:enumeration value="IT"/>
+			<xs:enumeration value="JE"/>
+			<xs:enumeration value="JM"/>
+			<xs:enumeration value="JO"/>
+			<xs:enumeration value="JP"/>
+			<xs:enumeration value="KE"/>
+			<xs:enumeration value="KG"/>
+			<xs:enumeration value="KH"/>
+			<xs:enumeration value="KI"/>
+			<xs:enumeration value="KM"/>
+			<xs:enumeration value="KN"/>
+			<xs:enumeration value="KP"/>
+			<xs:enumeration value="KR"/>
+			<xs:enumeration value="KW"/>
+			<xs:enumeration value="KY"/>
+			<xs:enumeration value="KZ"/>
+			<xs:enumeration value="LA"/>
+			<xs:enumeration value="LB"/>
+			<xs:enumeration value="LC"/>
+			<xs:enumeration value="LI"/>
+			<xs:enumeration value="LK"/>
+			<xs:enumeration value="LR"/>
+			<xs:enumeration value="LS"/>
+			<xs:enumeration value="LT"/>
+			<xs:enumeration value="LU"/>
+			<xs:enumeration value="LV"/>
+			<xs:enumeration value="LY"/>
+			<xs:enumeration value="MA"/>
+			<xs:enumeration value="MC"/>
+			<xs:enumeration value="MD"/>
+			<xs:enumeration value="ME"/>
+			<xs:enumeration value="MF"/>
+			<xs:enumeration value="MG"/>
+			<xs:enumeration value="MH"/>
+			<xs:enumeration value="MK"/>
+			<xs:enumeration value="ML"/>
+			<xs:enumeration value="MM"/>
+			<xs:enumeration value="MN"/>
+			<xs:enumeration value="MO"/>
+			<xs:enumeration value="MP"/>
+			<xs:enumeration value="MQ"/>
+			<xs:enumeration value="MR"/>
+			<xs:enumeration value="MS"/>
+			<xs:enumeration value="MT"/>
+			<xs:enumeration value="MU"/>
+			<xs:enumeration value="MV"/>
+			<xs:enumeration value="MW"/>
+			<xs:enumeration value="MX"/>
+			<xs:enumeration value="MY"/>
+			<xs:enumeration value="MZ"/>
+			<xs:enumeration value="NA"/>
+			<xs:enumeration value="NC"/>
+			<xs:enumeration value="NE"/>
+			<xs:enumeration value="NF"/>
+			<xs:enumeration value="NG"/>
+			<xs:enumeration value="NI"/>
+			<xs:enumeration value="NL"/>
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="NP"/>
+			<xs:enumeration value="NR"/>
+			<xs:enumeration value="NU"/>
+			<xs:enumeration value="NZ"/>
+			<xs:enumeration value="OM"/>
+			<xs:enumeration value="PA"/>
+			<xs:enumeration value="PE"/>
+			<xs:enumeration value="PF"/>
+			<xs:enumeration value="PG"/>
+			<xs:enumeration value="PH"/>
+			<xs:enumeration value="PK"/>
+			<xs:enumeration value="PL"/>
+			<xs:enumeration value="PM"/>
+			<xs:enumeration value="PN"/>
+			<xs:enumeration value="PR"/>
+			<xs:enumeration value="PS"/>
+			<xs:enumeration value="PT"/>
+			<xs:enumeration value="PW"/>
+			<xs:enumeration value="PY"/>
+			<xs:enumeration value="QA"/>
+			<xs:enumeration value="RE"/>
+			<xs:enumeration value="RO"/>
+			<xs:enumeration value="RS"/>
+			<xs:enumeration value="RU"/>
+			<xs:enumeration value="RW"/>
+			<xs:enumeration value="SA"/>
+			<xs:enumeration value="SB"/>
+			<xs:enumeration value="SC"/>
+			<xs:enumeration value="SD"/>
+			<xs:enumeration value="SE"/>
+			<xs:enumeration value="SG"/>
+			<xs:enumeration value="SH"/>
+			<xs:enumeration value="SI"/>
+			<xs:enumeration value="SJ"/>
+			<xs:enumeration value="SK"/>
+			<xs:enumeration value="SL"/>
+			<xs:enumeration value="SM"/>
+			<xs:enumeration value="SN"/>
+			<xs:enumeration value="SO"/>
+			<xs:enumeration value="SR"/>
+			<xs:enumeration value="SS"/>
+			<xs:enumeration value="ST"/>
+			<xs:enumeration value="SV"/>
+			<xs:enumeration value="SX"/>
+			<xs:enumeration value="SY"/>
+			<xs:enumeration value="SZ"/>
+			<xs:enumeration value="TC"/>
+			<xs:enumeration value="TD"/>
+			<xs:enumeration value="TF"/>
+			<xs:enumeration value="TG"/>
+			<xs:enumeration value="TH"/>
+			<xs:enumeration value="TJ"/>
+			<xs:enumeration value="TK"/>
+			<xs:enumeration value="TL"/>
+			<xs:enumeration value="TM"/>
+			<xs:enumeration value="TN"/>
+			<xs:enumeration value="TO"/>
+			<xs:enumeration value="TR"/>
+			<xs:enumeration value="TT"/>
+			<xs:enumeration value="TV"/>
+			<xs:enumeration value="TW"/>
+			<xs:enumeration value="TZ"/>
+			<xs:enumeration value="UA"/>
+			<xs:enumeration value="UG"/>
+			<xs:enumeration value="UM"/>
+			<xs:enumeration value="US"/>
+			<xs:enumeration value="UY"/>
+			<xs:enumeration value="UZ"/>
+			<xs:enumeration value="VA"/>
+			<xs:enumeration value="VC"/>
+			<xs:enumeration value="VE"/>
+			<xs:enumeration value="VG"/>
+			<xs:enumeration value="VI"/>
+			<xs:enumeration value="VN"/>
+			<xs:enumeration value="VU"/>
+			<xs:enumeration value="WF"/>
+			<xs:enumeration value="WS"/>
+			<xs:enumeration value="YE"/>
+			<xs:enumeration value="YT"/>
+			<xs:enumeration value="ZA"/>
+			<xs:enumeration value="ZM"/>
+			<xs:enumeration value="ZW"/>
+			<!-- Andorra -->
+			<!-- United Arab Emirates -->
+			<!-- Afghanistan -->
+			<!-- Antigua and Barbuda -->
+			<!-- Anguilla -->
+			<!-- Albania -->
+			<!-- Armenia -->
+			<!-- Angola -->
+			<!-- Antarctica -->
+			<!-- Argentina -->
+			<!-- American Samoa -->
+			<!-- Austria -->
+			<!-- Australia -->
+			<!-- Aruba -->
+			<!-- Aland Islands !Åland Islands -->
+			<!-- Azerbaijan -->
+			<!-- Bosnia and Herzegovina -->
+			<!-- Barbados -->
+			<!-- Bangladesh -->
+			<!-- Belgium -->
+			<!-- Burkina Faso -->
+			<!-- Bulgaria -->
+			<!-- Bahrain -->
+			<!-- Burundi -->
+			<!-- Benin -->
+			<!-- Saint Barthélemy -->
+			<!-- Bermuda -->
+			<!-- Brunei Darussalam -->
+			<!-- Bolivia, Plurinational State of -->
+			<!-- Bonaire, Sint Eustatius and Saba -->
+			<!-- Brazil -->
+			<!-- Bahamas -->
+			<!-- Bhutan -->
+			<!-- Bouvet Island -->
+			<!-- Botswana -->
+			<!-- Belarus -->
+			<!-- Belize -->
+			<!-- Canada -->
+			<!-- Cocos (Keeling) Islands -->
+			<!-- Congo, the Democratic Republic of the -->
+			<!-- Central African Republic -->
+			<!-- Congo -->
+			<!-- Switzerland -->
+			<!-- Cote d'Ivoire !Côte d'Ivoire -->
+			<!-- Cook Islands -->
+			<!-- Chile -->
+			<!-- Cameroon -->
+			<!-- China -->
+			<!-- Colombia -->
+			<!-- Costa Rica -->
+			<!-- Cuba -->
+			<!-- Cape Verde -->
+			<!-- Curaçao -->
+			<!-- Christmas Island -->
+			<!-- Cyprus -->
+			<!-- Czech Republic -->
+			<!-- Germany -->
+			<!-- Djibouti -->
+			<!-- Denmark -->
+			<!-- Dominica -->
+			<!-- Dominican Republic -->
+			<!-- Algeria -->
+			<!-- Ecuador -->
+			<!-- Estonia -->
+			<!-- Egypt -->
+			<!-- Western Sahara -->
+			<!-- Eritrea -->
+			<!-- Spain -->
+			<!-- Ethiopia -->
+			<!-- Finland -->
+			<!-- Fiji -->
+			<!-- Falkland Islands (Malvinas) -->
+			<!-- Micronesia, Federated States of -->
+			<!-- Faroe Islands -->
+			<!-- France -->
+			<!-- Gabon -->
+			<!-- United Kingdom -->
+			<!-- Grenada -->
+			<!-- Georgia -->
+			<!-- French Guiana -->
+			<!-- Guernsey -->
+			<!-- Ghana -->
+			<!-- Gibraltar -->
+			<!-- Greenland -->
+			<!-- Gambia -->
+			<!-- Guinea -->
+			<!-- Guadeloupe -->
+			<!-- Equatorial Guinea -->
+			<!-- Greece -->
+			<!-- South Georgia and the South Sandwich Islands -->
+			<!-- Guatemala -->
+			<!-- Guam -->
+			<!-- Guinea-Bissau -->
+			<!-- Guyana -->
+			<!-- Hong Kong -->
+			<!-- Heard Island and McDonald Islands -->
+			<!-- Honduras -->
+			<!-- Croatia -->
+			<!-- Haiti -->
+			<!-- Hungary -->
+			<!-- Indonesia -->
+			<!-- Ireland -->
+			<!-- Israel -->
+			<!-- Isle of Man -->
+			<!-- India -->
+			<!-- British Indian Ocean Territory -->
+			<!-- Iraq -->
+			<!-- Iran, Islamic Republic of -->
+			<!-- Iceland -->
+			<!-- Italy -->
+			<!-- Jersey -->
+			<!-- Jamaica -->
+			<!-- Jordan -->
+			<!-- Japan -->
+			<!-- Kenya -->
+			<!-- Kyrgyzstan -->
+			<!-- Cambodia -->
+			<!-- Kiribati -->
+			<!-- Comoros -->
+			<!-- Saint Kitts and Nevis -->
+			<!-- Korea, Democratic People's Republic of -->
+			<!-- Korea, Republic of -->
+			<!-- Kuwait -->
+			<!-- Cayman Islands -->
+			<!-- Kazakhstan -->
+			<!-- Lao People's Democratic Republic -->
+			<!-- Lebanon -->
+			<!-- Saint Lucia -->
+			<!-- Liechtenstein -->
+			<!-- Sri Lanka -->
+			<!-- Liberia -->
+			<!-- Lesotho -->
+			<!-- Lithuania -->
+			<!-- Luxembourg -->
+			<!-- Latvia -->
+			<!-- Libyan Arab Jamahiriya -->
+			<!-- Morocco -->
+			<!-- Monaco -->
+			<!-- Moldova, Republic of -->
+			<!-- Montenegro -->
+			<!-- Saint Martin (French part) -->
+			<!-- Madagascar -->
+			<!-- Marshall Islands -->
+			<!-- Macedonia, the former Yugoslav Republic of -->
+			<!-- Mali -->
+			<!-- Myanmar -->
+			<!-- Mongolia -->
+			<!-- Macao -->
+			<!-- Northern Mariana Islands -->
+			<!-- Martinique -->
+			<!-- Mauritania -->
+			<!-- Montserrat -->
+			<!-- Malta -->
+			<!-- Mauritius -->
+			<!-- Maldives -->
+			<!-- Malawi -->
+			<!-- Mexico -->
+			<!-- Malaysia -->
+			<!-- Mozambique -->
+			<!-- Namibia -->
+			<!-- New Caledonia -->
+			<!-- Niger -->
+			<!-- Norfolk Island -->
+			<!-- Nigeria -->
+			<!-- Nicaragua -->
+			<!-- Netherlands -->
+			<!-- Norway -->
+			<!-- Nepal -->
+			<!-- Nauru -->
+			<!-- Niue -->
+			<!-- New Zealand -->
+			<!-- Oman -->
+			<!-- Panama -->
+			<!-- Peru -->
+			<!-- French Polynesia -->
+			<!-- Papua New Guinea -->
+			<!-- Philippines -->
+			<!-- Pakistan -->
+			<!-- Poland -->
+			<!-- Saint Pierre and Miquelon -->
+			<!-- Pitcairn -->
+			<!-- Puerto Rico -->
+			<!-- Palestinian Territory, Occupied -->
+			<!-- Portugal -->
+			<!-- Palau -->
+			<!-- Paraguay -->
+			<!-- Qatar -->
+			<!-- Reunion !Réunion -->
+			<!-- Romania -->
+			<!-- Serbia -->
+			<!-- Russian Federation -->
+			<!-- Rwanda -->
+			<!-- Saudi Arabia -->
+			<!-- Solomon Islands -->
+			<!-- Seychelles -->
+			<!-- Sudan -->
+			<!-- Sweden -->
+			<!-- Singapore -->
+			<!-- Saint Helena, Ascension and Tristan da Cunha -->
+			<!-- Slovenia -->
+			<!-- Svalbard and Jan Mayen -->
+			<!-- Slovakia -->
+			<!-- Sierra Leone -->
+			<!-- San Marino -->
+			<!-- Senegal -->
+			<!-- Somalia -->
+			<!-- Suriname -->
+			<!-- South Sudan -->
+			<!-- Sao Tome and Principe -->
+			<!-- El Salvador -->
+			<!-- Sint Maarten (Dutch part) -->
+			<!-- Syrian Arab Republic -->
+			<!-- Swaziland -->
+			<!-- Turks and Caicos Islands -->
+			<!-- Chad -->
+			<!-- French Southern Territories -->
+			<!-- Togo -->
+			<!-- Thailand -->
+			<!-- Tajikistan -->
+			<!-- Tokelau -->
+			<!-- Timor-Leste -->
+			<!-- Turkmenistan -->
+			<!-- Tunisia -->
+			<!-- Tonga -->
+			<!-- Turkey -->
+			<!-- Trinidad and Tobago -->
+			<!-- Tuvalu -->
+			<!-- Taiwan, Province of China -->
+			<!-- Tanzania, United Republic of -->
+			<!-- Ukraine -->
+			<!-- Uganda -->
+			<!-- United States Minor Outlying Islands -->
+			<!-- United States -->
+			<!-- Uruguay -->
+			<!-- Uzbekistan -->
+			<!-- Holy See (Vatican City State) -->
+			<!-- Saint Vincent and the Grenadines -->
+			<!-- Venezuela, Bolivarian Republic of -->
+			<!-- Virgin Islands, British -->
+			<!-- Virgin Islands, U.S. -->
+			<!-- Viet Nam -->
+			<!-- Vanuatu -->
+			<!-- Wallis and Futuna -->
+			<!-- Samoa -->
+			<!-- Yemen -->
+			<!-- Mayotte -->
+			<!-- South Africa -->
+			<!-- Zambia -->
+			<!-- Zimbabwe -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** ReachRegNo *****  -->
+	<xs:simpleType name="ReachRegNo">
+		<xs:annotation>
+			<xs:documentation>
+				The EC number identification string for a substance.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}-[0-9]{10}-[0-9]{2}(-[0-9,X]{4})?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 4.0.3 Pattern of RechRegNo adapted (make X available in the last section of the number, e.g  01-0000017295-68-XXXX )-->
+	<!-- ******************************************************************** CasNo *****  -->
+	<xs:simpleType name="CasNo">
+		<xs:annotation>
+			<xs:documentation>
+				The CAS identification string for a substance.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2,7}-[0-9]{2}-[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** EcNo *****  -->
+	<xs:simpleType name="EcNo">
+		<xs:annotation>
+			<xs:documentation>
+				The EC number identification string for a substance.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** IndexNo *****  -->
+	<xs:simpleType name="IndexNo">
+		<xs:annotation>
+			<xs:documentation>
+				The Index number identification string for a substance.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** ESVersion *****  -->
+	<xs:simpleType name="ESVersion">
+		<xs:annotation>
+			<xs:documentation>
+				Data type describe an exposure scenario version.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}.[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** RoleDescriptionEnum ******  -->
+	<xs:simpleType name="RoleDescriptionEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The role values of a contact. Used in field Role.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Responsible company"/>
+			<xs:enumeration value="National responsible"/>
+			<xs:enumeration value="Manufacturer"/>
+			<xs:enumeration value="Importer"/>
+			<xs:enumeration value="Only representative"/>
+			<xs:enumeration value="Reimporter"/>
+			<xs:enumeration value="Formulator"/>
+			<xs:enumeration value="Distributor"/>
+			<xs:enumeration value="Downstream user"/>
+			<xs:enumeration value="Foreign manufacturer"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** PictogramCodeEnum ******  -->
+	<xs:simpleType name="PictogramCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Pictogram code enumeration with a predefined set of legal values.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GHS01"/>
+			<xs:enumeration value="GHS02"/>
+			<xs:enumeration value="GHS03"/>
+			<xs:enumeration value="GHS04"/>
+			<xs:enumeration value="GHS05"/>
+			<xs:enumeration value="GHS06"/>
+			<xs:enumeration value="GHS07"/>
+			<xs:enumeration value="GHS08"/>
+			<xs:enumeration value="GHS09"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** SignalWordEnum ******  -->
+	<xs:simpleType name="SignalWordEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Pictogram code enumeration with a predefined set of legal values.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DGR"/>
+			<xs:enumeration value="WNG"/>
+			<!-- Danger -->
+			<!-- Warning -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** HazardSymbolCodeEnum ******  -->
+	<xs:simpleType name="HazardSymbolCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Hazard Symbol code with a predefined set of legal values. DSD.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="T+"/>
+			<xs:enumeration value="T"/>
+			<xs:enumeration value="F+"/>
+			<xs:enumeration value="F"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="Xn"/>
+			<xs:enumeration value="Xi"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** RiskPhraseEnum ******  -->
+	<xs:simpleType name="RiskPhraseEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Risk Phrase Code with a predefined set of legal values. DSD.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="18"/>
+			<xs:enumeration value="19"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="21"/>
+			<xs:enumeration value="22"/>
+			<xs:enumeration value="23"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="26"/>
+			<xs:enumeration value="27"/>
+			<xs:enumeration value="28"/>
+			<xs:enumeration value="29"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="31"/>
+			<xs:enumeration value="32"/>
+			<xs:enumeration value="33"/>
+			<xs:enumeration value="34"/>
+			<xs:enumeration value="35"/>
+			<xs:enumeration value="36"/>
+			<xs:enumeration value="37"/>
+			<xs:enumeration value="38"/>
+			<xs:enumeration value="39"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="41"/>
+			<xs:enumeration value="42"/>
+			<xs:enumeration value="43"/>
+			<xs:enumeration value="44"/>
+			<xs:enumeration value="45"/>
+			<xs:enumeration value="46"/>
+			<xs:enumeration value="48"/>
+			<xs:enumeration value="49"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="51"/>
+			<xs:enumeration value="52"/>
+			<xs:enumeration value="53"/>
+			<xs:enumeration value="54"/>
+			<xs:enumeration value="55"/>
+			<xs:enumeration value="56"/>
+			<xs:enumeration value="57"/>
+			<xs:enumeration value="58"/>
+			<xs:enumeration value="59"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="61"/>
+			<xs:enumeration value="62"/>
+			<xs:enumeration value="63"/>
+			<xs:enumeration value="64"/>
+			<xs:enumeration value="65"/>
+			<xs:enumeration value="66"/>
+			<xs:enumeration value="67"/>
+			<xs:enumeration value="68"/>
+			<xs:enumeration value="14/15"/>
+			<xs:enumeration value="15/29"/>
+			<xs:enumeration value="20/21"/>
+			<xs:enumeration value="20/21/22"/>
+			<xs:enumeration value="20/22"/>
+			<xs:enumeration value="21/22"/>
+			<xs:enumeration value="23/24"/>
+			<xs:enumeration value="23/24/25"/>
+			<xs:enumeration value="23/25"/>
+			<xs:enumeration value="24/25"/>
+			<xs:enumeration value="26/27"/>
+			<xs:enumeration value="26/27/28"/>
+			<xs:enumeration value="26/28"/>
+			<xs:enumeration value="27/28"/>
+			<xs:enumeration value="36/37"/>
+			<xs:enumeration value="36/37/38"/>
+			<xs:enumeration value="36/38"/>
+			<xs:enumeration value="37/38"/>
+			<xs:enumeration value="39/23"/>
+			<xs:enumeration value="39/23/24"/>
+			<xs:enumeration value="39/23/24/25"/>
+			<xs:enumeration value="39/23/25"/>
+			<xs:enumeration value="39/24"/>
+			<xs:enumeration value="39/24/25"/>
+			<xs:enumeration value="39/25"/>
+			<xs:enumeration value="39/26"/>
+			<xs:enumeration value="39/26/27"/>
+			<xs:enumeration value="39/26/27/28"/>
+			<xs:enumeration value="39/26/28"/>
+			<xs:enumeration value="39/27"/>
+			<xs:enumeration value="39/27/28"/>
+			<xs:enumeration value="39/28"/>
+			<xs:enumeration value="42/43"/>
+			<xs:enumeration value="48/20"/>
+			<xs:enumeration value="48/20/21"/>
+			<xs:enumeration value="48/20/21/22"/>
+			<xs:enumeration value="48/20/22"/>
+			<xs:enumeration value="48/21"/>
+			<xs:enumeration value="48/21/22"/>
+			<xs:enumeration value="48/22"/>
+			<xs:enumeration value="48/23"/>
+			<xs:enumeration value="48/23/24"/>
+			<xs:enumeration value="48/23/24/25"/>
+			<xs:enumeration value="48/23/25"/>
+			<xs:enumeration value="48/24"/>
+			<xs:enumeration value="48/24/25"/>
+			<xs:enumeration value="48/25"/>
+			<xs:enumeration value="50/53"/>
+			<xs:enumeration value="51/53"/>
+			<xs:enumeration value="52/53"/>
+			<xs:enumeration value="68/20"/>
+			<xs:enumeration value="68/20/21"/>
+			<xs:enumeration value="68/20/21/22"/>
+			<xs:enumeration value="68/20/22"/>
+			<xs:enumeration value="68/21"/>
+			<xs:enumeration value="68/21/22"/>
+			<xs:enumeration value="68/22"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** SafetyPhraseEnum ******  -->
+	<xs:simpleType name="SafetyPhraseEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Safety Phrase Code with a predefined set of legal values. DSD
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="18"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="21"/>
+			<xs:enumeration value="22"/>
+			<xs:enumeration value="23"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="26"/>
+			<xs:enumeration value="27"/>
+			<xs:enumeration value="28"/>
+			<xs:enumeration value="29"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="33"/>
+			<xs:enumeration value="35"/>
+			<xs:enumeration value="36"/>
+			<xs:enumeration value="37"/>
+			<xs:enumeration value="38"/>
+			<xs:enumeration value="39"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="41"/>
+			<xs:enumeration value="42"/>
+			<xs:enumeration value="43"/>
+			<xs:enumeration value="45"/>
+			<xs:enumeration value="46"/>
+			<xs:enumeration value="47"/>
+			<xs:enumeration value="48"/>
+			<xs:enumeration value="49"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="51"/>
+			<xs:enumeration value="52"/>
+			<xs:enumeration value="53"/>
+			<xs:enumeration value="56"/>
+			<xs:enumeration value="57"/>
+			<xs:enumeration value="59"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="61"/>
+			<xs:enumeration value="62"/>
+			<xs:enumeration value="63"/>
+			<xs:enumeration value="64"/>
+			<xs:enumeration value="1/2"/>
+			<xs:enumeration value="3/7"/>
+			<xs:enumeration value="3/9/14"/>
+			<xs:enumeration value="3/9/14/49"/>
+			<xs:enumeration value="3/9/49"/>
+			<xs:enumeration value="3/14"/>
+			<xs:enumeration value="7/8"/>
+			<xs:enumeration value="7/9"/>
+			<xs:enumeration value="7/47"/>
+			<xs:enumeration value="20/21"/>
+			<xs:enumeration value="24/25"/>
+			<xs:enumeration value="27/28"/>
+			<xs:enumeration value="29/35"/>
+			<xs:enumeration value="29/56"/>
+			<xs:enumeration value="36/37"/>
+			<xs:enumeration value="36/37/39"/>
+			<xs:enumeration value="36/39"/>
+			<xs:enumeration value="37/39"/>
+			<xs:enumeration value="47/49"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** HazardStatementEnum ******  -->
+	<xs:simpleType name="HazardStatementEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Hazard statement code with a predefined set of legal values. Also called CLP H-phrases.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="200"/>
+			<xs:enumeration value="201"/>
+			<xs:enumeration value="202"/>
+			<xs:enumeration value="203"/>
+			<xs:enumeration value="204"/>
+			<xs:enumeration value="205"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="221"/>
+			<xs:enumeration value="222"/>
+			<xs:enumeration value="223"/>
+			<xs:enumeration value="224"/>
+			<xs:enumeration value="225"/>
+			<xs:enumeration value="226"/>
+			<xs:enumeration value="228"/>
+			<xs:enumeration value="229"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="231"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="241"/>
+			<xs:enumeration value="242"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="251"/>
+			<xs:enumeration value="252"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="261"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="271"/>
+			<xs:enumeration value="272"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="281"/>
+			<xs:enumeration value="290"/>
+			<xs:enumeration value="300"/>
+			<xs:enumeration value="301"/>
+			<xs:enumeration value="302"/>
+			<xs:enumeration value="304"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="311"/>
+			<xs:enumeration value="312"/>
+			<xs:enumeration value="314"/>
+			<xs:enumeration value="315"/>
+			<xs:enumeration value="317"/>
+			<xs:enumeration value="318"/>
+			<xs:enumeration value="319"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="331"/>
+			<xs:enumeration value="332"/>
+			<xs:enumeration value="334"/>
+			<xs:enumeration value="335"/>
+			<xs:enumeration value="336"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="341"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="350i"/>
+			<xs:enumeration value="351"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="360F"/>
+			<xs:enumeration value="360D"/>
+			<xs:enumeration value="360FD"/>
+			<xs:enumeration value="360Fd"/>
+			<xs:enumeration value="360Df"/>
+			<xs:enumeration value="361"/>
+			<xs:enumeration value="361f"/>
+			<xs:enumeration value="361d"/>
+			<xs:enumeration value="361fd"/>
+			<xs:enumeration value="362"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="371"/>
+			<xs:enumeration value="372"/>
+			<xs:enumeration value="373"/>
+			<xs:enumeration value="400"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="411"/>
+			<xs:enumeration value="412"/>
+			<xs:enumeration value="413"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="300+310"/>
+			<xs:enumeration value="300+330"/>
+			<xs:enumeration value="310+330"/>
+			<xs:enumeration value="300+310+330"/>
+			<xs:enumeration value="301+311"/>
+			<xs:enumeration value="301+331"/>
+			<xs:enumeration value="311+331"/>
+			<xs:enumeration value="301+311+331"/>
+			<xs:enumeration value="302+312"/>
+			<xs:enumeration value="302+332"/>
+			<xs:enumeration value="312+332"/>
+			<xs:enumeration value="302+312+332"/>
+			<!-- New in Ver 4.0.2 -->
+			<!-- New in Ver 4.0.2 -->
+			<!-- New in Ver 4.0.2 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** PrecautionPhraseEnum ******  -->
+	<xs:simpleType name="PrecautionaryStatementEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Precautionary Statement Code with a predefined set of legal values. Also called CLP P-hrases.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="101"/>
+			<xs:enumeration value="102"/>
+			<xs:enumeration value="103"/>
+			<xs:enumeration value="201"/>
+			<xs:enumeration value="202"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="211"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="221"/>
+			<xs:enumeration value="222"/>
+			<xs:enumeration value="223"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="231"/>
+			<xs:enumeration value="232"/>
+			<xs:enumeration value="233"/>
+			<xs:enumeration value="234"/>
+			<xs:enumeration value="235"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="241"/>
+			<xs:enumeration value="242"/>
+			<xs:enumeration value="243"/>
+			<xs:enumeration value="244"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="251"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="261"/>
+			<xs:enumeration value="262"/>
+			<xs:enumeration value="263"/>
+			<xs:enumeration value="264"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="271"/>
+			<xs:enumeration value="272"/>
+			<xs:enumeration value="273"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="281"/>
+			<xs:enumeration value="282"/>
+			<xs:enumeration value="283"/>
+			<xs:enumeration value="284"/>
+			<xs:enumeration value="285"/>
+			<xs:enumeration value="301"/>
+			<xs:enumeration value="302"/>
+			<xs:enumeration value="303"/>
+			<xs:enumeration value="304"/>
+			<xs:enumeration value="305"/>
+			<xs:enumeration value="306"/>
+			<xs:enumeration value="307"/>
+			<xs:enumeration value="308"/>
+			<xs:enumeration value="309"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="311"/>
+			<xs:enumeration value="312"/>
+			<xs:enumeration value="313"/>
+			<xs:enumeration value="314"/>
+			<xs:enumeration value="315"/>
+			<xs:enumeration value="320"/>
+			<xs:enumeration value="321"/>
+			<xs:enumeration value="322"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="331"/>
+			<xs:enumeration value="332"/>
+			<xs:enumeration value="333"/>
+			<xs:enumeration value="334"/>
+			<xs:enumeration value="335"/>
+			<xs:enumeration value="336"/>
+			<xs:enumeration value="337"/>
+			<xs:enumeration value="338"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="341"/>
+			<xs:enumeration value="342"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="351"/>
+			<xs:enumeration value="352"/>
+			<xs:enumeration value="353"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="361"/>
+			<xs:enumeration value="362"/>
+			<xs:enumeration value="363"/>
+			<xs:enumeration value="364"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="371"/>
+			<xs:enumeration value="372"/>
+			<xs:enumeration value="373"/>
+			<xs:enumeration value="374"/>
+			<xs:enumeration value="375"/>
+			<xs:enumeration value="376"/>
+			<xs:enumeration value="377"/>
+			<xs:enumeration value="378"/>
+			<xs:enumeration value="380"/>
+			<xs:enumeration value="381"/>
+			<xs:enumeration value="390"/>
+			<xs:enumeration value="391"/>
+			<xs:enumeration value="401"/>
+			<xs:enumeration value="402"/>
+			<xs:enumeration value="403"/>
+			<xs:enumeration value="404"/>
+			<xs:enumeration value="405"/>
+			<xs:enumeration value="406"/>
+			<xs:enumeration value="407"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="411"/>
+			<xs:enumeration value="412"/>
+			<xs:enumeration value="413"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="422"/>
+			<xs:enumeration value="501"/>
+			<xs:enumeration value="502"/>
+			<xs:enumeration value="231+232"/>
+			<xs:enumeration value="235+410"/>
+			<xs:enumeration value="301+310"/>
+			<xs:enumeration value="301+312"/>
+			<xs:enumeration value="301+330+331"/>
+			<xs:enumeration value="302+334"/>
+			<xs:enumeration value="302+350"/>
+			<xs:enumeration value="302+352"/>
+			<xs:enumeration value="303+361+353"/>
+			<xs:enumeration value="304+312"/>
+			<xs:enumeration value="304+340"/>
+			<xs:enumeration value="304+341"/>
+			<xs:enumeration value="305+351+338"/>
+			<xs:enumeration value="306+360"/>
+			<xs:enumeration value="307+311"/>
+			<xs:enumeration value="308+313"/>
+			<xs:enumeration value="309+311"/>
+			<xs:enumeration value="332+313"/>
+			<xs:enumeration value="333+313"/>
+			<xs:enumeration value="335+334"/>
+			<xs:enumeration value="337+313"/>
+			<xs:enumeration value="342+311"/>
+			<xs:enumeration value="361+364"/>
+			<xs:enumeration value="362+364"/>
+			<xs:enumeration value="370+376"/>
+			<xs:enumeration value="370+378"/>
+			<xs:enumeration value="370+380"/>
+			<xs:enumeration value="370+380+375"/>
+			<xs:enumeration value="371+380+375"/>
+			<xs:enumeration value="402+404"/>
+			<xs:enumeration value="403+233"/>
+			<xs:enumeration value="403+235"/>
+			<xs:enumeration value="410+403"/>
+			<xs:enumeration value="410+412"/>
+			<xs:enumeration value="411+235"/>
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- New in Ver 4.0.2 -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- No longer valid. To be removed in a future version -->
+			<!-- New in Ver 4.0.2 -->
+			<!-- New in Ver 4.0.2 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** SupplementalHazardInformationEnum ******  -->
+	<xs:simpleType name="SupplementalHazardInformationEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Supplemental Hazard Information Code with a predefined set of legal values. CLP
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="001"/>
+			<xs:enumeration value="006"/>
+			<xs:enumeration value="014"/>
+			<xs:enumeration value="018"/>
+			<xs:enumeration value="019"/>
+			<xs:enumeration value="044"/>
+			<xs:enumeration value="029"/>
+			<xs:enumeration value="031"/>
+			<xs:enumeration value="032"/>
+			<xs:enumeration value="066"/>
+			<xs:enumeration value="070"/>
+			<xs:enumeration value="071"/>
+			<xs:enumeration value="059"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** SpecialSupplementalLabelInfoEnum ******  -->
+	<xs:simpleType name="SpecialSupplementalLabelInfoEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Special Supplemental Label Info  Code with a predefined set of legal values. CLP
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="201"/>
+			<xs:enumeration value="201A"/>
+			<xs:enumeration value="202"/>
+			<xs:enumeration value="203"/>
+			<xs:enumeration value="204"/>
+			<xs:enumeration value="205"/>
+			<xs:enumeration value="206"/>
+			<xs:enumeration value="207"/>
+			<xs:enumeration value="208"/>
+			<xs:enumeration value="209"/>
+			<xs:enumeration value="209A"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="401"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** ToxicityTypeEnum ******  -->
+	<xs:simpleType name="ToxicityTypeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the ToxicityTypeEnum.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Acute"/>
+			<xs:enumeration value="Delayed"/>
+			<xs:enumeration value="Subchronic"/>
+			<xs:enumeration value="Chronic"/>
+			<xs:enumeration value="ReproductionSexualFunction"/>
+			<xs:enumeration value="ReproductionDevToxicity"/>
+			<xs:enumeration value="ReproductionLactation"/>
+			<xs:enumeration value="Carcinogenicity"/>
+			<xs:enumeration value="InVivoMutagenicity"/>
+			<xs:enumeration value="InVitroMutagenicity"/>
+			<xs:enumeration value="RespiratorySensitivity"/>
+			<xs:enumeration value="SkinSensitivity"/>
+			<xs:enumeration value="SkinCorrosion"/>
+			<xs:enumeration value="EyeIrritation"/>
+			<xs:enumeration value="SkinIrritation"/>
+			<xs:enumeration value="EyeDamage"/>
+			<xs:enumeration value="Aspiration"/>
+			<xs:enumeration value="Other "/>
+			<xs:enumeration value="Unreported "/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** HazardClassCategoryEnum ******  -->
+	<xs:simpleType name="HazardClassCategoryEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the HazardClassCategoryEnum. Source: Chapter 2.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Unst. Expl."/>
+			<xs:enumeration value="Expl. 1.1"/>
+			<xs:enumeration value="Expl. 1.2"/>
+			<xs:enumeration value="Expl. 1.3"/>
+			<xs:enumeration value="Expl. 1.4"/>
+			<xs:enumeration value="Expl. 1.5"/>
+			<xs:enumeration value="Expl. 1.6"/>
+			<xs:enumeration value="Flam. Gas 1"/>
+			<xs:enumeration value="Flam. Gas 2"/>
+			<xs:enumeration value="Chem. Unst. Gas A"/>
+			<xs:enumeration value="Chem. Unst. Gas B"/>
+			<xs:enumeration value="Aerosol 1"/>
+			<xs:enumeration value="Aerosol 2"/>
+			<xs:enumeration value="Aerosol 3"/>
+			<xs:enumeration value="Oxid. Gas 1"/>
+			<xs:enumeration value="Press. Gas"/>
+			<xs:enumeration value="Compr. Gas"/>
+			<xs:enumeration value="Liquef. Gas"/>
+			<xs:enumeration value="Refr. Liquef. Gas"/>
+			<xs:enumeration value="Diss. Gas"/>
+			<xs:enumeration value="Flam. Liq. 1"/>
+			<xs:enumeration value="Flam. Liq. 2"/>
+			<xs:enumeration value="Flam. Liq. 3"/>
+			<xs:enumeration value="Flam. Sol. 1"/>
+			<xs:enumeration value="Flam. Sol. 2"/>
+			<xs:enumeration value="Self-react. A"/>
+			<xs:enumeration value="Self-react. B"/>
+			<xs:enumeration value="Self-react. C"/>
+			<xs:enumeration value="Self-react. D"/>
+			<xs:enumeration value="Self-react. E"/>
+			<xs:enumeration value="Self-react. F"/>
+			<xs:enumeration value="Self-react. G"/>
+			<xs:enumeration value="Pyr. Liq. 1"/>
+			<xs:enumeration value="Pyr. Sol. 1"/>
+			<xs:enumeration value="Self-heat. 1"/>
+			<xs:enumeration value="Self-heat. 2"/>
+			<xs:enumeration value="Water-react. 1"/>
+			<xs:enumeration value="Water-react. 2"/>
+			<xs:enumeration value="Water-react. 3"/>
+			<xs:enumeration value="Ox. Liq. 1"/>
+			<xs:enumeration value="Ox. Liq. 2"/>
+			<xs:enumeration value="Ox. Liq. 3"/>
+			<xs:enumeration value="Ox. Sol. 1"/>
+			<xs:enumeration value="Ox. Sol. 2"/>
+			<xs:enumeration value="Ox. Sol. 3"/>
+			<xs:enumeration value="Org. Perox. A"/>
+			<xs:enumeration value="Org. Perox. B"/>
+			<xs:enumeration value="Org. Perox. C"/>
+			<xs:enumeration value="Org. Perox. D"/>
+			<xs:enumeration value="Org. Perox. E"/>
+			<xs:enumeration value="Org. Perox. F"/>
+			<xs:enumeration value="Org. Perox. G"/>
+			<xs:enumeration value="Met. Corr. 1"/>
+			<xs:enumeration value="Acute Tox. 1"/>
+			<xs:enumeration value="Acute Tox. 2"/>
+			<xs:enumeration value="Acute Tox. 3"/>
+			<xs:enumeration value="Acute Tox. 4"/>
+			<xs:enumeration value="Skin Corr. 1A"/>
+			<xs:enumeration value="Skin Corr. 1B"/>
+			<xs:enumeration value="Skin Corr. 1C"/>
+			<xs:enumeration value="Skin Irrit. 2"/>
+			<xs:enumeration value="Eye Irrit. 2"/>
+			<xs:enumeration value="Eye Dam. 1"/>
+			<xs:enumeration value="Resp. Sens. 1"/>
+			<xs:enumeration value="Resp. Sens. 1A"/>
+			<xs:enumeration value="Resp. Sens. 1B"/>
+			<xs:enumeration value="Skin Sens. 1"/>
+			<xs:enumeration value="Skin Sens. 1A"/>
+			<xs:enumeration value="Skin Sens. 1B"/>
+			<xs:enumeration value="Muta. 1A"/>
+			<xs:enumeration value="Muta. 1B"/>
+			<xs:enumeration value="Muta. 2"/>
+			<xs:enumeration value="Carc. 1A"/>
+			<xs:enumeration value="Carc. 1B"/>
+			<xs:enumeration value="Carc. 2"/>
+			<xs:enumeration value="Repr. 1A"/>
+			<xs:enumeration value="Repr. 1B"/>
+			<xs:enumeration value="Repr. 2"/>
+			<xs:enumeration value="Lact."/>
+			<xs:enumeration value="STOT SE 1"/>
+			<xs:enumeration value="STOT SE 2"/>
+			<xs:enumeration value="STOT SE 3"/>
+			<xs:enumeration value="STOT RE 1"/>
+			<xs:enumeration value="STOT RE 2"/>
+			<xs:enumeration value="Asp. Tox. 1"/>
+			<xs:enumeration value="Aquatic Acute 1"/>
+			<xs:enumeration value="Aquatic Chronic 1"/>
+			<xs:enumeration value="Aquatic Chronic 2"/>
+			<xs:enumeration value="Aquatic Chronic 3"/>
+			<xs:enumeration value="Aquatic Chronic 4"/>
+			<xs:enumeration value="Ozone 1"/>
+			<!-- New value in version 4.0.2 -->
+			<!-- New value in version 4.0.2 -->
+			<!-- Was Flam. Aerosol 1 before version 4.0.2 -->
+			<!-- Was Flam. Aerosol 2 before version 4.0.2 -->
+			<!-- New value in version 4.0.2 -->
+			<!-- Four new values addded in ver 4.0.2 to replace 12 non-standard tox values with exposure routes oral/dermal/inhalation -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** ClassificationCategoryEnum ******  -->
+	<xs:simpleType name="ClassificationCategoryEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the ClassificationCategoryEnum. Source: Chapter 2
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="F"/>
+			<xs:enumeration value="F+"/>
+			<xs:enumeration value="Xi"/>
+			<xs:enumeration value="Xn"/>
+			<xs:enumeration value="T"/>
+			<xs:enumeration value="T+"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="N"/>
+			<xs:enumeration value="Carc. Cat. 1"/>
+			<xs:enumeration value="Carc. Cat. 2"/>
+			<xs:enumeration value="Carc. Cat. 3"/>
+			<xs:enumeration value="Muta. Cat. 1"/>
+			<xs:enumeration value="Muta. Cat. 2"/>
+			<xs:enumeration value="Muta. Cat. 3"/>
+			<xs:enumeration value="Repr. Cat. 1"/>
+			<xs:enumeration value="Repr. Cat. 2"/>
+			<xs:enumeration value="Repr. Cat. 3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* SymbolEnum *************  -->
+	<xs:simpleType name="SymbolEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Symbols like less than, greater than, equal, greater or equal,less or equal or circa.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="gt"/>
+			<xs:enumeration value="le"/>
+			<xs:enumeration value="ge"/>
+			<xs:enumeration value="eq"/>
+			<xs:enumeration value="ca"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* DoseEnum *************  -->
+	<xs:simpleType name="DoseEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the DoseEnum.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOEC"/>
+			<xs:enumeration value="LOEC"/>
+			<xs:enumeration value="NOEL"/>
+			<xs:enumeration value="LOEL"/>
+			<xs:enumeration value="NOAEL"/>
+			<xs:enumeration value="LOAEL"/>
+			<xs:enumeration value="LC0"/>
+			<xs:enumeration value="LClo"/>
+			<xs:enumeration value="LC50"/>
+			<xs:enumeration value="LC100"/>
+			<xs:enumeration value="LD0"/>
+			<xs:enumeration value="LDlo"/>
+			<xs:enumeration value="LD50"/>
+			<xs:enumeration value="LD100"/>
+			<xs:enumeration value="EC0"/>
+			<xs:enumeration value="EC3"/>
+			<xs:enumeration value="EC10"/>
+			<xs:enumeration value="EC20"/>
+			<xs:enumeration value="EC25"/>
+			<xs:enumeration value="EC50"/>
+			<xs:enumeration value="EC50 (+ UVA)"/>
+			<xs:enumeration value="EC50 (- UVA)"/>
+			<xs:enumeration value="EC80"/>
+			<xs:enumeration value="ATEmix tested"/>
+			<xs:enumeration value="ATEmix calculated"/>
+			<xs:enumeration value="cATpE"/>
+			<xs:enumeration value="ERC50"/>
+			<xs:enumeration value="ERClo"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* EffectLevelGroupEnum *************  -->
+	<xs:simpleType name="EffectLevelGroupEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the EffectLevelGroupEnum
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Industrial"/>
+			<xs:enumeration value="Professional"/>
+			<xs:enumeration value="Consumer"/>
+			<xs:enumeration value="Undefined"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* ExposureRouteEnum *********************  -->
+	<xs:simpleType name="ExposureRouteEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the ExposureRouteEnum.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Inhalation"/>
+			<xs:enumeration value="Oral"/>
+			<xs:enumeration value="Dermal"/>
+			<xs:enumeration value="Inhalation(Gas)"/>
+			<xs:enumeration value="Inhalation(Vapour)"/>
+			<xs:enumeration value="Inhalation(Dust/Mist)"/>
+			<xs:enumeration value="Inhalation(Dust)"/>
+			<xs:enumeration value="Inhalation(Mist)"/>
+			<xs:enumeration value="Subcutane"/>
+			<xs:enumeration value="Intraperitonial"/>
+			<xs:enumeration value="Intravenal"/>
+			<xs:enumeration value="Intraarterial"/>
+			<xs:enumeration value="Unreported"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* ExposureLimitValueTypeEnum *************  -->
+	<xs:simpleType name="ExposureLimitValueTypeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the ExposureLimitValueTypeEnum. Country origin as comments. Source: Chapter 8
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AGW"/>
+			<xs:enumeration value="VLA"/>
+			<xs:enumeration value="MAC"/>
+			<xs:enumeration value="WEL"/>
+			<xs:enumeration value="OEL"/>
+			<xs:enumeration value="TWA"/>
+			<xs:enumeration value="STEL"/>
+			<xs:enumeration value="VLE"/>
+			<xs:enumeration value="AK"/>
+			<xs:enumeration value="PK"/>
+			<xs:enumeration value="MK"/>
+			<xs:enumeration value="PEL"/>
+			<xs:enumeration value="MAK"/>
+			<xs:enumeration value="NDS"/>
+			<xs:enumeration value="NDSCH"/>
+			<xs:enumeration value="NDSP"/>
+			<xs:enumeration value="GV"/>
+			<xs:enumeration value="NGV"/>
+			<xs:enumeration value="TGV"/>
+			<xs:enumeration value="KTV"/>
+			<xs:enumeration value="AN"/>
+			<xs:enumeration value="ADN"/>
+			<xs:enumeration value="HTP"/>
+			<!-- (DE)-->
+			<!-- (ES) -->
+			<!-- (NL) -->
+			<!-- (UK) -->
+			<!-- (EC) -->
+			<!-- (EC) -->
+			<!-- (EC) -->
+			<!-- (FR) -->
+			<!-- (HU) -->
+			<!-- (HU) -->
+			<!-- (HU) -->
+			<!-- (US) -->
+			<!-- (CH) -->
+			<!-- (PL) -->
+			<!-- (PL) -->
+			<!-- (PL) -->
+			<!-- (DK) -->
+			<!-- (SE) -->
+			<!-- (SE) -->
+			<!-- (SE) -->
+			<!-- (NO) -->
+			<!-- (NO) -->
+			<!-- (FI) -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* Ecotoxicity *************  -->
+	<xs:complexType name="Ecotoxicity">
+		<xs:annotation>
+			<xs:documentation>
+        Ecotoxicity. Source: Chapter 12.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Replaced by the EffectLevelTypeEnum
+	******************************************************************* DNELTypeEnum *************  
+	<xs:simpleType name="DNELTypeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the DNELTypeEnum. Source: Chapter 8.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DNEL short-term oral (acute)"/>
+			<xs:enumeration value="DNEL long-term oral (repeated)"/>
+			<xs:enumeration value="DNEL long-term dermal (systemic)"/>
+			<xs:enumeration value="DNEL long-term dermal (local)"/>
+			<xs:enumeration value="DNEL acute dermal, short-term (systemic)"/>
+			<xs:enumeration value="DNEL acute dermal, short-term (local)"/>
+			<xs:enumeration value="DNEL long-term inhalation (local)"/>
+			<xs:enumeration value="DNEL acute inhalation (systemic)"/>
+			<xs:enumeration value="DNEL acute inhalation (local)"/>
+			<xs:enumeration value="DNEL long-term inhalation (systemic)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	-->
+	<!-- ******************************************************************* EffectLevelTypeEnum *************  -->
+	<xs:simpleType name="EffectLevelTypeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the DNEL and DMEL types. Source: Chapter 8.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Acute oral (systemic)"/>
+			<xs:enumeration value="Long-term oral (systemic)"/>
+			<xs:enumeration value="Acute dermal (local)"/>
+			<xs:enumeration value="Acute dermal (systemic)"/>
+			<xs:enumeration value="Long-term dermal (local)"/>
+			<xs:enumeration value="Long-term dermal (systemic)"/>
+			<xs:enumeration value="Acute inhalation (local)"/>
+			<xs:enumeration value="Acute inhalation (systemic)"/>
+			<xs:enumeration value="Long-term inhalation (local)"/>
+			<xs:enumeration value="Long-term inhalation (systemic)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* PNECTypeEnum *************  -->
+	<xs:simpleType name="PNECTypeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the PNECTypeEnum. Source: Chapter 8
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Soil"/>
+			<xs:enumeration value="Sediment, marine water"/>
+			<xs:enumeration value="Sediment, freshwater"/>
+			<xs:enumeration value="Aquatic, intermittent release"/>
+			<xs:enumeration value="Aquatic, marine water"/>
+			<xs:enumeration value="Aquatic, freshwater"/>
+			<xs:enumeration value="Sewage treatment plant (STP)"/>
+			<xs:enumeration value="Secondary poisoning"/>
+			<xs:enumeration value="Air"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* PhValueStateEnum *************  -->
+	<xs:simpleType name="PhValueStateEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the PhValueStateEnum. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="In delivery state"/>
+			<xs:enumeration value="In aqueous solution"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* ViscosityTypeEnum *************  -->
+	<xs:simpleType name="ViscosityTypeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the ViscosityTypeEnum. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Dynamic"/>
+			<xs:enumeration value="Kinematic"/>
+			<xs:enumeration value="Flow time"/>
+			<xs:enumeration value="Undefined"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* SolubilityMediumEnum *************  -->
+	<xs:simpleType name="SolubilityMediumEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the SolubilityMediumEnum. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Water"/>
+			<xs:enumeration value="Fat"/>
+			<xs:enumeration value="Undefined"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* SectorOfUseCodeEnum *************  -->
+	<xs:simpleType name="SectorOfUseCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the SectorOfUseCodeEnum. Source: Chapter 1.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SU1"/>
+			<xs:enumeration value="SU2a"/>
+			<xs:enumeration value="SU2b"/>
+			<xs:enumeration value="SU3"/>
+			<xs:enumeration value="SU4"/>
+			<xs:enumeration value="SU5"/>
+			<xs:enumeration value="SU6a"/>
+			<xs:enumeration value="SU6b"/>
+			<xs:enumeration value="SU7"/>
+			<xs:enumeration value="SU8"/>
+			<xs:enumeration value="SU9"/>
+			<xs:enumeration value="SU10"/>
+			<xs:enumeration value="SU11"/>
+			<xs:enumeration value="SU12"/>
+			<xs:enumeration value="SU13"/>
+			<xs:enumeration value="SU14"/>
+			<xs:enumeration value="SU15"/>
+			<xs:enumeration value="SU16"/>
+			<xs:enumeration value="SU17"/>
+			<xs:enumeration value="SU18"/>
+			<xs:enumeration value="SU19"/>
+			<xs:enumeration value="SU20"/>
+			<xs:enumeration value="SU21"/>
+			<xs:enumeration value="SU22"/>
+			<xs:enumeration value="SU23"/>
+			<xs:enumeration value="SU24"/>
+			<xs:enumeration value="SU0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* ProductCategoryCodeEnum *************  -->
+	<xs:simpleType name="ProductCategoryCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the ProductCategoryCodeEnum. Source: Chapter 1.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PC1"/>
+			<xs:enumeration value="PC2"/>
+			<xs:enumeration value="PC3"/>
+			<xs:enumeration value="PC4"/>
+			<xs:enumeration value="PC7"/>
+			<xs:enumeration value="PC8"/>
+			<xs:enumeration value="PC9a"/>
+			<xs:enumeration value="PC9b"/>
+			<xs:enumeration value="PC9c"/>
+			<xs:enumeration value="PC11"/>
+			<xs:enumeration value="PC12"/>
+			<xs:enumeration value="PC13"/>
+			<xs:enumeration value="PC14"/>
+			<xs:enumeration value="PC15"/>
+			<xs:enumeration value="PC16"/>
+			<xs:enumeration value="PC17"/>
+			<xs:enumeration value="PC18"/>
+			<xs:enumeration value="PC19"/>
+			<xs:enumeration value="PC20"/>
+			<xs:enumeration value="PC21"/>
+			<xs:enumeration value="PC22"/>
+			<xs:enumeration value="PC23"/>
+			<xs:enumeration value="PC24"/>
+			<xs:enumeration value="PC25"/>
+			<xs:enumeration value="PC26"/>
+			<xs:enumeration value="PC27"/>
+			<xs:enumeration value="PC28"/>
+			<xs:enumeration value="PC29"/>
+			<xs:enumeration value="PC30"/>
+			<xs:enumeration value="PC31"/>
+			<xs:enumeration value="PC32"/>
+			<xs:enumeration value="PC33"/>
+			<xs:enumeration value="PC34"/>
+			<xs:enumeration value="PC35"/>
+			<xs:enumeration value="PC36"/>
+			<xs:enumeration value="PC37"/>
+			<xs:enumeration value="PC38"/>
+			<xs:enumeration value="PC39"/>
+			<xs:enumeration value="PC40"/>
+			<xs:enumeration value="PC0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* ProcessCategoryCodeEnum *************  -->
+	<xs:simpleType name="ProcessCategoryCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the ProcessCategoryCodeEnum. Source: Chapter 1.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PROC1"/>
+			<xs:enumeration value="PROC2"/>
+			<xs:enumeration value="PROC3"/>
+			<xs:enumeration value="PROC4"/>
+			<xs:enumeration value="PROC5"/>
+			<xs:enumeration value="PROC6"/>
+			<xs:enumeration value="PROC7"/>
+			<xs:enumeration value="PROC8a"/>
+			<xs:enumeration value="PROC8b"/>
+			<xs:enumeration value="PROC9"/>
+			<xs:enumeration value="PROC10"/>
+			<xs:enumeration value="PROC11"/>
+			<xs:enumeration value="PROC12"/>
+			<xs:enumeration value="PROC13"/>
+			<xs:enumeration value="PROC14"/>
+			<xs:enumeration value="PROC15"/>
+			<xs:enumeration value="PROC16"/>
+			<xs:enumeration value="PROC17"/>
+			<xs:enumeration value="PROC18"/>
+			<xs:enumeration value="PROC19"/>
+			<xs:enumeration value="PROC20"/>
+			<xs:enumeration value="PROC21"/>
+			<xs:enumeration value="PROC22"/>
+			<xs:enumeration value="PROC23"/>
+			<xs:enumeration value="PROC24"/>
+			<xs:enumeration value="PROC25"/>
+			<xs:enumeration value="PROC26"/>
+			<xs:enumeration value="PROC27a"/>
+			<xs:enumeration value="PROC27b"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* EnvironmentalReleaseCategoryCodeEnum *************  -->
+	<xs:simpleType name="EnvironmentalReleaseCategoryCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal codes for the EnvironmentalReleaseCategoryCodeEnum. Source: Chapter 1.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ERC1"/>
+			<xs:enumeration value="ERC2"/>
+			<xs:enumeration value="ERC3"/>
+			<xs:enumeration value="ERC4"/>
+			<xs:enumeration value="ERC5"/>
+			<xs:enumeration value="ERC6a"/>
+			<xs:enumeration value="ERC6b"/>
+			<xs:enumeration value="ERC6c"/>
+			<xs:enumeration value="ERC6d"/>
+			<xs:enumeration value="ERC7"/>
+			<xs:enumeration value="ERC8a"/>
+			<xs:enumeration value="ERC8b"/>
+			<xs:enumeration value="ERC8c"/>
+			<xs:enumeration value="ERC8d"/>
+			<xs:enumeration value="ERC8e"/>
+			<xs:enumeration value="ERC8f"/>
+			<xs:enumeration value="ERC9a"/>
+			<xs:enumeration value="ERC9b"/>
+			<xs:enumeration value="ERC10a"/>
+			<xs:enumeration value="ERC10b"/>
+			<xs:enumeration value="ERC11a"/>
+			<xs:enumeration value="ERC11b"/>
+			<xs:enumeration value="ERC12a"/>
+			<xs:enumeration value="ERC12b"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* SpecificEnvironmentalReleaseCategoryCodeEnum *************  -->
+	<xs:simpleType name="SpecificEnvironmentalReleaseCategoryCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				SpecificEnvironmentalReleaseCategoryCodeEnum. Source: Chapter 1.
+				!!! SPERCs unknown !!! ?
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<!--<xs:enumeration value="SPERC1"/>
+			....
+			-->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* ArticleCategoryCodeEnum *************  -->
+	<xs:simpleType name="ArticleCategoryCodeEnum">
+		<xs:annotation>
+			<xs:documentation>
+				The legal values for the ArticleCategoryCodeEnum. Source: Chapter 1.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AC1"/>
+			<xs:enumeration value="AC2"/>
+			<xs:enumeration value="AC3"/>
+			<xs:enumeration value="AC4"/>
+			<xs:enumeration value="AC5"/>
+			<xs:enumeration value="AC6"/>
+			<xs:enumeration value="AC7"/>
+			<xs:enumeration value="AC8"/>
+			<xs:enumeration value="AC10"/>
+			<xs:enumeration value="AC11"/>
+			<xs:enumeration value="AC13"/>
+			<xs:enumeration value="AC30"/>
+			<xs:enumeration value="AC31"/>
+			<xs:enumeration value="AC32"/>
+			<xs:enumeration value="AC33"/>
+			<xs:enumeration value="AC34"/>
+			<xs:enumeration value="AC35"/>
+			<xs:enumeration value="AC36"/>
+			<xs:enumeration value="AC38"/>
+			<xs:enumeration value="AC0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ****************************************************************************** PhraseCatalogue *****  -->
+	<xs:complexType name="PhraseCatalogue">
+		<xs:annotation>
+			<xs:documentation>
+				Catalogue of standard phrases used in the datasheet. Used in chapter 0 and referred in for example exposure scenarios. 
+				PhraseCatalogues and PhraseIds simplifies translation to other languages. Example: EUPhraC catalogue.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCatalogueName" type="string256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase catalogue Name, eg. EuPhraC</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueIssuer" type="string256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase catalogue issuer, eg. EuPhraC-Workinggroup </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueVersion" type="string64" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The version no of the phrase catalog the information is based on</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>The version timestamp of the phrase catalogue the information is based on</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ******************************************************************************* Phrase ******************  -->
+	<xs:complexType name="Phrase">
+		<xs:annotation>
+			<xs:documentation>
+				Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present.
+				Note the use of MergePhrase restricts the nesting depth to one level.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+		<!-- Phase catalogues used are defined and assigned a PhraseCatalogueId in section 0 -->
+	</xs:complexType>
+	<!-- ************************************************************* MergePhrase ********************  -->
+	<xs:complexType name="MergePhrase">
+		<xs:annotation>
+			<xs:documentation>
+				Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present.
+				Note the use of MergePhrase restricts the nesting depth to one level.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MergeText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Delimiter" type="string3" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
+		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* RiskPhrase ***************************  -->
+	<xs:complexType name="RiskPhrase">
+		<xs:annotation>
+			<xs:documentation>
+				Risk Phrases DPD, DSD
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="RiskPhraseEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* SafetyPhrase ***************************  -->
+	<xs:complexType name="SafetyPhrase">
+		<xs:annotation>
+			<xs:documentation>
+				Safety Phrases DPD, DSD
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="SafetyPhraseEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* HazardPictogram ***************************  -->
+	<xs:complexType name="HazardPictogram">
+		<xs:annotation>
+			<xs:documentation>
+				CLP Hazard pictogram
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="PictogramCodeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* SignalWord ***************************  -->
+	<xs:complexType name="SignalWord">
+		<xs:annotation>
+			<xs:documentation>
+				CLP Signal Word, ie. danger or warning.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="SignalWordEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* HazardStatement ***************************  -->
+	<xs:complexType name="HazardStatement">
+		<xs:annotation>
+			<xs:documentation>
+				CLP Hazard Statement
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="HazardStatementEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* PrecautionaryStatement ***************************  -->
+	<xs:complexType name="PrecautionaryStatement">
+		<xs:annotation>
+			<xs:documentation>
+				Precautionary Statement CLP
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="PrecautionaryStatementEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* SupplementalHazardInformation ***************************  -->
+	<xs:complexType name="SupplementalHazardInformation">
+		<xs:annotation>
+			<xs:documentation>
+				Supplemental Hazard Information Statement CLP
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="SupplementalHazardInformationEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ************************************************************* SpecialSupplementalLabelInfo ***************************  -->
+	<xs:complexType name="SpecialSupplementalLabelInfo">
+		<xs:annotation>
+			<xs:documentation>
+				Special Supplemental Label Info for Mixtures CLP
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="SpecialSupplementalLabelInfoEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ******************************************************************* SafetySignEnum ******************************  -->
+	<xs:simpleType name="SafetySignEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the SafetySignEnum. Introduced inversion 4.0.2 instead of a phrase only.		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.1"/>
+			<xs:enumeration value="1.2"/>
+			<xs:enumeration value="1.3"/>
+			<xs:enumeration value="1.4"/>
+			<xs:enumeration value="2.1"/>
+			<xs:enumeration value="2.2"/>
+			<xs:enumeration value="2.3"/>
+			<xs:enumeration value="2.4"/>
+			<xs:enumeration value="2.5"/>
+			<xs:enumeration value="2.6"/>
+			<xs:enumeration value="3.1"/>
+			<xs:enumeration value="3.2"/>
+			<!-- No smoking -->
+			<!-- Smoking and open fire prohibited -->
+			<!-- Do not extinguish with water -->
+			<!-- Do not touch -->
+			<!-- Eye protection -->
+			<!-- Respiratory protection -->
+			<!-- Foot protection -->
+			<!-- Hand protection -->
+			<!-- Protective suit -->
+			<!-- Face protection -->
+			<!-- Emergency shower -->
+			<!-- Eye wash equipment -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ************************************************************* SafetySign ***************************  -->
+	<xs:complexType name="SafetySign">
+		<xs:annotation>
+			<xs:documentation>
+				Safety sign. Introduced inversion 4.0.2 with enumeration instead of a phrase only.		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="SafetySignEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ******************************************************************** Unit *************  -->
+	<!-- xs:complexType name="Unit">
+		<xs:annotation>
+			<xs:documentation>
+				Unit, using references to a coordination body assigning ids to all units. Ids have precedence
+				over textual abbreviations values if both are present. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UnitAbbreviation" type="string32"/>
+    </xs:sequence>
+		<xs:attribute name="UnitId" type="string16"/>
+		<xs:attribute name="UnitSetId" type="xs:integer"/>
+	</xs:complexType -->
+	<!-- ******************************************************************* Value *************  -->
+	<xs:complexType name="Value">
+		<xs:annotation>
+			<xs:documentation>			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="ExactValueSymbol" type="SymbolEnum" minOccurs="0"/>
+				<xs:element name="ExactValue" type="float8" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="UpperValueSymbol" type="SymbolEnum" minOccurs="0"/>
+				<xs:element name="UpperValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="LowerValueSymbol" type="SymbolEnum" minOccurs="0"/>
+				<xs:element name="LowerValue" type="float8" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+	<!-- ******************************************************************* UnitValue *************  -->
+	<xs:complexType name="UnitValue">
+		<xs:annotation>
+			<xs:documentation>
+				UnitValue. The ExactValue should only be printed on the datasheet if both the LowerValue and UpperValue
+				are missing. The main purpose of the LowerValue-UpperValue range is for printing while an additional 
+				ExactValue can be used for calculations.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Value">
+				<xs:sequence>
+					<xs:element name="Unit" type="string32" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="UnitId" type="UnitIdEnum"/>
+				<xs:attribute name="UnitSetId" type="xs:integer"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ******************************************************************* UnitIdEnum ************************  -->
+	<xs:simpleType name="UnitIdEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the UnitId attribute in UnitValue				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="9269144102"/>
+			<xs:enumeration value="9269144104"/>
+			<xs:enumeration value="9269144105"/>
+			<xs:enumeration value="9269144106"/>
+			<xs:enumeration value="9269144108"/>
+			<xs:enumeration value="10081150900"/>
+			<xs:enumeration value="9269144109"/>
+			<xs:enumeration value="9269144110"/>
+			<xs:enumeration value="9269144112"/>
+			<xs:enumeration value="9269144113"/>
+			<xs:enumeration value="9269144114"/>
+			<xs:enumeration value="9269144115"/>
+			<xs:enumeration value="9269144116"/>
+			<xs:enumeration value="9269144117"/>
+			<xs:enumeration value="9269144118"/>
+			<xs:enumeration value="9269144119"/>
+			<xs:enumeration value="9269144121"/>
+			<xs:enumeration value="9269144122"/>
+			<xs:enumeration value="9269144123"/>
+			<xs:enumeration value="9269144124"/>
+			<xs:enumeration value="9294211101"/>
+			<xs:enumeration value="9269144125"/>
+			<xs:enumeration value="9269144126"/>
+			<xs:enumeration value="9269144127"/>
+			<xs:enumeration value="9269144128"/>
+			<xs:enumeration value="9269144130"/>
+			<xs:enumeration value="9269144131"/>
+			<xs:enumeration value="9269144132"/>
+			<xs:enumeration value="9269144133"/>
+			<xs:enumeration value="9269144134"/>
+			<xs:enumeration value="9269144135"/>
+			<xs:enumeration value="9269144136"/>
+			<xs:enumeration value="9269144137"/>
+			<xs:enumeration value="9269144138"/>
+			<xs:enumeration value="9269144139"/>
+			<xs:enumeration value="9269144140"/>
+			<xs:enumeration value="9269144141"/>
+			<xs:enumeration value="9269144142"/>
+			<xs:enumeration value="9269144143"/>
+			<xs:enumeration value="9269144144"/>
+			<xs:enumeration value="9269144145"/>
+			<xs:enumeration value="9269144146"/>
+			<xs:enumeration value="9269144148"/>
+			<xs:enumeration value="9269144149"/>
+			<xs:enumeration value="9269144150"/>
+			<xs:enumeration value="9269144104"/>
+			<xs:enumeration value="9269144105"/>
+			<xs:enumeration value="9269144106"/>
+			<xs:enumeration value="9269144151"/>
+			<xs:enumeration value="9269144152"/>
+			<xs:enumeration value="9269144153"/>
+			<xs:enumeration value="9269144154"/>
+			<xs:enumeration value="9269144155"/>
+			<xs:enumeration value="9269144156"/>
+			<xs:enumeration value="9269144157"/>
+			<xs:enumeration value="9269144158"/>
+			<xs:enumeration value="9269144159"/>
+			<xs:enumeration value="9269144160"/>
+			<xs:enumeration value="9269144161"/>
+			<xs:enumeration value="9269144137"/>
+			<xs:enumeration value="9269144135"/>
+			<xs:enumeration value="9269144133"/>
+			<xs:enumeration value="9269144162"/>
+			<xs:enumeration value="9269144163"/>
+			<xs:enumeration value="9269144138"/>
+			<xs:enumeration value="9294211175"/>
+			<xs:enumeration value="9269144142"/>
+			<xs:enumeration value="9269144144"/>
+			<xs:enumeration value="9269144145"/>
+			<xs:enumeration value="9269144164"/>
+			<xs:enumeration value="9269144146"/>
+			<xs:enumeration value="9269144165"/>
+			<xs:enumeration value="9269144166"/>
+			<xs:enumeration value="9269144167"/>
+			<xs:enumeration value="9269144168"/>
+			<xs:enumeration value="9269144169"/>
+			<xs:enumeration value="9269144170"/>
+			<xs:enumeration value="9269144171"/>
+			<xs:enumeration value="9269144172"/>
+			<xs:enumeration value="9269144173"/>
+			<xs:enumeration value="9269144174"/>
+			<xs:enumeration value="9269144175"/>
+			<xs:enumeration value="9269144176"/>
+			<xs:enumeration value="9269144177"/>
+			<xs:enumeration value="9269144178"/>
+			<xs:enumeration value="9269144179"/>
+			<xs:enumeration value="9269144180"/>
+			<xs:enumeration value="9269144181"/>
+			<xs:enumeration value="9269144182"/>
+			<xs:enumeration value="9269144183"/>
+			<xs:enumeration value="9269144184"/>
+			<xs:enumeration value="9269144185"/>
+			<xs:enumeration value="9269144186"/>
+			<xs:enumeration value="9269144200"/>
+			<xs:enumeration value="9269144201"/>
+			<xs:enumeration value="9269144202"/>
+			<xs:enumeration value="9269144203"/>
+			<xs:enumeration value="9269144204"/>
+			<xs:enumeration value="9269144205"/>
+			<xs:enumeration value="9269144206"/>
+			<xs:enumeration value="9269144207"/>
+			<xs:enumeration value="9269144208"/>
+			<xs:enumeration value="9269144209"/>
+			<xs:enumeration value="9269144210"/>
+			<xs:enumeration value="9269144211"/>
+			<xs:enumeration value="9269144212"/>
+			<xs:enumeration value="9269144213"/>
+			<xs:enumeration value="9269144214"/>
+			<xs:enumeration value="9269144247"/>
+			<xs:enumeration value="9269144215"/>
+			<xs:enumeration value="9269144216"/>
+			<xs:enumeration value="9269144246"/>
+			<xs:enumeration value="9269144248"/>
+			<xs:enumeration value="9269144217"/>
+			<xs:enumeration value="9269144218"/>
+			<xs:enumeration value="9269144219"/>
+			<xs:enumeration value="9269144220"/>
+			<xs:enumeration value="9269144221"/>
+			<xs:enumeration value="9269144222"/>
+			<xs:enumeration value="9269144223"/>
+			<xs:enumeration value="9269144224"/>
+			<xs:enumeration value="9269144225"/>
+			<xs:enumeration value="9269144226"/>
+			<xs:enumeration value="9269144227"/>
+			<xs:enumeration value="9269144228"/>
+			<xs:enumeration value="9269144229"/>
+			<xs:enumeration value="9269144230"/>
+			<xs:enumeration value="9269144231"/>
+			<xs:enumeration value="9269144232"/>
+			<xs:enumeration value="9269144233"/>
+			<xs:enumeration value="9269144234"/>
+			<xs:enumeration value="9269144235"/>
+			<xs:enumeration value="9269144236"/>
+			<xs:enumeration value="9269144242"/>
+			<xs:enumeration value="9269144239"/>
+			<xs:enumeration value="9269144237"/>
+			<xs:enumeration value="9269144238"/>
+			<xs:enumeration value="9269144240"/>
+			<xs:enumeration value="9269144241"/>
+			<xs:enumeration value="9269144243"/>
+			<xs:enumeration value="9269144244"/>
+			<xs:enumeration value="9269144245"/>
+			<xs:enumeration value="14290121400"/>
+			<xs:enumeration value="9269144250"/>
+			<xs:enumeration value="10081150700"/>
+			<xs:enumeration value="9269144251"/>
+			<xs:enumeration value="9269144252"/>
+			<xs:enumeration value="9269144253"/>
+			<xs:enumeration value="9269144254"/>
+			<xs:enumeration value="9269144255"/>
+			<xs:enumeration value="9269144256"/>
+			<xs:enumeration value="9269144257"/>
+			<xs:enumeration value="9269144259"/>
+			<xs:enumeration value="9269144257"/>
+			<xs:enumeration value="9269144260"/>
+			<xs:enumeration value="9269144261"/>
+			<xs:enumeration value="9269144262"/>
+			<xs:enumeration value="9269144263"/>
+			<xs:enumeration value="9269144265"/>
+			<xs:enumeration value="9269144266"/>
+			<xs:enumeration value="9269144267"/>
+			<xs:enumeration value="9269144268"/>
+			<xs:enumeration value="9269144269"/>
+			<xs:enumeration value="9269144270"/>
+			<xs:enumeration value="9269144271"/>
+			<xs:enumeration value="9269144272"/>
+			<xs:enumeration value="9269144274"/>
+			<xs:enumeration value="9269144275"/>
+			<xs:enumeration value="9269144276"/>
+			<xs:enumeration value="9269144277"/>
+			<xs:enumeration value="9269144279"/>
+			<xs:enumeration value="9269144280"/>
+			<xs:enumeration value="9269144281"/>
+			<xs:enumeration value="9269144282"/>
+			<xs:enumeration value="9269144283"/>
+			<xs:enumeration value="9269144284"/>
+			<xs:enumeration value="9269144285"/>
+			<xs:enumeration value="9269144286"/>
+			<xs:enumeration value="9269144288"/>
+			<xs:enumeration value="9269144289"/>
+			<xs:enumeration value="9269144290"/>
+			<xs:enumeration value="9269144291"/>
+			<xs:enumeration value="9269144292"/>
+			<xs:enumeration value="9269144294"/>
+			<xs:enumeration value="9269144295"/>
+			<xs:enumeration value="9269144296"/>
+			<xs:enumeration value="9269144300"/>
+			<xs:enumeration value="9269144301"/>
+			<xs:enumeration value="9269144302"/>
+			<xs:enumeration value="9269144303"/>
+			<xs:enumeration value="9269144304"/>
+			<xs:enumeration value="9269144305"/>
+			<xs:enumeration value="9269144306"/>
+			<xs:enumeration value="9269144307"/>
+			<xs:enumeration value="9269144308"/>
+			<xs:enumeration value="9269144309"/>
+			<xs:enumeration value="9269144310"/>
+			<xs:enumeration value="9269144297"/>
+			<xs:enumeration value="9269144311"/>
+			<xs:enumeration value="9269144312"/>
+			<xs:enumeration value="9269144314"/>
+			<xs:enumeration value="9269144315"/>
+			<xs:enumeration value="9269144316"/>
+			<xs:enumeration value="9269144317"/>
+			<xs:enumeration value="9269144318"/>
+			<xs:enumeration value="9269144319"/>
+			<xs:enumeration value="9269144320"/>
+			<xs:enumeration value="9269144321"/>
+			<xs:enumeration value="9269144322"/>
+			<xs:enumeration value="9269144323"/>
+			<xs:enumeration value="9269144324"/>
+			<xs:enumeration value="9269144325"/>
+			<xs:enumeration value="9269144327"/>
+			<xs:enumeration value="9269144328"/>
+			<xs:enumeration value="9269144329"/>
+			<xs:enumeration value="9269144330"/>
+			<xs:enumeration value="9269144331"/>
+			<xs:enumeration value="9269144332"/>
+			<xs:enumeration value="9269144333"/>
+			<xs:enumeration value="9269144334"/>
+			<xs:enumeration value="9269144335"/>
+			<xs:enumeration value="9269144336"/>
+			<xs:enumeration value="9269144337"/>
+			<xs:enumeration value="9269144338"/>
+			<xs:enumeration value="9269144340"/>
+			<xs:enumeration value="9269144341"/>
+			<xs:enumeration value="9269144342"/>
+			<xs:enumeration value="9269144343"/>
+			<xs:enumeration value="9269144344"/>
+			<xs:enumeration value="9269144345"/>
+			<xs:enumeration value="9269144346"/>
+			<xs:enumeration value="9269144347"/>
+			<xs:enumeration value="9269144348"/>
+			<xs:enumeration value="9269144349"/>
+			<xs:enumeration value="9269144350"/>
+			<xs:enumeration value="9269144351"/>
+			<xs:enumeration value="9269144352"/>
+			<xs:enumeration value="9269144353"/>
+			<xs:enumeration value="9269144354"/>
+			<xs:enumeration value="9269144355"/>
+			<xs:enumeration value="9269144356"/>
+			<xs:enumeration value="9269144358"/>
+			<xs:enumeration value="9269144359"/>
+			<xs:enumeration value="9269144346"/>
+			<xs:enumeration value="9269144360"/>
+			<xs:enumeration value="9267233755"/>
+			<xs:enumeration value="9269144361"/>
+			<xs:enumeration value="9269144362"/>
+			<xs:enumeration value="9269144363"/>
+			<xs:enumeration value="9269144364"/>
+			<xs:enumeration value="9269144365"/>
+			<xs:enumeration value="9269144366"/>
+			<xs:enumeration value="9269144367"/>
+			<xs:enumeration value="9269144368"/>
+			<xs:enumeration value="10081151900"/>
+			<xs:enumeration value="9269144369"/>
+			<xs:enumeration value="9269144370"/>
+			<xs:enumeration value="9269144371"/>
+			<xs:enumeration value="9269144372"/>
+			<xs:enumeration value="9269144373"/>
+			<xs:enumeration value="9269144374"/>
+			<xs:enumeration value="9269144375"/>
+			<xs:enumeration value="9269144376"/>
+			<xs:enumeration value="9269144377"/>
+			<xs:enumeration value="9269144378"/>
+			<xs:enumeration value="9269144379"/>
+			<xs:enumeration value="9269144380"/>
+			<xs:enumeration value="9269144381"/>
+			<xs:enumeration value="9269144382"/>
+			<xs:enumeration value="9269144383"/>
+			<xs:enumeration value="9269144385"/>
+			<xs:enumeration value="9269144384"/>
+			<xs:enumeration value="9269144386"/>
+			<xs:enumeration value="9269144128"/>
+			<xs:enumeration value="9269144387"/>
+			<xs:enumeration value="9269144416"/>
+			<xs:enumeration value="9269144311"/>
+			<xs:enumeration value="9269144312"/>
+			<xs:enumeration value="9269144388"/>
+			<!--%=9269144102-->
+			<!--ppm=9269144104-->
+			<!--ppb=9269144105-->
+			<!--ppt=9269144106-->
+			<!--°C=9269144108-->
+			<!--K=10081150900-->
+			<!--1/K=9269144109-->
+			<!--°F=9269144110-->
+			<!--mbar=9269144112-->
+			<!--bar=9269144113-->
+			<!--Torr=9269144114-->
+			<!--mm Hg=9269144115-->
+			<!--atm=9269144116-->
+			<!--mPa=9269144117-->
+			<!--Pa=9269144118-->
+			<!--hPa=9269144119-->
+			<!--N/m2=9269144121-->
+			<!--N/cm2=9269144122-->
+			<!--N/mm2=9269144123-->
+			<!--mm H2O=9269144124-->
+			<!--kPa=9294211101-->
+			<!--Pa/s=9269144125-->
+			<!--hPa/s=9269144126-->
+			<!--kPa/s=9269144127-->
+			<!--bar/s=9269144128-->
+			<!--g/cm3=9269144130-->
+			<!--g/ml=9269144131-->
+			<!--mg/cm3=9269144132-->
+			<!--mg/ml=9269144133-->
+			<!--µg/cm3=9269144134-->
+			<!--µg/ml=9269144135-->
+			<!--ng/cm3=9269144136-->
+			<!--ng/ml=9269144137-->
+			<!--mg/l=9269144138-->
+			<!--mg/dm3=9269144139-->
+			<!--g/l=9269144140-->
+			<!--g/dm3=9269144141-->
+			<!--kg/l=9269144142-->
+			<!--kg/dm3=9269144143-->
+			<!--mg/m3=9269144144-->
+			<!--g/m3=9269144145-->
+			<!--kg/m3=9269144146-->
+			<!--Vol-%=9269144148-->
+			<!--Weight-%=9269144149-->
+			<!--mol-%=9269144150-->
+			<!--ppm=9269144104-->
+			<!--ppb=9269144105-->
+			<!--ppt=9269144106-->
+			<!--ppq=9269144151-->
+			<!--ng/mg=9269144152-->
+			<!--µg/mg=9269144153-->
+			<!--mg/mg=9269144154-->
+			<!--ng/g=9269144155-->
+			<!--µg/g=9269144156-->
+			<!--mg/g=9269144157-->
+			<!--g/g=9269144158-->
+			<!--µg/kg=9269144159-->
+			<!--mg/kg=9269144160-->
+			<!--g/kg=9269144161-->
+			<!--ng/ml=9269144137-->
+			<!--µg/ml=9269144135-->
+			<!--mg/ml=9269144133-->
+			<!--ng/l=9269144162-->
+			<!--µg/l=9269144163-->
+			<!--mg/l=9269144138-->
+			<!--g/l=9294211175-->
+			<!--kg/l=9269144142-->
+			<!--mg/m3=9269144144-->
+			<!--g/m=9269144145-->
+			<!--g/m3=9269144164-->
+			<!--kg/m3=9269144146-->
+			<!--ng/mmol=9269144165-->
+			<!--µg/mmol=9269144166-->
+			<!--mg/mmol=9269144167-->
+			<!--ng/mol=9269144168-->
+			<!--µg/mol=9269144169-->
+			<!--mg/mol=9269144170-->
+			<!--g/mol=9269144171-->
+			<!--kg/mol=9269144172-->
+			<!--l/mol=9269144173-->
+			<!--µg/dl=9269144174-->
+			<!--µl/ml=9269144175-->
+			<!--ml/ml=9269144176-->
+			<!--µl/l=9269144177-->
+			<!--ml/l=9269144178-->
+			<!--l/l=9269144179-->
+			<!--µl/m3=9269144180-->
+			<!--ml/m3=9269144181-->
+			<!--l/m3=9269144182-->
+			<!--µl/mg=9269144183-->
+			<!--ml/mg=9269144184-->
+			<!--µl/g=9269144185-->
+			<!--ml/g=9269144186-->
+			<!--µl/kg=9269144200-->
+			<!--ml/kg=9269144201-->
+			<!--l/kg=9269144202-->
+			<!--µl/mmol=9269144203-->
+			<!--ml/mmol=9269144204-->
+			<!--µl/mol=9269144205-->
+			<!--ml/mol=9269144206-->
+			<!--mmol/ml=9269144207-->
+			<!--mmol/l=9269144208-->
+			<!--mmol/m3=9269144209-->
+			<!--mmol/mg=9269144210-->
+			<!--mmol/g=9269144211-->
+			<!--mmol/kg=9269144212-->
+			<!--mmol/mmol=9269144213-->
+			<!--mmol/mol=9269144214-->
+			<!--µmol/mol=9269144247-->
+			<!--mol/ml=9269144215-->
+			<!--mol/l=9269144216-->
+			<!--µmol/l=9269144246-->
+			<!--nmol/l=9269144248-->
+			<!--mol/m3=9269144217-->
+			<!--mol/mg=9269144218-->
+			<!--mol/g=9269144219-->
+			<!--mol/kg=9269144220-->
+			<!--mol/mmol=9269144221-->
+			<!--mol/mol=9269144222-->
+			<!--U/mg=9269144223-->
+			<!--U/g=9269144224-->
+			<!--U/kg=9269144225-->
+			<!--U/ml=9269144226-->
+			<!--U/l=9269144227-->
+			<!--U/mmol=9269144228-->
+			<!--U/mol=9269144229-->
+			<!--mg O2/g=9269144230-->
+			<!--mg O2/l=9269144231-->
+			<!--g O2/g=9269144232-->
+			<!--g O2/l=9269144233-->
+			<!--mg C/g=9269144234-->
+			<!--mg C/l=9269144235-->
+			<!--mg KOH/g=9269144236-->
+			<!--mg/kg bw*d=9269144242-->
+			<!--µg/Animal=9269144239-->
+			<!--mg/Animal=9269144237-->
+			<!--ml/Animal=9269144238-->
+			<!--mg/Eye=9269144240-->
+			<!--ml/Eye=9269144241-->
+			<!--fiber/m3=9269144243-->
+			<!--fiber/cm3=9269144244-->
+			<!--fiber/ml=9269144245-->
+			<!--mg/kg bw=14290121400-->
+			<!--cP=9269144250-->
+			<!--P=10081150700-->
+			<!--cSt=9269144251-->
+			<!--St=9269144252-->
+			<!--µPa.s=9269144253-->
+			<!--mPa.s=9269144254-->
+			<!--Pa.s=9269144255-->
+			<!--mm2/s=9269144256-->
+			<!--ms=9269144259-->
+			<!--s=9269144257-->
+			<!--min=9269144260-->
+			<!--h=9269144261-->
+			<!--d=9269144262-->
+			<!--a=9269144263-->
+			<!--fm=9269144265-->
+			<!--pm=9269144266-->
+			<!--nm=9269144267-->
+			<!--µm=9269144268-->
+			<!--mm=9269144269-->
+			<!--cm=9269144270-->
+			<!--dm=9269144271-->
+			<!--m=9269144272-->
+			<!--mm2=9269144274-->
+			<!--cm2=9269144275-->
+			<!--dm2=9269144276-->
+			<!--m2=9269144277-->
+			<!--mm3=9269144279-->
+			<!--cm3=9269144280-->
+			<!--dm3=9269144281-->
+			<!--m3=9269144282-->
+			<!--ml=9269144283-->
+			<!--cl=9269144284-->
+			<!--dl=9269144285-->
+			<!--l=9269144286-->
+			<!--µg=9269144288-->
+			<!--mg=9269144289-->
+			<!--g=9269144290-->
+			<!--kg=9269144291-->
+			<!--t=9269144292-->
+			<!--mm/s=9269144294-->
+			<!--mm/min=9269144295-->
+			<!--mm/h=9269144296-->
+			<!--mm/a=9269144300-->
+			<!--cm/s=9269144301-->
+			<!--cm/min=9269144302-->
+			<!--cm/h=9269144303-->
+			<!--cm/d=9269144304-->
+			<!--m/s=9269144305-->
+			<!--m/min=9269144306-->
+			<!--m/h=9269144307-->
+			<!--m/d=9269144308-->
+			<!--km/h=9269144309-->
+			<!--km/d=9269144310-->
+			<!--mm/d=9269144297-->
+			<!--g/l*s=9269144311-->
+			<!--mol/L*s=9269144312-->
+			<!--mg/s=9269144314-->
+			<!--mg/min=9269144315-->
+			<!--mg/h=9269144316-->
+			<!--g/s=9269144317-->
+			<!--g/min=9269144318-->
+			<!--g/h=9269144319-->
+			<!--kg/s=9269144320-->
+			<!--kg/min=9269144321-->
+			<!--kg/h=9269144322-->
+			<!--t/s=9269144323-->
+			<!--t/min=9269144324-->
+			<!--t/h=9269144325-->
+			<!--ml/s=9269144327-->
+			<!--ml/min=9269144328-->
+			<!--ml/h=9269144329-->
+			<!--cm3/s=9269144330-->
+			<!--cm3/min=9269144331-->
+			<!--cm3/h=9269144332-->
+			<!--l/s=9269144333-->
+			<!--l/min=9269144334-->
+			<!--l/h=9269144335-->
+			<!--m3/s=9269144336-->
+			<!--m3/min=9269144337-->
+			<!--m3/h=9269144338-->
+			<!--mJ=9269144340-->
+			<!--J=9269144341-->
+			<!--kJ=9269144342-->
+			<!--cal=9269144343-->
+			<!--kcal=9269144344-->
+			<!--W.h=9269144345-->
+			<!--W=9269144346-->
+			<!--kW=9269144347-->
+			<!--J/mol=9269144348-->
+			<!--J/kg=9269144349-->
+			<!--kJ/mol=9269144350-->
+			<!--kJ/kg=9269144351-->
+			<!--cal/mol=9269144352-->
+			<!--cal/kg=9269144353-->
+			<!--kcal/mol=9269144354-->
+			<!--kcal/kg=9269144355-->
+			<!--cal/mol.K=9269144356-->
+			<!--W.m=9269144358-->
+			<!--1/W=9269144359-->
+			<!--W=9269144346-->
+			<!--mA=9269144360-->
+			<!--A=9267233755-->
+			<!--C=9269144361-->
+			<!--A.h=9269144362-->
+			<!--kA.h=9269144363-->
+			<!--mV=9269144364-->
+			<!--V=9269144365-->
+			<!--kV=9269144366-->
+			<!--F=9269144367-->
+			<!--Wb=9269144368-->
+			<!--S=10081151900-->
+			<!--cd=9269144369-->
+			<!--lm=9269144370-->
+			<!--lx=9269144371-->
+			<!--mCi=9269144372-->
+			<!--Ci=9269144373-->
+			<!--Bq=9269144374-->
+			<!--Gbq=9269144375-->
+			<!--mg/dm2=9269144376-->
+			<!--kg/ha=9269144377-->
+			<!--N/m=9269144378-->
+			<!--mN/m=9269144379-->
+			<!--dyn/cm=9269144380-->
+			<!--cm3/g=9269144381-->
+			<!--bar.m/s=9269144382-->
+			<!--l/kg.h=9269144383-->
+			<!--l/kg.min=9269144385-->
+			<!--l/kg.s=9269144384-->
+			<!--K/min=9269144386-->
+			<!--bar/s=9269144128-->
+			<!--kg/s.m2=9269144387-->
+			<!--Pa.m3/mol=9269144416-->
+			<!--g/l.s=9269144311-->
+			<!--mol/l.s=9269144312-->
+			<!--1/mol*s=9269144388-->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** Percentage********  -->
+	<xs:simpleType name="Percentage">
+		<xs:annotation>
+			<xs:documentation>Percentage value 0-100.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* PercentageValue *************  -->
+	<xs:complexType name="PercentageValue">
+		<xs:annotation>
+			<xs:documentation>
+				PercentageValue. The ExactValue should only be printed on the datasheet if both the LowerValue and UpperValue
+				are missing. The main purpose of the LowerValue-UpperValue range is for printing while an additional 
+				ExactValue can be used for calculations.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Value"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ******************************************************************* PhysChemValue***********  -->
+	<xs:complexType name="PhysChemValue">
+		<xs:annotation>
+			<xs:documentation>
+				PhysChemValue, used to specify a value derived from a duration-independent measurement. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Value" type="Value" minOccurs="0"/>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
+	<xs:complexType name="PhysChemUnitValue">
+		<xs:annotation>
+			<xs:documentation>
+				PhysChemUnitValue, used to specify a value with unit derived from a duration-independent measurement. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UnitValue" type="UnitValue" minOccurs="0"/>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="UnitId" type="string16"/>
+		<xs:attribute name="UnitSetId" type="xs:integer"/>
+	</xs:complexType>
+	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
+	<xs:complexType name="PhysChemValueWithTemperature">
+		<xs:annotation>
+			<xs:documentation>
+				PhysChemValueWithTemperature. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PhysChemValue">
+				<xs:sequence>
+					<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ******************************************************************* PhysChemUnitValueWithTemperature ***********  -->
+	<xs:complexType name="PhysChemUnitValueWithTemperature">
+		<xs:annotation>
+			<xs:documentation>
+				PhysChemUnitValueWithTemperature. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PhysChemUnitValue">
+				<xs:sequence>
+					<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
+					<!-- 4.0.2 minOccurs=0 added   -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ******************************************************************* TemperatureClassEnum ************************  -->
+	<xs:simpleType name="TemperatureClassEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the TemperatureClassEnum. Source: Chapter 9.				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="T 1"/>
+			<xs:enumeration value="T 2"/>
+			<xs:enumeration value="T 3"/>
+			<xs:enumeration value="T 4"/>
+			<xs:enumeration value="T 5"/>
+			<xs:enumeration value="T 6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- *******************************************************************  TemperatureClass **************************  -->
+	<xs:complexType name="TemperatureClass">
+		<xs:annotation>
+			<xs:documentation>
+				TemperatureClass 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="TemperatureClassEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
+	<xs:complexType name="PhysicalHazardsGeneralInformation">
+		<xs:annotation>
+			<xs:documentation>
+				PhysicalHazardsGeneralInformation. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JustificationForDataWaiving" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Assessment" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Classification" type="Phrase" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************* GasGroupEnum ******************************  -->
+	<xs:simpleType name="GasGroupEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the GasGroupEnum. Source: Chapter 9.			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IIA"/>
+			<xs:enumeration value="IIB"/>
+			<xs:enumeration value="IIC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- *******************************************************************  GasGroup *********************************  -->
+	<xs:complexType name="GasGroup">
+		<xs:annotation>
+			<xs:documentation>
+				GasGroup. Source: Chapter 9.		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="GasGroupEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  BurningNumber ***********  -->
+	<xs:complexType name="BurningNumber">
+		<xs:annotation>
+			<xs:documentation>
+				BurningNumber. Source: Chapter 9.		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="Phrase" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  Species *************  -->
+	<xs:complexType name="Species">
+		<xs:annotation>
+			<xs:documentation>
+				Species used in tests
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Value" type="Phrase"/>
+			<xs:element name="Gender" type="Phrase" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ********************************************************************  WasteCode ***************  -->
+	<xs:simpleType name="WasteCode">
+		<xs:annotation>
+			<xs:documentation>
+				The European waste code, eg, "20 01 01".
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2} [0-9]{2} [0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* AssessmentEnum *************  -->
+	<xs:simpleType name="AssessmentEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the AssessmentEnum 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Yes"/>
+			<xs:enumeration value="No"/>
+			<xs:enumeration value="Not assessed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* XMLStandardSubsetEnum *************  -->
+	<!-- 4.0.3 New XMLStandardSubsetEnum -->
+	<xs:simpleType name="XMLStandardSubsetEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the XMLStandardSubsetEnum
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SdsComXml Light"/>
+			<xs:enumeration value="EDASXBau"/>
+			<xs:enumeration value="EDASXChem"/>
+			<xs:enumeration value="undefined"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************* PackingGroupEnum *************  -->
+	<!-- 4.0.3 New PackingGroupEnum -->
+	<xs:simpleType name="PackingGroupEnum">
+		<xs:annotation>
+			<xs:documentation>
+				Legal values for the PackingGroupEnum
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="II"/>
+			<xs:enumeration value="III"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
