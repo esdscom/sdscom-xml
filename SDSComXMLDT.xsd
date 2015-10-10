@@ -2505,7 +2505,10 @@ History until v4.2.0:
 	<xs:complexType name="Phrase">
 		<xs:annotation>
 			<xs:documentation>
-				Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present.
+				Phrase, using optional references to a coordination body assigning ids to all phrases.
+				PhraseId is a unique identifier (primary key) that must exist in each phrase catalogue. PhraseId has precedence over textual phrase values if both are present.
+				PhraseCode is any official or system-internal phrase identifier which may be unique or not (and is often empty). 
+				Example: In EuPhraC, PhraseIds 9278174452 to 9278174455 all refer to PhraseCode = H341, however EuPhraC decided to name the other codes as H341.1, H341.2 and H341.3.
 				Note the use of MergePhrase restricts the nesting depth to one level.
 			</xs:documentation>
 		</xs:annotation>
