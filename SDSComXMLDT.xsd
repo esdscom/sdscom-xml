@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Nils Jattkowski (eska Ingenieurgesellschaft mbH) bearbeitet -->
 <!-- ********************************************************************************************** 
- Issue		: 	SDSComXML XSD 4.0    	
+ Issue		: 	SDSComXML XSD 4.x    	
  Purpose	: 	Basic data types Schema Definition      					
  			  	  	to enable a xml-based		 									
  			  	  	distribution of Safety Data Sheets (SDS)		 		
  			  	  	specified in the Format. For detailed 				 	
 			  		  information please refer to 									
- 			  		  http://www.SDSComXml.eu										
- Version	: 	4.2.0. Release Candidate        																		
- Rev. date: 	2015.05.21
-																
- History, ie., changes made since version 4.0.1 which was the first to be implemented by anyone. 
- 																					
+ 			  		  http://www.eSDScom.eu										
+Version	:  draft after v4.2.0																	
+History	:  
+Recent changes are documented on https://github.com/esdscom/sdscom-xml
+History until v4.2.0: 																					
+
  2013.03.15: HazardClassCategoryEnum changed by adding "Acute Tox. 1","Acute Tox. 2","Acute Tox. 3"
              and "Acute Tox. 4". The non-standard Acute Tox values with exposure route oral/dermal/inhalation
 						 have been removed. Keeping them for backward compatibilty was discussed and rejected. See also
@@ -1216,7 +1215,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{1}"/>
+			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9,X]"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ESVersion *****  -->
@@ -2013,9 +2012,9 @@
 	<!-- ******************************************************************* DoseEnum *************  -->
 	<xs:simpleType name="DoseEnum">
 		<xs:annotation>
-			<xs:documentation>
-				The legal values for the DoseEnum.
-			</xs:documentation>
+		<xs:documentation>
+			The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated (GitHub issue #22) - use LCLo, LDLo, ERCLo instead.
+		</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NOEC"/>
@@ -2026,10 +2025,12 @@
 			<xs:enumeration value="LOAEL"/>
 			<xs:enumeration value="LC0"/>
 			<xs:enumeration value="LClo"/>
+			<xs:enumeration value="LCLo"/>
 			<xs:enumeration value="LC50"/>
 			<xs:enumeration value="LC100"/>
 			<xs:enumeration value="LD0"/>
 			<xs:enumeration value="LDlo"/>
+			<xs:enumeration value="LDLo"/>
 			<xs:enumeration value="LD50"/>
 			<xs:enumeration value="LD100"/>
 			<xs:enumeration value="EC0"/>
@@ -2046,6 +2047,7 @@
 			<xs:enumeration value="cATpE"/>
 			<xs:enumeration value="ERC50"/>
 			<xs:enumeration value="ERClo"/>
+			<xs:enumeration value="ERCLo"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* EffectLevelGroupEnum *************  -->
@@ -2503,7 +2505,10 @@
 	<xs:complexType name="Phrase">
 		<xs:annotation>
 			<xs:documentation>
-				Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present.
+				Phrase, using optional references to a coordination body assigning ids to all phrases.
+				PhraseId is a unique identifier (primary key) that must exist in each phrase catalogue. PhraseId has precedence over textual phrase values if both are present.
+				PhraseCode is any official or system-internal phrase identifier which may be unique or not (and is often empty). 
+				Example: In EuPhraC, PhraseIds 9278174452 to 9278174455 all refer to PhraseCode = H341, however EuPhraC decided to name the other codes as H341.1, H341.2 and H341.3.
 				Note the use of MergePhrase restricts the nesting depth to one level.
 			</xs:documentation>
 		</xs:annotation>
