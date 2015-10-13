@@ -1181,10 +1181,9 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{2}-[0-9]{10}-[0-9]{2}(-[0-9,X]{4})?"/>
+			<xs:pattern value="\d{2}-\d{10}-\d{2}(-\d{4}|-xxxx|-XXXX)?"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- 4.0.3 Pattern of RechRegNo adapted (make X available in the last section of the number, e.g  01-0000017295-68-XXXX )-->
 	<!-- ******************************************************************** CasNo *****  -->
 	<xs:simpleType name="CasNo">
 		<xs:annotation>
@@ -1193,7 +1192,7 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{2,7}-[0-9]{2}-[0-9]{1}"/>
+			<xs:pattern value="\d{2,7}-\d{2}-\d{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** EcNo *****  -->
@@ -1204,7 +1203,7 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{1}"/>
+			<xs:pattern value="\d{3}-\d{3}-\d{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** IndexNo *****  -->
