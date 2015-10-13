@@ -2500,6 +2500,15 @@ History until v4.2.0:
 		</xs:sequence>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
+	<!-- ******************************************************************** PhraseId ********  -->
+	<xs:simpleType name="PhraseId">
+		<xs:annotation>
+			<xs:documentation>A phrase identifier which is unique within a given phrase catalogue, represented by a string of maximum 128 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ******************************************************************************* Phrase ******************  -->
 	<xs:complexType name="Phrase">
 		<xs:annotation>
@@ -2516,7 +2525,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<!-- Phase catalogues used are defined and assigned a PhraseCatalogueId in section 0 -->
 	</xs:complexType>
@@ -2532,7 +2541,7 @@ History until v4.2.0:
 			<xs:element name="MergeText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Delimiter" type="string3" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
 		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
@@ -2548,7 +2557,7 @@ History until v4.2.0:
 			<xs:element name="PhraseCode" type="RiskPhraseEnum" minOccurs="0"/>
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SafetyPhrase ***************************  -->
@@ -2563,7 +2572,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* HazardPictogram ***************************  -->
@@ -2578,7 +2587,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SignalWord ***************************  -->
@@ -2593,7 +2602,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* HazardStatement ***************************  -->
@@ -2608,7 +2617,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* PrecautionaryStatement ***************************  -->
@@ -2623,7 +2632,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SupplementalHazardInformation ***************************  -->
@@ -2638,7 +2647,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SpecialSupplementalLabelInfo ***************************  -->
@@ -2653,7 +2662,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ******************************************************************* SafetySignEnum ******************************  -->
@@ -2702,7 +2711,7 @@ History until v4.2.0:
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="string16"/>
+		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ******************************************************************** Unit *************  -->
