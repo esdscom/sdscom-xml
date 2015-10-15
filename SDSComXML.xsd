@@ -52,9 +52,9 @@ History until v4.2.0:
 2015.05.21 SectorOfUse maxOccur changed to unbound
 					 ProductIdentity maxOccur changed to unbound
 					 ReachRegNo maxOccur changed to unbound
-					 Emergency Phone No string length has been changed from 40 to 255
-2015.06.18 SupplierPhone No string length has been changed from 40 to 255
-					 Fax string length has been changed from 40 to 255
+					 Emergency Phone No string length has been changed from 40 to 256
+2015.06.18 SupplierPhone No string length has been changed from 40 to 256
+					 Fax string length has been changed from 40 to 256
 					 ImdgEmsCode has been changed from phrase to string40 
 
 ***************************************************************************** -->
