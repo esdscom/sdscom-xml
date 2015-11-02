@@ -12,6 +12,7 @@ Rev. date: 2015.08.28
 History	:  
 2015.06.18 added to WaterHazardClassEnum new Enum "awg" = allgemein wassergefährdend
 2015.08.28 Revision of the GisCodeEnum (removed the duplicate items)
+Further changes according to GitHub change log at https://github.com/esdscom/sdscom-xml
 														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
