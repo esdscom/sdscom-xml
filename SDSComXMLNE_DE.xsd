@@ -120,7 +120,7 @@ History	:
 			<xs:enumeration value="LGK 3"/>
 			<xs:enumeration value="LGK 4.1A"/>
 			<xs:enumeration value="LGK 4.1B"/>
-			<xs:enumeration value="LGK 4.2A"/>
+			<xs:enumeration value="LGK 4.2"/>
 			<xs:enumeration value="LGK 4.3"/>
 			<xs:enumeration value="LGK 5.1A"/>
 			<xs:enumeration value="LGK 5.1B"/>
