@@ -110,8 +110,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 	<!-- ************************************************************** StorageClassEnum ******  -->
 	<xs:simpleType name="StorageClassEnum">
 		<xs:annotation>
-			<xs:documentation>
-				Enumaration of the german storage class
+			<xs:documentation>Enumaration of the german storage class according to TRGS 510. Note that LGK 10-13 must be specified as separate storage classes, i.e. in four occurences of an element of type StorageClassEnum.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -175,7 +174,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-<xs:enumeration value="BTM 10"/>
+			<xs:enumeration value="BTM 10"/>
 			<xs:enumeration value="BTM 15"/>
 			<xs:enumeration value="BTM 20"/>
 			<xs:enumeration value="BTM 30"/>
