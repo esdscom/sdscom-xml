@@ -64,9 +64,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
-	<!-- ******************************************************************* SDSComXmlDT4.2.0.xsd *********  -->
-	<!-- Complex data types for chemical safety datasheets. To be included in the SDSComXml4.2.0.xsd validation -->
+	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<!-- ******************************************************************* SDSComXMLDT.xsd *********  -->
+	<!-- Complex data types for chemical safety datasheets. To be included in the SDSComXML.xsd validation -->
 	<!-- ******************************************************************* SectorOfUse *************  -->
 	<xs:complexType name="SectorOfUse">
 		<xs:annotation>

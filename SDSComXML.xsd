@@ -59,9 +59,9 @@ History until v4.2.0:
 
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- National extensions to the standard. Initially empty. -->
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<!-- National extensions to the standard. Initially empty. -->
 	<xs:include schemaLocation="SDSComXMLNE_AD.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_AL.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_AM.xsd"/>
@@ -368,6 +368,7 @@ History until v4.2.0:
 														</xs:complexType>
 													</xs:element>
 													<xs:element name="LegalRegistrationNo" type="string24" minOccurs="0"/>
+													<xs:element minOccurs="0" name="Duns" type="DunsNo"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -400,8 +401,10 @@ History until v4.2.0:
 																<xs:element name="ClpSignalWord" type="SignalWord" minOccurs="0" maxOccurs="1"/>
 																<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="0" maxOccurs="unbounded"/>
 																<xs:element name="ClpPrecautionaryStatement" type="PrecautionaryStatement" minOccurs="0" maxOccurs="unbounded"/>
-																<xs:element name="ClpSupplementalHazardInformation" type="SupplementalHazardInformation" minOccurs="0" maxOccurs="unbounded"/>
-																<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SpecialSupplementalLabelInfo" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpSupplementalHazardInformation" type="SupplementalHazardInformation" minOccurs="0"
+																	maxOccurs="unbounded"/>
+																<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SpecialSupplementalLabelInfo" minOccurs="0"
+																	maxOccurs="unbounded"/>
 																<xs:element name="ClpAdditionalLabellingInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 																<xs:element name="ClpSpecialRulesOnPackaging" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 															</xs:sequence>
@@ -856,7 +859,8 @@ History until v4.2.0:
 																	<xs:complexType>
 																		<xs:sequence>
 																			<xs:element name="FluorinatedGreenhouseGasesMethod" type="Phrase" minOccurs="0"/>
-																			<xs:element name="FluorinatedGreenhouseGasesComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																			<xs:element name="FluorinatedGreenhouseGasesComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"
+																			/>
 																		</xs:sequence>
 																	</xs:complexType>
 																</xs:element>
@@ -904,7 +908,8 @@ History until v4.2.0:
 													<xs:element name="NationalLegislationMonaco" type="NationalExtensionMC" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationRepublicOfMoldova" type="NationalExtensionMD" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationMontenegro" type="NationalExtensionME" minOccurs="0" maxOccurs="1"/>
-													<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="NationalExtensionMK" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="NationalExtensionMK" minOccurs="0"
+														maxOccurs="1"/>
 													<xs:element name="NationalLegislationMalta" type="NationalExtensionMT" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationNetherlands" type="NationalExtensionNL" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationNorway" type="NationalExtensionNO" minOccurs="0" maxOccurs="1"/>

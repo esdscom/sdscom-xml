@@ -1196,6 +1196,14 @@ History until v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** EcNo *****  -->
+	<xs:simpleType name="DunsNo">
+		<xs:annotation>
+			<xs:documentation>The D-U-N-S® Number of a legal entity. See https://www.upik.de/</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="EcNo">
 		<xs:annotation>
 			<xs:documentation>
@@ -2011,7 +2019,7 @@ History until v4.2.0:
 	<!-- ******************************************************************* DoseEnum *************  -->
 	<xs:simpleType name="DoseEnum">
 		<xs:annotation>
-		<xs:documentation>
+			<xs:documentation>
 			The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated (GitHub issue #22) - use LCLo, LDLo, ERCLo instead.
 		</xs:documentation>
 		</xs:annotation>
@@ -2435,8 +2443,7 @@ History until v4.2.0:
 		<xs:restriction base="xs:string">
 			<!--<xs:enumeration value="SPERC1"/>
 			....
-			-->
-		</xs:restriction>
+			--> </xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* ArticleCategoryCodeEnum *************  -->
 	<xs:simpleType name="ArticleCategoryCodeEnum">
