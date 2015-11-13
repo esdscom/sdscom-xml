@@ -749,7 +749,7 @@ History until v4.2.0:
 													<xs:element name="PackingGroupAdrRidAdn" type="PackingGroupEnum" minOccurs="0"/>
 													<xs:element name="PackingGroupImdg" type="PackingGroupEnum" minOccurs="0"/>
 													<xs:element name="PackingGroupIcaoIata" type="PackingGroupEnum" minOccurs="0"/>
-													<xs:element name="PackingGroupComments" type="Phrase" minOccurs="0"/>
+													<xs:element name="PackingGroupComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
