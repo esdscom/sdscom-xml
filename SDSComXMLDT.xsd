@@ -2768,7 +2768,11 @@ History until v4.2.0:
 					<xs:element name="Unit" type="string32" minOccurs="0"/>
 				</xs:sequence>
 				<xs:attribute name="UnitId" type="UnitIdEnum"/>
-				<xs:attribute name="UnitSetId" type="xs:integer"/>
+				<xs:attribute name="UnitSetId" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>This is the Norwegian unit Id. Please see http://pib.no/Main.aspx?Gui/UnitSet#Top</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
