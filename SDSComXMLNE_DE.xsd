@@ -427,6 +427,32 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="CD02"/>
 			<xs:enumeration value="RMA15"/>
 			<xs:enumeration value="Ö60+"/>
+			<xs:enumeration value="BSW10"/>
+			<xs:enumeration value="BSW20"/>
+			<xs:enumeration value="BSW30"/>
+			<xs:enumeration value="BSW40"/>
+			<xs:enumeration value="BSW50"/>
+			<xs:enumeration value="BSW60"/>
+			<xs:enumeration value="BSL10"/>
+			<xs:enumeration value="BSL20"/>
+			<xs:enumeration value="BSL30"/>
+			<xs:enumeration value="BSL40"/>
+			<xs:enumeration value="BSL50"/>
+			<xs:enumeration value="BSL60"/>
+			<xs:enumeration value="HSW10"/>
+			<xs:enumeration value="HSW13"/>
+			<xs:enumeration value="HSW20"/>
+			<xs:enumeration value="HSW23"/>
+			<xs:enumeration value="HSW27"/>
+			<xs:enumeration value="HSW30"/>
+			<xs:enumeration value="HSW33"/>
+			<xs:enumeration value="HSW37"/>
+			<xs:enumeration value="HSW40"/>
+			<xs:enumeration value="HSW50"/>
+			<xs:enumeration value="HSL10"/>
+			<xs:enumeration value="HSL17"/>
+			<xs:enumeration value="HSL20"/>
+			<xs:enumeration value="HSL27"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
