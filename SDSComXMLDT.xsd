@@ -3354,6 +3354,20 @@ History until v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* PercentageValue *************  -->
+	<xs:simpleType name="ReasonForWaiving">
+		<xs:annotation>
+			<xs:documentation>For physical or chemical properties, reasons for waiving are:
+1. cannot be determined = technically impossible to obtain (pH value for solids, arguably)
+2. not applicable = irrelevant (because no hazard assessment requires such info)
+3. no data = unknown (not tested so far)
+Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="cannot be determined"/>
+			<xs:enumeration value="not applicable"/>
+			<xs:enumeration value="no data"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="PercentageValue">
 		<xs:annotation>
 			<xs:documentation>
@@ -3374,10 +3388,16 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="Value" minOccurs="0"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="Value" type="Value" minOccurs="0"/>
+					<xs:element name="Method" type="Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+				</xs:sequence>
+				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
+			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
@@ -3388,13 +3408,17 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="UnitValue" type="UnitValue" minOccurs="0"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="UnitValue" type="UnitValue" minOccurs="0"/>
+					<xs:element name="Method" type="Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+				</xs:sequence>
+				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
+			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="UnitId" type="string16"/>
-		<xs:attribute name="UnitSetId" type="xs:integer"/>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
 	<xs:complexType name="PhysChemValueWithTemperature">
@@ -3404,11 +3428,7 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemValue">
-				<xs:sequence>
-					<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
-				</xs:sequence>
-			</xs:extension>
+			<xs:extension base="PhysChemValue"> </xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValueWithTemperature ***********  -->
@@ -3419,12 +3439,7 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemUnitValue">
-				<xs:sequence>
-					<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
-					<!-- 4.0.2 minOccurs=0 added   -->
-				</xs:sequence>
-			</xs:extension>
+			<xs:extension base="PhysChemUnitValue"> </xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* TemperatureClassEnum ************************  -->
