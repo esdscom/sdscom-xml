@@ -3370,11 +3370,7 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 	</xs:simpleType>
 	<xs:complexType name="PercentageValue">
 		<xs:annotation>
-			<xs:documentation>
-				PercentageValue. The ExactValue should only be printed on the datasheet if both the LowerValue and UpperValue
-				are missing. The main purpose of the LowerValue-UpperValue range is for printing while an additional 
-				ExactValue can be used for calculations.
-			</xs:documentation>
+			<xs:documentation>Basically a UnitValue with a fixed unit "%"</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="Value"/>
@@ -3515,20 +3511,6 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  BurningNumber ***********  -->
-	<xs:complexType name="BurningNumber">
-		<xs:annotation>
-			<xs:documentation>
-				BurningNumber. Source: Chapter 9.		
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="Phrase" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- *******************************************************************  Species *************  -->
 	<xs:complexType name="Species">
 		<xs:annotation>
