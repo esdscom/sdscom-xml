@@ -2529,7 +2529,7 @@ History until v4.2.0:
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FullText" type="string1024" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="PhraseId"/>
