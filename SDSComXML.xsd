@@ -685,7 +685,16 @@ History until v4.2.0:
 															<xs:sequence>
 																<xs:element name="ProperShippingNameEnglishAdrRidAdn" type="Phrase" minOccurs="0"/>
 																<xs:element name="ProperShippingNameNationalAdrRidAdn" type="Phrase" minOccurs="0"/>
-																<xs:element name="DangerReleasingSubstanceAdrRidAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DangerReleasingSubstanceAdrRidAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNationalAdrRidAdn" type="Phrase">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -694,7 +703,11 @@ History until v4.2.0:
 															<xs:sequence>
 																<xs:element name="ProperShippingNameEnglishImdg" type="Phrase" minOccurs="0"/>
 																<!-- Updated from English only -->
-																<xs:element name="DangerReleasingSubstanceImdg" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DangerReleasingSubstanceImdg" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -702,7 +715,11 @@ History until v4.2.0:
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="ProperShippingNameEnglishIcao" type="Phrase" minOccurs="0"/>
-																<xs:element name="DangerReleasingSubstanceIcao" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DangerReleasingSubstanceIcao" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
