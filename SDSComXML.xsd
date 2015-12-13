@@ -322,8 +322,9 @@ History until v4.2.0:
 														<!-- 4.0.2 minOccurs and maxOccurs added. -->
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="RoleCode" type="RoleDescriptionEnum" minOccurs="1" maxOccurs="1"/>
+																<xs:element name="RoleCode" type="RoleDescriptionEnum" minOccurs="0" maxOccurs="1"/>
 																<!-- 4.0.2 minOccurs and maxOccurs set. -->
+																<xs:element minOccurs="0" name="ReachRole" type="ReachRoleDescriptionEnum"/>
 																<xs:element name="RoleDescription" type="Phrase" minOccurs="0"/>
 															</xs:sequence>
 														</xs:complexType>

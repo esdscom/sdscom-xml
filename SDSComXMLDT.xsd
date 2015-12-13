@@ -1240,7 +1240,7 @@ History until v4.2.0:
 	<xs:simpleType name="RoleDescriptionEnum">
 		<xs:annotation>
 			<xs:documentation>
-				The role values of a contact. Used in field Role.
+The role values of a contact. Used in field Role. Role definitions are compatible with Norwegian SDScom applications.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -3576,6 +3576,18 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 			<xs:enumeration value="I"/>
 			<xs:enumeration value="II"/>
 			<xs:enumeration value="III"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReachRoleDescriptionEnum">
+		<xs:annotation>
+			<xs:documentation>The role values of a contact as defined under REACH. Used in field Role. See issue #18.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Manufacturer"/>
+			<xs:enumeration value="Importer"/>
+			<xs:enumeration value="Only representative"/>
+			<xs:enumeration value="Distributor"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
