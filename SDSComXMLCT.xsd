@@ -485,7 +485,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="PhysicalState" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="StateUnderStandardConditions" type="StateUnderStandardConditionsEnum" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="StateUnderStandardConditions" type="StateUnderStandardConditionsEnum" minOccurs="0"/>
 						<xs:element name="Colour" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="Odour" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="OdourThreshold" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
