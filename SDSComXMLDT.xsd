@@ -2055,6 +2055,8 @@ History until v4.2.0:
 			<xs:enumeration value="ERC50"/>
 			<xs:enumeration value="ERClo"/>
 			<xs:enumeration value="ERCLo"/>
+			<xs:enumeration value="IC50"/>
+			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* EffectLevelGroupEnum *************  -->
