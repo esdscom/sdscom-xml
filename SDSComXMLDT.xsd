@@ -3343,6 +3343,8 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<!--g/l.s=9269144311-->
 			<!--mol/l.s=9269144312-->
 			<!--1/mol*s=9269144388-->
+			<xs:enumeration value="9269144148"/>
+			<xs:enumeration value="9269144149"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** Percentage********  -->
