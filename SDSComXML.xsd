@@ -433,6 +433,9 @@ History until v4.2.0:
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="VocLabelling" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>according to directive 2004/42/EC (amending 1999/13/EC)</xs:documentation>
+																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
 																			<xs:element name="ProductSubcategory" type="Phrase" minOccurs="0"/>
@@ -868,7 +871,11 @@ History until v4.2.0:
 																	<xs:complexType>
 																		<xs:sequence>
 																			<xs:element name="VocInPercentByWeight" type="PercentageValue" minOccurs="0"/>
-																			<xs:element name="VocValue" type="UnitValue" minOccurs="0"/>
+																			<xs:element name="VocValue" type="UnitValue" minOccurs="0">
+																				<xs:annotation>
+																					<xs:documentation>usually measured in g/L</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
 																			<xs:element name="VocRestrictionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 																		</xs:sequence>
 																	</xs:complexType>
