@@ -14,8 +14,8 @@
 <!-- * [When  ]		[What] 																	* -->
 <!-- ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
-	<xs:include schemaLocation="SDSComXmlCT4.2.0.xsd"/>
+	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<!-- *******************************************************************  Datasheet *************  -->
 	<xs:complexType name="NationalExtensionNO">
 		<xs:annotation>

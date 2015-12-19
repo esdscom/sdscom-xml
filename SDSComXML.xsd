@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Joachim Boenisch (eska Ingenieurgesellschaft mbH) -->
 <!-- *****************************************************************************
-Issue		: SDSComXML XSD 4.0   	
+Issue		: SDSComXML XSD 4.x   	
 Purpose	: Schema Definition to enable a xml-based      
  			  		distribution of Safety Data Sheets (SDS)		 
  			  		as specified in the Format. For detailed 			
  			  		information please refer to 									
- 			  		http://www.eSDSCom.eu									
-Version	:  4.2.0. Release Candidate																	
-Rev. date: 2015.05.21												
+ 			  		http://www.eSDScom.eu									
+Version	:  draft after v4.2.0																	
+
 History	:  
+Recent changes are documented on https://github.com/esdscom/sdscom-xml
+
+History until v4.2.0:
 																				
 2013.04.12 The file names and the corresponding includes has been updated from version "4.0" 
            to "4.0.2" to handle minor changes in the included files.	
@@ -50,65 +52,65 @@ History	:
 2015.05.21 SectorOfUse maxOccur changed to unbound
 					 ProductIdentity maxOccur changed to unbound
 					 ReachRegNo maxOccur changed to unbound
-					 Emergency Phone No string length has been changed from 40 to 255
-2015.06.18 SupplierPhone No string length has been changed from 40 to 255
-					 Fax string length has been changed from 40 to 255
+					 Emergency Phone No string length has been changed from 40 to 256
+2015.06.18 SupplierPhone No string length has been changed from 40 to 256
+					 Fax string length has been changed from 40 to 256
 					 ImdgEmsCode has been changed from phrase to string40 
-														
+
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
-	<xs:include schemaLocation="SDSComXmlCT4.2.0.xsd"/>
 	<!-- National extensions to the standard. Initially empty. -->
-	<xs:include schemaLocation="SDSComXmlNE_AD.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_AL.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_AM.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_AT.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_BA.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_BE.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_BG.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_BY.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_CH.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_CZ.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_DE.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_DK.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_EE.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_ES.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_FI.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_FR.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_GB.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_GE.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_GR.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_HR.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_HU.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_IE.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_IS.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_IT.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_KZ.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_LI.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_LT.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_LU.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_LV.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_MC.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_MD.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_ME.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_MK.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_MT.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_NL.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_NO.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_PL.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_PT.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_RO.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_RS.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_RU.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_SE.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_SI.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_SK.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_SM.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_TR.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_UA.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_UZ.xsd"/>
-	<xs:include schemaLocation="SDSComXmlNE_VA.xsd"/>
+	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_AD.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_AL.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_AM.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_AT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_BA.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_BE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_BG.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_BY.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_CH.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_CZ.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_DE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_DK.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_EE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_ES.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_FI.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_FR.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_GB.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_GE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_GR.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_HR.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_HU.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_IE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_IS.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_IT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_KZ.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_LI.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_LT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_LU.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_LV.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_MC.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_MD.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_ME.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_MK.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_MT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_NL.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_PL.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_PT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_RO.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_RS.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_RU.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_SE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_SI.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_SK.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_SM.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_TR.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_UA.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_UZ.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_VA.xsd"/>
 	<!-- *******************************************************************  DatasheetFeed *************  -->
 	<xs:element name="DatasheetFeed">
 		<xs:annotation>
@@ -320,8 +322,9 @@ History	:
 														<!-- 4.0.2 minOccurs and maxOccurs added. -->
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="RoleCode" type="RoleDescriptionEnum" minOccurs="1" maxOccurs="1"/>
+																<xs:element name="RoleCode" type="RoleDescriptionEnum" minOccurs="0" maxOccurs="1"/>
 																<!-- 4.0.2 minOccurs and maxOccurs set. -->
+																<xs:element minOccurs="0" name="ReachRole" type="ReachRoleDescriptionEnum"/>
 																<xs:element name="RoleDescription" type="Phrase" minOccurs="0"/>
 															</xs:sequence>
 														</xs:complexType>
@@ -366,6 +369,7 @@ History	:
 														</xs:complexType>
 													</xs:element>
 													<xs:element name="LegalRegistrationNo" type="string24" minOccurs="0"/>
+													<xs:element minOccurs="0" name="Duns" type="DunsNo"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -398,8 +402,10 @@ History	:
 																<xs:element name="ClpSignalWord" type="SignalWord" minOccurs="0" maxOccurs="1"/>
 																<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="0" maxOccurs="unbounded"/>
 																<xs:element name="ClpPrecautionaryStatement" type="PrecautionaryStatement" minOccurs="0" maxOccurs="unbounded"/>
-																<xs:element name="ClpSupplementalHazardInformation" type="SupplementalHazardInformation" minOccurs="0" maxOccurs="unbounded"/>
-																<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SpecialSupplementalLabelInfo" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ClpSupplementalHazardInformation" type="SupplementalHazardInformation" minOccurs="0"
+																	maxOccurs="unbounded"/>
+																<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SpecialSupplementalLabelInfo" minOccurs="0"
+																	maxOccurs="unbounded"/>
 																<xs:element name="ClpAdditionalLabellingInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 																<xs:element name="ClpSpecialRulesOnPackaging" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 															</xs:sequence>
@@ -679,7 +685,16 @@ History	:
 															<xs:sequence>
 																<xs:element name="ProperShippingNameEnglishAdrRidAdn" type="Phrase" minOccurs="0"/>
 																<xs:element name="ProperShippingNameNationalAdrRidAdn" type="Phrase" minOccurs="0"/>
-																<xs:element name="DangerReleasingSubstanceAdrRidAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DangerReleasingSubstanceAdrRidAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNationalAdrRidAdn" type="Phrase">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -688,7 +703,11 @@ History	:
 															<xs:sequence>
 																<xs:element name="ProperShippingNameEnglishImdg" type="Phrase" minOccurs="0"/>
 																<!-- Updated from English only -->
-																<xs:element name="DangerReleasingSubstanceImdg" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DangerReleasingSubstanceImdg" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -696,7 +715,11 @@ History	:
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="ProperShippingNameEnglishIcao" type="Phrase" minOccurs="0"/>
-																<xs:element name="DangerReleasingSubstanceIcao" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="DangerReleasingSubstanceIcao" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -744,7 +767,7 @@ History	:
 													<xs:element name="PackingGroupAdrRidAdn" type="PackingGroupEnum" minOccurs="0"/>
 													<xs:element name="PackingGroupImdg" type="PackingGroupEnum" minOccurs="0"/>
 													<xs:element name="PackingGroupIcaoIata" type="PackingGroupEnum" minOccurs="0"/>
-													<xs:element name="PackingGroupComments" type="Phrase" minOccurs="0"/>
+													<xs:element name="PackingGroupComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -854,7 +877,8 @@ History	:
 																	<xs:complexType>
 																		<xs:sequence>
 																			<xs:element name="FluorinatedGreenhouseGasesMethod" type="Phrase" minOccurs="0"/>
-																			<xs:element name="FluorinatedGreenhouseGasesComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																			<xs:element name="FluorinatedGreenhouseGasesComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"
+																			/>
 																		</xs:sequence>
 																	</xs:complexType>
 																</xs:element>
@@ -902,7 +926,8 @@ History	:
 													<xs:element name="NationalLegislationMonaco" type="NationalExtensionMC" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationRepublicOfMoldova" type="NationalExtensionMD" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationMontenegro" type="NationalExtensionME" minOccurs="0" maxOccurs="1"/>
-													<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="NationalExtensionMK" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="NationalExtensionMK" minOccurs="0"
+														maxOccurs="1"/>
 													<xs:element name="NationalLegislationMalta" type="NationalExtensionMT" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationNetherlands" type="NationalExtensionNL" minOccurs="0" maxOccurs="1"/>
 													<xs:element name="NationalLegislationNorway" type="NationalExtensionNO" minOccurs="0" maxOccurs="1"/>

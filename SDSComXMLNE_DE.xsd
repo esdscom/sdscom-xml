@@ -7,15 +7,17 @@ Purpose	: German Extension Schema Definition
  			  		as specified in the Format. For detailed 								
  			  		information please refer to 
  			  		http://www.eSDSCom.eu										
-Version	:  1.0.3.
-Rev. date: 2015.06.18												
+Version	:  1.0.4.
+Rev. date: 2015.08.28												
 History	:  
-2015.06.18 added to WaterHazardClassEnum new Enum "awg" allgemein wasser gefährdent
+2015.06.18 added to WaterHazardClassEnum new Enum "awg" = allgemein wassergefährdend
+2015.08.28 Revision of the GisCodeEnum (removed the duplicate items)
+Further changes according to GitHub change log at https://github.com/esdscom/sdscom-xml
 														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
-	<xs:include schemaLocation="SDSComXmlCT4.2.0.xsd"/>
+	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<!-- *******************************************************************  Datasheet *************  -->
 	<xs:complexType name="NationalExtensionDE">
 		<xs:annotation>
@@ -108,8 +110,7 @@ History	:
 	<!-- ************************************************************** StorageClassEnum ******  -->
 	<xs:simpleType name="StorageClassEnum">
 		<xs:annotation>
-			<xs:documentation>
-				Enumaration of the german storage class
+			<xs:documentation>Enumaration of the german storage class according to TRGS 510. Note that LGK 10-13 must be specified as separate storage classes, i.e. in four occurences of an element of type StorageClassEnum.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -119,7 +120,7 @@ History	:
 			<xs:enumeration value="LGK 3"/>
 			<xs:enumeration value="LGK 4.1A"/>
 			<xs:enumeration value="LGK 4.1B"/>
-			<xs:enumeration value="LGK 4.2A"/>
+			<xs:enumeration value="LGK 4.2"/>
 			<xs:enumeration value="LGK 4.3"/>
 			<xs:enumeration value="LGK 5.1A"/>
 			<xs:enumeration value="LGK 5.1B"/>
@@ -248,16 +249,14 @@ History	:
 			<xs:enumeration value="M-AB40"/>
 			<xs:enumeration value="M-AL10"/>
 			<xs:enumeration value="M-AL20"/>
-			<xs:enumeration value="RE0"/>
-			<xs:enumeration value="RE1"/>
-			<xs:enumeration value="RE2"/>
-			<xs:enumeration value="RE2.5"/>
-			<xs:enumeration value="RE3"/>
 			<xs:enumeration value="PU10"/>
 			<xs:enumeration value="PU20"/>
 			<xs:enumeration value="PU30"/>
 			<xs:enumeration value="PU40"/>
 			<xs:enumeration value="PU50"/>
+			<xs:enumeration value="PU60"/>
+			<xs:enumeration value="PU70"/>
+			<xs:enumeration value="PU80"/>
 			<xs:enumeration value="HSM-LB 10"/>
 			<xs:enumeration value="HSM-LB 15"/>
 			<xs:enumeration value="HSM-LB 20"/>
@@ -289,31 +288,6 @@ History	:
 			<xs:enumeration value="BS60"/>
 			<xs:enumeration value="ESI10"/>
 			<xs:enumeration value="ESI20"/>
-			<xs:enumeration value="RE0"/>
-			<xs:enumeration value="RE1"/>
-			<xs:enumeration value="RE2"/>
-			<xs:enumeration value="RE2.5"/>
-			<xs:enumeration value="RE3"/>
-			<xs:enumeration value="RE4"/>
-			<xs:enumeration value="RE5"/>
-			<xs:enumeration value="RE6"/>
-			<xs:enumeration value="RE7"/>
-			<xs:enumeration value="RE8"/>
-			<xs:enumeration value="RE9"/>
-			<xs:enumeration value="PU10"/>
-			<xs:enumeration value="PU20"/>
-			<xs:enumeration value="PU30"/>
-			<xs:enumeration value="PU40"/>
-			<xs:enumeration value="PU50"/>
-			<xs:enumeration value="PU60"/>
-			<xs:enumeration value="BBP20"/>
-			<xs:enumeration value="BBP30"/>
-			<xs:enumeration value="BBP40"/>
-			<xs:enumeration value="BBP50"/>
-			<xs:enumeration value="BBP60"/>
-			<xs:enumeration value="BBP70"/>
-			<xs:enumeration value="RMA10"/>
-			<xs:enumeration value="RMA20"/>
 			<xs:enumeration value="W1"/>
 			<xs:enumeration value="W2+"/>
 			<xs:enumeration value="W2"/>
@@ -346,14 +320,6 @@ History	:
 			<xs:enumeration value="Ö80"/>
 			<xs:enumeration value="Ö90"/>
 			<xs:enumeration value="Ö100"/>
-			<xs:enumeration value="PU10"/>
-			<xs:enumeration value="PU20"/>
-			<xs:enumeration value="PU30"/>
-			<xs:enumeration value="PU40"/>
-			<xs:enumeration value="PU50"/>
-			<xs:enumeration value="PU60"/>
-			<xs:enumeration value="PU70"/>
-			<xs:enumeration value="PU80"/>
 			<xs:enumeration value="GD10"/>
 			<xs:enumeration value="GD15"/>
 			<xs:enumeration value="GD20"/>
@@ -431,25 +397,6 @@ History	:
 			<xs:enumeration value="SB-STY10"/>
 			<xs:enumeration value="SB-STY20"/>
 			<xs:enumeration value="SB-STY30"/>
-			<xs:enumeration value="RE0"/>
-			<xs:enumeration value="RE1"/>
-			<xs:enumeration value="RE2"/>
-			<xs:enumeration value="RE2.5"/>
-			<xs:enumeration value="RE3"/>
-			<xs:enumeration value="RE4"/>
-			<xs:enumeration value="RE5"/>
-			<xs:enumeration value="RE6"/>
-			<xs:enumeration value="RE7"/>
-			<xs:enumeration value="RE8"/>
-			<xs:enumeration value="RE9"/>
-			<xs:enumeration value="PU10"/>
-			<xs:enumeration value="PU20"/>
-			<xs:enumeration value="PU30"/>
-			<xs:enumeration value="PU40"/>
-			<xs:enumeration value="PU50"/>
-			<xs:enumeration value="PU60"/>
-			<xs:enumeration value="PU70"/>
-			<xs:enumeration value="PU80"/>
 			<xs:enumeration value="RMA10"/>
 			<xs:enumeration value="RMA20"/>
 			<xs:enumeration value="D1"/>
@@ -467,11 +414,6 @@ History	:
 			<xs:enumeration value="S5"/>
 			<xs:enumeration value="S6"/>
 			<xs:enumeration value="RS10"/>
-			<xs:enumeration value="RE0"/>
-			<xs:enumeration value="RE1"/>
-			<xs:enumeration value="RE2"/>
-			<xs:enumeration value="RE2.5"/>
-			<xs:enumeration value="RE3"/>
 			<xs:enumeration value="RU0,5"/>
 			<xs:enumeration value="RU1"/>
 			<xs:enumeration value="RU2"/>
@@ -480,317 +422,37 @@ History	:
 			<xs:enumeration value="CP1"/>
 			<xs:enumeration value="ZP1"/>
 			<xs:enumeration value="ZP2"/>
-			<xs:enumeration value="ZP1"/>
-			<xs:enumeration value="ZP2"/>
-			<!--Betontrennmittel, nicht gekennzeichnet - 013270-09-->
-			<!--Betontrennmittel, kennzeichnungsfrei, entaromatisiert - 013276-09-->
-			<!--Betontrennmittel, dünnflüssig - 013271-09-->
-			<!--Betontrennmittel, entaromatisiert - 013272-09-->
-			<!--Betontrennmittel, aromatenarm - 013273-09-->
-			<!--Betontrennmittel, entzündlich, entaromatisiert - 013274-09-->
-			<!--Betontrennmittel, entzündlich, aromatenarm - 013275-09-->
-			<!--Betontrennmittel, leichtentzündlich - 013277-09-->
-			<!--Betonnachbehandlungsmittel, lösemittelfrei - 013860-09-->
-			<!--Betonzusatzmittel, kennzeichnungsfrei - 013819-09-->
-			<!--Betonzusatzmittel, reizend - 013809-09-->
-			<!--Betonzusatzmittel, ätzend - 013808-09-->
-			<!--Bitumenemulsionen - 018210-09-->
-			<!--Bitumenmassen, aromatenarm, lösemittelhaltig - 018219-09-->
-			<!--Bitumenmassen, aromatenarm, lösemittelreich - 018217-09-->
-			<!--Bitumenmassen, aromatenarm, gesundheitsschädlich, lösemittelhaltig - 018215-09-->
-			<!--Bitumenmassen, aromatenarm, gesundheitsschädlich, lösemittelreich - 018214-09-->
-			<!--Bitumenmassen, aromatenreich, gesundheitsschädlich, lösemittelhaltig - 018218-09-->
-			<!--Bitumenmassen, aromatenreich, gesundheitsschädlich, lösemittelreich - 018216-09-->
-			<!--Epoxidharzdispersionen - 013328-09-->
-			<!--Epoxidharzprodukte, lösemittelfrei, sensibilisierend - 013304-09-->
-			<!--Epoxidharzprodukte, lösemittelarm, sensibilisierend - 013318-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig - 013330-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig, sensibilisierend - 013305-09-->
-			<!--Epoxidharzprodukte, giftige Einzelkomponente, lösemittelarm, sensibilisierend - 013332-09-->
-			<!--Epoxidharzprodukte, giftige Einzelkomponente, lösemittelhaltig, sensibilisierend - 013331-09-->
-			<!--Epoxidharzprodukte, giftig, lösemittelarm, sensibilisierend - 013325-09-->
-			<!--Epoxidharzprodukte, giftig, lösemittelhaltig, sensibilisierend - 013319-09-->
-			<!--Epoxidharzprodukte, krebserzeugend, lösemittelarm, sensibilisierend - 013327-09-->
-			<!--Epoxidharzprodukte, krebserzeugend, lösemittelhaltig, sensibilisierend - 013320-09-->
-			<!--Bläuewidrige Anstrichmittel, lösemittelverdünnbar, aromatenarm - 051424-09-->
-			<!--Bläuewidrige Anstrichmittel, wasserverdünnbar - 051427-09-->
-			<!--Dispersionsfarben, lösemittelfrei - 051315-09-->
-			<!--Dispersionsfarben - 051316-09-->
-			<!--Naturharzfarben, lösemittelfrei - 051314-09-->
-			<!--Naturharzfarben - 051313-09-->
-			<!--Grundanstrichstoffe, farblos, wasserverdünnbar - 051317-09-->
-			<!--Grundanstrichstoffe, farblos, lösemittelverdünnbar, entaromatisiert - 051414-09-->
-			<!--Grundanstrichstoffe, farblos, lösemittelverdünnbar, aromatenarm - 051417-09-->
-			<!--Grundanstrichstoffe, farblos, lösemittelverdünnbar, aromatenreich - 051418-09-->
-			<!--Grundanstrichstoffe, farblos, lösemittelverdünnbar - 051419-09-->
-			<!--Grundanstrichstoffe, pigmentiert, wasserverdünnbar - 051416-09-->
-			<!--Grundanstrichstoffe, pigmentiert, lösemittelverdünnbar, entaromatisiert - 051413-09-->
-			<!--Grundanstrichstoffe, pigmentiert, lösemittelverdünnbar, aromatenarm - 051411-09-->
-			<!--Grundanstrichstoffe, pigmentiert, lösemittelverdünnbar, aromatenreich - 051412-09-->
-			<!--Grundanstrichstoffe, pigmentiert, lösemittelverdünnbar - 051415-09-->
-			<!--Klarlacke/Holzlasuren, wasserverdünnbar - 051423-09-->
-			<!--Klarlacke/Holzlasuren, lösemittelverdünnbar, entaromatisiert - 051425-09-->
-			<!--Klarlacke/Holzlasuren, lösemittelverdünnbar, aromatenarm - 051421-09-->
-			<!--Klarlacke/Holzlasuren, lösemittelverdünnbar, aromatenreich - 051422-09-->
-			<!--Klarlacke/Holzlasuren, lösemittelverdünnbar - 051426-09-->
-			<!--Alkydharzlackfarben, entaromatisiert - 051212-09-->
-			<!--Alkydharzlackfarben, aromatenarm - 051213-09-->
-			<!--Alkydharzlackfarben, aromatenreich - 051214-09-->
-			<!--Ölfarben, terpenhaltig - 051211-09-->
-			<!--Ölfarben, terpenfrei - 051209-09-->
-			<!--Dispersionslackfarben - 051301-09-->
-			<!--Polymerisatharzfarben, entaromatisiert - 051350-09-->
-			<!--Polymerisatharzfarben, aromatenarm - 051351-09-->
-			<!--Polymerisatharzfarben, aromatenreich - 051352-09-->
-			<!--Polymerisatharzfarben, lösemittelverdünnbar - 051353-09-->
-			<!--Siliconharzfarben, wasserverdünnbar - 051308-09-->
-			<!--1K-Silikatfarben - 051306-09-->
-			<!--2K-Silikatfarben - 051307-09-->
-			<!--Verdünnungsmittel, entaromatisiert - 052510-09-->
-			<!--Verdünnungsmittel, aromatenarm - 052511-09-->
-			<!--Verdünnungsmittel, aromatenreich - 052512-09-->
-			<!--Spezialverdünnungsmittel - 052513-09-->
-			<!--Verdünnungsmittel, terpenhaltig - 052514-09-->
-			<!--Abbeizer, lösemittelhaltig, dichlormethanfrei - 050357-09-->
-			<!--Abbeizer, lösemittelhaltig, hautresorptiv, dichlormethanfrei - 050350-09-->
-			<!--Abbeizer, dichlormethanhaltig, methanolfrei - 050344-09-->
-			<!--Abbeizer, dichlormethanhaltig, methanolhaltig - 050343-09-->
-			<!--Ablauger, reizend - 050347-09-->
-			<!--Ablauger, ätzend - 050341-09-->
-			<!--Epoxidharzdispersionen - 013328-09-->
-			<!--Epoxidharzprodukte, lösemittelfrei, sensibilisierend - 013304-09-->
-			<!--Epoxidharzprodukte, lösemittelarm, sensibilisierend - 013318-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig - 013330-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig, sensibilisierend - 013305-09-->
-			<!--PU-Systeme, lösemittelfrei - 051640-09-->
-			<!--PU-Systeme, lösemittelhaltig - 051641-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich - 051642-09-->
-			<!--PU-Systeme, lösemittelfrei, gesundheitsschädlich, sensibilisierend - 051643-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich, sensibilisierend - 051644-09-->
-			<!--Holzschutzmittel, bekämpfend, wässrig/wasserverdünnbar, Borverbindungen - 047072-09-->
-			<!--Holzschutzmittel, bekämpfend, wässrig/wasserverdünnbar, Quats - 047061-09-->
-			<!--Holzschutzmittel, bekämpfend, wässrig/wasserverdünnbar - 047058-09-->
-			<!--Holzschutzmittel, bekämpfend, lösemittelhaltig, entaromatisiert - 047055-09-->
-			<!--Holzschutzmittel, bekämpfend, lösemittelhaltig, aromatenarm - 047056-09-->
-			<!--Holzschutzmittel, bekämpfend, lösemittelhaltig, aromatenreich - 047057-09-->
-			<!--Holzschutzmittel, vorbeugend, wässrig/ wasserverdünnbar - 047059-09-->
-			<!--Holzschutzmittel, vorbeugend, wässrig/wasserverdünnbar, reizend - 047062-09-->
-			<!--Holzschutzmittel, vorbeugend, lösemittelhaltig, entaromatisiert - 047051-09-->
-			<!--Holzschutzmittel, vorbeugend, lösemittelhaltig, aromatenarm - 047052-09-->
-			<!--Holzschutzmittel, vorbeugend, lösemittelhaltig, aromatenreich - 047053-09-->
-			<!--Holzschutzmittel, vorbeugend, Borverbindungen - 047011-09-->
-			<!--Holzschutzmittel, vorbeugend, Silikofluoride - 047004-09-->
-			<!--Holzschutzmittel, vorbeugend, Hydrogenfluoride - 047005-09-->
-			<!--Holzschutzmittel, vorbeugend, Kupfer-, Bor- und Kupfer-HDO-Verbindungen - 047014-09-->
-			<!--Holzschutzmittel, vorbeugend, Kupfer-,  Bor- und Triazolverbindungen - 047017-09-->
-			<!--Holzschutzmittel, vorbeugend, Bor- und Quaternäre Ammoniumverbindungen - 047016-09-->
-			<!--Holzschutzmittel, vorbeugend, Quaternäre Ammoniumverbindungen - 047009-09-->
-			<!--Holzschutzmittel, vorbeugend, Kupfer- und Quaternäre Ammoniumverbindungen - 047001-09-->
-			<!--Holzschutzmittel, vorbeugend, Chrom- und Kupferverbindungen - 047015-09-->
-			<!--Holzschutzmittel, vorbeugend, Chrom-, Kupfer- und Borverbindungen - 047008-09-->
-			<!--Holzschutzmittel, vorbeugend, Chrom-, Fluor- und Borverbindungen - 047013-09-->
-			<!--Holzschutzmittel, vorbeugend, Chrom-, Kupfer- und Fluorverbindungen - 047012-09-->
-			<!--Wasserverdünnbare Korrosionsschutz-Beschichtungsstoffe, Lösemittelgehalt < = 5 % - 050980-09-->
-			<!--Wasserverdünnbare Korrosionsschutz-Beschichtungsstoffe, Lösemittelgehalt < = 10 % - 050981-09-->
-			<!--Wasserverdünnbare Korrosionsschutz-Beschichtungsstoffe, Lösemittelgehalt < = 20 % - 050982-09-->
-			<!--Korrosionsschutz-Beschichtungsstoffe, entaromatisierte Lösemittel - 050983-09-->
-			<!--Korrosionsschutz-Beschichtungsstoffe, aromatenhaltige Lösemittel - 050984-09-->
-			<!--Korrosionsschutz-Beschichtungsstoffe, aromatenhaltige Lösemittel, gesundheitsschädlich - 050985-09-->
-			<!--Grundbeschichtungsstoffe auf Basis Ethylsilikat, entzündlich - 050970-09-->
-			<!--Grundbeschichtungsstoffe auf Basis Ethylsilikat, leichtentzündlich - 050971-09-->
-			<!--Epoxidharzdispersionen - 013328-09-->
-			<!--Epoxidharzprodukte, lösemittelfrei, sensibilisierend - 013304-09-->
-			<!--Epoxidharzprodukte, lösemittelarm, sensibilisierend - 013318-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig - 013330-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig, sensibilisierend - 013305-09-->
-			<!--Epoxidharzprodukte, giftige Einzelkomponente, lösemittelarm, sensibilisierend - 013332-09-->
-			<!--Epoxidharzprodukte, giftige Einzelkomponente, lösemittelhaltig, sensibilisierend - 013331-09-->
-			<!--Epoxidharzprodukte, giftig, lösemittelarm, sensibilisierend - 013325-09-->
-			<!--Epoxidharzprodukte, giftig, lösemittelhaltig, sensibilisierend - 013319-09-->
-			<!--Epoxidharzprodukte, krebserzeugend, lösemittelarm, sensibilisierend - 013327-09-->
-			<!--Epoxidharzprodukte, krebserzeugend, lösemittelhaltig, sensibilisierend - 013320-09-->
-			<!--PU-Systeme, lösemittelfrei - 051640-09-->
-			<!--PU-Systeme, lösemittelhaltig - 051641-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich - 051642-09-->
-			<!--PU-Systeme, lösemittelfrei, gesundheitsschädlich, sensibilisierend - 051643-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich, sensibilisierend - 051644-09-->
-			<!--PU-Systeme, Reaktionskomponente auf Aminbasis, gesundheitsschädlich, sensibilisierend - 051645-09-->
-			<!--Bitumenmassen, aromatenarm, lösemittelhaltig - 018219-09-->
-			<!--Bitumenmassen, aromatenarm, lösemittelreich - 018217-09-->
-			<!--Bitumenmassen, aromatenarm, gesundheitsschädlich, lösemittelhaltig - 018215-09-->
-			<!--Bitumenmassen, aromatenarm, gesundheitsschädlich, lösemittelreich - 018214-09-->
-			<!--Bitumenmassen, aromatenreich, gesundheitsschädlich, lösemittelhaltig - 018218-09-->
-			<!--Bitumenmassen, aromatenreich, gesundheitsschädlich, lösemittelreich - 018216-09-->
-			<!--Beschichtungen, methylmethacrylathaltig, reizend - 013321-09-->
-			<!--Beschichtungen, methylmethacrylathaltig, gesundheitsschädlich - 013333-09-->
-			<!--Wasserverdünnbare Oberflächenbehandlungsmittel, lösemittelfrei - 051441-09-->
-			<!--Wasserverdünnbare Oberflächenbehandlungsmittel, Lösemittelgehalt bis 5%, N-Methylpyrrolidonfrei - 051444-09-->
-			<!--Wasserverdünnbare Oberflächenbehandlungsmittel, Lösemittelgehalt bis 5% - 051442-09-->
-			<!--Wasserverdünnbare Oberflächenbehandlungsmittel, Lösemittelg. bis 15%, N-Methylpyrrolidonfrei - 051448-09-->
-			<!--Wasserverdünnbare Oberflächenbehandlungsmittel, Lösemittelgehalt bis 15% - 051443-09-->
-			<!--Lösemittelfreie, wasserverdünnbare Oberflächenbehandlungsmittel mit isocyanathaltigem Härter - 051447-09-->
-			<!--Wassersiegel mit isocyanathaltigem Härter, Lösemittelg. bis 5%, N-Methylpyrrolidonfrei - 051446-09-->
-			<!--Wassersiegel mit isocyanathaltigem Härter, Lösemittelgehalt bis 15%, N-Methylpyrrolidonfrei - 051449-09-->
-			<!--Wasserverdünnbare Oberflächenbehandlungsmittel mit isocyanathaltigem Härter, Lösemittelg. bis 15% - 051445-09-->
-			<!--Stark lösemittelhaltige Grundsiegel und Holzkitte, entaromatisiert und niedrigsiederfrei - 051451-09-->
-			<!--Stark lösemittelhaltige Grundsiegel und Holzkitte, entaromatisiert und niedrigsiederhaltig - 051452-09-->
-			<!--Stark lösemittelhaltige Grundsiegel und Holzkitte, aromaten- und niedrigsiederhaltig - 051453-09-->
-			<!--Stark lösemittelhaltige Ölkunstharzsiegel, entaromatisiert - 051457-09-->
-			<!--Stark lösemittelhaltige Ölkunstharzsiegel, aromatenhaltig - 051455-09-->
-			<!--Stark lösemittelhaltige Polyurethan-Siegel, entaromatisiert - 051465-09-->
-			<!--Stark lösemittelhaltige Polyurethan-Siegel, aromatenhaltig - 051466-09-->
-			<!--Stark lösemittelhaltige Säurehärtende Siegel - 051461-09-->
-			<!--Lösemittelfreie Öle/Wachse, butanonoximfrei - 051513-09-->
-			<!--Öle/Wachse, lösemittelfrei - 051501-09-->
-			<!--Lösemittelfreie Öle mit isocyanathaltigem Härter, butanonoximfrei - 051512-09-->
-			<!--Lösemittelarme Öle/Wachse, entaromatisiert, butanonoximfrei - 051514-09-->
-			<!--Öle/Wachse, lösemittelarm, entaromatisiert - 051502-09-->
-			<!--Öle/Wachse, lösemittelarm, aromatenhaltig - 051503-09-->
-			<!--Lösemittelhaltige Öle/Wachse, entaromatisiert, butanonoximfrei - 051515-09-->
-			<!--Öle/Wachse, lösemittelhaltig, entaromatisiert - 051504-09-->
-			<!--Lösemittelhaltige Öle/Wachse, entaromatisiert, butanonoximfrei, mit isocyanathaltigem Härter - 051516-09-->
-			<!--Öle/Wachse, lösemittelhaltig, aromatenhaltig - 051505-09-->
-			<!--Öle/Wachse, stark lösemittelhaltig, entaromatisiert - 051506-09-->
-			<!--Öle/Wachse, stark lösemittelhaltig, aromatenhaltig - 051507-09-->
-			<!--Öle/Wachse, lösemittelarm, terpentinhaltig - 051508-09-->
-			<!--Öle/Wachse, lösemittelhaltig, terpentinhaltig - 051509-09-->
-			<!--Öle/Wachse, stark lösemittelhaltig, terpentinhaltig - 051510-09-->
-			<!--PU-Systeme, lösemittelfrei - 051640-09-->
-			<!--PU-Systeme, lösemittelhaltig - 051641-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich - 051642-09-->
-			<!--PU-Systeme, lösemittelfrei, gesundheitsschädlich, sensibilisierend - 051643-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich, sensibilisierend - 051644-09-->
-			<!--PU-Systeme, Reaktionskomponente auf Aminbasis, gesundheitsschädlich, sensibilisierend - 051645-09-->
-			<!--PU-Montageschäume - 051646-09-->
-			<!--PU-Montageschäume, hochentzündlich - 051647-09-->
-			<!--Desinfektionsreiniger, Basis Sauerstoffabspalter - 056825-09-->
-			<!--Desinfektionsreiniger, Basis Amphotenside/Amine, nicht gekennzeichnet - 056865-09-->
-			<!--Desinfektionsreiniger, Basis quartäre Ammoniumverbindungen, nicht gekennzeichnet - 056822-09-->
-			<!--Desinfektionsreiniger, Basis Amphotenside/Amine, reizend - 056866-09-->
-			<!--Desinfektionsreiniger, Basis quartäre Ammoniumverbindungen, reizend - 056824-09-->
-			<!--Desinfektionsreiniger, Basis Amphotenside/Amine, ätzend - 056867-09-->
-			<!--Desinfektionsreiniger, Basis quartäre Ammoniumverbindungen, ätzend - 056812-09-->
-			<!--Desinfektionsreiniger, Basis Aldehyde (ohne Formaldehyd) und quartäre Ammoniumverbindungen - 056820-09-->
-			<!--Desinfektionsreiniger, Basis Aldehyde (ohne Formaldehyd) - 056809-09-->
-			<!--Desinfektionsreiniger, Basis Aldehyde (mit Glyoxal, ohne Formaldehyd)/quartäre Ammoniumverbindungen - 056868-09-->
-			<!--Desinfektionsreiniger, Basis Phenole - 056821-09-->
-			<!--Desinfektionsreiniger, Basis Aldehyde (mit Formaldehyd) und quartäre Ammoniumverbindungen - 056813-09-->
-			<!--Desinfektionsreiniger, Basis Aldehyde (mit Formaldehyd) - 056811-09-->
-			<!--Desinfektionsreiniger, sonstige - 056872-09-->
-			<!--Emulsionen/Dispersionen - 056861-09-->
-			<!--Emulsionen/Dispersionen, lösemittelhaltig (5-15%) - 056862-09-->
-			<!--Emulsionen/Dispersionen, lösemittelhaltig (5-15%), mit H-Stoffen - 056863-09-->
-			<!--Emulsionen/Dispersionen, sonstige - 056864-09-->
-			<!--Fassadenreiniger, sauer - 056884-09-->
-			<!--Fassadenreiniger, alkalisch - 056885-09-->
-			<!--Fassadenreiniger, flußsäure-/fluoridhaltig - 056881-09-->
-			<!--Fassadenreiniger, sonstige - 056883-09-->
-			<!--Grundreiniger, lösemittelfrei, nicht gekennzeichnet - 056801-09-->
-			<!--Grundreiniger, lösemittelhaltig ohne H-Stoffe, nicht gekennzeichnet - 056803-09-->
-			<!--Grundreiniger, lösemittelhaltig mit H-Stoffen, nicht gekennzeichnet - 056802-09-->
-			<!--Grundreiniger, reizend, lösemittelfrei - 056855-09-->
-			<!--Grundreiniger, reizend, lösemittelhaltig ohne H-Stoffe - 056805-09-->
-			<!--Grundreiniger, reizend, lösemittelhaltig mit H-Stoffen - 056804-09-->
-			<!--Grundreiniger, ätzend, lösemittelfrei - 056854-09-->
-			<!--Grundreiniger, ätzend, lösemittelhaltig ohne H-Stoffe - 056807-09-->
-			<!--Grundreiniger, ätzend, lösemittelhaltig mit H-Stoffen - 056806-09-->
-			<!--Grundreiniger, sonstige - 056808-09-->
-			<!--Glasreiniger, lösemittelhaltig - 056858-09-->
-			<!--Glasreiniger, lösemittelhaltig mit H-Stoffen - 056857-09-->
-			<!--Glasreiniger, sonstige - 056859-09-->
-			<!--Holz- und Steinpflegemittel, entaromatisiert - 056895-09-->
-			<!--Holz- und Steinpflegemittel, aromatenarm - 056896-09-->
-			<!--Holz- und Steinpflegemittel, aromatenreich - 056898-09-->
-			<!--Steinkristallisatoren, Basis Hexafluorosilikate - 056894-09-->
-			<!--Holz- und Steinpflegemittel, sonstige - 056897-09-->
-			<!--Rohrreiniger, stark alkalisch, Basis Natronlauge - 056826-09-->
-			<!--Rohrreiniger, stark alkalisch, Basis Natronlauge und Aluminiumpulver - 056828-09-->
-			<!--Rohrreiniger, sonstige - 056810-09-->
-			<!--Sanitärreiniger, pH > 2, nicht kennzeichnungspflichtig - 056815-09-->
-			<!--Sanitärreiniger, pH < 2, nicht kennzeichnungspflichtig - 056814-09-->
-			<!--Sanitärreiniger, Basis Amidosulfonsäure, reizend - 056848-09-->
-			<!--Sanitärreiniger, Basis Essigsäure - 056836-09-->
-			<!--Sanitärreiniger, Basis Salzsäure, nicht kennzeichnungspflichtig - 056846-09-->
-			<!--Sanitärreiniger, reizend - 056816-09-->
-			<!--Sanitärreiniger, Basis Ameisensäure - 056837-09-->
-			<!--Sanitärreiniger, Basis Salzsäure, reizend - 056847-09-->
-			<!--Sanitärreiniger, ätzend - 056817-09-->
-			<!--Sanitärreiniger, Basis Hypochlorit - 056839-09-->
-			<!--Sanitärreiniger, sonstige - 056819-09-->
-			<!--Teppichreiniger, tensidhaltig - 056870-09-->
-			<!--Teppichreiniger, sonstige - 056871-09-->
-			<!--Scheuermittel - 056940-09-->
-			<!--Spülmittel - 056942-09-->
-			<!--Spülmittel, reizend - 056893-09-->
-			<!--Unterhaltsreiniger, lösemittelfrei - 056890-09-->
-			<!--Unterhaltsreiniger, lösemittelhaltig ohne H-Stoffe - 056892-09-->
-			<!--Unterhaltsreiniger, entzündlich, lösemittelhaltig ohne H-Stoffe - 056946-09-->
-			<!--Unterhaltsreiniger, lösemittelhaltig mit H-Stoffen - 056891-09-->
-			<!--Unterhaltsreiniger, reizend, lösemittelfrei - 056887-09-->
-			<!--Unterhaltsreiniger, reizend, lösemittelhaltig ohne H-Stoffe - 056888-09-->
-			<!--Unterhaltsreiniger, reizend, entzündlich, lösemittelhaltig ohne H-Stoffe - 056947-09-->
-			<!--Unterhaltsreiniger, reizend, lösemittelhaltig mit H-Stoffen - 056889-09-->
-			<!--Unterhaltsreiniger, sonstige - 056852-09-->
-			<!--Furanharz-Produkte, gesundheitsschädlich, sensibilisierend - 051554-09-->
-			<!--Furanharz-Produkte, gesundheitsschädlich, sensibilisierend, ätzende Einzelkomponente - 051555-09-->
-			<!--Furanharz-Produkte, giftig, sensibilisierend - 051556-09-->
-			<!--Furanharz-Produkte, giftig, sensibilisierend, ätzende Einzelkomponente - 051557-09-->
-			<!--Phenolharz-Produkte, giftig, sensibilisierend - 051578-09-->
-			<!--Phenolharz-Produkte, giftig, sensibilisierend, ätzende Einzelkomponente - 051579-09-->
-			<!--Styrolhaltige Reaktionsharze, gesundheitsschädlich - 051551-09-->
-			<!--Styrolhaltige Reaktionsharze, gesundheitsschädlich, sensibilisierend - 051552-09-->
-			<!--Styrolhaltige Reaktionsharze, gesundheitsschädlich, sensibilisierend, krebsverd. Einzelkomponente - 051553-09-->
-			<!--Epoxidharzdispersionen - 013328-09-->
-			<!--Epoxidharzprodukte, lösemittelfrei, sensibilisierend - 013304-09-->
-			<!--Epoxidharzprodukte, lösemittelarm, sensibilisierend - 013318-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig - 013330-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig, sensibilisierend - 013305-09-->
-			<!--Epoxidharzprodukte, giftige Einzelkomponente, lösemittelarm, sensibilisierend - 013332-09-->
-			<!--Epoxidharzprodukte, giftige Einzelkomponente, lösemittelhaltig, sensibilisierend - 013331-09-->
-			<!--Epoxidharzprodukte, giftig, lösemittelarm, sensibilisierend - 013325-09-->
-			<!--Epoxidharzprodukte, giftig, lösemittelhaltig, sensibilisierend - 013319-09-->
-			<!--Epoxidharzprodukte, krebserzeugend, lösemittelarm, sensibilisierend - 013327-09-->
-			<!--Epoxidharzprodukte, krebserzeugend, lösemittelhaltig, sensibilisierend - 013320-09-->
-			<!--PU-Systeme, lösemittelfrei - 051640-09-->
-			<!--PU-Systeme, lösemittelhaltig - 051641-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich - 051642-09-->
-			<!--PU-Systeme, lösemittelfrei, gesundheitsschädlich, sensibilisierend - 051643-09-->
-			<!--PU-Systeme, lösemittelhaltig, gesundheitsschädlich, sensibilisierend - 051644-09-->
-			<!--PU-Systeme, Reaktionskomponente auf Aminbasis, gesundheitsschädlich, sensibilisierend - 051645-09-->
-			<!--PU-Montageschäume - 051646-09-->
-			<!--PU-Montageschäume, hochentzündlich - 051647-09-->
-			<!--Beschichtungen, methylmethacrylathaltig, reizend - 013321-09-->
-			<!--Beschichtungen, methylmethacrylathaltig, gesundheitsschädlich - 013333-09-->
-			<!--Lösemittelfreie Dispersions-Verlegewerkstoffe - 052910-09-->
-			<!--Lösemittelarme Dispersions-Verlegewerkstoffe, aromatenfrei - 052920-09-->
-			<!--Lösemittelarme Dispersions-Verlegewerkstoffe, toluolfrei - 052921-09-->
-			<!--Lösemittelarme Dispersions-Verlegewerkstoffe, toluolhaltig - 052922-09-->
-			<!--Lösemittelhaltige Dispersions-Verlegewerkstoffe, aromatenfrei - 052930-09-->
-			<!--Lösemittelhaltige Dispersions-Verlegewerkstoffe, toluolfrei - 052931-09-->
-			<!--Lösemittelhaltige Dispersions-Verlegewerkstoffe, toluolhaltig - 052932-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, lösemittelkontrolliert - 052956-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, aromaten- und methanolfrei - 052950-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, toluol- und methanolfrei - 052951-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, aromatenfrei - 052952-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, methanolfrei - 052953-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, toluolfrei und methanolhaltig - 052954-09-->
-			<!--Stark lösemittelhaltige Verlegewerkstoffe, toluolhaltig - 052955-09-->
-			<!--Verlegewerkstoffe, methoxysilanhaltig - 052974-09-->
-			<!--Epoxidharzdispersionen - 013328-09-->
-			<!--Epoxidharzprodukte, lösemittelfrei, sensibilisierend - 013304-09-->
-			<!--Epoxidharzprodukte, lösemittelarm, sensibilisierend - 013318-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig - 013330-09-->
-			<!--Epoxidharzprodukte, lösemittelhaltig, sensibilisierend - 013305-09-->
-			<!--Kennzeichnungsfreie, lösemittelfreie Polyurethan-Verlegewerkstoffe - 052977-09-->
-			<!--Lösemittelfreie Polyurethan-Verlegewerkstoffe - 052970-09-->
-			<!--Lösemittelarme Polyurethan-Verlegewerkstoffe - 052971-09-->
-			<!--Lösemittelhaltige Polyurethan-Verlegewerkstoffe - 052972-09-->
-			<!--Stark lösemittelhaltige Polyurethan-Verlegewerkstoffe - 052973-09-->
-			<!--Spachtelmassen auf Calciumsulfatbasis - 052908-09-->
-			<!--Zementhaltige Produkte, chromatarm - 012207-09-->
-			<!--Zementhaltige Produkte, nicht chromatarm - 012208-09-->
-			<!--Zementhaltige Produkte, chromatarm - 012207-09-->
-			<!--Zementhaltige Produkte, nicht chromatarm - 012208-09-->
+			<xs:enumeration value="-"/>
+			<xs:enumeration value="CD01"/>
+			<xs:enumeration value="CD02"/>
+			<xs:enumeration value="RMA15"/>
+			<xs:enumeration value="Ö60+"/>
+			<xs:enumeration value="BSW10"/>
+			<xs:enumeration value="BSW20"/>
+			<xs:enumeration value="BSW30"/>
+			<xs:enumeration value="BSW40"/>
+			<xs:enumeration value="BSW50"/>
+			<xs:enumeration value="BSW60"/>
+			<xs:enumeration value="BSL10"/>
+			<xs:enumeration value="BSL20"/>
+			<xs:enumeration value="BSL30"/>
+			<xs:enumeration value="BSL40"/>
+			<xs:enumeration value="BSL50"/>
+			<xs:enumeration value="BSL60"/>
+			<xs:enumeration value="HSW10"/>
+			<xs:enumeration value="HSW13"/>
+			<xs:enumeration value="HSW20"/>
+			<xs:enumeration value="HSW23"/>
+			<xs:enumeration value="HSW27"/>
+			<xs:enumeration value="HSW30"/>
+			<xs:enumeration value="HSW33"/>
+			<xs:enumeration value="HSW37"/>
+			<xs:enumeration value="HSW40"/>
+			<xs:enumeration value="HSW50"/>
+			<xs:enumeration value="HSL10"/>
+			<xs:enumeration value="HSL17"/>
+			<xs:enumeration value="HSL20"/>
+			<xs:enumeration value="HSL27"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

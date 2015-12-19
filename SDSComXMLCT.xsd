@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ***************************************************************************** 
-Issue		: SDSComXML XSD 4.0.
+Issue		: SDSComXML XSD 4.x
 Purpose	: Complex Types Schema Definition      					
 		  		to enable a xml-based		 									
 		  		distribution of Safety Data Sheets (SDS)		 		
 		  		as specified in the Format. For detailed 				 
 		  		information please refer to 									
 		  		http://www.eSDSCom.eu									
-Revison	: 	4.2.0. Release Candidate                            									
-Rev. date: 	2015.05.21													    
-History	: 
- 																					
+Version	:  draft after v4.2.0																	
+History	:  
+Recent changes are documented on https://github.com/esdscom/sdscom-xml
+History until v4.2.0: 																					
+
 2013.04.12 Normally, either a pure substance or a mixture is specified in the composition type. But 
 pure substances with stabilizers or impurities, might use both. The stabilizers and impurities can 
 be specified as components under the mixture with the IsIpurity og IsStabilizers flags set. An XSD
@@ -63,9 +64,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="SDSComXmlDT4.2.0.xsd"/>
-	<!-- ******************************************************************* SDSComXmlDT4.2.0.xsd *********  -->
-	<!-- Complex data types for chemical safety datasheets. To be included in the SDSComXml4.2.0.xsd validation -->
+	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<!-- ******************************************************************* SDSComXMLDT.xsd *********  -->
+	<!-- Complex data types for chemical safety datasheets. To be included in the SDSComXML.xsd validation -->
 	<!-- ******************************************************************* SectorOfUse *************  -->
 	<xs:complexType name="SectorOfUse">
 		<xs:annotation>
@@ -484,7 +485,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="PhysicalState" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="StateUnderStandardConditions" type="StateUnderStandardConditionsEnum" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="StateUnderStandardConditions" type="StateUnderStandardConditionsEnum" minOccurs="0"/>
 						<xs:element name="Colour" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="Odour" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="OdourThreshold" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
