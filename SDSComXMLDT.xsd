@@ -284,6 +284,7 @@ History until v4.2.0:
 			<xs:enumeration value="4.0.2"/>
 			<xs:enumeration value="4.0.3"/>
 			<xs:enumeration value="4.2.0"/>
+			<xs:enumeration value="4.2.1"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
