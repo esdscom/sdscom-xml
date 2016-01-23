@@ -644,7 +644,24 @@ History until v4.2.0:
 							<xs:element name="DisposalConsiderations" minOccurs="1" maxOccurs="1">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="WasteTreatmentMethods" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:choice minOccurs="0">
+											<xs:annotation>
+												<xs:documentation/>
+											</xs:annotation>
+											<xs:element minOccurs="0" name="WasteTreatment">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductWaste" type="Phrase"/>
+														<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingWaste" type="Phrase"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="WasteTreatmentMethods" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>This element is deprecated and provided for backwards compatibility only. Use WasteTreatment instead.</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:choice>
 										<xs:element name="EuRequirements" minOccurs="0" maxOccurs="1">
 											<xs:complexType>
 												<xs:sequence>
