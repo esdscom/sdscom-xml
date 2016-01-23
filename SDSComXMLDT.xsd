@@ -2619,8 +2619,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 	<!-- ************************************************************* HazardStatement ***************************  -->
 	<xs:complexType name="HazardStatement">
 		<xs:annotation>
-			<xs:documentation>
-				CLP Hazard Statement
+			<xs:documentation>CLP Hazard Statement. Systems can export PhraseCode only, without FullText or other phrase references - this is useful if data tranfer of only SDS parts takes place without any use of phrases.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>

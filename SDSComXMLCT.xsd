@@ -405,15 +405,56 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:sequence>
 									<xs:element name="SkinHandProtectionShortTermContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="SkinHandProtectionLongTermContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableGlovesType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SuitableGlovesType" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="UnsuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="HandProtectionNecessaryProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="GloveBreakthroughTime" type="UnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ThicknessOfGloveMaterial" type="UnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="WearDurationAtOccationalContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="WearDurationAtPermanentContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HandProtectionEquipment" type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GloveBreakthroughTime" type="UnitValue" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ThicknessOfGloveMaterial" type="UnitValue" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="WearDurationAtOccationalContact" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="WearDurationAtPermanentContact" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="HandProtectionEquipment" type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Equipment">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element minOccurs="0" name="SuitableGlovesType" type="Phrase"/>
+												<xs:element minOccurs="0" name="SuitableMaterial" type="Phrase"/>
+												<xs:element minOccurs="0" name="GloveBreakthroughTime" type="UnitValue"/>
+												<xs:element minOccurs="0" name="ThicknessOfGloveMaterial" type="UnitValue"/>
+												<xs:element minOccurs="0" name="MaxWearDurationOccasionalContact" type="UnitValue"/>
+												<xs:element minOccurs="0" name="MaxWearDurationPermanentContact" type="UnitValue"/>
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="Article" type="ProtectionArticle"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
 									<xs:element name="AdditionalHandProtectionMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="HandProtectionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
