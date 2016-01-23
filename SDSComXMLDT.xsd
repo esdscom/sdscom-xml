@@ -284,6 +284,8 @@ History until v4.2.0:
 			<xs:enumeration value="4.0.2"/>
 			<xs:enumeration value="4.0.3"/>
 			<xs:enumeration value="4.2.0"/>
+			<xs:enumeration value="4.2.1"/>
+			<xs:enumeration value="4.2.2"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
@@ -1860,8 +1862,8 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="SkinIrritation"/>
 			<xs:enumeration value="EyeDamage"/>
 			<xs:enumeration value="Aspiration"/>
-			<xs:enumeration value="Other "/>
-			<xs:enumeration value="Unreported "/>
+			<xs:enumeration value="Other"/>
+			<xs:enumeration value="Unreported"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** HazardClassCategoryEnum ******  -->
