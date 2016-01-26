@@ -1296,7 +1296,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="ClpHazardClassCategory" type="HazardClassCategoryEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="1" maxOccurs="2"/>
+									<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="0" maxOccurs="2">
+										<xs:annotation>
+											<xs:documentation>Zero instances for classes "Expl. 1.6", "Org. Perox. G" and "Self-react. G". One instance usually. Two instances for Aerosols category 1 and 2.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<!-- 4.0.2 update from maxOccur 1 to 2 according to CLP ATP 4 -->
 									<xs:element name="ClpClassificationProcedure" type="Phrase" minOccurs="0" maxOccurs="1"/>
 									<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1">
