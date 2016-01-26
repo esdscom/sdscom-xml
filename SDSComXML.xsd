@@ -763,7 +763,11 @@ History until v4.2.0:
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="ClassImdg" type="Phrase" minOccurs="0"/>
-																<xs:element name="ClassCodeImdg" type="Phrase" minOccurs="0"/>
+																<xs:element name="ClassCodeImdg" type="Phrase" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>deprecated</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 																<xs:element name="SubsidiaryRiskImdg" type="Phrase" minOccurs="0" maxOccurs="2"/>
 															</xs:sequence>
 														</xs:complexType>
@@ -772,7 +776,11 @@ History until v4.2.0:
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="ClassIcaoIata" type="Phrase" minOccurs="0"/>
-																<xs:element name="ClassCodeIcaoIata" type="Phrase" minOccurs="0"/>
+																<xs:element name="ClassCodeIcaoIata" type="Phrase" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>deprecated</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 																<xs:element name="SubsidiaryRiskIcaoIata" type="Phrase" minOccurs="0" maxOccurs="2"/>
 															</xs:sequence>
 														</xs:complexType>
