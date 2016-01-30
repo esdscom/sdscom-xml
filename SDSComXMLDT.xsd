@@ -228,45 +228,8 @@ History until v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ********************************************************************** float8 ***********  -->
-	<xs:simpleType name="float8">
-		<xs:annotation>
-			<xs:documentation>
-				A float value with precision, that is pH 7.0 differs from pH 7.00 which is a more precise 
-				specification. Exponential values like "-1.235E5" are allowed. Max 8 characters allowed. 
-				Strings with no digits at all should not be allowed.
-		</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="8"/>
-			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ********************************************************************** float11 ***********  -->
-	<xs:simpleType name="float11">
-		<xs:annotation>
-			<xs:documentation>
-				A float value with precision, that is pH 7.0 differs from pH 7.00 which is	a more precise
-				specification. Exponential values like "-1.235E5" are allowed. Max 11 characters allowed.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="11"/>
-			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ********************************************************************** float16 ***********  -->
-	<xs:simpleType name="float16">
-		<xs:annotation>
-			<xs:documentation>
-				A float value with precision, that is pH 7.0 differs from pH 7.00 which is	a more precise
-				specification. Exponential values like "-1.235E5" are allowed. Max 16 chracters allowed.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="16"/>
-			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
@@ -2746,13 +2709,13 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 		<xs:choice>
 			<xs:sequence>
 				<xs:element name="ExactValueSymbol" type="SymbolEnum" minOccurs="0"/>
-				<xs:element name="ExactValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ExactValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:sequence>
 				<xs:element name="UpperValueSymbol" type="SymbolEnum" minOccurs="0"/>
-				<xs:element name="UpperValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="UpperValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="LowerValueSymbol" type="SymbolEnum" minOccurs="0"/>
-				<xs:element name="LowerValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="LowerValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
