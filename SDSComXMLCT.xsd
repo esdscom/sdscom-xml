@@ -134,21 +134,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="XmlFileName" type="string256" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* Mixture *************  -->
-	<xs:complexType name="Mixture">
-		<xs:annotation>
-			<xs:documentation>
-					Mixture
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Component" type="Component" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="DescriptionOfTheMixture" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="CompositionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="IsDetergent" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-			<!-- 4.0.2 Added missing MinOccurs and MaxOccurs -->
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ******************************************************************* Substance *************  -->
 	<xs:complexType name="Substance">
 		<xs:annotation>
@@ -177,24 +162,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Stabilizer" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ChemicalProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- ******************************************************************* Composition *************  -->
-	<xs:complexType name="Composition">
-		<xs:annotation>
-			<xs:documentation>
-					Composition. Normally, either a pure substance or a mixture is specified below. But pure
-					substances with stabilizers or impurities, might use both. The stabilizers and impurities
-					can be specified as componenets under the mixture with the IsIpurity og IsStabilizers flags
-					set. This option was introduced in revison 4.0.2.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:choice>
-				<xs:element name="Substance" type="Substance" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="Mixture" type="Mixture" minOccurs="0" maxOccurs="1"/>
-			</xs:choice>
-			<xs:element name="CompositionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Component *************  -->
@@ -1907,5 +1874,112 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Pressure" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MaximumStoragePeriod" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************* Ecotoxicity *************  -->
+	<xs:complexType name="Ecotoxicity">
+		<xs:annotation>
+			<xs:documentation>
+				Ecotoxicity. Source: Chapter 12.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  GasGroup *********************************  -->
+	<xs:complexType name="GasGroup">
+		<xs:annotation>
+			<xs:documentation>
+				GasGroup. Source: Chapter 9.		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="GasGroupEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  Species *************  -->
+	<xs:complexType name="Species">
+		<xs:annotation>
+			<xs:documentation>
+				Species used in tests
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Value" type="Phrase"/>
+			<xs:element name="Gender" type="Phrase" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  TemperatureClass **************************  -->
+	<xs:complexType name="TemperatureClass">
+		<xs:annotation>
+			<xs:documentation>
+				TemperatureClass 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="TemperatureClassEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
+	<xs:complexType name="PhysicalHazardsGeneralInformation">
+		<xs:annotation>
+			<xs:documentation>
+				PhysicalHazardsGeneralInformation. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JustificationForDataWaiving" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Assessment" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Classification" type="Phrase" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ****************************************************************************** PhraseCatalogue *****  -->
+	<xs:complexType name="PhraseCatalogue">
+		<xs:annotation>
+			<xs:documentation>
+				Catalogue of standard phrases used in the datasheet. Used in chapter 0 and referred in for example exposure scenarios. 
+				PhraseCatalogues and PhraseIds simplifies translation to other languages. Example: EUPhraC catalogue.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCatalogueName" type="string256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase catalogue Name, eg. EuPhraC</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueIssuer" type="string256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase catalogue issuer, eg. EuPhraC-Workinggroup </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueVersion" type="string64" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The version no of the phrase catalog the information is based on</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>The version timestamp of the phrase catalogue the information is based on</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 </xs:schema>

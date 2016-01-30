@@ -227,9 +227,6 @@ History until v4.2.0:
 			<xs:pattern value="[0-9]{1,20}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ********************************************************************** float8 ***********  -->
-	<!-- ********************************************************************** float11 ***********  -->
-	<!-- ********************************************************************** float16 ***********  -->
 	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
@@ -2117,48 +2114,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<!-- (FI) -->
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* Ecotoxicity *************  -->
-	<xs:complexType name="Ecotoxicity">
-		<xs:annotation>
-			<xs:documentation>
-        Ecotoxicity. Source: Chapter 12.
-      </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- Replaced by the EffectLevelTypeEnum
-	******************************************************************* DNELTypeEnum *************  
-	<xs:simpleType name="DNELTypeEnum">
-		<xs:annotation>
-			<xs:documentation>
-				The legal codes for the DNELTypeEnum. Source: Chapter 8.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="DNEL short-term oral (acute)"/>
-			<xs:enumeration value="DNEL long-term oral (repeated)"/>
-			<xs:enumeration value="DNEL long-term dermal (systemic)"/>
-			<xs:enumeration value="DNEL long-term dermal (local)"/>
-			<xs:enumeration value="DNEL acute dermal, short-term (systemic)"/>
-			<xs:enumeration value="DNEL acute dermal, short-term (local)"/>
-			<xs:enumeration value="DNEL long-term inhalation (local)"/>
-			<xs:enumeration value="DNEL acute inhalation (systemic)"/>
-			<xs:enumeration value="DNEL acute inhalation (local)"/>
-			<xs:enumeration value="DNEL long-term inhalation (systemic)"/>
-		</xs:restriction>
-	</xs:simpleType>
-	-->
 	<!-- ******************************************************************* EffectLevelTypeEnum *************  -->
 	<xs:simpleType name="EffectLevelTypeEnum">
 		<xs:annotation>
@@ -2442,38 +2397,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="AC0"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ****************************************************************************** PhraseCatalogue *****  -->
-	<xs:complexType name="PhraseCatalogue">
-		<xs:annotation>
-			<xs:documentation>
-				Catalogue of standard phrases used in the datasheet. Used in chapter 0 and referred in for example exposure scenarios. 
-				PhraseCatalogues and PhraseIds simplifies translation to other languages. Example: EUPhraC catalogue.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="PhraseCatalogueName" type="string256" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Phrase catalogue Name, eg. EuPhraC</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PhraseCatalogueIssuer" type="string256" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Phrase catalogue issuer, eg. EuPhraC-Workinggroup </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PhraseCatalogueVersion" type="string64" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The version no of the phrase catalog the information is based on</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PhraseCatalogueDate" type="xs:date">
-				<xs:annotation>
-					<xs:documentation>The version timestamp of the phrase catalogue the information is based on</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
-	</xs:complexType>
 	<!-- ******************************************************************** PhraseId ********  -->
 	<xs:simpleType name="PhraseId">
 		<xs:annotation>
@@ -3419,34 +3342,6 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 			<xs:enumeration value="T 6"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- *******************************************************************  TemperatureClass **************************  -->
-	<xs:complexType name="TemperatureClass">
-		<xs:annotation>
-			<xs:documentation>
-				TemperatureClass 
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="TemperatureClassEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
-	<xs:complexType name="PhysicalHazardsGeneralInformation">
-		<xs:annotation>
-			<xs:documentation>
-				PhysicalHazardsGeneralInformation. Source: Chapter 9.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="JustificationForDataWaiving" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Assessment" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Classification" type="Phrase" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ******************************************************************* GasGroupEnum ******************************  -->
 	<xs:simpleType name="GasGroupEnum">
 		<xs:annotation>
@@ -3460,34 +3355,6 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 			<xs:enumeration value="IIC"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- *******************************************************************  GasGroup *********************************  -->
-	<xs:complexType name="GasGroup">
-		<xs:annotation>
-			<xs:documentation>
-				GasGroup. Source: Chapter 9.		
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="GasGroupEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- *******************************************************************  BurningNumber ***********  -->
-	<!-- *******************************************************************  Species *************  -->
-	<xs:complexType name="Species">
-		<xs:annotation>
-			<xs:documentation>
-				Species used in tests
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Value" type="Phrase"/>
-			<xs:element name="Gender" type="Phrase" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ********************************************************************  WasteCode ***************  -->
 	<xs:simpleType name="WasteCode">
 		<xs:annotation>

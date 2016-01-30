@@ -469,7 +469,40 @@ History until v4.2.0:
 								</xs:complexType>
 							</xs:element>
 							<!-- *******************************************************************  CHAPTER 3 (Composition/information on ingredients) ***********************************************************  -->
-							<xs:element name="Composition" type="Composition" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="Composition" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:annotation>
+										<xs:documentation>
+											Composition. Normally, either a pure substance or a mixture is specified below. But pure
+											substances with stabilizers or impurities, might use both. The stabilizers and impurities
+											can be specified as componenets under the mixture with the IsIpurity og IsStabilizers flags
+											set. This option was introduced in revison 4.0.2.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:sequence>
+										<xs:choice>
+											<xs:element name="Substance" type="Substance" minOccurs="0" maxOccurs="1"/>
+											<xs:element name="Mixture" minOccurs="0" maxOccurs="1">
+												<xs:complexType>
+													<xs:annotation>
+														<xs:documentation>
+															Mixture
+														</xs:documentation>
+													</xs:annotation>
+													<xs:sequence>
+														<xs:element name="Component" type="Component" minOccurs="1" maxOccurs="unbounded"/>
+														<xs:element name="DescriptionOfTheMixture" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+														<xs:element name="CompositionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+														<xs:element name="IsDetergent" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+														<!-- 4.0.2 Added missing MinOccurs and MaxOccurs -->
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:choice>
+										<xs:element name="CompositionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<!-- *******************************************************************  CHAPTER 4 (First aid measures) **********************************************************************************  -->
 							<xs:element name="FirstAidMeasures" minOccurs="1" maxOccurs="1">
 								<xs:complexType>
