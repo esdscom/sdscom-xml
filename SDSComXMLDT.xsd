@@ -1716,6 +1716,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="305+351+338"/>
 			<xs:enumeration value="306+360"/>
 			<xs:enumeration value="307+311"/>
+			<xs:enumeration value="308+311"/>
 			<xs:enumeration value="308+313"/>
 			<xs:enumeration value="309+311"/>
 			<xs:enumeration value="332+313"/>
@@ -1736,19 +1737,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="410+403"/>
 			<xs:enumeration value="410+412"/>
 			<xs:enumeration value="411+235"/>
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- New in Ver 4.0.2 -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- New in Ver 4.0.2 -->
-			<!-- New in Ver 4.0.2 -->
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** SupplementalHazardInformationEnum ******  -->
