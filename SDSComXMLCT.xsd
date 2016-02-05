@@ -1537,18 +1537,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<!-- ******************************************************************** Solubilities ************** -->
 	<xs:complexType name="Solubilities">
 		<xs:annotation>
-			<xs:documentation>
-        Solubilities. Source: Chapter 9.
+			<xs:documentation>Describes the solutibities in one medium, optionally at various temperatures (section 9).
       </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SolubilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Solubility" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>should be 0..1 only (unbounded is deprecated / on the lsit for refactoring).</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Medium" type="SolubilityMediumEnum" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="OtherMediumDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
