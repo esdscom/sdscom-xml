@@ -144,7 +144,7 @@ History until v4.2.0:
 											</xs:complexType>
 										</xs:element>
 										<!-- 4.0.3 New element XMLStandardSubset -->
-										<xs:element name="RegulationsRelatedToCountryOrRegion" minOccurs="1" maxOccurs="1">
+										<xs:element name="RegulationsRelatedToCountryOrRegion" minOccurs="1" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element name="RegulationsRelatedToCountryOrRegionCode" type="CountryCodeEnum" minOccurs="1" maxOccurs="1"/>
