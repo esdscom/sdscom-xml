@@ -1550,7 +1550,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:sequence>
 						<xs:element name="Medium" type="SolubilityMediumEnum" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="OtherMediumDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>If the product has a low solubility or is insoluble in the specified medium, and if there is no numerical translation of this circumstance, put the respective phrase in Comments. (see issue #71)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
