@@ -427,6 +427,12 @@ History until v4.2.0:
 												</xs:sequence>
 												</xs:complexType>
 												</xs:element>
+												<xs:element minOccurs="0" name="Country"
+												type="CountryCodeEnum">
+												<xs:annotation>
+												<xs:documentation>This country informaion applies to all addresses and contacts and LegalRegistrationNumber within SupplierInformation.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												<xs:element name="Name" type="string256"
 												minOccurs="1" maxOccurs="1"/>
 												<!-- 4.0.2 minOccurs and maxOccurs set. -->
@@ -446,7 +452,11 @@ History until v4.2.0:
 												<xs:element name="VisitingAddressCity"
 												type="string80" minOccurs="0"/>
 												<xs:element name="VisitingCountry" type="string64"
-												minOccurs="0"/>
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>deprecated. Use SupplierInformation/country instead (which should be mandatory)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												<xs:element name="PostAddressLine1"
 												type="string256" minOccurs="0"/>
 												<xs:element name="PostAddressLine2"
@@ -458,7 +468,11 @@ History until v4.2.0:
 												<xs:element name="PostCity" type="string80"
 												minOccurs="0"/>
 												<xs:element name="PostCountry" type="string64"
-												minOccurs="0"/>
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>deprecated. Use SupplierInformation/country instead (which should be mandatory)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 												</xs:complexType>
 												</xs:element>
