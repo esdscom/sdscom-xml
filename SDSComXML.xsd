@@ -240,6 +240,10 @@ History until v4.2.0:
 											</xs:complexType>
 										</xs:element>
 										<xs:element name="ProductIdentity" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>When importing, make sure that SDScom documents are not automatically replaced if the product identity is the same! GTINs are not necessarily unique (they should, but aren't in practice!), and product identities may refer to kits with multiple products and SDSs.
+Unique IDs that allow automatic overriding of data require a bilateral agreement between customer and supplier and should be placed in ProductNo.</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
 												<xs:element name="TradeName" type="string512"/>
@@ -248,7 +252,11 @@ History until v4.2.0:
 												<xs:element name="ProductGtin" type="ProductGtin"
 												minOccurs="0" maxOccurs="unbounded"/>
 												<xs:element name="ProductDefinition" type="Phrase"
-												minOccurs="0"/>
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>This is the place to describe kits. If the data describes a product P which is part of kit K, create two instances of ProductIdentity: One for P, and one for K with an entry in ProductDefinition that describes "This Product is a kit. The data describes one part of the kit."</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
