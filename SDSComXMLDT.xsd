@@ -1969,8 +1969,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 	<!-- ******************************************************************* DoseEnum *************  -->
 	<xs:simpleType name="DoseEnum">
 		<xs:annotation>
-			<xs:documentation>
-			The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated (GitHub issue #22) - use LCLo, LDLo, ERCLo instead.
+			<xs:documentation>The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated (GitHub issue #22) - use LCLo, LDLo, ERCLo instead. ATEmix tested is deprecated as it does not exist - use ATEmix instead. ATEmix calculated is redundant as it is always calculated - use ATEmix instead (see GitHub issue #57). 
 		</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -1999,6 +1998,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="EC50 (+ UVA)"/>
 			<xs:enumeration value="EC50 (- UVA)"/>
 			<xs:enumeration value="EC80"/>
+			<xs:enumeration value="ATEmix"/>
 			<xs:enumeration value="ATEmix tested"/>
 			<xs:enumeration value="ATEmix calculated"/>
 			<xs:enumeration value="cATpE"/>
