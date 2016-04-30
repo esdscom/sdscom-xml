@@ -1570,7 +1570,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="OtherEcotoxInfoAlgaePlant" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
 						<xs:element name="OtherEcotoxInfoCrustaceans" type="Phrase" minOccurs="0"
-							maxOccurs="unbounded"/>
+							maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Add information here if the species is unknown, e.g. listed as "Aquatic invertebrates".</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element name="OtherEcotoxInfoImpactOnSewageTreatment" type="Phrase"
 							minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="EcotoxicologyOtherData" type="Phrase" minOccurs="0"
