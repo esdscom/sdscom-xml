@@ -1309,6 +1309,9 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:element name="Detergents" type="Phrase"
 												minOccurs="0" maxOccurs="unbounded"/>
 												<xs:element name="Voc" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Directive 2004/42/EC amending 1999/13/EC</xs:documentation>
+												</xs:annotation>
 												<xs:complexType>
 												<xs:sequence>
 												<xs:element name="VocInPercentByWeight"
@@ -1322,6 +1325,26 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:element name="VocRestrictionComments"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded"
 												/>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
+												<xs:element minOccurs="0"
+												name="IndustrialEmissions">
+												<xs:annotation>
+												<xs:documentation>Directive 2010/75/EU</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="VocInPercentByWeight"
+												type="PercentageValue" minOccurs="0"/>
+												<xs:element name="VocValue" type="UnitValue"
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>usually measured in g/L</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element minOccurs="0" name="OtherInformation"
+												type="Phrase"/>
 												</xs:sequence>
 												</xs:complexType>
 												</xs:element>
