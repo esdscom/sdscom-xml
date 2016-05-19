@@ -235,17 +235,10 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="1.0"/>
-			<xs:enumeration value="2.0"/>
-			<xs:enumeration value="3.0"/>
-			<xs:enumeration value="3.5"/>
-			<xs:enumeration value="4.0"/>
-			<xs:enumeration value="4.0.1"/>
-			<xs:enumeration value="4.0.2"/>
-			<xs:enumeration value="4.0.3"/>
 			<xs:enumeration value="4.2.0"/>
 			<xs:enumeration value="4.2.1"/>
 			<xs:enumeration value="4.2.2"/>
+			<xs:enumeration value="4.2.3"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
