@@ -453,6 +453,36 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="HSL17"/>
 			<xs:enumeration value="HSL20"/>
 			<xs:enumeration value="HSL27"/>
+			<xs:enumeration value="BTM 5"/>
+			<xs:enumeration value="BZM10"/>
+			<xs:enumeration value="BZM20"/>
+			<xs:enumeration value="BZM30"/>
+			<xs:enumeration value="BZM40"/>
+			<xs:enumeration value="BZM50"/>
+			<xs:enumeration value="GD13"/>
+			<xs:enumeration value="GD33"/>
+			<xs:enumeration value="GD45"/>
+			<xs:enumeration value="GD55"/>
+			<xs:enumeration value="GF10"/>
+			<xs:enumeration value="GF20"/>
+			<xs:enumeration value="GF30"/>
+			<xs:enumeration value="GF40"/>
+			<xs:enumeration value="GG43"/>
+			<xs:enumeration value="GG53"/>
+			<xs:enumeration value="GG63"/>
+			<xs:enumeration value="GGL05"/>
+			<xs:enumeration value="GS15"/>
+			<xs:enumeration value="GS18"/>
+			<xs:enumeration value="GS35"/>
+			<xs:enumeration value="GS38"/>
+			<xs:enumeration value="GS45"/>
+			<xs:enumeration value="GS48"/>
+			<xs:enumeration value="GS85"/>
+			<xs:enumeration value="GT20"/>
+			<xs:enumeration value="GU73"/>
+			<xs:enumeration value="GU83"/>
+			<xs:enumeration value="GU88"/>
+			<xs:enumeration value="GU93"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

@@ -227,46 +227,6 @@ History until v4.2.0:
 			<xs:pattern value="[0-9]{1,20}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ********************************************************************** float8 ***********  -->
-	<xs:simpleType name="float8">
-		<xs:annotation>
-			<xs:documentation>
-				A float value with precision, that is pH 7.0 differs from pH 7.00 which is a more precise 
-				specification. Exponential values like "-1.235E5" are allowed. Max 8 characters allowed. 
-				Strings with no digits at all should not be allowed.
-		</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="8"/>
-			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<!-- ********************************************************************** float11 ***********  -->
-	<xs:simpleType name="float11">
-		<xs:annotation>
-			<xs:documentation>
-				A float value with precision, that is pH 7.0 differs from pH 7.00 which is	a more precise
-				specification. Exponential values like "-1.235E5" are allowed. Max 11 characters allowed.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="11"/>
-			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<!-- ********************************************************************** float16 ***********  -->
-	<xs:simpleType name="float16">
-		<xs:annotation>
-			<xs:documentation>
-				A float value with precision, that is pH 7.0 differs from pH 7.00 which is	a more precise
-				specification. Exponential values like "-1.235E5" are allowed. Max 16 chracters allowed.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="16"/>
-			<xs:pattern value="[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
@@ -285,6 +245,7 @@ History until v4.2.0:
 			<xs:enumeration value="4.0.3"/>
 			<xs:enumeration value="4.2.0"/>
 			<xs:enumeration value="4.2.1"/>
+			<xs:enumeration value="4.2.2"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
@@ -1755,6 +1716,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="305+351+338"/>
 			<xs:enumeration value="306+360"/>
 			<xs:enumeration value="307+311"/>
+			<xs:enumeration value="308+311"/>
 			<xs:enumeration value="308+313"/>
 			<xs:enumeration value="309+311"/>
 			<xs:enumeration value="332+313"/>
@@ -1775,19 +1737,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="410+403"/>
 			<xs:enumeration value="410+412"/>
 			<xs:enumeration value="411+235"/>
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- New in Ver 4.0.2 -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- No longer valid. To be removed in a future version -->
-			<!-- New in Ver 4.0.2 -->
-			<!-- New in Ver 4.0.2 -->
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** SupplementalHazardInformationEnum ******  -->
@@ -1861,8 +1810,8 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="SkinIrritation"/>
 			<xs:enumeration value="EyeDamage"/>
 			<xs:enumeration value="Aspiration"/>
-			<xs:enumeration value="Other "/>
-			<xs:enumeration value="Unreported "/>
+			<xs:enumeration value="Other"/>
+			<xs:enumeration value="Unreported"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** HazardClassCategoryEnum ******  -->
@@ -2020,8 +1969,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 	<!-- ******************************************************************* DoseEnum *************  -->
 	<xs:simpleType name="DoseEnum">
 		<xs:annotation>
-			<xs:documentation>
-			The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated (GitHub issue #22) - use LCLo, LDLo, ERCLo instead.
+			<xs:documentation>The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated (GitHub issue #22) - use LCLo, LDLo, ERCLo instead. ATEmix tested is deprecated as it does not exist - use ATEmix instead. ATEmix calculated is redundant as it is always calculated - use ATEmix instead (see GitHub issue #57). 
 		</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -2050,6 +1998,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="EC50 (+ UVA)"/>
 			<xs:enumeration value="EC50 (- UVA)"/>
 			<xs:enumeration value="EC80"/>
+			<xs:enumeration value="ATEmix"/>
 			<xs:enumeration value="ATEmix tested"/>
 			<xs:enumeration value="ATEmix calculated"/>
 			<xs:enumeration value="cATpE"/>
@@ -2153,48 +2102,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<!-- (FI) -->
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* Ecotoxicity *************  -->
-	<xs:complexType name="Ecotoxicity">
-		<xs:annotation>
-			<xs:documentation>
-        Ecotoxicity. Source: Chapter 12.
-      </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- Replaced by the EffectLevelTypeEnum
-	******************************************************************* DNELTypeEnum *************  
-	<xs:simpleType name="DNELTypeEnum">
-		<xs:annotation>
-			<xs:documentation>
-				The legal codes for the DNELTypeEnum. Source: Chapter 8.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="DNEL short-term oral (acute)"/>
-			<xs:enumeration value="DNEL long-term oral (repeated)"/>
-			<xs:enumeration value="DNEL long-term dermal (systemic)"/>
-			<xs:enumeration value="DNEL long-term dermal (local)"/>
-			<xs:enumeration value="DNEL acute dermal, short-term (systemic)"/>
-			<xs:enumeration value="DNEL acute dermal, short-term (local)"/>
-			<xs:enumeration value="DNEL long-term inhalation (local)"/>
-			<xs:enumeration value="DNEL acute inhalation (systemic)"/>
-			<xs:enumeration value="DNEL acute inhalation (local)"/>
-			<xs:enumeration value="DNEL long-term inhalation (systemic)"/>
-		</xs:restriction>
-	</xs:simpleType>
-	-->
 	<!-- ******************************************************************* EffectLevelTypeEnum *************  -->
 	<xs:simpleType name="EffectLevelTypeEnum">
 		<xs:annotation>
@@ -2478,38 +2385,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="AC0"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ****************************************************************************** PhraseCatalogue *****  -->
-	<xs:complexType name="PhraseCatalogue">
-		<xs:annotation>
-			<xs:documentation>
-				Catalogue of standard phrases used in the datasheet. Used in chapter 0 and referred in for example exposure scenarios. 
-				PhraseCatalogues and PhraseIds simplifies translation to other languages. Example: EUPhraC catalogue.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="PhraseCatalogueName" type="string256" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Phrase catalogue Name, eg. EuPhraC</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PhraseCatalogueIssuer" type="string256" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Phrase catalogue issuer, eg. EuPhraC-Workinggroup </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PhraseCatalogueVersion" type="string64" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The version no of the phrase catalog the information is based on</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PhraseCatalogueDate" type="xs:date">
-				<xs:annotation>
-					<xs:documentation>The version timestamp of the phrase catalogue the information is based on</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
-	</xs:complexType>
 	<!-- ******************************************************************** PhraseId ********  -->
 	<xs:simpleType name="PhraseId">
 		<xs:annotation>
@@ -2618,8 +2493,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 	<!-- ************************************************************* HazardStatement ***************************  -->
 	<xs:complexType name="HazardStatement">
 		<xs:annotation>
-			<xs:documentation>
-				CLP Hazard Statement
+			<xs:documentation>CLP Hazard Statement. Systems can export PhraseCode only, without FullText or other phrase references - this is useful if data tranfer of only SDS parts takes place without any use of phrases.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -2746,13 +2620,13 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 		<xs:choice>
 			<xs:sequence>
 				<xs:element name="ExactValueSymbol" type="SymbolEnum" minOccurs="0"/>
-				<xs:element name="ExactValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ExactValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:sequence>
 				<xs:element name="UpperValueSymbol" type="SymbolEnum" minOccurs="0"/>
-				<xs:element name="UpperValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="UpperValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="LowerValueSymbol" type="SymbolEnum" minOccurs="0"/>
-				<xs:element name="LowerValue" type="float8" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="LowerValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
@@ -2787,12 +2661,16 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="10081150700"/>
+			<xs:enumeration value="10081150900"/>
+			<xs:enumeration value="10081151900"/>
+			<xs:enumeration value="14290121400"/>
+			<xs:enumeration value="9267233755"/>
 			<xs:enumeration value="9269144102"/>
 			<xs:enumeration value="9269144104"/>
 			<xs:enumeration value="9269144105"/>
 			<xs:enumeration value="9269144106"/>
 			<xs:enumeration value="9269144108"/>
-			<xs:enumeration value="10081150900"/>
 			<xs:enumeration value="9269144109"/>
 			<xs:enumeration value="9269144110"/>
 			<xs:enumeration value="9269144112"/>
@@ -2807,7 +2685,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144122"/>
 			<xs:enumeration value="9269144123"/>
 			<xs:enumeration value="9269144124"/>
-			<xs:enumeration value="9294211101"/>
 			<xs:enumeration value="9269144125"/>
 			<xs:enumeration value="9269144126"/>
 			<xs:enumeration value="9269144127"/>
@@ -2832,9 +2709,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144148"/>
 			<xs:enumeration value="9269144149"/>
 			<xs:enumeration value="9269144150"/>
-			<xs:enumeration value="9269144104"/>
-			<xs:enumeration value="9269144105"/>
-			<xs:enumeration value="9269144106"/>
 			<xs:enumeration value="9269144151"/>
 			<xs:enumeration value="9269144152"/>
 			<xs:enumeration value="9269144153"/>
@@ -2846,18 +2720,9 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144159"/>
 			<xs:enumeration value="9269144160"/>
 			<xs:enumeration value="9269144161"/>
-			<xs:enumeration value="9269144137"/>
-			<xs:enumeration value="9269144135"/>
-			<xs:enumeration value="9269144133"/>
 			<xs:enumeration value="9269144162"/>
 			<xs:enumeration value="9269144163"/>
-			<xs:enumeration value="9269144138"/>
-			<xs:enumeration value="9294211175"/>
-			<xs:enumeration value="9269144142"/>
-			<xs:enumeration value="9269144144"/>
-			<xs:enumeration value="9269144145"/>
 			<xs:enumeration value="9269144164"/>
-			<xs:enumeration value="9269144146"/>
 			<xs:enumeration value="9269144165"/>
 			<xs:enumeration value="9269144166"/>
 			<xs:enumeration value="9269144167"/>
@@ -2895,11 +2760,8 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144212"/>
 			<xs:enumeration value="9269144213"/>
 			<xs:enumeration value="9269144214"/>
-			<xs:enumeration value="9269144247"/>
 			<xs:enumeration value="9269144215"/>
 			<xs:enumeration value="9269144216"/>
-			<xs:enumeration value="9269144246"/>
-			<xs:enumeration value="9269144248"/>
 			<xs:enumeration value="9269144217"/>
 			<xs:enumeration value="9269144218"/>
 			<xs:enumeration value="9269144219"/>
@@ -2920,18 +2782,19 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144234"/>
 			<xs:enumeration value="9269144235"/>
 			<xs:enumeration value="9269144236"/>
-			<xs:enumeration value="9269144242"/>
-			<xs:enumeration value="9269144239"/>
 			<xs:enumeration value="9269144237"/>
 			<xs:enumeration value="9269144238"/>
+			<xs:enumeration value="9269144239"/>
 			<xs:enumeration value="9269144240"/>
 			<xs:enumeration value="9269144241"/>
+			<xs:enumeration value="9269144242"/>
 			<xs:enumeration value="9269144243"/>
 			<xs:enumeration value="9269144244"/>
 			<xs:enumeration value="9269144245"/>
-			<xs:enumeration value="14290121400"/>
+			<xs:enumeration value="9269144246"/>
+			<xs:enumeration value="9269144247"/>
+			<xs:enumeration value="9269144248"/>
 			<xs:enumeration value="9269144250"/>
-			<xs:enumeration value="10081150700"/>
 			<xs:enumeration value="9269144251"/>
 			<xs:enumeration value="9269144252"/>
 			<xs:enumeration value="9269144253"/>
@@ -2940,7 +2803,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144256"/>
 			<xs:enumeration value="9269144257"/>
 			<xs:enumeration value="9269144259"/>
-			<xs:enumeration value="9269144257"/>
 			<xs:enumeration value="9269144260"/>
 			<xs:enumeration value="9269144261"/>
 			<xs:enumeration value="9269144262"/>
@@ -2973,6 +2835,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144294"/>
 			<xs:enumeration value="9269144295"/>
 			<xs:enumeration value="9269144296"/>
+			<xs:enumeration value="9269144297"/>
 			<xs:enumeration value="9269144300"/>
 			<xs:enumeration value="9269144301"/>
 			<xs:enumeration value="9269144302"/>
@@ -2984,7 +2847,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144308"/>
 			<xs:enumeration value="9269144309"/>
 			<xs:enumeration value="9269144310"/>
-			<xs:enumeration value="9269144297"/>
 			<xs:enumeration value="9269144311"/>
 			<xs:enumeration value="9269144312"/>
 			<xs:enumeration value="9269144314"/>
@@ -3030,9 +2892,7 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144356"/>
 			<xs:enumeration value="9269144358"/>
 			<xs:enumeration value="9269144359"/>
-			<xs:enumeration value="9269144346"/>
 			<xs:enumeration value="9269144360"/>
-			<xs:enumeration value="9267233755"/>
 			<xs:enumeration value="9269144361"/>
 			<xs:enumeration value="9269144362"/>
 			<xs:enumeration value="9269144363"/>
@@ -3041,7 +2901,6 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144366"/>
 			<xs:enumeration value="9269144367"/>
 			<xs:enumeration value="9269144368"/>
-			<xs:enumeration value="10081151900"/>
 			<xs:enumeration value="9269144369"/>
 			<xs:enumeration value="9269144370"/>
 			<xs:enumeration value="9269144371"/>
@@ -3057,295 +2916,276 @@ The role values of a contact. Used in field Role. Role definitions are compatibl
 			<xs:enumeration value="9269144381"/>
 			<xs:enumeration value="9269144382"/>
 			<xs:enumeration value="9269144383"/>
-			<xs:enumeration value="9269144385"/>
 			<xs:enumeration value="9269144384"/>
+			<xs:enumeration value="9269144385"/>
 			<xs:enumeration value="9269144386"/>
-			<xs:enumeration value="9269144128"/>
 			<xs:enumeration value="9269144387"/>
-			<xs:enumeration value="9269144416"/>
-			<xs:enumeration value="9269144311"/>
-			<xs:enumeration value="9269144312"/>
 			<xs:enumeration value="9269144388"/>
-			<!--%=9269144102-->
-			<!--ppm=9269144104-->
-			<!--ppb=9269144105-->
-			<!--ppt=9269144106-->
+			<xs:enumeration value="9269144416"/>
+			<xs:enumeration value="9294211101"/>
 			<!--°C=9269144108-->
-			<!--K=10081150900-->
-			<!--1/K=9269144109-->
 			<!--°F=9269144110-->
-			<!--mbar=9269144112-->
-			<!--bar=9269144113-->
-			<!--Torr=9269144114-->
-			<!--mm Hg=9269144115-->
-			<!--atm=9269144116-->
-			<!--mPa=9269144117-->
-			<!--Pa=9269144118-->
-			<!--hPa=9269144119-->
-			<!--N/m2=9269144121-->
-			<!--N/cm2=9269144122-->
-			<!--N/mm2=9269144123-->
-			<!--mm H2O=9269144124-->
-			<!--kPa=9294211101-->
-			<!--Pa/s=9269144125-->
-			<!--hPa/s=9269144126-->
-			<!--kPa/s=9269144127-->
-			<!--bar/s=9269144128-->
-			<!--g/cm3=9269144130-->
-			<!--g/ml=9269144131-->
-			<!--mg/cm3=9269144132-->
-			<!--mg/ml=9269144133-->
+			<!--µg/Animal=9269144239-->
 			<!--µg/cm3=9269144134-->
-			<!--µg/ml=9269144135-->
-			<!--ng/cm3=9269144136-->
-			<!--ng/ml=9269144137-->
-			<!--mg/l=9269144138-->
-			<!--mg/dm3=9269144139-->
-			<!--g/l=9269144140-->
-			<!--g/dm3=9269144141-->
-			<!--kg/l=9269144142-->
-			<!--kg/dm3=9269144143-->
-			<!--mg/m3=9269144144-->
-			<!--g/m3=9269144145-->
-			<!--kg/m3=9269144146-->
-			<!--Vol-%=9269144148-->
-			<!--Weight-%=9269144149-->
-			<!--mol-%=9269144150-->
-			<!--ppm=9269144104-->
-			<!--ppb=9269144105-->
-			<!--ppt=9269144106-->
-			<!--ppq=9269144151-->
-			<!--ng/mg=9269144152-->
-			<!--µg/mg=9269144153-->
-			<!--mg/mg=9269144154-->
-			<!--ng/g=9269144155-->
+			<!--µg/dL=9269144174-->
 			<!--µg/g=9269144156-->
-			<!--mg/g=9269144157-->
-			<!--g/g=9269144158-->
 			<!--µg/kg=9269144159-->
-			<!--mg/kg=9269144160-->
-			<!--g/kg=9269144161-->
-			<!--ng/ml=9269144137-->
-			<!--µg/ml=9269144135-->
-			<!--mg/ml=9269144133-->
-			<!--ng/l=9269144162-->
-			<!--µg/l=9269144163-->
-			<!--mg/l=9269144138-->
-			<!--g/l=9294211175-->
-			<!--kg/l=9269144142-->
-			<!--mg/m3=9269144144-->
-			<!--g/m=9269144145-->
-			<!--g/m3=9269144164-->
-			<!--kg/m3=9269144146-->
-			<!--ng/mmol=9269144165-->
+			<!--µg/L=9269144163-->
+			<!--µg/mg=9269144153-->
+			<!--µg/mL=9269144135-->
 			<!--µg/mmol=9269144166-->
-			<!--mg/mmol=9269144167-->
-			<!--ng/mol=9269144168-->
 			<!--µg/mol=9269144169-->
-			<!--mg/mol=9269144170-->
-			<!--g/mol=9269144171-->
-			<!--kg/mol=9269144172-->
-			<!--l/mol=9269144173-->
-			<!--µg/dl=9269144174-->
-			<!--µl/ml=9269144175-->
-			<!--ml/ml=9269144176-->
-			<!--µl/l=9269144177-->
-			<!--ml/l=9269144178-->
-			<!--l/l=9269144179-->
-			<!--µl/m3=9269144180-->
-			<!--ml/m3=9269144181-->
-			<!--l/m3=9269144182-->
-			<!--µl/mg=9269144183-->
-			<!--ml/mg=9269144184-->
-			<!--µl/g=9269144185-->
-			<!--ml/g=9269144186-->
-			<!--µl/kg=9269144200-->
-			<!--ml/kg=9269144201-->
-			<!--l/kg=9269144202-->
-			<!--µl/mmol=9269144203-->
-			<!--ml/mmol=9269144204-->
-			<!--µl/mol=9269144205-->
-			<!--ml/mol=9269144206-->
-			<!--mmol/ml=9269144207-->
-			<!--mmol/l=9269144208-->
-			<!--mmol/m3=9269144209-->
-			<!--mmol/mg=9269144210-->
-			<!--mmol/g=9269144211-->
-			<!--mmol/kg=9269144212-->
-			<!--mmol/mmol=9269144213-->
-			<!--mmol/mol=9269144214-->
+			<!--µg=9269144288-->
+			<!--µL/g=9269144185-->
+			<!--µL/kg=9269144200-->
+			<!--µL/L=9269144177-->
+			<!--µL/m3=9269144180-->
+			<!--µL/mg=9269144183-->
+			<!--µL/mL=9269144175-->
+			<!--µL/mmol=9269144203-->
+			<!--µL/mol=9269144205-->
+			<!--µm=9269144268-->
+			<!--µmol/L=9269144246-->
 			<!--µmol/mol=9269144247-->
-			<!--mol/ml=9269144215-->
-			<!--mol/l=9269144216-->
-			<!--µmol/l=9269144246-->
-			<!--nmol/l=9269144248-->
-			<!--mol/m3=9269144217-->
-			<!--mol/mg=9269144218-->
-			<!--mol/g=9269144219-->
-			<!--mol/kg=9269144220-->
-			<!--mol/mmol=9269144221-->
-			<!--mol/mol=9269144222-->
-			<!--U/mg=9269144223-->
-			<!--U/g=9269144224-->
-			<!--U/kg=9269144225-->
-			<!--U/ml=9269144226-->
-			<!--U/l=9269144227-->
-			<!--U/mmol=9269144228-->
-			<!--U/mol=9269144229-->
-			<!--mg O2/g=9269144230-->
-			<!--mg O2/l=9269144231-->
+			<!--µPa.s=9269144253-->
+			<!--%=9269144102-->
+			<!--1/K=9269144109-->
+			<!--1/mol*s=9269144388-->
+			<!--1/W=9269144359-->
+			<!--A.h=9269144362-->
+			<!--A=9267233755-->
+			<!--a=9269144263-->
+			<!--atm=9269144116-->
+			<!--bar.m/s=9269144382-->
+			<!--bar/s=9269144128-->
+			<!--bar=9269144113-->
+			<!--Bq=9269144374-->
+			<!--C=9269144361-->
+			<!--cal/kg=9269144353-->
+			<!--cal/mol.K=9269144356-->
+			<!--cal/mol=9269144352-->
+			<!--cal=9269144343-->
+			<!--cd=9269144369-->
+			<!--Ci=9269144373-->
+			<!--cL=9269144284-->
+			<!--cm/d=9269144304-->
+			<!--cm/h=9269144303-->
+			<!--cm/min=9269144302-->
+			<!--cm/s=9269144301-->
+			<!--cm2=9269144275-->
+			<!--cm3/g=9269144381-->
+			<!--cm3/h=9269144332-->
+			<!--cm3/min=9269144331-->
+			<!--cm3/s=9269144330-->
+			<!--cm3=9269144280-->
+			<!--cm=9269144270-->
+			<!--cP=9269144250-->
+			<!--cSt=9269144251-->
+			<!--d=9269144262-->
+			<!--dL=9269144285-->
+			<!--dm2=9269144276-->
+			<!--dm3=9269144281-->
+			<!--dm=9269144271-->
+			<!--dyn/cm=9269144380-->
+			<!--F=9269144367-->
+			<!--fiber/cm3=9269144244-->
+			<!--fiber/m3=9269144243-->
+			<!--fiber/mL=9269144245-->
+			<!--fm=9269144265-->
 			<!--g O2/g=9269144232-->
 			<!--g O2/l=9269144233-->
+			<!--g/cm3=9269144130-->
+			<!--g/dm3=9269144141-->
+			<!--g/g=9269144158-->
+			<!--g/h=9269144319-->
+			<!--g/kg=9269144161-->
+			<!--g/L*s=9269144311-->
+			<!--g/L.s=9269144311-->
+			<!--g/L=9269144140-->
+			<!--g/m3=9269144164-->
+			<!--g/m=9269144145-->
+			<!--g/min=9269144318-->
+			<!--g/mL=9269144131-->
+			<!--g/mol=9269144171-->
+			<!--g/s=9269144317-->
+			<!--g=9269144290-->
+			<!--Gbq=9269144375-->
+			<!--h=9269144261-->
+			<!--hPa/s=9269144126-->
+			<!--hPa=9269144119-->
+			<!--J/kg=9269144349-->
+			<!--J/mol=9269144348-->
+			<!--J=9269144341-->
+			<!--K/min=9269144386-->
+			<!--K=10081150900-->
+			<!--kA.h=9269144363-->
+			<!--kcal/kg=9269144355-->
+			<!--kcal/mol=9269144354-->
+			<!--kcal=9269144344-->
+			<!--kg/dm3=9269144143-->
+			<!--kg/h=9269144322-->
+			<!--kg/ha=9269144377-->
+			<!--kg/L=9269144142-->
+			<!--kg/m3=9269144146-->
+			<!--kg/min=9269144321-->
+			<!--kg/mol=9269144172-->
+			<!--kg/s.m2=9269144387-->
+			<!--kg/s=9269144320-->
+			<!--kg=9269144291-->
+			<!--kJ/kg=9269144351-->
+			<!--kJ/mol=9269144350-->
+			<!--kJ=9269144342-->
+			<!--km/d=9269144310-->
+			<!--km/h=9269144309-->
+			<!--kPa/s=9269144127-->
+			<!--kPa=9294211101-->
+			<!--kV=9269144366-->
+			<!--kW=9269144347-->
+			<!--L/h=9269144335-->
+			<!--L/kg.h=9269144383-->
+			<!--L/kg.min=9269144385-->
+			<!--L/kg.s=9269144384-->
+			<!--L/kg=9269144202-->
+			<!--L/L=9269144179-->
+			<!--L/m3=9269144182-->
+			<!--L/min=9269144334-->
+			<!--L/mol=9269144173-->
+			<!--L/s=9269144333-->
+			<!--L=9269144286-->
+			<!--lm=9269144370-->
+			<!--lx=9269144371-->
+			<!--m/d=9269144308-->
+			<!--m/h=9269144307-->
+			<!--m/min=9269144306-->
+			<!--m/s=9269144305-->
+			<!--m2=9269144277-->
+			<!--m3/h=9269144338-->
+			<!--m3/min=9269144337-->
+			<!--m3/s=9269144336-->
+			<!--m3=9269144282-->
+			<!--m=9269144272-->
+			<!--mA=9269144360-->
+			<!--mbar=9269144112-->
+			<!--mCi=9269144372-->
 			<!--mg C/g=9269144234-->
 			<!--mg C/l=9269144235-->
 			<!--mg KOH/g=9269144236-->
-			<!--mg/kg bw*d=9269144242-->
-			<!--µg/Animal=9269144239-->
+			<!--mg O2/g=9269144230-->
+			<!--mg O2/l=9269144231-->
 			<!--mg/Animal=9269144237-->
-			<!--ml/Animal=9269144238-->
-			<!--mg/Eye=9269144240-->
-			<!--ml/Eye=9269144241-->
-			<!--fiber/m3=9269144243-->
-			<!--fiber/cm3=9269144244-->
-			<!--fiber/ml=9269144245-->
-			<!--mg/kg bw=14290121400-->
-			<!--cP=9269144250-->
-			<!--P=10081150700-->
-			<!--cSt=9269144251-->
-			<!--St=9269144252-->
-			<!--µPa.s=9269144253-->
-			<!--mPa.s=9269144254-->
-			<!--Pa.s=9269144255-->
-			<!--mm2/s=9269144256-->
-			<!--ms=9269144259-->
-			<!--s=9269144257-->
-			<!--min=9269144260-->
-			<!--h=9269144261-->
-			<!--d=9269144262-->
-			<!--a=9269144263-->
-			<!--fm=9269144265-->
-			<!--pm=9269144266-->
-			<!--nm=9269144267-->
-			<!--µm=9269144268-->
-			<!--mm=9269144269-->
-			<!--cm=9269144270-->
-			<!--dm=9269144271-->
-			<!--m=9269144272-->
-			<!--mm2=9269144274-->
-			<!--cm2=9269144275-->
-			<!--dm2=9269144276-->
-			<!--m2=9269144277-->
-			<!--mm3=9269144279-->
-			<!--cm3=9269144280-->
-			<!--dm3=9269144281-->
-			<!--m3=9269144282-->
-			<!--ml=9269144283-->
-			<!--cl=9269144284-->
-			<!--dl=9269144285-->
-			<!--l=9269144286-->
-			<!--µg=9269144288-->
-			<!--mg=9269144289-->
-			<!--g=9269144290-->
-			<!--kg=9269144291-->
-			<!--t=9269144292-->
-			<!--mm/s=9269144294-->
-			<!--mm/min=9269144295-->
-			<!--mm/h=9269144296-->
-			<!--mm/a=9269144300-->
-			<!--cm/s=9269144301-->
-			<!--cm/min=9269144302-->
-			<!--cm/h=9269144303-->
-			<!--cm/d=9269144304-->
-			<!--m/s=9269144305-->
-			<!--m/min=9269144306-->
-			<!--m/h=9269144307-->
-			<!--m/d=9269144308-->
-			<!--km/h=9269144309-->
-			<!--km/d=9269144310-->
-			<!--mm/d=9269144297-->
-			<!--g/l*s=9269144311-->
-			<!--mol/L*s=9269144312-->
-			<!--mg/s=9269144314-->
-			<!--mg/min=9269144315-->
-			<!--mg/h=9269144316-->
-			<!--g/s=9269144317-->
-			<!--g/min=9269144318-->
-			<!--g/h=9269144319-->
-			<!--kg/s=9269144320-->
-			<!--kg/min=9269144321-->
-			<!--kg/h=9269144322-->
-			<!--t/s=9269144323-->
-			<!--t/min=9269144324-->
-			<!--t/h=9269144325-->
-			<!--ml/s=9269144327-->
-			<!--ml/min=9269144328-->
-			<!--ml/h=9269144329-->
-			<!--cm3/s=9269144330-->
-			<!--cm3/min=9269144331-->
-			<!--cm3/h=9269144332-->
-			<!--l/s=9269144333-->
-			<!--l/min=9269144334-->
-			<!--l/h=9269144335-->
-			<!--m3/s=9269144336-->
-			<!--m3/min=9269144337-->
-			<!--m3/h=9269144338-->
-			<!--mJ=9269144340-->
-			<!--J=9269144341-->
-			<!--kJ=9269144342-->
-			<!--cal=9269144343-->
-			<!--kcal=9269144344-->
-			<!--W.h=9269144345-->
-			<!--W=9269144346-->
-			<!--kW=9269144347-->
-			<!--J/mol=9269144348-->
-			<!--J/kg=9269144349-->
-			<!--kJ/mol=9269144350-->
-			<!--kJ/kg=9269144351-->
-			<!--cal/mol=9269144352-->
-			<!--cal/kg=9269144353-->
-			<!--kcal/mol=9269144354-->
-			<!--kcal/kg=9269144355-->
-			<!--cal/mol.K=9269144356-->
-			<!--W.m=9269144358-->
-			<!--1/W=9269144359-->
-			<!--W=9269144346-->
-			<!--mA=9269144360-->
-			<!--A=9267233755-->
-			<!--C=9269144361-->
-			<!--A.h=9269144362-->
-			<!--kA.h=9269144363-->
-			<!--mV=9269144364-->
-			<!--V=9269144365-->
-			<!--kV=9269144366-->
-			<!--F=9269144367-->
-			<!--Wb=9269144368-->
-			<!--S=10081151900-->
-			<!--cd=9269144369-->
-			<!--lm=9269144370-->
-			<!--lx=9269144371-->
-			<!--mCi=9269144372-->
-			<!--Ci=9269144373-->
-			<!--Bq=9269144374-->
-			<!--Gbq=9269144375-->
+			<!--mg/cm3=9269144132-->
 			<!--mg/dm2=9269144376-->
-			<!--kg/ha=9269144377-->
-			<!--N/m=9269144378-->
+			<!--mg/dm3=9269144139-->
+			<!--mg/Eye=9269144240-->
+			<!--mg/g=9269144157-->
+			<!--mg/h=9269144316-->
+			<!--mg/kg bw*d=9269144242-->
+			<!--mg/kg bw=14290121400-->
+			<!--mg/kg=9269144160-->
+			<!--mg/L=9269144138-->
+			<!--mg/m3=9269144144-->
+			<!--mg/mg=9269144154-->
+			<!--mg/min=9269144315-->
+			<!--mg/mL=9269144133-->
+			<!--mg/mmol=9269144167-->
+			<!--mg/mol=9269144170-->
+			<!--mg/s=9269144314-->
+			<!--mg=9269144289-->
+			<!--min=9269144260-->
+			<!--mJ=9269144340-->
+			<!--mL/Animal=9269144238-->
+			<!--mL/Eye=9269144241-->
+			<!--mL/g=9269144186-->
+			<!--mL/h=9269144329-->
+			<!--mL/kg=9269144201-->
+			<!--mL/L=9269144178-->
+			<!--mL/m3=9269144181-->
+			<!--mL/mg=9269144184-->
+			<!--mL/min=9269144328-->
+			<!--mL/mL=9269144176-->
+			<!--mL/mmol=9269144204-->
+			<!--mL/mol=9269144206-->
+			<!--mL/s=9269144327-->
+			<!--mL=9269144283-->
+			<!--mm H2O=9269144124-->
+			<!--mm Hg=9269144115-->
+			<!--mm/a=9269144300-->
+			<!--mm/d=9269144297-->
+			<!--mm/h=9269144296-->
+			<!--mm/min=9269144295-->
+			<!--mm/s=9269144294-->
+			<!--mm2/s=9269144256-->
+			<!--mm2=9269144274-->
+			<!--mm3=9269144279-->
+			<!--mm=9269144269-->
+			<!--mmol/g=9269144211-->
+			<!--mmol/kg=9269144212-->
+			<!--mmol/L=9269144208-->
+			<!--mmol/m3=9269144209-->
+			<!--mmol/mg=9269144210-->
+			<!--mmol/mL=9269144207-->
+			<!--mmol/mmol=9269144213-->
+			<!--mmol/mol=9269144214-->
 			<!--mN/m=9269144379-->
-			<!--dyn/cm=9269144380-->
-			<!--cm3/g=9269144381-->
-			<!--bar.m/s=9269144382-->
-			<!--l/kg.h=9269144383-->
-			<!--l/kg.min=9269144385-->
-			<!--l/kg.s=9269144384-->
-			<!--K/min=9269144386-->
-			<!--bar/s=9269144128-->
-			<!--kg/s.m2=9269144387-->
+			<!--mol-%=9269144150-->
+			<!--mol/g=9269144219-->
+			<!--mol/kg=9269144220-->
+			<!--mol/L*s=9269144312-->
+			<!--mol/L=9269144216-->
+			<!--mol/m3=9269144217-->
+			<!--mol/mg=9269144218-->
+			<!--mol/mL=9269144215-->
+			<!--mol/mmol=9269144221-->
+			<!--mol/mol=9269144222-->
+			<!--mPa.s=9269144254-->
+			<!--mPa=9269144117-->
+			<!--ms=9269144259-->
+			<!--mV=9269144364-->
+			<!--N/cm2=9269144122-->
+			<!--N/m2=9269144121-->
+			<!--N/m=9269144378-->
+			<!--N/mm2=9269144123-->
+			<!--ng/cm3=9269144136-->
+			<!--ng/g=9269144155-->
+			<!--ng/L=9269144162-->
+			<!--ng/mg=9269144152-->
+			<!--ng/mL=9269144137-->
+			<!--ng/mmol=9269144165-->
+			<!--ng/mol=9269144168-->
+			<!--nm=9269144267-->
+			<!--nmol/L=9269144248-->
+			<!--P=10081150700-->
 			<!--Pa.m3/mol=9269144416-->
-			<!--g/l.s=9269144311-->
-			<!--mol/l.s=9269144312-->
-			<!--1/mol*s=9269144388-->
-			<xs:enumeration value="9269144148"/>
-			<xs:enumeration value="9269144149"/>
+			<!--Pa.s=9269144255-->
+			<!--Pa/s=9269144125-->
+			<!--Pa=9269144118-->
+			<!--pm=9269144266-->
+			<!--ppb=9269144105-->
+			<!--ppm=9269144104-->
+			<!--ppq=9269144151-->
+			<!--ppt=9269144106-->
+			<!--S=10081151900-->
+			<!--s=9269144257-->
+			<!--St=9269144252-->
+			<!--t/h=9269144325-->
+			<!--t/min=9269144324-->
+			<!--t/s=9269144323-->
+			<!--t=9269144292-->
+			<!--Torr=9269144114-->
+			<!--U/g=9269144224-->
+			<!--U/kg=9269144225-->
+			<!--U/L=9269144227-->
+			<!--U/mg=9269144223-->
+			<!--U/mL=9269144226-->
+			<!--U/mmol=9269144228-->
+			<!--U/mol=9269144229-->
+			<!--V=9269144365-->
+			<!--Vol-%=9269144148-->
+			<!--W.h=9269144345-->
+			<!--W.m=9269144358-->
+			<!--W=9269144346-->
+			<!--Wb=9269144368-->
+			<!--Weight-%=9269144149-->
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** Percentage********  -->
@@ -3399,7 +3239,16 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
 			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
+			<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Pressure" type="UnitValue">
+				<xs:annotation>
+					<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
@@ -3419,7 +3268,16 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
 			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Temperature" type="UnitValue" minOccurs="0"/>
+			<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Pressure" type="UnitValue">
+				<xs:annotation>
+					<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
@@ -3460,34 +3318,6 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 			<xs:enumeration value="T 6"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- *******************************************************************  TemperatureClass **************************  -->
-	<xs:complexType name="TemperatureClass">
-		<xs:annotation>
-			<xs:documentation>
-				TemperatureClass 
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="TemperatureClassEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
-	<xs:complexType name="PhysicalHazardsGeneralInformation">
-		<xs:annotation>
-			<xs:documentation>
-				PhysicalHazardsGeneralInformation. Source: Chapter 9.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="JustificationForDataWaiving" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Assessment" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Classification" type="Phrase" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ******************************************************************* GasGroupEnum ******************************  -->
 	<xs:simpleType name="GasGroupEnum">
 		<xs:annotation>
@@ -3501,34 +3331,6 @@ Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentatio
 			<xs:enumeration value="IIC"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- *******************************************************************  GasGroup *********************************  -->
-	<xs:complexType name="GasGroup">
-		<xs:annotation>
-			<xs:documentation>
-				GasGroup. Source: Chapter 9.		
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="GasGroupEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- *******************************************************************  BurningNumber ***********  -->
-	<!-- *******************************************************************  Species *************  -->
-	<xs:complexType name="Species">
-		<xs:annotation>
-			<xs:documentation>
-				Species used in tests
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Value" type="Phrase"/>
-			<xs:element name="Gender" type="Phrase" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ********************************************************************  WasteCode ***************  -->
 	<xs:simpleType name="WasteCode">
 		<xs:annotation>

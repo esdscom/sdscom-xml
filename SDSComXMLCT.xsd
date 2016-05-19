@@ -134,21 +134,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="XmlFileName" type="string256" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* Mixture *************  -->
-	<xs:complexType name="Mixture">
-		<xs:annotation>
-			<xs:documentation>
-					Mixture
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Component" type="Component" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="DescriptionOfTheMixture" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="CompositionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="IsDetergent" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-			<!-- 4.0.2 Added missing MinOccurs and MaxOccurs -->
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ******************************************************************* Substance *************  -->
 	<xs:complexType name="Substance">
 		<xs:annotation>
@@ -171,30 +156,15 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="ProductNameInSection2" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ProductNameInSection3" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ProductNameInSection8" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NameDetergentsRegulation" type="string1024" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NameDetergentsRegulation" type="string1024" minOccurs="0"
+				maxOccurs="1"/>
+			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="HazardousImpurities" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Stabilizer" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ChemicalProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- ******************************************************************* Composition *************  -->
-	<xs:complexType name="Composition">
-		<xs:annotation>
-			<xs:documentation>
-					Composition. Normally, either a pure substance or a mixture is specified below. But pure
-					substances with stabilizers or impurities, might use both. The stabilizers and impurities
-					can be specified as componenets under the mixture with the IsIpurity og IsStabilizers flags
-					set. This option was introduced in revison 4.0.2.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:choice>
-				<xs:element name="Substance" type="Substance" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="Mixture" type="Mixture" minOccurs="0" maxOccurs="1"/>
-			</xs:choice>
-			<xs:element name="CompositionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ChemicalProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"
+			/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Component *************  -->
@@ -213,46 +183,69 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="OnLabel" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="IsHazardousComponent" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="IncludeOccupationalExposureLimits" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="IncludeBiologicalLimitValues" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsHazardousComponent" type="xs:boolean" minOccurs="0"
+							maxOccurs="1"/>
+						<xs:element name="IncludeOccupationalExposureLimits" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IncludeBiologicalLimitValues" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
 						<xs:element name="IsImpurity" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="IsStabilizer" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="IncludePhysicalValues" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsStabilizer" type="xs:boolean" minOccurs="0"
+							maxOccurs="1"/>
+						<xs:element name="IncludePhysicalValues" type="xs:boolean" minOccurs="0"
+							maxOccurs="1"/>
 						<!-- New in 4.0.2 Show in section 9 flag -->
-						<xs:element name="IncludeToxicologicalValues" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IncludeToxicologicalValues" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
 						<!-- New in 4.0.2 Show in section 11 flag -->
-						<xs:element name="IncludeEcoToxicologicalValues" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IncludeEcoToxicologicalValues" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
 						<!-- New in 4.0.2 Show in section 12 flag -->
-						<xs:element name="CompReasonForListed" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="CompReasonForListed" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 						<xs:element name="IdentifiedUse" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SectorOfUse" type="SectorOfUse" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ProductCategory" type="ProductCategory" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ProcessCategory" type="ProcessCategory" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="EnvironmentalReleaseCategory" minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="SectorOfUse" type="SectorOfUse" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="ProductCategory" type="ProductCategory"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ProcessCategory" type="ProcessCategory"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="EnvironmentalReleaseCategory" minOccurs="0"
+										maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="ErcCode" type="EnvironmentalReleaseCategoryCodeEnum" minOccurs="0"/>
-												<xs:element name="ErcFulltext" type="Phrase" minOccurs="0"/>
+												<xs:element name="ErcCode"
+												type="EnvironmentalReleaseCategoryCodeEnum"
+												minOccurs="0"/>
+												<xs:element name="ErcFulltext" type="Phrase"
+												minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="SpecificEnvironmentalReleaseCategory" minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="SpecificEnvironmentalReleaseCategory"
+										minOccurs="0" maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="SpercCode" type="SpecificEnvironmentalReleaseCategoryCodeEnum" minOccurs="0"/>
-												<xs:element name="SpercFulltext" type="Phrase" minOccurs="0"/>
+												<xs:element name="SpercCode"
+												type="SpecificEnvironmentalReleaseCategoryCodeEnum"
+												minOccurs="0"/>
+												<xs:element name="SpercFulltext" type="Phrase"
+												minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="ArticleCategoryNoIntendedRelease" type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ArticleCategoryWithIntendedRelease" type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="CorrespondingExposureScenario" type="CorrespondingEs" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ArticleCategoryNoIntendedRelease"
+										type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ArticleCategoryWithIntendedRelease"
+										type="ArticleCategory" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="CorrespondingExposureScenario"
+										type="CorrespondingEs" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 								<xs:attribute name="IdentifiedUseId" type="xs:integer" default="0"/>
-								<xs:attribute name="PrintAsAttachment" type="xs:boolean" default="true"/>
+								<xs:attribute name="PrintAsAttachment" type="xs:boolean"
+									default="true"/>
 								<!-- Added in 4.0.2 -->
 							</xs:complexType>
 						</xs:element>
@@ -265,17 +258,22 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="EuRestrictions" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="AssessedEuRestrictions" type="AssessmentEnum" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="RestrictionAccordingReach" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="OtherEuRestrictions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AssessedEuRestrictions" type="AssessmentEnum"
+										minOccurs="0" maxOccurs="1"/>
+									<xs:element name="RestrictionAccordingReach" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="OtherEuRestrictions" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="NationalRestrictions" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="AssessedNationalRestrictions" type="AssessmentEnum" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="NationalRestrictions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AssessedNationalRestrictions"
+										type="AssessmentEnum" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="NationalRestrictions" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -283,16 +281,23 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ComponentComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ExposureControlPersonalProtection" type="ExposureControlPersonalProtection" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="PhysicalChemicalProperties" type="PhysicalChemicalProperties" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ToxicologicalInformation" type="ToxicologicalInformation" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EcologicalInformation" type="EcologicalInformation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureControlPersonalProtection"
+				type="ExposureControlPersonalProtection" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhysicalChemicalProperties" type="PhysicalChemicalProperties"
+				minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ToxicologicalInformation" type="ToxicologicalInformation"
+				minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EcologicalInformation" type="EcologicalInformation" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="TransportInformation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="IsDangerReleasingSubstanceAdrRidAdn" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="IsDangerReleasingSubstanceImdg" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="IsDangerReleasingSubstanceIcao" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsDangerReleasingSubstanceAdrRidAdn" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsDangerReleasingSubstanceImdg" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
+						<xs:element name="IsDangerReleasingSubstanceIcao" type="xs:boolean"
+							minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -310,48 +315,71 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PreventiveIndustrialMedicalExaminationRequired" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PreventiveIndustrialMedicalExaminationRequired" type="Phrase"
+				minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ControlParameters" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="ExposureGuidelines" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="OccupationalExposureLimit" type="OccupationalExposureLimit" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="IntendedUseOccupationalExposureLimit" type="OccupationalExposureLimit" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="OccupationalExposureLimit"
+										type="OccupationalExposureLimit" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="IntendedUseOccupationalExposureLimit"
+										type="OccupationalExposureLimit" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="BiologicalLimitValues" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="BiologicalLimitValue" type="BiologicalLimitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="IntendedUseBiologicalLimitValue" type="BiologicalLimitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="BiologicalLimitValuesOtherInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="BiologicalLimitValue"
+										type="BiologicalLimitValue" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="IntendedUseBiologicalLimitValue"
+										type="BiologicalLimitValue" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="BiologicalLimitValuesOtherInformation"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="DerivedNoEffectLevel" type="DNEL" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DerivedMinimalEffectLevel" type="DMEL" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PredictedNoEffectConcentration" type="PNEC" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ControlParametersComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="DerivedNoEffectLevel" type="DNEL" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="DerivedMinimalEffectLevel" type="DMEL" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="PredictedNoEffectConcentration" type="PNEC" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="ControlParametersComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="SummaryRMMeasures" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="SummaryRMMeasuresMan" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SummaryRMMeasuresEnvironm" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="RMMControlBandingApproach" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="SummaryRMMeasuresMan" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SummaryRMMeasuresEnvironm" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="RMMControlBandingApproach" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Task" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="HazardBand" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ScaleOfUse" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="AbilityToBecomeAirborne" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ControlApproach" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Task" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="HazardBand" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ScaleOfUse" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="AbilityToBecomeAirborne" type="Phrase"
+										minOccurs="0" maxOccurs="1"/>
+									<xs:element name="ControlApproach" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -362,11 +390,16 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="ExposureControlAppropriateMeasures" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="AppropriateEngineeringControls" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ProductRelatedMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="InstructionalMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OrganisationalMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="TechnicalMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AppropriateEngineeringControls" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ProductRelatedMeasures" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="InstructionalMeasures" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="OrganisationalMeasures" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="TechnicalMeasures" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -376,69 +409,162 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="RespiratoryProtection" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="RespiratoryProtectionGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="RespiratoryProtectionNecessaryAt" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="TasksNeedingRespiratoryProtection" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableRespiratoryProtectionEquipment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="RecommendedRespiratoryProtectionArticles" type="RespiratoryProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AdditionalRespiratoryProtectionMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="RespiratoryProtectionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RespiratoryProtectionGeneral" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RespiratoryProtectionNecessaryAt"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="TasksNeedingRespiratoryProtection"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SuitableRespiratoryProtectionEquipment"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RecommendedRespiratoryProtectionArticles"
+										type="RespiratoryProtectionArticle" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="AdditionalRespiratoryProtectionMeasures"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ReferenceRelevantStandard" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RespiratoryProtectionComments" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="EyeProtection" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="RequiredProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableEyeProtection" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="UnsuitableEyeProtection" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="EyeProtectionEquipment" type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AdditionalEyeProtectionMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="EyeProtectionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RequiredProperties" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SuitableEyeProtection" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="UnsuitableEyeProtection" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="EyeProtectionEquipment"
+										type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AdditionalEyeProtectionMeasures" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ReferenceRelevantStandard" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="EyeProtectionComments" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="HandProtection" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SkinHandProtectionShortTermContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SkinHandProtectionLongTermContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableGlovesType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="UnsuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HandProtectionNecessaryProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="GloveBreakthroughTime" type="UnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ThicknessOfGloveMaterial" type="UnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="WearDurationAtOccationalContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="WearDurationAtPermanentContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HandProtectionEquipment" type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AdditionalHandProtectionMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HandProtectionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinHandProtectionShortTermContact"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinHandProtectionLongTermContact"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SuitableGlovesType" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SuitableMaterials" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="UnsuitableMaterials" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="HandProtectionNecessaryProperties"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GloveBreakthroughTime" type="UnitValue"
+										minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ThicknessOfGloveMaterial" type="UnitValue"
+										minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="WearDurationAtOccationalContact" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="WearDurationAtPermanentContact" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="HandProtectionEquipment"
+										type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Equipment">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element minOccurs="0" name="SuitableGlovesType"
+												type="Phrase"/>
+												<xs:element minOccurs="0" name="SuitableMaterial"
+												type="Phrase"/>
+												<xs:element minOccurs="0"
+												name="GloveBreakthroughTime" type="UnitValue"/>
+												<xs:element minOccurs="0"
+												name="ThicknessOfGloveMaterial" type="UnitValue"/>
+												<xs:element minOccurs="0"
+												name="MaxWearDurationOccasionalContact"
+												type="UnitValue"/>
+												<xs:element minOccurs="0"
+												name="MaxWearDurationPermanentContact"
+												type="UnitValue"/>
+												<xs:element maxOccurs="unbounded" minOccurs="0"
+												name="Article" type="ProtectionArticle"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AdditionalHandProtectionMeasures"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ReferenceRelevantStandard" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="HandProtectionComments" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="SkinProtection" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SuitableProtectiveClothing" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="UnsuitableProtectiveClothing" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ProtectiveClothingNecessaryProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ProtectiveClothingRecommendedMaterial" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="RecommendedProtectiveClothingArticles" type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AdditionalSkinProtectionMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SkinBodyOtherProtection" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SkinProtectionComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SuitableProtectiveClothing" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="UnsuitableProtectiveClothing" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ProtectiveClothingNecessaryProperties"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ProtectiveClothingRecommendedMaterial"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RecommendedProtectiveClothingArticles"
+										type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AdditionalSkinProtectionMeasures"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinBodyOtherProtection" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ReferenceRelevantStandard" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinProtectionComments" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="ThermalHazardsProtection" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PersonalProtectionEquipmentComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SpecificHygieneMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SafetySigns" type="SafetySign" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ThermalHazardsProtection" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="PersonalProtectionEquipmentComments" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificHygieneMeasures" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SafetySigns" type="SafetySign" minOccurs="0"
+							maxOccurs="unbounded"/>
 						<!-- 4.0.2 Type updated from phrase to SafetySign -->
 					</xs:sequence>
 				</xs:complexType>
@@ -446,31 +572,42 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="EnvironmentalExposureControls" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="EnvironmentalExposureControls" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AppropriateEnvionmentalExposureControl" minOccurs="0" maxOccurs="1">
+						<xs:element name="EnvironmentalExposureControls" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AppropriateEnvionmentalExposureControl" minOccurs="0"
+							maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ProductRelatedMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="InstructionalMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="OrganisationalMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="TechnicalMeasures" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ProductRelatedMeasures" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="InstructionalMeasures" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="OrganisationalMeasures" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="TechnicalMeasures" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="EnvironmentalExposureControlComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EnvironmentalExposureControlComments" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ConsumerExposureControl" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="MeasuresOnConsumerUseOfTheChemical" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="MeasuresOnServiceLifeInArticles" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="MeasuresOnConsumerUseOfTheChemical" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="MeasuresOnServiceLifeInArticles" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ExposureControlsPersonalProtectionAdditionalInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ExposureControlComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ExposureControlsPersonalProtectionAdditionalInfo" type="Phrase"
+				minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ExposureControlComments" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysicalChemicalProperties *************  -->
@@ -484,70 +621,104 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Appearance" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="PhysicalState" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="StateUnderStandardConditions" type="StateUnderStandardConditionsEnum" minOccurs="0"/>
+						<xs:element name="PhysicalState" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="StateUnderStandardConditions"
+							type="StateUnderStandardConditionsEnum" minOccurs="0"/>
 						<xs:element name="Colour" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="Odour" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OdourThreshold" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="OdourThreshold" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="SafetyRelevantInformation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="PhValue" type="PhValue" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PhValue" type="PhValue" minOccurs="0"
+							maxOccurs="unbounded"/>
 						<xs:element name="MeltingPointRelated" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="MeltingPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="FreezingPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SofteningPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SolidificationPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="CloudPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="CrystallisationPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="DroppingPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="PourPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="MeltingPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="FreezingPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SofteningPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SolidificationPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="CloudPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="CrystallisationPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="DroppingPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="PourPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="BoilingPointRelated" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="BoilingPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SublimationPoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="BoilingPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SublimationPoint" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="FlashPoint" type="FlashPoint" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EvaporationRate" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Flammability" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="FlashPoint" type="FlashPoint" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="EvaporationRate" type="PhysChemValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="Flammability" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 						<xs:element name="ExplosionLimit" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="LowerExplosionLimit" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="UpperExplosionLimit" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="LowerExplosionLimit" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="UpperExplosionLimit" type="PhysChemUnitValue"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="VapourPressure" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="RelativeVapourDensity" type="RelativeVapourDensity" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="VapourPressure" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="RelativeVapourDensity" type="RelativeVapourDensity"
+							minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="Densities" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="RelativeDensity" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Density" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="BulkDensity" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RelativeDensity"
+										type="PhysChemValueWithTemperature" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Density"
+										type="PhysChemUnitValueWithTemperature" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="BulkDensity"
+										type="PhysChemUnitValueWithTemperature" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Solubilities" type="Solubilities" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="Solubilities" type="Solubilities" minOccurs="0"
+							maxOccurs="unbounded"/>
 						<!-- xs:element name="SolubilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/ -->
-						<xs:element name="PartitionCoefficient" type="PartitionCoefficient" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AutoignitionTemperature" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DecompositionTemperature" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Viscosity" type="Viscosity" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ExplosiveProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OxidisingProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PartitionCoefficient" type="PartitionCoefficient"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AutoignitionTemperature" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="DecompositionTemperature" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="Viscosity" type="Viscosity" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="ExplosiveProperties" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="OxidisingProperties" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -557,13 +728,21 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="Explosives" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ScreeningProcedures" type="PhysicalHazardsScreeningProcedures" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="TestPerformed" minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ScreeningProcedures"
+										type="PhysicalHazardsScreeningProcedures" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="TestPerformed" minOccurs="0"
+										maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="ParameterTested" type="Phrase" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="TestResult" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="ParameterTested" type="Phrase"
+												minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TestResult"
+												type="PhysChemUnitValue" minOccurs="0"
+												maxOccurs="1"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -573,126 +752,196 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="FlammableGases" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="FlammableAerosols" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="OxidisingGases" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="GasesUnderPressure" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="FlammableLiquids" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="FlammableSolids" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SelfreactiveSubstancesAndMixtures" minOccurs="0" maxOccurs="1">
+						<xs:element name="SelfreactiveSubstancesAndMixtures" minOccurs="0"
+							maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ScreeningProcedures" type="PhysicalHazardsScreeningProcedures" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ScreeningProcedures"
+										type="PhysicalHazardsScreeningProcedures" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="PyrophoricLiquids" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="PyrophoricSolids" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SelfheatingSubstancesAndMixtures" minOccurs="0" maxOccurs="1">
+						<xs:element name="SelfheatingSubstancesAndMixtures" minOccurs="0"
+							maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="MaxTemperatureReached" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="InductionTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="MaxTemperatureReached" type="UnitValue"
+										minOccurs="0" maxOccurs="1"/>
+									<xs:element name="InductionTime" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SubstancesWhichInContactWithWaterEmitFlammableGases" minOccurs="0" maxOccurs="1">
+						<xs:element name="SubstancesWhichInContactWithWaterEmitFlammableGases"
+							minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="OxidisingLiquids" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="OxidisingSolids" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="OrganicPeroxides" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="CorrosiveToMetals" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="GeneralInformation" type="PhysicalHazardsGeneralInformation" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="SafetyCharacteristics" type="PhysicalHazardsSafetyCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="IntrusionDepth" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="MaterialType" type="Phrase" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="GeneralInformation"
+										type="PhysicalHazardsGeneralInformation" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="SafetyCharacteristics"
+										type="PhysicalHazardsSafetyCharacteristics" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="IntrusionDepth" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="MaterialType" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -702,38 +951,71 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="OtherSafetyInformation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Miscibility" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AnilinePoint" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ElectricConductivity" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="GasGroup" type="GasGroup" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SolventSeparationTest" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ContentOfVoc" type="PhysChemValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SolidContent" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PropellantContent" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SinterTemperature" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AcidNo" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DissociationConstant" type="DissociationConstant" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="HydrolysisRate" type="HydrolysisRate" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="WaterReactive" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AirReactive" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PenetrationNo" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ParticleSize" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="CriticalPressure" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ExpansionCoefficient" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="RedoxPotential" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="RadicalFormationPotential" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PhotocatalyticProperties" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="NumberAverageMolecularWeight" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="WeightAverageMolecularWeight" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="MolecularWeightDistribution" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="LowMolecularWeightContentOfPolymers" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SolutionExtractionBehaviourOfPolymersInWater" type="SolutionExtractionBehaviourOfPolymersInWater" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="RefractionIndex" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="Miscibility" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AnilinePoint" type="PhysChemUnitValue" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="ElectricConductivity"
+							type="PhysChemUnitValueWithTemperature" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="GasGroup" type="GasGroup" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SolventSeparationTest" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ContentOfVoc" type="PhysChemValue" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SolidContent" type="PhysChemUnitValue" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="PropellantContent" type="PhysChemUnitValue" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SinterTemperature" type="PhysChemUnitValue" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AcidNo" type="PhysChemUnitValue" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="DissociationConstant" type="DissociationConstant"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="HydrolysisRate" type="HydrolysisRate" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="WaterReactive" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AirReactive" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="PenetrationNo" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ParticleSize" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="CriticalPressure" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ExpansionCoefficient"
+							type="PhysChemUnitValueWithTemperature" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="RedoxPotential" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="RadicalFormationPotential"
+							type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PhotocatalyticProperties"
+							type="PhysChemUnitValueWithTemperature" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="NumberAverageMolecularWeight" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="WeightAverageMolecularWeight" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="MolecularWeightDistribution" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="LowMolecularWeightContentOfPolymers"
+							type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SolutionExtractionBehaviourOfPolymersInWater"
+							type="SolutionExtractionBehaviourOfPolymersInWater" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="RefractionIndex" type="PhysChemValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="OtherPhysicalChemicalProperty" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ChemicalPhysicalPropertiesComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OtherPhysicalChemicalProperty" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="ChemicalPhysicalPropertiesComments" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<!-- MISSING						
 						<xs:element name="SolventContent" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
 			-->
@@ -782,146 +1064,215 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="TestResults" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="EffectTested" type="DoseEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Value" type="UnitValue" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="Species" type="Species" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ToxicityType" type="ToxicityTypeEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="EffectTested" type="DoseEnum" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="ExposureRoute" type="ExposureRouteEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="Method" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Value" type="UnitValue" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="Species" type="Species" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="TestReference" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="AcuteToxicityOtherInformation" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="OtherToxicologicalData" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AcuteToxicityDescriptionGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Inhalation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Skin" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Eye" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Ingestion" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="OtherToxicologicalData" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AcuteToxicityDescriptionGeneral" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Inhalation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Skin" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Eye" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Ingestion" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AcuteToxicityEstimatesMixture" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="AcuteToxicityEstimatesMixture" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="Value" type="UnitValue" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="EffectDoseConcentration" type="DoseEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="ExposureRoute" type="ExposureRouteEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="Value" type="UnitValue" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AcuteToxicityHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentAcuteToxicityClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AcuteToxicityHumanExperience" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AssessmentAcuteToxicityClassification" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ToxicokineticInfo" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="DistributionInBody" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Metabolism" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Toxicokinetics" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="HumanToxicologicalData" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ToxicokineticInfoComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="DistributionInBody" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="Metabolism" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="Toxicokinetics" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="HumanToxicologicalData" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="ToxicokineticInfoComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="SkinCorrosionIrritation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="SkinCorrosionIrritationTestResults" type="CorrosionIrritationData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SkinCorrosionAcidicOrAlkalineReserve" minOccurs="0" maxOccurs="1">
+						<xs:element name="SkinCorrosionIrritationTestResults"
+							type="CorrosionIrritationData" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SkinCorrosionAcidicOrAlkalineReserve" minOccurs="0"
+							maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SkinCorrosionAcidicReserve" minOccurs="0" maxOccurs="1">
+									<xs:element name="SkinCorrosionAcidicReserve" minOccurs="0"
+										maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="SkinCorrosionAcidicReserveValue" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="SkinCorrosionAcidicReserveResult" type="Phrase" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="SkinCorrosionAcidicReserveValue"
+												type="UnitValue" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="SkinCorrosionAcidicReserveResult"
+												type="Phrase" minOccurs="0" maxOccurs="1"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="SkinCorrosionAlkalineReserve" minOccurs="0" maxOccurs="1">
+									<xs:element name="SkinCorrosionAlkalineReserve" minOccurs="0"
+										maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="SkinCorrosionAlkalineReserveValue" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="SkinCorrosionAlkalineReserveResult" type="Phrase" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="SkinCorrosionAlkalineReserveValue"
+												type="UnitValue" minOccurs="0" maxOccurs="1"/>
+												<xs:element
+												name="SkinCorrosionAlkalineReserveResult"
+												type="Phrase" minOccurs="0" maxOccurs="1"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="SkinCorrosionAcidicOrAlkalineReserveComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinCorrosionAcidicOrAlkalineReserveComments"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SkinCorrosionIrritationOtherInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Irritation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Corrosivity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SkinCorrosionIrritationHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentCorrosionIrritationClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SkinCorrosionIrritationOtherInformation" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="Irritation" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="Corrosivity" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SkinCorrosionIrritationHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AssessmentCorrosionIrritationClassification" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="EyeDamageOrIrritation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="EyeDamageOrIrritationTestResults" type="CorrosionIrritationData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EyeDamageOrIrritationOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EyeIrritation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EyeCorrosivity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EyeDamageOrIrritationHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentEyeDamageOrIrritationClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EyeDamageOrIrritationTestResults"
+							type="CorrosionIrritationData" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EyeDamageOrIrritationOtherInfo" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EyeIrritation" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="EyeCorrosivity" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="EyeDamageOrIrritationHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AssessmentEyeDamageOrIrritationClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="RespiratoryOrSkinSensitisation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="RespiratoryOrSkinSensitisationTestResults" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="RespiratoryOrSkinSensitisationTestResults" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Dose" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="ToxicityType" type="ToxicityTypeEnum"
+										minOccurs="0" maxOccurs="1"/>
+									<xs:element name="Method" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Dose" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
 									<!-- Was Phrase -->
-									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Result" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="TestDuration" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Species" type="Species" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Value" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Result" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="TestReference" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="RespiratoryOrSkinSensitisationOtherInformation" minOccurs="0" maxOccurs="1">
+						<xs:element name="RespiratoryOrSkinSensitisationOtherInformation"
+							minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="RespiratoryOrSkinSensitisationGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="RespiratorySensitisationOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SkinSensitisationOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RespiratoryOrSkinSensitisationGeneral"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RespiratorySensitisationOtherInfo"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinSensitisationOtherInfo" type="Phrase"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="HumanExperience" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="RespiratorySensitisationHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SkinSensitisationHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RespiratorySensitisationHumanExperience"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SkinSensitisationHumanExperience"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="ClassificationAssessment" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="AssessmentRespiratorySensitisationClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AssessmentSkinSensitisationClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element
+										name="AssessmentRespiratorySensitisationClassification"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AssessmentSkinSensitisationClassification"
+										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -934,87 +1285,130 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="TestResults" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="Method" type="Phrase" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="EffectValue" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Dose" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="ToxicityType" type="ToxicityTypeEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="Method" type="Phrase" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="EffectValue" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="TestDuration" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ExposureRoute" type="ExposureRouteEnum"
+										minOccurs="0" maxOccurs="1"/>
+									<xs:element name="Dose" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
 									<!-- Was Phrase -->
-									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Species" type="Species" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="GeneticEndpoint" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Result" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Species" type="Species" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="GeneticEndpoint" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Result" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="TestReference" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="GermCellMutagenicityOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="GermCellMutagenicityHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentGermCellMutagenicityClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="GermCellMutagenicityOtherInfo" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="GermCellMutagenicityHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AssessmentGermCellMutagenicityClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Carcinogenicity" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CarcinogenicityTestResults" type="CMRData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="CarcinogenicityOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="CarcinogenicityHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentCarcinogenicityClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="CarcinogenicityTestResults" type="CMRData" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="CarcinogenicityOtherInfo" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="CarcinogenicityHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AssessmentCarcinogenicityClassification" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ReproductiveToxicity" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ReproductiveToxicityTestResults" type="CMRData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ReproductiveToxicityOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ReproductiveToxicityHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentReproductiveToxicityClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ReproductiveToxicityTestResults" type="CMRData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ReproductiveToxicityOtherInfo" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="ReproductiveToxicityHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AssessmentReproductiveToxicityClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="OverallAssessmentOnCMRProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OverallAssessmentOnCMRProperties" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="SpecificTargetOrganSE" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="SpecificTargetOrganSETestResults" type="STOTData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SpecificTargetOrganSEOtherInfo" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="SpecificTargetOrganSETestResults" type="STOTData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificTargetOrganSEOtherInfo" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="General" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Inhalation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Skin" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Eye" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Ingestion" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="General" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Inhalation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Skin" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Eye" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Ingestion" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SpecificTargetOrganSEHumanExperience" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="AssessmentSpecificTargetOrganSEClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificTargetOrganSEHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="1"/>
+						<xs:element name="AssessmentSpecificTargetOrganSEClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="SpecificTargetOrganRE" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="SpecificTargetOrganRETestResults" type="STOTData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SpecificTargetOrganREOtherInfo" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="SpecificTargetOrganRETestResults" type="STOTData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificTargetOrganREOtherInfo" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="General" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Inhalation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Skin" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Eye" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Ingestion" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="General" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Inhalation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Skin" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Eye" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Ingestion" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SpecificTargetOrganREHumanExperience" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="AssessmentSpecificTargetOrganREClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificTargetOrganREHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="1"/>
+						<xs:element name="AssessmentSpecificTargetOrganREClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1024,66 +1418,98 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="AspirationHazardTestResults" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="TestMethod" type="Phrase" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Species" type="Species" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ToxicityType" type="ToxicityTypeEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="TestMethod" type="Phrase" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="ExposureRoute" type="ExposureRouteEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="ExposureTime" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Value" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Species" type="Species" minOccurs="1"
+										maxOccurs="1"/>
+									<xs:element name="TestReference" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AspirationHazardHydrocarbonContent" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="AspirationHazardOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AspirationHazardHumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AssessmentAspirationHazardClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AspirationHazardComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AspirationHazardHydrocarbonContent" type="UnitValue"
+							minOccurs="0" maxOccurs="1"/>
+						<xs:element name="AspirationHazardOtherInfo" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AspirationHazardHumanExperience" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AssessmentAspirationHazardClassification" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AspirationHazardComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Phototoxicity" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="PhototoxicityTestResults" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="PhototoxicityTestResults" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="TestMethod" type="Phrase" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="ToxicityType" type="ToxicityTypeEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="TestMethod" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
 									<!-- xs:element name="Dose" type="DoseEnum" minOccurs="0" maxOccurs="1"/ -->
-									<xs:element name="Dose" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="Dose" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="ExposureRoute" type="ExposureRouteEnum"
+										minOccurs="1" maxOccurs="1"/>
+									<xs:element name="TestDuration" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
 									<xs:element name="Results" minOccurs="1" maxOccurs="1">
 										<!-- Was Result -->
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="PhotoIrritationFactor" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="MeanPhotoEffect" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												<xs:element name="Value" type="UnitValue"
+												minOccurs="0" maxOccurs="1"/>
+												<xs:element name="PhotoIrritationFactor"
+												type="UnitValue" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="MeanPhotoEffect" type="UnitValue"
+												minOccurs="0" maxOccurs="1"/>
+												<xs:element name="Evaluation" type="Phrase"
+												minOccurs="0" maxOccurs="unbounded"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Species" type="Species" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="TestReference" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="PhototoxicityOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PhototoxicityOtherInfo" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="OtherAdverseToxicologicalEffects" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OtherAdverseToxicologicalEffects" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="SymptomsOfExposure" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="InCaseOfIngestion" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="InCaseOfSkinContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="InCaseOfInhalation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="InCaseOfEyeContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="InCaseOfIngestion" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="InCaseOfSkinContact" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="InCaseOfInhalation" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="InCaseOfEyeContact" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1105,133 +1531,216 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="EcotoxicityTestResults" minOccurs="0" maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="FishToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="CrustaceanToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AlgaeToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="BacteriaToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="BirdToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="InsectToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="EarthwormToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SoilMicroorganismsToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SedimentLivingOrganismsToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="PlantToxicity" type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ImpactOnSewageTreatment" minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="FishToxicity" type="Ecotoxicity" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="CrustaceanToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AlgaeToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="BacteriaToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="BirdToxicity" type="Ecotoxicity" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="InsectToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="EarthwormToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SoilMicroorganismsToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="SedimentLivingOrganismsToxicity"
+										type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="PlantToxicity" type="Ecotoxicity"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ImpactOnSewageTreatment" minOccurs="0"
+										maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="Value" type="Ecotoxicity" minOccurs="1" maxOccurs="1"/>
-												<xs:element name="Inoculum" type="Phrase" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="Value" type="Ecotoxicity"
+												minOccurs="1" maxOccurs="1"/>
+												<xs:element name="Inoculum" type="Phrase"
+												minOccurs="0" maxOccurs="1"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="OtherEcotoxInfoFish" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OtherEcotoxInfoAlgaePlant" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OtherEcotoxInfoCrustaceans" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OtherEcotoxInfoImpactOnSewageTreatment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EcotoxicologyOtherData" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EcotoxicologyOverallEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="OtherEcotoxInfoFish" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="OtherEcotoxInfoAlgaePlant" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="OtherEcotoxInfoCrustaceans" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Add information here if the species is unknown, e.g. listed as "Aquatic invertebrates".</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherEcotoxInfoImpactOnSewageTreatment" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EcotoxicologyOtherData" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="EcotoxicologyOverallEvaluation" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="PersistenceDegradability" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="PersistenceDegradabilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DegradationHalfLife" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DegradationAndEliminationResults" minOccurs="0" maxOccurs="1">
+						<xs:element name="PersistenceDegradabilityDescription" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="DegradationHalfLife" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="DegradationAndEliminationResults" minOccurs="0"
+							maxOccurs="1">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="BiologicalDegradability" type="BiologicalDegradation" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AbioticDegradationInAir" type="DegradationElimination" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HydrolysisInSeaWater" type="DegradationElimination" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HydrolysisInFreshWater" type="DegradationElimination" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="HydrolysisInSoil" type="DegradationElimination" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="PhysicochemicalElimination" type="DegradationElimination" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Photolysis" type="DegradationElimination" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="BiologicalDegradability"
+										type="BiologicalDegradation" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="AbioticDegradationInAir"
+										type="DegradationElimination" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="HydrolysisInSeaWater"
+										type="DegradationElimination" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="HydrolysisInFreshWater"
+										type="DegradationElimination" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="HydrolysisInSoil"
+										type="DegradationElimination" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="PhysicochemicalElimination"
+										type="DegradationElimination" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Photolysis" type="DegradationElimination"
+										minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="DegradationInSewagePlantDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ChemicalOxygenDemand" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="BiochemicalOxygenDemand" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="DegradationInSewagePlantDescription" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ChemicalOxygenDemand" type="FurtherEcologicalData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="BiochemicalOxygenDemand" type="FurtherEcologicalData"
+							minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="Bod5CodRatio" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Value" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="TheoreticalOxygenDemand" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PersistenceDegradabilityAdditionalInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PersistenceDegradabilityComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="TheoreticalOxygenDemand" type="FurtherEcologicalData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PersistenceDegradabilityAdditionalInfo" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PersistenceDegradabilityComments" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Bioaccumulation" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="BioaccumulationDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="BioconcentrationFactor" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="BioaccumulationDescription" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="BioconcentrationFactor" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Value" type="UnitValue" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Species" type="Species" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Method" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="TestReference" type="Phrase" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="Comments" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="BioaccumulationEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="BioaccumulationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="BioaccumulationEvaluation" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="BioaccumulationComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Mobility" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="MobilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SurfaceTension" type="SurfaceTension" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AdsorptionCoefficient" type="MobilityData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DesorptionCoefficient" type="MobilityData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="WaterAirVolatilityRate" type="MobilityData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="HenryConstant" type="MobilityData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SoilAirVolatilityRate" type="MobilityData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AbsorptionDesorptionInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="MobilityEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="MobilityComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="MobilityDescription" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SurfaceTension" type="SurfaceTension" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AdsorptionCoefficient" type="MobilityData" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="DesorptionCoefficient" type="MobilityData" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="WaterAirVolatilityRate" type="MobilityData" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="HenryConstant" type="MobilityData" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SoilAirVolatilityRate" type="MobilityData" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="AbsorptionDesorptionInfo" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="MobilityEvaluation" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="MobilityComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ResultsOfPbtAndVpvbAssessment" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="PbtAssessmentResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="VpvbAssessmentResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PbtAssessmentResults" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="VpvbAssessmentResults" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="OtherAdverseEffects" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="OtherAdverseEffectsDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="OzoneDepletionPotential" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="PhotochemicalOzoneCreationPotential" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="GlobalWarmingPotential" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AtmosphericLifetime" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EndocrineDisruptingPotential" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DissolvedOrganicCarbon" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="TotalOrganicCarbon" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="InorganicCarbon" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="TheoreticalCarbonDioxideAmount" type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AOXAdsorbableOrganohalogens" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="POXPurgeableOrganohalogens" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="EOXExtractableOrganohalogens" type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AdditionalEcologicalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="OtherAdverseEffectsDescription" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="OzoneDepletionPotential" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PhotochemicalOzoneCreationPotential"
+							type="PhysChemUnitValue" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="GlobalWarmingPotential" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AtmosphericLifetime" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EndocrineDisruptingPotential" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="DissolvedOrganicCarbon" type="FurtherEcologicalData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="TotalOrganicCarbon" type="FurtherEcologicalData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="InorganicCarbon" type="FurtherEcologicalData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="TheoreticalCarbonDioxideAmount"
+							type="FurtherEcologicalData" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AOXAdsorbableOrganohalogens" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="POXPurgeableOrganohalogens" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EOXExtractableOrganohalogens" type="PhysChemUnitValue"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdditionalEcologicalInformation" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1251,55 +1760,77 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="ClpClassification" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ClpHazardClassification" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="ClpHazardClassification" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ClpHazardClassCategory" type="HazardClassCategoryEnum" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="1" maxOccurs="2"/>
+									<xs:element name="ClpHazardClassCategory"
+										type="HazardClassCategoryEnum" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="ClpHazardStatement" type="HazardStatement"
+										minOccurs="0" maxOccurs="2">
+										<xs:annotation>
+											<xs:documentation>Zero instances for classes "Expl. 1.6", "Org. Perox. G" and "Self-react. G". One instance usually. Two instances for Aerosols category 1 and 2.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<!-- 4.0.2 update from maxOccur 1 to 2 according to CLP ATP 4 -->
-									<xs:element name="ClpClassificationProcedure" type="Phrase" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="ClpClassificationProcedure" type="Phrase"
+										minOccurs="0" maxOccurs="1"/>
 									<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="FactorValue" type="int20" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="FactorComments" type="Phrase" minOccurs="0" maxOccurs="4"/>
+												<xs:element name="FactorValue" type="int20"
+												minOccurs="0" maxOccurs="1"/>
+												<xs:element name="FactorComments" type="Phrase"
+												minOccurs="0" maxOccurs="4"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="ClpClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ClpClassificationNotes" type="Phrase" minOccurs="0" maxOccurs="4"/>
+						<xs:element name="ClpClassificationComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="ClpClassificationNotes" type="Phrase" minOccurs="0"
+							maxOccurs="4"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="DpdDsdClassification" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="DpdDsdHazardClassification" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DpdDsdHazardClassification" minOccurs="0"
+							maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="DpdDsdClassificationCategory" type="ClassificationCategoryEnum" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="DpdDsdRiskPhrase" type="RiskPhrase" minOccurs="1" maxOccurs="3"/>
+									<xs:element name="DpdDsdClassificationCategory"
+										type="ClassificationCategoryEnum" minOccurs="0"
+										maxOccurs="1"/>
+									<xs:element name="DpdDsdRiskPhrase" type="RiskPhrase"
+										minOccurs="1" maxOccurs="3"/>
 									<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="FactorValue" type="int20" minOccurs="0" maxOccurs="1"/>
-												<xs:element name="FactorComments" type="Phrase" minOccurs="0" maxOccurs="4"/>
+												<xs:element name="FactorValue" type="int20"
+												minOccurs="0" maxOccurs="1"/>
+												<xs:element name="FactorComments" type="Phrase"
+												minOccurs="0" maxOccurs="4"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="DpdDsdClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DpdDsdClassificationNotes" type="Phrase" minOccurs="0" maxOccurs="4"/>
+						<xs:element name="DpdDsdClassificationComments" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="DpdDsdClassificationNotes" type="Phrase" minOccurs="0"
+							maxOccurs="4"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="SimpleClassificationDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ClassificationAdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SimpleClassificationDescription" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="ClassificationAdditionalInformation" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  OccupationalExposureLimit *************  -->
@@ -1310,23 +1841,27 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LimitValueTypeWithCountryOrOrganisation"
+				type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Limit8H" type="UnitValue" minOccurs="0" maxOccurs="2"/>
 			<xs:element name="LimitShortTerm" type="STEL" minOccurs="0" maxOccurs="2"/>
 			<xs:element name="PeakLimitation" minOccurs="0" maxOccurs="2">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="PeakLimitationOverflowFactor" type="Value" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="PeakLimitationOverflowFactor" type="Value" minOccurs="0"
+							maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="ExposureLimitLetter" minOccurs="0" maxOccurs="4">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="LetterCode" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="LetterDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="LetterDescription" type="Phrase" minOccurs="0"
+							maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1342,13 +1877,15 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LimitValueTypeWithCountryOrOrganisation"
+				type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="InvestigationParameter" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestMaterial" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1373,7 +1910,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Group" type="EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum"
+				minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DnelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -1389,7 +1927,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Group" type="EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum"
+				minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DmelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -1425,16 +1964,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Type" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="EquipmentForSelfRescue" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="MaskType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="FilterApparatusType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="EquipmentForSelfRescue" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="MaskType" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="FilterApparatusType" type="Phrase" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Description" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Manufacturer" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="SourcesOfSupply" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  ProtectionArticle *************  -->
@@ -1449,7 +1992,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Description" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Manufacturer" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="SourcesOfSupply" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysicalHazardsScreeningProcedures ***********  -->
@@ -1462,7 +2006,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ScreeningType" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ScreeningResult" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ScreeningResult" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1"
+			/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysicalHazardsSafetyCharacteristics ***********  -->
@@ -1525,18 +2070,28 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<!-- ******************************************************************** Solubilities ************** -->
 	<xs:complexType name="Solubilities">
 		<xs:annotation>
-			<xs:documentation>
-        Solubilities. Source: Chapter 9.
+			<xs:documentation>Describes the solutibities in one medium, optionally at various temperatures (section 9).
       </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SolubilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SolubilityDescription" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="Solubility" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>should be 0..1 only (unbounded is deprecated / on the lsit for refactoring).</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Medium" type="SolubilityMediumEnum" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="OtherMediumDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Medium" type="SolubilityMediumEnum" minOccurs="1"
+							maxOccurs="1"/>
+						<xs:element name="OtherMediumDescription" type="Phrase" minOccurs="0"
+							maxOccurs="1"/>
+						<xs:element name="Value" type="PhysChemUnitValueWithTemperature"
+							minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>If the product has a low solubility or is insoluble in the specified medium, and if there is no numerical translation of this circumstance, put the respective phrase in Comments. (see issue #71)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1581,7 +2136,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0"
+				maxOccurs="1"/>
 			<!-- Was PhysChemValueWithTemperature -->
 			<xs:element name="Ph" type="Value" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
@@ -1602,9 +2158,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="Type" type="ViscosityTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OtherTypeDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OtherTypeDescription" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!--xs:complexContent>
@@ -1646,7 +2204,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="PhValue" type="Value" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!-- xs:complexContent>
@@ -1666,7 +2225,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="ReferenceGas" type="Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!-- xs:complexContent>
@@ -1752,7 +2312,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="1"
+				maxOccurs="1"/>
 			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!--xs:complexContent>
@@ -1771,7 +2332,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="1"
+				maxOccurs="1"/>
 			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<!-- xs:element name="Temperature" type="UnitValue" minOccurs="0" maxOccurs="1"/>
@@ -1835,7 +2397,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		<xs:sequence>
 			<xs:element name="WasteCode" type="WasteCode" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="WasteDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="HazardousWaste" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="HazardousWaste" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>optional because this property can be dreived from WasteCode</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* ProductGtin ***********************  -->
@@ -1862,5 +2428,112 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Pressure" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MaximumStoragePeriod" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************************************* Ecotoxicity *************  -->
+	<xs:complexType name="Ecotoxicity">
+		<xs:annotation>
+			<xs:documentation>
+				Ecotoxicity. Source: Chapter 12.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  GasGroup *********************************  -->
+	<xs:complexType name="GasGroup">
+		<xs:annotation>
+			<xs:documentation>
+				GasGroup. Source: Chapter 9.		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="GasGroupEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  Species *************  -->
+	<xs:complexType name="Species">
+		<xs:annotation>
+			<xs:documentation>
+				Species used in tests
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Value" type="Phrase"/>
+			<xs:element name="Gender" type="Phrase" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *******************************************************************  TemperatureClass **************************  -->
+	<xs:complexType name="TemperatureClass">
+		<xs:annotation>
+			<xs:documentation>
+				TemperatureClass 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Method" type="Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="TemperatureClassEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
+	<xs:complexType name="PhysicalHazardsGeneralInformation">
+		<xs:annotation>
+			<xs:documentation>
+				PhysicalHazardsGeneralInformation. Source: Chapter 9.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JustificationForDataWaiving" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Assessment" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Classification" type="Phrase" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ****************************************************************************** PhraseCatalogue *****  -->
+	<xs:complexType name="PhraseCatalogue">
+		<xs:annotation>
+			<xs:documentation>
+				Catalogue of standard phrases used in the datasheet. Used in chapter 0 and referred in for example exposure scenarios. 
+				PhraseCatalogues and PhraseIds simplifies translation to other languages. Example: EUPhraC catalogue.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhraseCatalogueName" type="string256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase catalogue Name, eg. EuPhraC</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueIssuer" type="string256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase catalogue issuer, eg. EuPhraC-Workinggroup </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueVersion" type="string64" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The version no of the phrase catalog the information is based on</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhraseCatalogueDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>The version timestamp of the phrase catalogue the information is based on</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 </xs:schema>
