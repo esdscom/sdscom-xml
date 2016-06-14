@@ -1793,8 +1793,10 @@ History until v4.2.0:
 			<xs:enumeration value="Self-react. A"/>
 			<xs:enumeration value="Self-react. B"/>
 			<xs:enumeration value="Self-react. C"/>
+			<xs:enumeration value="Self-react. CD"/>
 			<xs:enumeration value="Self-react. D"/>
 			<xs:enumeration value="Self-react. E"/>
+			<xs:enumeration value="Self-react. EF"/>
 			<xs:enumeration value="Self-react. F"/>
 			<xs:enumeration value="Self-react. G"/>
 			<xs:enumeration value="Pyr. Liq. 1"/>
@@ -1813,8 +1815,10 @@ History until v4.2.0:
 			<xs:enumeration value="Org. Perox. A"/>
 			<xs:enumeration value="Org. Perox. B"/>
 			<xs:enumeration value="Org. Perox. C"/>
+			<xs:enumeration value="Org. Perox. CD"/>
 			<xs:enumeration value="Org. Perox. D"/>
 			<xs:enumeration value="Org. Perox. E"/>
+			<xs:enumeration value="Org. Perox. EF"/>
 			<xs:enumeration value="Org. Perox. F"/>
 			<xs:enumeration value="Org. Perox. G"/>
 			<xs:enumeration value="Met. Corr. 1"/>
@@ -1856,12 +1860,6 @@ History until v4.2.0:
 			<xs:enumeration value="Aquatic Chronic 3"/>
 			<xs:enumeration value="Aquatic Chronic 4"/>
 			<xs:enumeration value="Ozone 1"/>
-			<!-- New value in version 4.0.2 -->
-			<!-- New value in version 4.0.2 -->
-			<!-- Was Flam. Aerosol 1 before version 4.0.2 -->
-			<!-- Was Flam. Aerosol 2 before version 4.0.2 -->
-			<!-- New value in version 4.0.2 -->
-			<!-- Four new values addded in ver 4.0.2 to replace 12 non-standard tox values with exposure routes oral/dermal/inhalation -->
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ClassificationCategoryEnum ******  -->
