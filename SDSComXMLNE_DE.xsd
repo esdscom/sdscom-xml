@@ -26,15 +26,21 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="TaLuft" type="TaLuft" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="WaterHazardClass" type="WaterHazardClass" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="4"/>
+			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase"
+				minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase"
+				minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE"
+				minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="GisCode" type="GisCodeEnum" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -110,8 +116,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 	<!-- ************************************************************** StorageClassEnum ******  -->
 	<xs:simpleType name="StorageClassEnum">
 		<xs:annotation>
-			<xs:documentation>Enumaration of the german storage class according to TRGS 510. Note that LGK 10-13 must be specified as separate storage classes, i.e. in four occurences of an element of type StorageClassEnum.
-			</xs:documentation>
+			<xs:documentation>Enumaration of the german storage class according to TRGS 510.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="LGK 1"/>
@@ -139,6 +144,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="LGK 11"/>
 			<xs:enumeration value="LGK 12"/>
 			<xs:enumeration value="LGK 13"/>
+			<xs:enumeration value="LGK 10-13"/>
 			<!--LGK 1: Explosive Gefahrstoffe-->
 			<!--LGK 2A: Gase (ohne Aerosolpackungen und Feuerzeuge)-->
 			<!--LGK 2B: Aerosolpackungen und Feuerzeuge-->
