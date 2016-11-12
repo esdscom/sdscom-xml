@@ -232,7 +232,8 @@ History before  v4.2.0:
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation> The version of the XML standard which is applied in the transmission
-				of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89 </xs:documentation>
+				of datasheet information. This enum must list all compatible versions, but not any
+				older ones! See issue #89 </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="4.3.0"/>
@@ -1565,125 +1566,119 @@ History before  v4.2.0:
 	<!-- ******************************************************************** PrecautionPhraseEnum ******  -->
 	<xs:simpleType name="PrecautionaryStatementEnum">
 		<xs:annotation>
-			<xs:documentation>Precautionary Statement Code with a predefined set of legal values, or any combination of up to four such values (actually, this type only checks for combinations of up to four three-digit numbers). Also called CLP P-phrases. </xs:documentation>
+			<xs:documentation>Precautionary Statement Code with a predefined set of legal values, or
+				any combination of up to four such values (actually, this type only checks for
+				combinations of up to four three-digit numbers). Also called CLP P-phrases.
+			</xs:documentation>
 		</xs:annotation>
-		<xs:union>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="101"/>
-					<xs:enumeration value="102"/>
-					<xs:enumeration value="103"/>
-					<xs:enumeration value="201"/>
-					<xs:enumeration value="202"/>
-					<xs:enumeration value="210"/>
-					<xs:enumeration value="211"/>
-					<xs:enumeration value="220"/>
-					<xs:enumeration value="221"/>
-					<xs:enumeration value="222"/>
-					<xs:enumeration value="223"/>
-					<xs:enumeration value="230"/>
-					<xs:enumeration value="231"/>
-					<xs:enumeration value="232"/>
-					<xs:enumeration value="233"/>
-					<xs:enumeration value="234"/>
-					<xs:enumeration value="235"/>
-					<xs:enumeration value="240"/>
-					<xs:enumeration value="241"/>
-					<xs:enumeration value="242"/>
-					<xs:enumeration value="243"/>
-					<xs:enumeration value="244"/>
-					<xs:enumeration value="250"/>
-					<xs:enumeration value="251"/>
-					<xs:enumeration value="260"/>
-					<xs:enumeration value="261"/>
-					<xs:enumeration value="262"/>
-					<xs:enumeration value="263"/>
-					<xs:enumeration value="264"/>
-					<xs:enumeration value="270"/>
-					<xs:enumeration value="271"/>
-					<xs:enumeration value="272"/>
-					<xs:enumeration value="273"/>
-					<xs:enumeration value="280"/>
-					<xs:enumeration value="281"/>
-					<xs:enumeration value="282"/>
-					<xs:enumeration value="283"/>
-					<xs:enumeration value="284"/>
-					<xs:enumeration value="285"/>
-					<xs:enumeration value="301"/>
-					<xs:enumeration value="302"/>
-					<xs:enumeration value="303"/>
-					<xs:enumeration value="304"/>
-					<xs:enumeration value="305"/>
-					<xs:enumeration value="306"/>
-					<xs:enumeration value="307"/>
-					<xs:enumeration value="308"/>
-					<xs:enumeration value="309"/>
-					<xs:enumeration value="310"/>
-					<xs:enumeration value="311"/>
-					<xs:enumeration value="312"/>
-					<xs:enumeration value="313"/>
-					<xs:enumeration value="314"/>
-					<xs:enumeration value="315"/>
-					<xs:enumeration value="320"/>
-					<xs:enumeration value="321"/>
-					<xs:enumeration value="322"/>
-					<xs:enumeration value="330"/>
-					<xs:enumeration value="331"/>
-					<xs:enumeration value="332"/>
-					<xs:enumeration value="333"/>
-					<xs:enumeration value="334"/>
-					<xs:enumeration value="335"/>
-					<xs:enumeration value="336"/>
-					<xs:enumeration value="337"/>
-					<xs:enumeration value="338"/>
-					<xs:enumeration value="340"/>
-					<xs:enumeration value="341"/>
-					<xs:enumeration value="342"/>
-					<xs:enumeration value="350"/>
-					<xs:enumeration value="351"/>
-					<xs:enumeration value="352"/>
-					<xs:enumeration value="353"/>
-					<xs:enumeration value="360"/>
-					<xs:enumeration value="361"/>
-					<xs:enumeration value="362"/>
-					<xs:enumeration value="363"/>
-					<xs:enumeration value="364"/>
-					<xs:enumeration value="370"/>
-					<xs:enumeration value="371"/>
-					<xs:enumeration value="372"/>
-					<xs:enumeration value="373"/>
-					<xs:enumeration value="374"/>
-					<xs:enumeration value="375"/>
-					<xs:enumeration value="376"/>
-					<xs:enumeration value="377"/>
-					<xs:enumeration value="378"/>
-					<xs:enumeration value="380"/>
-					<xs:enumeration value="381"/>
-					<xs:enumeration value="390"/>
-					<xs:enumeration value="391"/>
-					<xs:enumeration value="401"/>
-					<xs:enumeration value="402"/>
-					<xs:enumeration value="403"/>
-					<xs:enumeration value="404"/>
-					<xs:enumeration value="405"/>
-					<xs:enumeration value="406"/>
-					<xs:enumeration value="407"/>
-					<xs:enumeration value="410"/>
-					<xs:enumeration value="411"/>
-					<xs:enumeration value="412"/>
-					<xs:enumeration value="413"/>
-					<xs:enumeration value="420"/>
-					<xs:enumeration value="422"/>
-					<xs:enumeration value="501"/>
-					<xs:enumeration value="502"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:pattern value="\d\d\d(\+\d\d\d){1,3}"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:union>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="101"/>
+			<xs:enumeration value="102"/>
+			<xs:enumeration value="103"/>
+			<xs:enumeration value="201"/>
+			<xs:enumeration value="202"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="211"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="221"/>
+			<xs:enumeration value="222"/>
+			<xs:enumeration value="223"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="231"/>
+			<xs:enumeration value="232"/>
+			<xs:enumeration value="233"/>
+			<xs:enumeration value="234"/>
+			<xs:enumeration value="235"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="241"/>
+			<xs:enumeration value="242"/>
+			<xs:enumeration value="243"/>
+			<xs:enumeration value="244"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="251"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="261"/>
+			<xs:enumeration value="262"/>
+			<xs:enumeration value="263"/>
+			<xs:enumeration value="264"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="271"/>
+			<xs:enumeration value="272"/>
+			<xs:enumeration value="273"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="281"/>
+			<xs:enumeration value="282"/>
+			<xs:enumeration value="283"/>
+			<xs:enumeration value="284"/>
+			<xs:enumeration value="285"/>
+			<xs:enumeration value="301"/>
+			<xs:enumeration value="302"/>
+			<xs:enumeration value="303"/>
+			<xs:enumeration value="304"/>
+			<xs:enumeration value="305"/>
+			<xs:enumeration value="306"/>
+			<xs:enumeration value="307"/>
+			<xs:enumeration value="308"/>
+			<xs:enumeration value="309"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="311"/>
+			<xs:enumeration value="312"/>
+			<xs:enumeration value="313"/>
+			<xs:enumeration value="314"/>
+			<xs:enumeration value="315"/>
+			<xs:enumeration value="320"/>
+			<xs:enumeration value="321"/>
+			<xs:enumeration value="322"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="331"/>
+			<xs:enumeration value="332"/>
+			<xs:enumeration value="333"/>
+			<xs:enumeration value="334"/>
+			<xs:enumeration value="335"/>
+			<xs:enumeration value="336"/>
+			<xs:enumeration value="337"/>
+			<xs:enumeration value="338"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="341"/>
+			<xs:enumeration value="342"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="351"/>
+			<xs:enumeration value="352"/>
+			<xs:enumeration value="353"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="361"/>
+			<xs:enumeration value="362"/>
+			<xs:enumeration value="363"/>
+			<xs:enumeration value="364"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="371"/>
+			<xs:enumeration value="372"/>
+			<xs:enumeration value="373"/>
+			<xs:enumeration value="374"/>
+			<xs:enumeration value="375"/>
+			<xs:enumeration value="376"/>
+			<xs:enumeration value="377"/>
+			<xs:enumeration value="378"/>
+			<xs:enumeration value="380"/>
+			<xs:enumeration value="381"/>
+			<xs:enumeration value="390"/>
+			<xs:enumeration value="391"/>
+			<xs:enumeration value="401"/>
+			<xs:enumeration value="402"/>
+			<xs:enumeration value="403"/>
+			<xs:enumeration value="404"/>
+			<xs:enumeration value="405"/>
+			<xs:enumeration value="406"/>
+			<xs:enumeration value="407"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="411"/>
+			<xs:enumeration value="412"/>
+			<xs:enumeration value="413"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="422"/>
+			<xs:enumeration value="501"/>
+			<xs:enumeration value="502"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** SupplementalHazardInformationEnum ******  -->
 	<xs:simpleType name="SupplementalHazardInformationEnum">
@@ -2418,8 +2413,9 @@ History before  v4.2.0:
 			<xs:documentation> Precautionary Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="PrecautionaryStatementEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhraseCode" type="PrecautionaryStatementEnum" minOccurs="1"
+				maxOccurs="5"/>
+			<xs:element name="FullText" type="string512" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="PhraseId"/>
