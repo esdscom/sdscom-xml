@@ -1033,12 +1033,20 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:sequence>
 												<xs:element
 												name="ProperShippingNameEnglishAdrRidAdn"
-												type="Phrase" minOccurs="0"/>
+												type="Phrase" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												<xs:element
 												name="ProperShippingNameNationalAdrRidAdn"
-												type="Phrase" minOccurs="0"/>
+												type="Phrase" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												<xs:element
-												name="DangerReleasingSubstanceAdrRidAdn"
+												name="DangerReleasingSubstanceEnglishAdrRidAdn"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded">
 												<xs:annotation>
 												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
@@ -1058,9 +1066,14 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:complexType>
 												<xs:sequence>
 												<xs:element name="ProperShippingNameEnglishImdg"
-												type="Phrase" minOccurs="0"/>
+												type="Phrase" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												<!-- Updated from English only -->
-												<xs:element name="DangerReleasingSubstanceImdg"
+												<xs:element
+												name="DangerReleasingSubstanceEnglishImdg"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded">
 												<xs:annotation>
 												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
@@ -1073,8 +1086,13 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:complexType>
 												<xs:sequence>
 												<xs:element name="ProperShippingNameEnglishIcao"
-												type="Phrase" minOccurs="0"/>
-												<xs:element name="DangerReleasingSubstanceIcao"
+												type="Phrase" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element
+												name="DangerReleasingSubstanceEnglishIcao"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded">
 												<xs:annotation>
 												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
@@ -1110,12 +1128,6 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:sequence>
 												<xs:element name="ClassImdg" type="Phrase"
 												minOccurs="0"/>
-												<xs:element name="ClassCodeImdg" type="Phrase"
-												minOccurs="0">
-												<xs:annotation>
-												<xs:documentation>deprecated</xs:documentation>
-												</xs:annotation>
-												</xs:element>
 												<xs:element name="SubsidiaryRiskImdg"
 												type="Phrase" minOccurs="0" maxOccurs="2"/>
 												</xs:sequence>
@@ -1126,12 +1138,6 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:sequence>
 												<xs:element name="ClassIcaoIata" type="Phrase"
 												minOccurs="0"/>
-												<xs:element name="ClassCodeIcaoIata" type="Phrase"
-												minOccurs="0">
-												<xs:annotation>
-												<xs:documentation>deprecated</xs:documentation>
-												</xs:annotation>
-												</xs:element>
 												<xs:element name="SubsidiaryRiskIcaoIata"
 												type="Phrase" minOccurs="0" maxOccurs="2"/>
 												</xs:sequence>
@@ -1223,7 +1229,8 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:element name="AdrOtherInfo" type="Phrase"
 												minOccurs="0" maxOccurs="unbounded"/>
 												<xs:element name="AdrTunnelRestrictionCode"
-												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+												type="string10" minOccurs="0"
+												maxOccurs="unbounded"/>
 												<xs:element name="AdrLimitedQty" type="Phrase"
 												minOccurs="0" maxOccurs="unbounded"/>
 												<xs:element name="AdrTransportCategory"
