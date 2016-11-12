@@ -1906,10 +1906,7 @@ History before  v4.2.0:
 	<!-- ******************************************************************* DoseEnum *************  -->
 	<xs:simpleType name="DoseEnum">
 		<xs:annotation>
-			<xs:documentation>The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated
-				(GitHub issue #22) - use LCLo, LDLo, ERCLo instead. ATEmix tested is deprecated as
-				it does not exist - use ATEmix instead. ATEmix calculated is redundant as it is
-				always calculated - use ATEmix instead (see GitHub issue #57). </xs:documentation>
+			<xs:documentation>The legal values for the DoseEnum.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NOEC"/>
@@ -1919,12 +1916,10 @@ History before  v4.2.0:
 			<xs:enumeration value="NOAEL"/>
 			<xs:enumeration value="LOAEL"/>
 			<xs:enumeration value="LC0"/>
-			<xs:enumeration value="LClo"/>
 			<xs:enumeration value="LCLo"/>
 			<xs:enumeration value="LC50"/>
 			<xs:enumeration value="LC100"/>
 			<xs:enumeration value="LD0"/>
-			<xs:enumeration value="LDlo"/>
 			<xs:enumeration value="LDLo"/>
 			<xs:enumeration value="LD50"/>
 			<xs:enumeration value="LD100"/>
@@ -1938,11 +1933,8 @@ History before  v4.2.0:
 			<xs:enumeration value="EC50 (- UVA)"/>
 			<xs:enumeration value="EC80"/>
 			<xs:enumeration value="ATEmix"/>
-			<xs:enumeration value="ATEmix tested"/>
-			<xs:enumeration value="ATEmix calculated"/>
 			<xs:enumeration value="cATpE"/>
 			<xs:enumeration value="ERC50"/>
-			<xs:enumeration value="ERClo"/>
 			<xs:enumeration value="ERCLo"/>
 			<xs:enumeration value="IC50"/>
 			<xs:enumeration value="other"/>
