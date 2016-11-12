@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ***************************************************************************** 
-Issue		: SDSComXML XSD 4.x
+Issue		: SDScom XML schema definition 4.x
 Purpose	: Complex Types Schema Definition      					
 		  		to enable a xml-based		 									
 		  		distribution of Safety Data Sheets (SDS)		 		
 		  		as specified in the Format. For detailed 				 
 		  		information please refer to 									
 		  		http://www.eSDSCom.eu									
-Version	:  draft after v4.2.0																	
+
 History	:  
 Recent changes are documented on https://github.com/esdscom/sdscom-xml
+
 History until v4.2.0: 																					
 
 2013.04.12 Normally, either a pure substance or a mixture is specified in the composition type. But 

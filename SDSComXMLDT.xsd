@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ********************************************************************************************** 
- Issue		: 	SDSComXML XSD 4.x    	
+ Issue		: 	SDScom XML schema definition 4.x    	
  Purpose	: 	Basic data types Schema Definition      					
  			  	  	to enable a xml-based		 									
  			  	  	distribution of Safety Data Sheets (SDS)		 		
  			  	  	specified in the Format. For detailed 				 	
 			  		  information please refer to 									
  			  		  http://www.eSDScom.eu										
-Version	:  draft after v4.2.0																	
+
 History	:  
 Recent changes are documented on https://github.com/esdscom/sdscom-xml
-History until v4.2.0: 																					
+
+History before  v4.2.0: 																					
 
  2013.03.15: HazardClassCategoryEnum changed by adding "Acute Tox. 1","Acute Tox. 2","Acute Tox. 3"
              and "Acute Tox. 4". The non-standard Acute Tox values with exposure route oral/dermal/inhalation
@@ -231,13 +232,10 @@ History until v4.2.0:
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation> The version of the XML standard which is applied in the transmission
-				of datasheet information. </xs:documentation>
+				of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89 </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="4.2.0"/>
-			<xs:enumeration value="4.2.1"/>
-			<xs:enumeration value="4.2.2"/>
-			<xs:enumeration value="4.2.3"/>
+			<xs:enumeration value="4.3.0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
