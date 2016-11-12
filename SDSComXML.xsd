@@ -347,18 +347,9 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												</xs:element>
 												<xs:element name="ProductType" type="Phrase"
 												minOccurs="0" maxOccurs="unbounded"/>
-												<xs:element name="ProductFunction" minOccurs="0"
-												maxOccurs="unbounded">
-												<xs:complexType>
-												<xs:sequence>
 												<xs:element name="ProductFunctionDescription"
-												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-												<xs:element name="ProductFunctionCode"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded"
 												/>
-												</xs:sequence>
-												</xs:complexType>
-												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
