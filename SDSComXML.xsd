@@ -1398,7 +1398,7 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												<xs:element name="NationalLegislationGermany"
 												type="NationalExtensionDE" minOccurs="0"
 												maxOccurs="1"/>
-												<xs:element name="NationalLegislationDemnark"
+												<xs:element name="NationalLegislationDenmark"
 												type="NationalExtensionDK" minOccurs="0"
 												maxOccurs="1"/>
 												<xs:element name="NationalLegislationEstonia"
