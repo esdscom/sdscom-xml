@@ -161,11 +161,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				maxOccurs="1"/>
 			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0"
 				maxOccurs="unbounded"/>
-			<xs:element name="HazardousImpurities" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stabilizer" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ChemicalProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"
-			/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Component *************  -->
@@ -1573,7 +1569,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="OtherEcotoxInfoCrustaceans" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Add information here if the species is unknown, e.g. listed as "Aquatic invertebrates".</xs:documentation>
+								<xs:documentation>Add information here if the species is listed as "Aquatic invertebrates" or "Daphnia", or if the species is unknown.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="OtherEcotoxInfoImpactOnSewageTreatment" type="Phrase"

@@ -660,30 +660,43 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 										</xs:documentation>
 									</xs:annotation>
 									<xs:sequence>
-										<xs:choice>
-											<xs:element name="Substance" type="Substance"
-												minOccurs="0" maxOccurs="1"/>
-											<xs:element name="Mixture" minOccurs="0" maxOccurs="1">
-												<xs:complexType>
+										<xs:element name="CompositionType"
+											type="CompositionTypeEnum"/>
+										<xs:element name="ChemicalCharacterization" type="Phrase"
+											minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>was "DescriptionOfTheMixture" up to v4.2.3; see issue #95</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:sequence>
+											<xs:choice>
+												<xs:element name="Substance" type="Substance"
+												maxOccurs="1">
 												<xs:annotation>
-												<xs:documentation>
-															Mixture
-														</xs:documentation>
+												<xs:documentation>describes a single constituent substance</xs:documentation>
 												</xs:annotation>
-												<xs:sequence>
+												</xs:element>
 												<xs:element name="Component" type="Component"
-												minOccurs="1" maxOccurs="unbounded"/>
-												<xs:element name="DescriptionOfTheMixture"
-												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-												<xs:element name="CompositionComments"
-												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-												<xs:element name="IsDetergent" type="xs:boolean"
-												minOccurs="0" maxOccurs="1"/>
-												<!-- 4.0.2 Added missing MinOccurs and MaxOccurs -->
-												</xs:sequence>
-												</xs:complexType>
+												minOccurs="1" maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+											</xs:choice>
+											<xs:element maxOccurs="unbounded" minOccurs="0"
+												name="Impurity" type="Component">
+												<xs:annotation>
+												<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+												</xs:annotation>
 											</xs:element>
-										</xs:choice>
+											<!-- 4.0.2 Added missing MinOccurs and MaxOccurs -->
+											<xs:element form="unqualified" maxOccurs="unbounded"
+												minOccurs="0" name="Stabilizer" type="Component">
+												<xs:annotation>
+												<xs:documentation>describes additives which support the application stability</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
 										<xs:element name="CompositionComments" type="Phrase"
 											minOccurs="0" maxOccurs="unbounded"/>
 									</xs:sequence>
@@ -1291,8 +1304,17 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 												<xs:element name="RestrictionsAccordingReach"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-												<xs:element name="Detergents" type="Phrase"
-												minOccurs="0" maxOccurs="unbounded"/>
+												<xs:element minOccurs="0" name="Detergents">
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="IsDetergent" type="xs:boolean"
+												minOccurs="0" maxOccurs="1"/>
+												<xs:element name="DetergentInformation"
+												type="Phrase" minOccurs="0" maxOccurs="unbounded"
+												/>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
 												<xs:element name="Voc" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Directive 2004/42/EC amending 1999/13/EC</xs:documentation>

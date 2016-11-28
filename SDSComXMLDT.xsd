@@ -1724,6 +1724,18 @@ History before  v4.2.0:
 			<xs:enumeration value="401"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- ******************************************************************** CompositionTypeEnum ******  -->
+	<xs:simpleType name="CompositionTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Legal view on the composition, to determine whether the product is a substance, mixture, or else.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SingleConstituent"/>
+			<xs:enumeration value="MultiConstituent"/>
+			<xs:enumeration value="UVCB"/>
+			<xs:enumeration value="Mixture"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ******************************************************************** ToxicityTypeEnum ******  -->
 	<xs:simpleType name="ToxicityTypeEnum">
 		<xs:annotation>
