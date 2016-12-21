@@ -1831,6 +1831,7 @@ History before  v4.2.0:
 			<xs:enumeration value="Acute Tox. 2"/>
 			<xs:enumeration value="Acute Tox. 3"/>
 			<xs:enumeration value="Acute Tox. 4"/>
+			<xs:enumeration value="Skin Corr. 1"/>
 			<xs:enumeration value="Skin Corr. 1A"/>
 			<xs:enumeration value="Skin Corr. 1B"/>
 			<xs:enumeration value="Skin Corr. 1C"/>
