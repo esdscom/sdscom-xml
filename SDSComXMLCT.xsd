@@ -1839,16 +1839,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<!-- *******************************************************************  OccupationalExposureLimit *************  -->
 	<xs:complexType name="OccupationalExposureLimit">
 		<xs:annotation>
-			<xs:documentation>
-				OccupationalExposureLimit, source: Chapter 8				
-			</xs:documentation>
+			<xs:documentation>see Github issue #116 regarding multiple limit values</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="LimitValueTypeWithCountryOrOrganisation"
 				type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Limit8H" type="UnitValue" minOccurs="0" maxOccurs="2"/>
-			<xs:element name="LimitShortTerm" type="STEL" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="Limit8H" type="UnitValue" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LimitShortTerm" type="STEL" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="PeakLimitation" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>Also known as ceiling value. If two occurences, one must be ppm and the other a matching mg/m3 value.
+One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, Value must be the short-term Value multiplied with the overflow factor.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
@@ -1869,7 +1879,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A remark that applies to all of the abovementioned OELs. If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  BiologicalLimitValue *************  -->
