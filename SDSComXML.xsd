@@ -205,7 +205,7 @@ History before v4.2.0:
 											maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence>
-												<xs:element name="FileName" type="string256"/>
+												<xs:element name="FileName" type="FileName"/>
 												<xs:element name="Description" type="string256"
 												minOccurs="0" maxOccurs="1"/>
 												</xs:sequence>
@@ -1691,6 +1691,10 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 								</xs:complexType>
 							</xs:element>
 							<!-- *******************************************************************  CHAPTER END ***********************************************************************************************  -->
+							<xs:element maxOccurs="unbounded" minOccurs="0"
+								name="SafeUseInfoForMixtures" type="SUMI"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0"
+								name="ExposureScenarioFile" type="FileName"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>

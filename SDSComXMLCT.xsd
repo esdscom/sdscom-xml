@@ -2539,4 +2539,108 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:sequence>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
+	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
+	<xs:complexType name="SUMI">
+		<xs:annotation>
+			<xs:documentation>Safe Use Information for Mixtures. Based on a draft prepared by Qualisys GmbH, Langenfeld, Germany, and published under CC license BY-SA 4.0 during the BDI workshop in Berlin, 26 October 2016. Includes information from the presentation of Martin Kops at ENES 8 and other documents.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SumiReference">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SectorSumiCode" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Leave empty if the Sumi is not published by a chemical sector association and part of Use Map activities (no company specific SUMI codes here!). First word should be the sector name, e.g. AISE or FEICA, followed by the sector's SUMI code. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="VersionNumber" type="string16">
+							<xs:annotation>
+								<xs:documentation>Version number is optional here because SUMI info is part of the eSDS which is versioned, so the version date is expected to be the same and is sufficient to determine a sector SUMI version.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" name="Title" type="Phrase"> </xs:element>
+			<xs:element name="GeneralDescription">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="UseDescriptors" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="SectorOfUse" type="SectorOfUse"/>
+									<xs:element minOccurs="0" name="ProcessCategory"
+										type="ProcessCategory"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SwedReference"
+							type="Phrase">
+							<xs:annotation>
+								<xs:documentation>Reference to the Sector-specific Worker Exposure Description as named in the sector's Use Map.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" name="Text" type="Phrase"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OperationalConditions">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Properties">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="MaxDuration" type="OneUnitValue">
+										<xs:annotation>
+											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0"
+										name="RangeOfApplication" type="Phrase"/>
+									<xs:element minOccurs="0" name="AirExchangeRate"
+										type="OneUnitValue">
+										<xs:annotation>
+											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other"
+										type="Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" name="Text" type="Phrase"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RiskManagementMeasures">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="RmmWorker" type="Phrase"/>
+						<xs:element name="RmmPictogram" type="RmmPictogramEnum"
+							maxOccurs="unbounded" minOccurs="0"> </xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment"
+							type="Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="GoodPracticeAdvice">
+				<xs:annotation>
+					<xs:documentation>In Exposure Scenarios, also known as AGPA = Additional Good Practice Advice</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Text" type="Phrase"/>
+						<xs:element minOccurs="0" name="AgpaPictogram" type="AgpaPictogramEnum"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DisclaimerBoundaries"
+				type="Phrase">
+				<xs:annotation>
+					<xs:documentation>Describes the boundaries of the SUMI. Mandatory according to some sources, optional according to others.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

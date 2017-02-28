@@ -1125,6 +1125,29 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ReachRegNo *****  -->
+	<xs:simpleType name="RmmPictogramEnum">
+		<xs:annotation>
+			<xs:documentation>Mandatory signs related to Risk Management Measures, according to EN ISO 7001</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="M0[0-2][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AgpaPictogramEnum">
+		<xs:annotation>
+			<xs:documentation>P0xx: Prohibition signs related to Additional Good Practice Advice according to EN ISO 7001, and/or 
+AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the sentences on pp. 16-18 of https://www.aise.eu/documents/document/20140129161815-final_draft_aise_safe_use_guidelines_revjan2014.pdf</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="P0[0-3][0-9]|AISE[0-1][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FileName">
+		<xs:annotation>
+			<xs:documentation>Name of a separate physical file. For a proper data exchange, the file name should contain no path information or a relative path which applies during information exchange, e.g. within a ZIP file containing SDScom XML and related documents.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string256"/>
+	</xs:simpleType>
 	<xs:simpleType name="ReachRegNo">
 		<xs:annotation>
 			<xs:documentation> The EC number identification string for a substance.
@@ -2522,6 +2545,28 @@ History before  v4.2.0:
 		<xs:attribute name="UnitSetId" type="xs:integer"/>
 	</xs:complexType -->
 	<!-- ******************************************************************* Value *************  -->
+	<xs:complexType name="OneValue">
+		<xs:sequence>
+			<xs:element name="ValueSymbol" type="SymbolEnum"/>
+			<xs:element name="Value" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OneUnitValue">
+		<xs:complexContent>
+			<xs:extension base="OneValue">
+				<xs:sequence>
+					<xs:element name="Unit" type="string32"/>
+				</xs:sequence>
+				<xs:attribute name="UnitId" type="UnitIdEnum"/>
+				<xs:attribute name="UnitSetId" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>This is the Norwegian unit Id. Please see
+							http://pib.no/Main.aspx?Gui/UnitSet#Top</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="Value">
 		<xs:annotation>
 			<xs:documentation> </xs:documentation>
@@ -2573,6 +2618,7 @@ History before  v4.2.0:
 			<xs:enumeration value="10081150900"/>
 			<xs:enumeration value="10081151900"/>
 			<xs:enumeration value="14290121400"/>
+			<xs:enumeration value="16136203700"/>
 			<xs:enumeration value="9267233755"/>
 			<xs:enumeration value="9269144102"/>
 			<xs:enumeration value="9269144104"/>
@@ -2981,6 +3027,7 @@ History before  v4.2.0:
 			<!--mg O2/g=9269144230-->
 			<!--mg O2/l=9269144231-->
 			<!--mg/Animal=9269144237-->
+			<!--mg/cm2=16136203700 -->
 			<!--mg/cm3=9269144132-->
 			<!--mg/dm2=9269144376-->
 			<!--mg/dm3=9269144139-->
