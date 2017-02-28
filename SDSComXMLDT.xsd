@@ -1127,7 +1127,7 @@ History before  v4.2.0:
 	<!-- ******************************************************************** ReachRegNo *****  -->
 	<xs:simpleType name="RmmPictogramEnum">
 		<xs:annotation>
-			<xs:documentation>Mandatory signs related to Risk Management Measures, according to EN ISO 7001</xs:documentation>
+			<xs:documentation>Mandatory signs related to Risk Management Measures, according to EN ISO 7010</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="M0[0-2][0-9]"/>
@@ -1135,7 +1135,7 @@ History before  v4.2.0:
 	</xs:simpleType>
 	<xs:simpleType name="AgpaPictogramEnum">
 		<xs:annotation>
-			<xs:documentation>P0xx: Prohibition signs related to Additional Good Practice Advice according to EN ISO 7001, and/or 
+			<xs:documentation>P0xx: Prohibition signs related to Additional Good Practice Advice according to EN ISO 7010, and/or 
 AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the sentences on pp. 16-18 of https://www.aise.eu/documents/document/20140129161815-final_draft_aise_safe_use_guidelines_revjan2014.pdf</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
