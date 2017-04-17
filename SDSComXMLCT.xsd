@@ -1006,6 +1006,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							maxOccurs="unbounded"/>
 						<xs:element name="RefractionIndex" type="PhysChemValueWithTemperature"
 							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SurfaceTension" type="SurfaceTension" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1671,8 +1673,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							maxOccurs="unbounded"/>
 						<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments"
 							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SurfaceTension" type="SurfaceTension" minOccurs="0"
-							maxOccurs="unbounded"/>
 						<xs:element name="AdsorptionCoefficient" type="MobilityData" minOccurs="0"
 							maxOccurs="unbounded"/>
 						<xs:element name="DesorptionCoefficient" type="MobilityData" minOccurs="0"
