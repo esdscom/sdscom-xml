@@ -65,6 +65,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+		<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+	</xs:annotation>
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<!-- ******************************************************************* SDSComXMLDT.xsd *********  -->
 	<!-- Complex data types for chemical safety datasheets. To be included in the SDSComXML.xsd validation -->
@@ -144,6 +147,16 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SubstanceName" type="string1024" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="InciName" type="string1024">
+				<xs:annotation>
+					<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GenericName" type="string1024">
+				<xs:annotation>
+					<xs:documentation>according to CLP article 24</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="CasNo" type="CasNo" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="IndexNo" type="IndexNo" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="AuthorisationNo" type="string32" minOccurs="0" maxOccurs="1"/>
