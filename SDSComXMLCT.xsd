@@ -1777,7 +1777,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 									</xs:element>
 									<!-- 4.0.2 update from maxOccur 1 to 2 according to CLP ATP 4 -->
 									<xs:element name="ClpClassificationProcedure" type="Phrase"
-										minOccurs="0" maxOccurs="1"/>
+										minOccurs="0" maxOccurs="1">
+										<xs:annotation>
+											<xs:documentation>only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
