@@ -227,7 +227,7 @@ History before v4.2.0:
 											minOccurs="0"/>
 										<xs:element name="ItemNo" type="string128" minOccurs="0"
 											maxOccurs="unbounded"/>
-										<xs:element name="ProductNo" minOccurs="0"
+										<xs:element name="ProductNo" minOccurs="1"
 											maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence>
