@@ -408,8 +408,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							maxOccurs="unbounded"/>
 						<xs:element name="OrganisationalMeasures" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OrganisationalSigns"
+							type="AgpaPictogramEnum"/>
 						<xs:element name="TechnicalMeasures" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalSigns"
+							type="EquipmentPictogramEnum"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -573,9 +577,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="SpecificHygieneMeasures" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
-						<xs:element name="SafetySigns" type="SafetySign" minOccurs="0"
+						<xs:element name="SafetySigns" type="RmmPictogramEnum" minOccurs="0"
 							maxOccurs="unbounded"/>
-						<!-- 4.0.2 Type updated from phrase to SafetySign -->
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

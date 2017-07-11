@@ -1142,6 +1142,14 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 			<xs:pattern value="P0[0-3][0-9]|AISE[0-1][0-9]"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EquipmentPictogramEnum">
+		<xs:annotation>
+			<xs:documentation>Equipment signs related to Technical Measures, according to EN ISO 7010</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="E0[0-1][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="FileName">
 		<xs:annotation>
 			<xs:documentation>Name of a separate physical file. For a proper data exchange, the file name should contain no path information or a relative path which applies during information exchange, e.g. within a ZIP file containing SDScom XML and related documents.</xs:documentation>
@@ -2485,53 +2493,6 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="PhraseCode" type="SpecialSupplementalLabelInfoEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
-	</xs:complexType>
-	<!-- ******************************************************************* SafetySignEnum ******************************  -->
-	<xs:simpleType name="SafetySignEnum">
-		<xs:annotation>
-			<xs:documentation> Legal values for the SafetySignEnum. Introduced inversion 4.0.2
-				instead of a phrase only. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1.1"/>
-			<xs:enumeration value="1.2"/>
-			<xs:enumeration value="1.3"/>
-			<xs:enumeration value="1.4"/>
-			<xs:enumeration value="2.1"/>
-			<xs:enumeration value="2.2"/>
-			<xs:enumeration value="2.3"/>
-			<xs:enumeration value="2.4"/>
-			<xs:enumeration value="2.5"/>
-			<xs:enumeration value="2.6"/>
-			<xs:enumeration value="3.1"/>
-			<xs:enumeration value="3.2"/>
-			<!-- No smoking -->
-			<!-- Smoking and open fire prohibited -->
-			<!-- Do not extinguish with water -->
-			<!-- Do not touch -->
-			<!-- Eye protection -->
-			<!-- Respiratory protection -->
-			<!-- Foot protection -->
-			<!-- Hand protection -->
-			<!-- Protective suit -->
-			<!-- Face protection -->
-			<!-- Emergency shower -->
-			<!-- Eye wash equipment -->
-		</xs:restriction>
-	</xs:simpleType>
-	<!-- ************************************************************* SafetySign ***************************  -->
-	<xs:complexType name="SafetySign">
-		<xs:annotation>
-			<xs:documentation> Safety sign. Introduced inversion 4.0.2 with enumeration instead of a
-				phrase only. </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="PhraseCode" type="SafetySignEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
