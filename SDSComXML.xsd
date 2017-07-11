@@ -1023,7 +1023,9 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 										<xs:element name="UnNo" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-												<xs:element name="UnNoAdrRidAdn" type="int4"
+												<xs:element name="UnNoAdrRid" type="int4"
+												minOccurs="0"/>
+												<xs:element name="UnNoAdn" type="int4"
 												minOccurs="0"/>
 												<xs:element name="UnNoImdg" type="int4"
 												minOccurs="0"/>
@@ -1037,37 +1039,69 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 										<xs:element name="ProperShippingName" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-												<xs:element name="AdrRidAdn" minOccurs="0">
+												<xs:element name="AdrRid" minOccurs="0">
 												<xs:complexType>
 												<xs:sequence>
-												<xs:element
-												name="ProperShippingNameEnglishAdrRidAdn"
+												<xs:element name="ProperShippingNameEnglishAdrRid"
 												type="Phrase" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												<xs:element
-												name="ProperShippingNameNationalAdrRidAdn"
+												name="ProperShippingNameNationalAdrRid"
 												type="Phrase" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												<xs:element
-												name="DangerReleasingSubstanceEnglishAdrRidAdn"
+												name="DangerReleasingSubstanceEnglishAdrRid"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded">
 												<xs:annotation>
 												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												<xs:element maxOccurs="unbounded" minOccurs="0"
-												name="DangerReleasingSubstanceNationalAdrRidAdn"
+												name="DangerReleasingSubstanceNationalAdrRid"
 												type="Phrase">
 												<xs:annotation>
 												<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 												</xs:annotation>
 												</xs:element>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
+												<xs:element name="Adn" minOccurs="0">
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="ProperShippingNameEnglishAdn"
+												type="Phrase" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="ProperShippingNameNationalAdn"
+												type="Phrase" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element
+												name="DangerReleasingSubstanceEnglishAdn"
+												type="Phrase" minOccurs="0" maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element maxOccurs="unbounded" minOccurs="0"
+												name="DangerReleasingSubstanceNationalAdn"
+												type="Phrase">
+												<xs:annotation>
+												<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+
 												</xs:sequence>
 												</xs:complexType>
 												</xs:element>
@@ -1120,15 +1154,27 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 											minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-												<xs:element name="AdrRidAdn" minOccurs="0">
+												<xs:element name="AdrRid" minOccurs="0">
 												<xs:complexType>
 												<xs:sequence>
-												<xs:element name="ClassAdrRidAdn" type="Phrase"
+												<xs:element name="ClassAdrRid" type="Phrase"
 												minOccurs="0"/>
-												<xs:element name="ClassCodeAdrRidAdn"
-												type="Phrase" minOccurs="0"/>
-												<xs:element name="SubsidiaryRiskAdrRidAdn"
+												<xs:element name="ClassCodeAdrRid" type="Phrase"
+												minOccurs="0"/>
+												<xs:element name="SubsidiaryRiskAdrRid"
 												type="Phrase" minOccurs="0" maxOccurs="2"/>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
+												<xs:element name="Adn" minOccurs="0">
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="ClassAdn" type="Phrase"
+												minOccurs="0"/>
+												<xs:element name="ClassCodeAdn" type="Phrase"
+												minOccurs="0"/>
+												<xs:element name="SubsidiaryRiskAdn" type="Phrase"
+												minOccurs="0" maxOccurs="2"/>
 												</xs:sequence>
 												</xs:complexType>
 												</xs:element>
@@ -1162,8 +1208,10 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 										<xs:element name="PackingGroup" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-												<xs:element name="PackingGroupAdrRidAdn"
+												<xs:element name="PackingGroupAdrRid"
 												type="PackingGroupEnum" minOccurs="0"/>
+												<xs:element minOccurs="0" name="PackingGroupAdn"
+												type="PackingGroupEnum"/>
 												<xs:element name="PackingGroupImdg"
 												type="PackingGroupEnum" minOccurs="0"/>
 												<xs:element name="PackingGroupIcaoIata"
@@ -1177,8 +1225,18 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 										<xs:element name="EnvironmentalHazards" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-												<xs:element name="EnvironmHazardAccordAdrRidAdn"
+												<xs:element name="EnvironmHazardAccordAdrRid"
 												type="xs:boolean" minOccurs="0"/>
+												<xs:element minOccurs="0" name="Adn">
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="EnvironmHazardAccordAdn"
+												type="xs:boolean" minOccurs="0"/>
+												<xs:element name="MarinePollutant"
+												type="xs:boolean" minOccurs="0"/>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
 												<xs:element name="Imdg" minOccurs="0">
 												<xs:complexType>
 												<xs:sequence>
