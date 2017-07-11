@@ -2352,11 +2352,19 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 				other codes as H341.1, H341.2 and H341.3. Note the use of MergePhrase restricts the
 				nesting depth to one level. </xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
-			<xs:element name="FullText" type="string1024" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
+				<xs:element name="FullText" type="string1024" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0"
+					maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="NewLine">
+				<xs:annotation>
+					<xs:documentation>specify this empty tag to indicate a line break</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
 		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<!-- Phase catalogues used are defined and assigned a PhraseCatalogueId in section 0 -->
