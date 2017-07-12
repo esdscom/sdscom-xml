@@ -146,15 +146,17 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SubstanceName" type="string1024" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="InciName" type="string1024">
+			<xs:choice>
+				<xs:element name="SubstanceName" type="string1024" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="GenericName" type="string1024" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>according to CLP article 24</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="InciName" type="string1024" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>according to EU cosmetics regulation</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="GenericName" type="string1024">
-				<xs:annotation>
-					<xs:documentation>according to CLP article 24</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CasNo" type="CasNo" minOccurs="0" maxOccurs="1"/>
