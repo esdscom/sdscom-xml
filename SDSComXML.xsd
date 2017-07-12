@@ -281,12 +281,20 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												</xs:complexType>
 												</xs:element>
 												<xs:element name="DistributionStoppedDate"
-												type="xs:date" minOccurs="0"/>
+												type="xs:date" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Date when manufacturer stopped distribution. See also ProductDiscontinuedFromMarket.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
 										<xs:element name="ProductDiscontinuedFromMarket"
-											type="xs:boolean" minOccurs="0"/>
+											type="xs:boolean" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>true if dealers are out of stock. See also DistributionStoppedDate.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 										<xs:element name="RelevantIdentifiedUse" minOccurs="0"
 											maxOccurs="1">
 											<!-- 4.0.2 maxOccur was unbound -->
