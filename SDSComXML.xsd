@@ -1692,6 +1692,12 @@ Unique IDs that allow automatic overriding of data require a bilateral agreement
 												</xs:sequence>
 												</xs:complexType>
 												</xs:element>
+												<xs:element minOccurs="0" name="ClpAtp"
+												type="AtpEnum">
+												<xs:annotation>
+												<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												<xs:element name="ClpClassificationComments"
 												type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 												<xs:element name="ClpClassificationNotes"

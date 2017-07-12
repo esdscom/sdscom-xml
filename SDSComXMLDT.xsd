@@ -3315,4 +3315,21 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 			<xs:enumeration value="Distributor"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="AtpEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CLP00-1272/2008"/>
+			<xs:enumeration value="CLP01-790/2009"/>
+			<xs:enumeration value="CLP02-286/2011"/>
+			<xs:enumeration value="CLP03-618/2012"/>
+			<xs:enumeration value="CLP04-487/2013"/>
+			<xs:enumeration value="CLP05-944/2013"/>
+			<xs:enumeration value="CLP06-605/2014"/>
+			<xs:enumeration value="CLP06a-1297/2014"/>
+			<xs:enumeration value="CLP07-2015/1221"/>
+			<xs:enumeration value="CLP08-2016/918"/>
+			<xs:enumeration value="CLP09-2016/1179"/>
+			<xs:enumeration value="CLP09a-2017/542"/>
+			<xs:enumeration value="CLP10-2017/776"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
