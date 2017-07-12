@@ -3162,18 +3162,6 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
 			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Temperature" type="UnitValue" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>defaults to 20°C if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Pressure" type="UnitValue">
-				<xs:annotation>
-					<xs:documentation>defaults to 1013 hPa if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
@@ -3192,18 +3180,6 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
 			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Temperature" type="UnitValue" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>defaults to 20°C if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Pressure" type="UnitValue">
-				<xs:annotation>
-					<xs:documentation>defaults to 1013 hPa if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
@@ -3212,7 +3188,22 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 			<xs:documentation> PhysChemValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemValue"> </xs:extension>
+			<xs:extension base="PhysChemValue">
+				<xs:sequence minOccurs="0">
+					<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>defaults to 20°C if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Pressure" type="UnitValue">
+						<xs:annotation>
+							<xs:documentation>defaults to 1013 hPa if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValueWithTemperature ***********  -->
@@ -3222,7 +3213,22 @@ AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the 
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemUnitValue"> </xs:extension>
+			<xs:extension base="PhysChemUnitValue">
+				<xs:sequence minOccurs="0">
+					<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>defaults to 20°C if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Pressure" type="UnitValue">
+						<xs:annotation>
+							<xs:documentation>defaults to 1013 hPa if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* TemperatureClassEnum ************************  -->
