@@ -24,11 +24,16 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionCode" type="Phrase"/>
 			<xs:element name="AssessedRegulations" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationsDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PrProductRegistrationNo" type="PrProductRegistrationNo" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OccupationalAirRequirement" type="OccupationalAirRequirement" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalWasteLegislation" type="NationalWasteLegislation" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalLegislationsDescription" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="PrProductRegistrationNo" type="PrProductRegistrationNo" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="OccupationalAirRequirement" type="OccupationalAirRequirement"
+				minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalWasteLegislation" type="NationalWasteLegislation"
+				minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** PrProductRegistrationNo ********************* -->
@@ -44,7 +49,8 @@
 			<xs:element name="PrProductCode" type="string20" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="UcnCode" type="string20" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="SicCode" type="string20" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NorwegianPrFunctionCode" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NorwegianPrFunctionCode" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** OccupationalAirRequirement ********************* -->
@@ -68,7 +74,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="NationalWasteCode" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"
+			/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

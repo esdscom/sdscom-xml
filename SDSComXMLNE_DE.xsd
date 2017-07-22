@@ -26,15 +26,21 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0"
+				maxOccurs="1"/>
 			<xs:element name="TaLuft" type="TaLuft" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="WaterHazardClass" type="WaterHazardClass" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="4"/>
+			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase"
+				minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase"
+				minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE"
+				minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="GisCode" type="GisCodeEnum" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -110,8 +116,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 	<!-- ************************************************************** StorageClassEnum ******  -->
 	<xs:simpleType name="StorageClassEnum">
 		<xs:annotation>
-			<xs:documentation>Enumaration of the german storage class according to TRGS 510. Note that LGK 10-13 must be specified as separate storage classes, i.e. in four occurences of an element of type StorageClassEnum.
-			</xs:documentation>
+			<xs:documentation>Enumaration of the german storage class according to TRGS 510.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="LGK 1"/>
@@ -139,6 +144,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="LGK 11"/>
 			<xs:enumeration value="LGK 12"/>
 			<xs:enumeration value="LGK 13"/>
+			<xs:enumeration value="LGK 10-13"/>
 			<!--LGK 1: Explosive Gefahrstoffe-->
 			<!--LGK 2A: Gase (ohne Aerosolpackungen und Feuerzeuge)-->
 			<!--LGK 2B: Aerosolpackungen und Feuerzeuge-->
@@ -245,8 +251,6 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="M-VM05"/>
 			<xs:enumeration value="M-AB10"/>
 			<xs:enumeration value="M-AB20"/>
-			<xs:enumeration value="M-AB30"/>
-			<xs:enumeration value="M-AB40"/>
 			<xs:enumeration value="M-AL10"/>
 			<xs:enumeration value="M-AL20"/>
 			<xs:enumeration value="PU10"/>
@@ -269,8 +273,6 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="HSM-LV 30"/>
 			<xs:enumeration value="HSM-LV 40"/>
 			<xs:enumeration value="HSM-W 10"/>
-			<xs:enumeration value="HSM-W 20"/>
-			<xs:enumeration value="HSM-W 30"/>
 			<xs:enumeration value="HSM-W 40"/>
 			<xs:enumeration value="HSM-W 44"/>
 			<xs:enumeration value="HSM-W 47"/>
@@ -278,8 +280,6 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="HSM-W 60"/>
 			<xs:enumeration value="HSM-W 65"/>
 			<xs:enumeration value="HSM-W 70"/>
-			<xs:enumeration value="HSM-W 80"/>
-			<xs:enumeration value="HSM-W 90"/>
 			<xs:enumeration value="BS10"/>
 			<xs:enumeration value="BS20"/>
 			<xs:enumeration value="BS30"/>
@@ -321,22 +321,25 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="Ö90"/>
 			<xs:enumeration value="Ö100"/>
 			<xs:enumeration value="GD10"/>
-			<xs:enumeration value="GD15"/>
+			<xs:enumeration value="GD13"/>
+			<xs:enumeration value="GD15_ALT"/>
 			<xs:enumeration value="GD20"/>
-			<xs:enumeration value="GD25"/>
+			<xs:enumeration value="GD25_ALT"/>
 			<xs:enumeration value="GD30"/>
-			<xs:enumeration value="GD35"/>
+			<xs:enumeration value="GD33"/>
+			<xs:enumeration value="GD35_ALT"/>
 			<xs:enumeration value="GD40"/>
 			<xs:enumeration value="GD50"/>
-			<xs:enumeration value="GD60"/>
+			<xs:enumeration value="GD55"/>
+			<xs:enumeration value="GD60_ALT"/>
 			<xs:enumeration value="GD65"/>
 			<xs:enumeration value="GD70"/>
 			<xs:enumeration value="GD80"/>
-			<xs:enumeration value="GD90"/>
+			<xs:enumeration value="GD90_ALT"/>
 			<xs:enumeration value="GD0"/>
 			<xs:enumeration value="GE10"/>
 			<xs:enumeration value="GE20"/>
-			<xs:enumeration value="GE30"/>
+			<xs:enumeration value="GE30_ALT"/>
 			<xs:enumeration value="GE0"/>
 			<xs:enumeration value="GF50"/>
 			<xs:enumeration value="GF60"/>
@@ -344,7 +347,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="GF0"/>
 			<xs:enumeration value="GG10"/>
 			<xs:enumeration value="GG20"/>
-			<xs:enumeration value="GG30"/>
+			<xs:enumeration value="GG30_ALT"/>
 			<xs:enumeration value="GG40"/>
 			<xs:enumeration value="GG50"/>
 			<xs:enumeration value="GG60"/>
@@ -353,7 +356,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="GG90"/>
 			<xs:enumeration value="GG0"/>
 			<xs:enumeration value="GGL10"/>
-			<xs:enumeration value="GGL20"/>
+			<xs:enumeration value="GGL20_ALT"/>
 			<xs:enumeration value="GGL0"/>
 			<xs:enumeration value="GH10"/>
 			<xs:enumeration value="GH20"/>
@@ -364,30 +367,38 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="GR20"/>
 			<xs:enumeration value="GR0"/>
 			<xs:enumeration value="GS10"/>
-			<xs:enumeration value="GS20"/>
-			<xs:enumeration value="GS25"/>
-			<xs:enumeration value="GS30"/>
-			<xs:enumeration value="GS40"/>
+			<xs:enumeration value="GS20_ALT"/>
+			<xs:enumeration value="GS25_ALT"/>
+			<xs:enumeration value="GS30_ALT"/>
+			<xs:enumeration value="GS35"/>
+			<xs:enumeration value="GS40_ALT"/>
 			<xs:enumeration value="GS50"/>
 			<xs:enumeration value="GS60"/>
-			<xs:enumeration value="GS70"/>
+			<xs:enumeration value="GS70_ALT"/>
 			<xs:enumeration value="GS80"/>
+			<xs:enumeration value="GS85"/>
 			<xs:enumeration value="GS90"/>
 			<xs:enumeration value="GS0"/>
-			<xs:enumeration value="GT10"/>
 			<xs:enumeration value="GT0"/>
+			<xs:enumeration value="GT10"/>
+			<xs:enumeration value="GT20"/>
+			<xs:enumeration value="GT30"/>
+			<xs:enumeration value="GU0"/>
 			<xs:enumeration value="GU10"/>
+			<xs:enumeration value="GU15"/>
 			<xs:enumeration value="GU20"/>
 			<xs:enumeration value="GU30"/>
+			<xs:enumeration value="GU33"/>
 			<xs:enumeration value="GU40"/>
 			<xs:enumeration value="GU50"/>
 			<xs:enumeration value="GU55"/>
-			<xs:enumeration value="GU60"/>
+			<xs:enumeration value="GU60_ALT"/>
 			<xs:enumeration value="GU70"/>
+			<xs:enumeration value="GU73"/>
 			<xs:enumeration value="GU80"/>
+			<xs:enumeration value="GU83"/>
 			<xs:enumeration value="GU85"/>
-			<xs:enumeration value="GU90"/>
-			<xs:enumeration value="GU0"/>
+			<xs:enumeration value="GU90_ALT"/>
 			<xs:enumeration value="SB-F10"/>
 			<xs:enumeration value="SB-F20"/>
 			<xs:enumeration value="SB-F30"/>
@@ -401,24 +412,28 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="RMA20"/>
 			<xs:enumeration value="D1"/>
 			<xs:enumeration value="D2"/>
+			<xs:enumeration value="D2_ALT"/>
 			<xs:enumeration value="D3"/>
-			<xs:enumeration value="D4"/>
-			<xs:enumeration value="D5"/>
-			<xs:enumeration value="D6"/>
-			<xs:enumeration value="D7"/>
+			<xs:enumeration value="D3_ALT"/>
+			<xs:enumeration value="D4_ALT"/>
+			<xs:enumeration value="D5_ALT"/>
+			<xs:enumeration value="D6_ALT"/>
+			<xs:enumeration value="D7_ALT"/>
 			<xs:enumeration value="S0,5"/>
 			<xs:enumeration value="S1"/>
 			<xs:enumeration value="S2"/>
-			<xs:enumeration value="S3"/>
-			<xs:enumeration value="S4"/>
-			<xs:enumeration value="S5"/>
-			<xs:enumeration value="S6"/>
+			<xs:enumeration value="S2_ALT"/>
+			<xs:enumeration value="S3_ALT"/>
+			<xs:enumeration value="S4_ALT"/>
+			<xs:enumeration value="S5_ALT"/>
+			<xs:enumeration value="S6_ALT"/>
 			<xs:enumeration value="RS10"/>
 			<xs:enumeration value="RU0,5"/>
 			<xs:enumeration value="RU1"/>
 			<xs:enumeration value="RU2"/>
-			<xs:enumeration value="RU3"/>
-			<xs:enumeration value="RU4"/>
+			<xs:enumeration value="RU2_ALT"/>
+			<xs:enumeration value="RU3_ALT"/>
+			<xs:enumeration value="RU4_ALT"/>
 			<xs:enumeration value="CP1"/>
 			<xs:enumeration value="ZP1"/>
 			<xs:enumeration value="ZP2"/>
@@ -459,30 +474,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="BZM30"/>
 			<xs:enumeration value="BZM40"/>
 			<xs:enumeration value="BZM50"/>
-			<xs:enumeration value="GD13"/>
-			<xs:enumeration value="GD33"/>
-			<xs:enumeration value="GD45"/>
-			<xs:enumeration value="GD55"/>
-			<xs:enumeration value="GF10"/>
-			<xs:enumeration value="GF20"/>
-			<xs:enumeration value="GF30"/>
-			<xs:enumeration value="GF40"/>
-			<xs:enumeration value="GG43"/>
-			<xs:enumeration value="GG53"/>
-			<xs:enumeration value="GG63"/>
 			<xs:enumeration value="GGL05"/>
-			<xs:enumeration value="GS15"/>
-			<xs:enumeration value="GS18"/>
-			<xs:enumeration value="GS35"/>
-			<xs:enumeration value="GS38"/>
-			<xs:enumeration value="GS45"/>
-			<xs:enumeration value="GS48"/>
-			<xs:enumeration value="GS85"/>
-			<xs:enumeration value="GT20"/>
-			<xs:enumeration value="GU73"/>
-			<xs:enumeration value="GU83"/>
-			<xs:enumeration value="GU88"/>
-			<xs:enumeration value="GU93"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

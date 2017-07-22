@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ********************************************************************************************** 
- Issue		: 	SDSComXML XSD 4.x    	
+ Issue		: 	SDScom XML schema definition 4.x    	
  Purpose	: 	Basic data types Schema Definition      					
  			  	  	to enable a xml-based		 									
  			  	  	distribution of Safety Data Sheets (SDS)		 		
  			  	  	specified in the Format. For detailed 				 	
 			  		  information please refer to 									
  			  		  http://www.eSDScom.eu										
-Version	:  draft after v4.2.0																	
+
 History	:  
 Recent changes are documented on https://github.com/esdscom/sdscom-xml
-History until v4.2.0: 																					
+
+History before  v4.2.0: 																					
 
  2013.03.15: HazardClassCategoryEnum changed by adding "Acute Tox. 1","Acute Tox. 2","Acute Tox. 3"
              and "Acute Tox. 4". The non-standard Acute Tox values with exposure route oral/dermal/inhalation
@@ -231,13 +232,11 @@ History until v4.2.0:
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation> The version of the XML standard which is applied in the transmission
-				of datasheet information. </xs:documentation>
+				of datasheet information. This enum must list all compatible versions, but not any
+				older ones! See issue #89 </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="4.2.0"/>
-			<xs:enumeration value="4.2.1"/>
-			<xs:enumeration value="4.2.2"/>
-			<xs:enumeration value="4.2.3"/>
+			<xs:enumeration value="4.3.0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
@@ -1126,6 +1125,37 @@ History until v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ReachRegNo *****  -->
+	<xs:simpleType name="RmmPictogramEnum">
+		<xs:annotation>
+			<xs:documentation>Mandatory signs related to Risk Management Measures, according to EN ISO 7010</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="M0[0-2][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AgpaPictogramEnum">
+		<xs:annotation>
+			<xs:documentation>P0xx: Prohibition signs related to Additional Good Practice Advice according to EN ISO 7010, and/or 
+AISExx: A.I.S.E. CleanRight Safe Use Icons Version 4, numbered according to the sentences on pp. 16-18 of https://www.aise.eu/documents/document/20140129161815-final_draft_aise_safe_use_guidelines_revjan2014.pdf</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="P0[0-3][0-9]|AISE[0-1][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EquipmentPictogramEnum">
+		<xs:annotation>
+			<xs:documentation>Equipment signs related to Technical Measures, according to EN ISO 7010</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="E0[0-1][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FileName">
+		<xs:annotation>
+			<xs:documentation>Name of a separate physical file. For a proper data exchange, the file name should contain no path information or a relative path which applies during information exchange, e.g. within a ZIP file containing SDScom XML and related documents.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string256"/>
+	</xs:simpleType>
 	<xs:simpleType name="ReachRegNo">
 		<xs:annotation>
 			<xs:documentation> The EC number identification string for a substance.
@@ -1567,125 +1597,119 @@ History until v4.2.0:
 	<!-- ******************************************************************** PrecautionPhraseEnum ******  -->
 	<xs:simpleType name="PrecautionaryStatementEnum">
 		<xs:annotation>
-			<xs:documentation>Precautionary Statement Code with a predefined set of legal values, or any combination of up to four such values (actually, this type only checks for combinations of up to four three-digit numbers). Also called CLP P-phrases. </xs:documentation>
+			<xs:documentation>Precautionary Statement Code with a predefined set of legal values, or
+				any combination of up to four such values (actually, this type only checks for
+				combinations of up to four three-digit numbers). Also called CLP P-phrases.
+			</xs:documentation>
 		</xs:annotation>
-		<xs:union>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="101"/>
-					<xs:enumeration value="102"/>
-					<xs:enumeration value="103"/>
-					<xs:enumeration value="201"/>
-					<xs:enumeration value="202"/>
-					<xs:enumeration value="210"/>
-					<xs:enumeration value="211"/>
-					<xs:enumeration value="220"/>
-					<xs:enumeration value="221"/>
-					<xs:enumeration value="222"/>
-					<xs:enumeration value="223"/>
-					<xs:enumeration value="230"/>
-					<xs:enumeration value="231"/>
-					<xs:enumeration value="232"/>
-					<xs:enumeration value="233"/>
-					<xs:enumeration value="234"/>
-					<xs:enumeration value="235"/>
-					<xs:enumeration value="240"/>
-					<xs:enumeration value="241"/>
-					<xs:enumeration value="242"/>
-					<xs:enumeration value="243"/>
-					<xs:enumeration value="244"/>
-					<xs:enumeration value="250"/>
-					<xs:enumeration value="251"/>
-					<xs:enumeration value="260"/>
-					<xs:enumeration value="261"/>
-					<xs:enumeration value="262"/>
-					<xs:enumeration value="263"/>
-					<xs:enumeration value="264"/>
-					<xs:enumeration value="270"/>
-					<xs:enumeration value="271"/>
-					<xs:enumeration value="272"/>
-					<xs:enumeration value="273"/>
-					<xs:enumeration value="280"/>
-					<xs:enumeration value="281"/>
-					<xs:enumeration value="282"/>
-					<xs:enumeration value="283"/>
-					<xs:enumeration value="284"/>
-					<xs:enumeration value="285"/>
-					<xs:enumeration value="301"/>
-					<xs:enumeration value="302"/>
-					<xs:enumeration value="303"/>
-					<xs:enumeration value="304"/>
-					<xs:enumeration value="305"/>
-					<xs:enumeration value="306"/>
-					<xs:enumeration value="307"/>
-					<xs:enumeration value="308"/>
-					<xs:enumeration value="309"/>
-					<xs:enumeration value="310"/>
-					<xs:enumeration value="311"/>
-					<xs:enumeration value="312"/>
-					<xs:enumeration value="313"/>
-					<xs:enumeration value="314"/>
-					<xs:enumeration value="315"/>
-					<xs:enumeration value="320"/>
-					<xs:enumeration value="321"/>
-					<xs:enumeration value="322"/>
-					<xs:enumeration value="330"/>
-					<xs:enumeration value="331"/>
-					<xs:enumeration value="332"/>
-					<xs:enumeration value="333"/>
-					<xs:enumeration value="334"/>
-					<xs:enumeration value="335"/>
-					<xs:enumeration value="336"/>
-					<xs:enumeration value="337"/>
-					<xs:enumeration value="338"/>
-					<xs:enumeration value="340"/>
-					<xs:enumeration value="341"/>
-					<xs:enumeration value="342"/>
-					<xs:enumeration value="350"/>
-					<xs:enumeration value="351"/>
-					<xs:enumeration value="352"/>
-					<xs:enumeration value="353"/>
-					<xs:enumeration value="360"/>
-					<xs:enumeration value="361"/>
-					<xs:enumeration value="362"/>
-					<xs:enumeration value="363"/>
-					<xs:enumeration value="364"/>
-					<xs:enumeration value="370"/>
-					<xs:enumeration value="371"/>
-					<xs:enumeration value="372"/>
-					<xs:enumeration value="373"/>
-					<xs:enumeration value="374"/>
-					<xs:enumeration value="375"/>
-					<xs:enumeration value="376"/>
-					<xs:enumeration value="377"/>
-					<xs:enumeration value="378"/>
-					<xs:enumeration value="380"/>
-					<xs:enumeration value="381"/>
-					<xs:enumeration value="390"/>
-					<xs:enumeration value="391"/>
-					<xs:enumeration value="401"/>
-					<xs:enumeration value="402"/>
-					<xs:enumeration value="403"/>
-					<xs:enumeration value="404"/>
-					<xs:enumeration value="405"/>
-					<xs:enumeration value="406"/>
-					<xs:enumeration value="407"/>
-					<xs:enumeration value="410"/>
-					<xs:enumeration value="411"/>
-					<xs:enumeration value="412"/>
-					<xs:enumeration value="413"/>
-					<xs:enumeration value="420"/>
-					<xs:enumeration value="422"/>
-					<xs:enumeration value="501"/>
-					<xs:enumeration value="502"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:pattern value="\d\d\d(\+\d\d\d){1,3}"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:union>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="101"/>
+			<xs:enumeration value="102"/>
+			<xs:enumeration value="103"/>
+			<xs:enumeration value="201"/>
+			<xs:enumeration value="202"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="211"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="221"/>
+			<xs:enumeration value="222"/>
+			<xs:enumeration value="223"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="231"/>
+			<xs:enumeration value="232"/>
+			<xs:enumeration value="233"/>
+			<xs:enumeration value="234"/>
+			<xs:enumeration value="235"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="241"/>
+			<xs:enumeration value="242"/>
+			<xs:enumeration value="243"/>
+			<xs:enumeration value="244"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="251"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="261"/>
+			<xs:enumeration value="262"/>
+			<xs:enumeration value="263"/>
+			<xs:enumeration value="264"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="271"/>
+			<xs:enumeration value="272"/>
+			<xs:enumeration value="273"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="281"/>
+			<xs:enumeration value="282"/>
+			<xs:enumeration value="283"/>
+			<xs:enumeration value="284"/>
+			<xs:enumeration value="285"/>
+			<xs:enumeration value="301"/>
+			<xs:enumeration value="302"/>
+			<xs:enumeration value="303"/>
+			<xs:enumeration value="304"/>
+			<xs:enumeration value="305"/>
+			<xs:enumeration value="306"/>
+			<xs:enumeration value="307"/>
+			<xs:enumeration value="308"/>
+			<xs:enumeration value="309"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="311"/>
+			<xs:enumeration value="312"/>
+			<xs:enumeration value="313"/>
+			<xs:enumeration value="314"/>
+			<xs:enumeration value="315"/>
+			<xs:enumeration value="320"/>
+			<xs:enumeration value="321"/>
+			<xs:enumeration value="322"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="331"/>
+			<xs:enumeration value="332"/>
+			<xs:enumeration value="333"/>
+			<xs:enumeration value="334"/>
+			<xs:enumeration value="335"/>
+			<xs:enumeration value="336"/>
+			<xs:enumeration value="337"/>
+			<xs:enumeration value="338"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="341"/>
+			<xs:enumeration value="342"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="351"/>
+			<xs:enumeration value="352"/>
+			<xs:enumeration value="353"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="361"/>
+			<xs:enumeration value="362"/>
+			<xs:enumeration value="363"/>
+			<xs:enumeration value="364"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="371"/>
+			<xs:enumeration value="372"/>
+			<xs:enumeration value="373"/>
+			<xs:enumeration value="374"/>
+			<xs:enumeration value="375"/>
+			<xs:enumeration value="376"/>
+			<xs:enumeration value="377"/>
+			<xs:enumeration value="378"/>
+			<xs:enumeration value="380"/>
+			<xs:enumeration value="381"/>
+			<xs:enumeration value="390"/>
+			<xs:enumeration value="391"/>
+			<xs:enumeration value="401"/>
+			<xs:enumeration value="402"/>
+			<xs:enumeration value="403"/>
+			<xs:enumeration value="404"/>
+			<xs:enumeration value="405"/>
+			<xs:enumeration value="406"/>
+			<xs:enumeration value="407"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="411"/>
+			<xs:enumeration value="412"/>
+			<xs:enumeration value="413"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="422"/>
+			<xs:enumeration value="501"/>
+			<xs:enumeration value="502"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** SupplementalHazardInformationEnum ******  -->
 	<xs:simpleType name="SupplementalHazardInformationEnum">
@@ -1729,6 +1753,18 @@ History until v4.2.0:
 			<xs:enumeration value="209A"/>
 			<xs:enumeration value="210"/>
 			<xs:enumeration value="401"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ******************************************************************** CompositionTypeEnum ******  -->
+	<xs:simpleType name="CompositionTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Legal view on the composition, to determine whether the product is a substance, mixture, or else.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SingleConstituent"/>
+			<xs:enumeration value="MultiConstituent"/>
+			<xs:enumeration value="UVCB"/>
+			<xs:enumeration value="Mixture"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ToxicityTypeEnum ******  -->
@@ -1779,7 +1815,7 @@ History until v4.2.0:
 			<xs:enumeration value="Aerosol 1"/>
 			<xs:enumeration value="Aerosol 2"/>
 			<xs:enumeration value="Aerosol 3"/>
-			<xs:enumeration value="Oxid. Gas 1"/>
+			<xs:enumeration value="Ox. Gas 1"/>
 			<xs:enumeration value="Press. Gas"/>
 			<xs:enumeration value="Compr. Gas"/>
 			<xs:enumeration value="Liquef. Gas"/>
@@ -1826,6 +1862,7 @@ History until v4.2.0:
 			<xs:enumeration value="Acute Tox. 2"/>
 			<xs:enumeration value="Acute Tox. 3"/>
 			<xs:enumeration value="Acute Tox. 4"/>
+			<xs:enumeration value="Skin Corr. 1"/>
 			<xs:enumeration value="Skin Corr. 1A"/>
 			<xs:enumeration value="Skin Corr. 1B"/>
 			<xs:enumeration value="Skin Corr. 1C"/>
@@ -1908,10 +1945,7 @@ History until v4.2.0:
 	<!-- ******************************************************************* DoseEnum *************  -->
 	<xs:simpleType name="DoseEnum">
 		<xs:annotation>
-			<xs:documentation>The legal values for the DoseEnum. LClo, LDlo, ERClo are deprecated
-				(GitHub issue #22) - use LCLo, LDLo, ERCLo instead. ATEmix tested is deprecated as
-				it does not exist - use ATEmix instead. ATEmix calculated is redundant as it is
-				always calculated - use ATEmix instead (see GitHub issue #57). </xs:documentation>
+			<xs:documentation>The legal values for the DoseEnum.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NOEC"/>
@@ -1921,12 +1955,10 @@ History until v4.2.0:
 			<xs:enumeration value="NOAEL"/>
 			<xs:enumeration value="LOAEL"/>
 			<xs:enumeration value="LC0"/>
-			<xs:enumeration value="LClo"/>
 			<xs:enumeration value="LCLo"/>
 			<xs:enumeration value="LC50"/>
 			<xs:enumeration value="LC100"/>
 			<xs:enumeration value="LD0"/>
-			<xs:enumeration value="LDlo"/>
 			<xs:enumeration value="LDLo"/>
 			<xs:enumeration value="LD50"/>
 			<xs:enumeration value="LD100"/>
@@ -1940,11 +1972,8 @@ History until v4.2.0:
 			<xs:enumeration value="EC50 (- UVA)"/>
 			<xs:enumeration value="EC80"/>
 			<xs:enumeration value="ATEmix"/>
-			<xs:enumeration value="ATEmix tested"/>
-			<xs:enumeration value="ATEmix calculated"/>
 			<xs:enumeration value="cATpE"/>
 			<xs:enumeration value="ERC50"/>
-			<xs:enumeration value="ERClo"/>
 			<xs:enumeration value="ERCLo"/>
 			<xs:enumeration value="IC50"/>
 			<xs:enumeration value="other"/>
@@ -2331,11 +2360,19 @@ History until v4.2.0:
 				other codes as H341.1, H341.2 and H341.3. Note the use of MergePhrase restricts the
 				nesting depth to one level. </xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
-			<xs:element name="FullText" type="string1024" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
+				<xs:element name="FullText" type="string1024" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0"
+					maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="NewLine">
+				<xs:annotation>
+					<xs:documentation>specify this empty tag to indicate a line break</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
 		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<!-- Phase catalogues used are defined and assigned a PhraseCatalogueId in section 0 -->
@@ -2428,8 +2465,9 @@ History until v4.2.0:
 			<xs:documentation> Precautionary Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="PrecautionaryStatementEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhraseCode" type="PrecautionaryStatementEnum" minOccurs="1"
+				maxOccurs="5"/>
+			<xs:element name="FullText" type="string512" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="PhraseId"/>
@@ -2461,53 +2499,6 @@ History until v4.2.0:
 		<xs:attribute name="PhraseId" type="PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
-	<!-- ******************************************************************* SafetySignEnum ******************************  -->
-	<xs:simpleType name="SafetySignEnum">
-		<xs:annotation>
-			<xs:documentation> Legal values for the SafetySignEnum. Introduced inversion 4.0.2
-				instead of a phrase only. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1.1"/>
-			<xs:enumeration value="1.2"/>
-			<xs:enumeration value="1.3"/>
-			<xs:enumeration value="1.4"/>
-			<xs:enumeration value="2.1"/>
-			<xs:enumeration value="2.2"/>
-			<xs:enumeration value="2.3"/>
-			<xs:enumeration value="2.4"/>
-			<xs:enumeration value="2.5"/>
-			<xs:enumeration value="2.6"/>
-			<xs:enumeration value="3.1"/>
-			<xs:enumeration value="3.2"/>
-			<!-- No smoking -->
-			<!-- Smoking and open fire prohibited -->
-			<!-- Do not extinguish with water -->
-			<!-- Do not touch -->
-			<!-- Eye protection -->
-			<!-- Respiratory protection -->
-			<!-- Foot protection -->
-			<!-- Hand protection -->
-			<!-- Protective suit -->
-			<!-- Face protection -->
-			<!-- Emergency shower -->
-			<!-- Eye wash equipment -->
-		</xs:restriction>
-	</xs:simpleType>
-	<!-- ************************************************************* SafetySign ***************************  -->
-	<xs:complexType name="SafetySign">
-		<xs:annotation>
-			<xs:documentation> Safety sign. Introduced inversion 4.0.2 with enumeration instead of a
-				phrase only. </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="PhraseCode" type="SafetySignEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
-	</xs:complexType>
 	<!-- ******************************************************************** Unit *************  -->
 	<!-- xs:complexType name="Unit">
 		<xs:annotation>
@@ -2523,6 +2514,28 @@ History until v4.2.0:
 		<xs:attribute name="UnitSetId" type="xs:integer"/>
 	</xs:complexType -->
 	<!-- ******************************************************************* Value *************  -->
+	<xs:complexType name="OneValue">
+		<xs:sequence>
+			<xs:element name="ValueSymbol" type="SymbolEnum"/>
+			<xs:element name="Value" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OneUnitValue">
+		<xs:complexContent>
+			<xs:extension base="OneValue">
+				<xs:sequence>
+					<xs:element name="Unit" type="string32"/>
+				</xs:sequence>
+				<xs:attribute name="UnitId" type="UnitIdEnum"/>
+				<xs:attribute name="UnitSetId" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>This is the Norwegian unit Id. Please see
+							http://pib.no/Main.aspx?Gui/UnitSet#Top</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="Value">
 		<xs:annotation>
 			<xs:documentation> </xs:documentation>
@@ -2574,6 +2587,7 @@ History until v4.2.0:
 			<xs:enumeration value="10081150900"/>
 			<xs:enumeration value="10081151900"/>
 			<xs:enumeration value="14290121400"/>
+			<xs:enumeration value="16136203700"/>
 			<xs:enumeration value="9267233755"/>
 			<xs:enumeration value="9269144102"/>
 			<xs:enumeration value="9269144104"/>
@@ -2982,6 +2996,7 @@ History until v4.2.0:
 			<!--mg O2/g=9269144230-->
 			<!--mg O2/l=9269144231-->
 			<!--mg/Animal=9269144237-->
+			<!--mg/cm2=16136203700 -->
 			<!--mg/cm3=9269144132-->
 			<!--mg/dm2=9269144376-->
 			<!--mg/dm3=9269144139-->
@@ -3147,18 +3162,6 @@ History until v4.2.0:
 				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
 			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Temperature" type="UnitValue" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>defaults to 20°C if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Pressure" type="UnitValue">
-				<xs:annotation>
-					<xs:documentation>defaults to 1013 hPa if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
@@ -3177,18 +3180,6 @@ History until v4.2.0:
 				<xs:element minOccurs="0" name="ReasonForWaiving" type="ReasonForWaiving"/>
 			</xs:choice>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Temperature" type="UnitValue" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>defaults to 20°C if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Pressure" type="UnitValue">
-				<xs:annotation>
-					<xs:documentation>defaults to 1013 hPa if not specified, unless the context
-						determines a different value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
@@ -3197,7 +3188,22 @@ History until v4.2.0:
 			<xs:documentation> PhysChemValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemValue"> </xs:extension>
+			<xs:extension base="PhysChemValue">
+				<xs:sequence minOccurs="0">
+					<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>defaults to 20°C if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Pressure" type="UnitValue">
+						<xs:annotation>
+							<xs:documentation>defaults to 1013 hPa if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValueWithTemperature ***********  -->
@@ -3207,7 +3213,22 @@ History until v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemUnitValue"> </xs:extension>
+			<xs:extension base="PhysChemUnitValue">
+				<xs:sequence minOccurs="0">
+					<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>defaults to 20°C if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Pressure" type="UnitValue">
+						<xs:annotation>
+							<xs:documentation>defaults to 1013 hPa if not specified, unless the context
+						determines a different value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* TemperatureClassEnum ************************  -->
@@ -3292,6 +3313,23 @@ History until v4.2.0:
 			<xs:enumeration value="Importer"/>
 			<xs:enumeration value="Only representative"/>
 			<xs:enumeration value="Distributor"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AtpEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CLP00-1272/2008"/>
+			<xs:enumeration value="CLP01-790/2009"/>
+			<xs:enumeration value="CLP02-286/2011"/>
+			<xs:enumeration value="CLP03-618/2012"/>
+			<xs:enumeration value="CLP04-487/2013"/>
+			<xs:enumeration value="CLP05-944/2013"/>
+			<xs:enumeration value="CLP06-605/2014"/>
+			<xs:enumeration value="CLP06a-1297/2014"/>
+			<xs:enumeration value="CLP07-2015/1221"/>
+			<xs:enumeration value="CLP08-2016/918"/>
+			<xs:enumeration value="CLP09-2016/1179"/>
+			<xs:enumeration value="CLP09a-2017/542"/>
+			<xs:enumeration value="CLP10-2017/776"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

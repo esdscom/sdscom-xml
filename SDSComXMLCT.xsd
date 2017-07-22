@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ***************************************************************************** 
-Issue		: SDSComXML XSD 4.x
+Issue		: SDScom XML schema definition 4.x
 Purpose	: Complex Types Schema Definition      					
 		  		to enable a xml-based		 									
 		  		distribution of Safety Data Sheets (SDS)		 		
 		  		as specified in the Format. For detailed 				 
 		  		information please refer to 									
 		  		http://www.eSDSCom.eu									
-Version	:  draft after v4.2.0																	
+
 History	:  
 Recent changes are documented on https://github.com/esdscom/sdscom-xml
+
 History until v4.2.0: 																					
 
 2013.04.12 Normally, either a pure substance or a mixture is specified in the composition type. But 
@@ -64,6 +65,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+		<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+	</xs:annotation>
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<!-- ******************************************************************* SDSComXMLDT.xsd *********  -->
 	<!-- Complex data types for chemical safety datasheets. To be included in the SDSComXML.xsd validation -->
@@ -142,7 +146,19 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SubstanceName" type="string1024" minOccurs="1" maxOccurs="1"/>
+			<xs:choice>
+				<xs:element name="SubstanceName" type="string1024" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="GenericName" type="string1024" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>according to CLP article 24</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="InciName" type="string1024" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="CasNo" type="CasNo" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="IndexNo" type="IndexNo" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="AuthorisationNo" type="string32" minOccurs="0" maxOccurs="1"/>
@@ -160,11 +176,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				maxOccurs="1"/>
 			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0"
 				maxOccurs="unbounded"/>
-			<xs:element name="HazardousImpurities" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stabilizer" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ChemicalProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded"
-			/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Component *************  -->
@@ -398,8 +410,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							maxOccurs="unbounded"/>
 						<xs:element name="OrganisationalMeasures" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OrganisationalSigns"
+							type="AgpaPictogramEnum"/>
 						<xs:element name="TechnicalMeasures" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalSigns"
+							type="EquipmentPictogramEnum"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -563,9 +579,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="SpecificHygieneMeasures" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
-						<xs:element name="SafetySigns" type="SafetySign" minOccurs="0"
+						<xs:element name="SafetySigns" type="RmmPictogramEnum" minOccurs="0"
 							maxOccurs="unbounded"/>
-						<!-- 4.0.2 Type updated from phrase to SafetySign -->
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1009,6 +1024,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							maxOccurs="unbounded"/>
 						<xs:element name="RefractionIndex" type="PhysChemValueWithTemperature"
 							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SurfaceTension" type="SurfaceTension" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1551,30 +1568,25 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 										type="Ecotoxicity" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="PlantToxicity" type="Ecotoxicity"
 										minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="ImpactOnSewageTreatment" minOccurs="0"
-										maxOccurs="unbounded">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Value" type="Ecotoxicity"
-												minOccurs="1" maxOccurs="1"/>
-												<xs:element name="Inoculum" type="Phrase"
-												minOccurs="0" maxOccurs="1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="OtherEcotoxInfoFish" type="Phrase" minOccurs="0"
+						<xs:element name="OtherEcotoxInfoFishAcute" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
-						<xs:element name="OtherEcotoxInfoAlgaePlant" type="Phrase" minOccurs="0"
+						<xs:element name="OtherEcotoxInfoFishChronic" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
-						<xs:element name="OtherEcotoxInfoCrustaceans" type="Phrase" minOccurs="0"
-							maxOccurs="unbounded">
+						<xs:element name="OtherEcotoxInfoAlgaePlantAcute" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="OtherEcotoxInfoAlgaePlantChronic" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="OtherEcotoxInfoCrustaceansAcute" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Add information here if the species is unknown, e.g. listed as "Aquatic invertebrates".</xs:documentation>
+								<xs:documentation>Add information here if the species is listed as "Aquatic invertebrates" or "Daphnia", or if the species is unknown.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element name="OtherEcotoxInfoCrustaceansChronic" type="Phrase"
+							minOccurs="0" maxOccurs="unbounded"> </xs:element>
 						<xs:element name="OtherEcotoxInfoImpactOnSewageTreatment" type="Phrase"
 							minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="EcotoxicologyOtherData" type="Phrase" minOccurs="0"
@@ -1679,8 +1691,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							maxOccurs="unbounded"/>
 						<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments"
 							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="SurfaceTension" type="SurfaceTension" minOccurs="0"
-							maxOccurs="unbounded"/>
 						<xs:element name="AdsorptionCoefficient" type="MobilityData" minOccurs="0"
 							maxOccurs="unbounded"/>
 						<xs:element name="DesorptionCoefficient" type="MobilityData" minOccurs="0"
@@ -1774,7 +1784,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 									</xs:element>
 									<!-- 4.0.2 update from maxOccur 1 to 2 according to CLP ATP 4 -->
 									<xs:element name="ClpClassificationProcedure" type="Phrase"
-										minOccurs="0" maxOccurs="1"/>
+										minOccurs="0" maxOccurs="1">
+										<xs:annotation>
+											<xs:documentation>only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
@@ -1836,16 +1850,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<!-- *******************************************************************  OccupationalExposureLimit *************  -->
 	<xs:complexType name="OccupationalExposureLimit">
 		<xs:annotation>
-			<xs:documentation>
-				OccupationalExposureLimit, source: Chapter 8				
-			</xs:documentation>
+			<xs:documentation>see Github issue #116 regarding multiple limit values</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="LimitValueTypeWithCountryOrOrganisation"
 				type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Limit8H" type="UnitValue" minOccurs="0" maxOccurs="2"/>
-			<xs:element name="LimitShortTerm" type="STEL" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="Limit8H" type="UnitValue" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LimitShortTerm" type="STEL" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="PeakLimitation" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>Also known as ceiling value. If two occurences, one must be ppm and the other a matching mg/m3 value.
+One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, Value must be the short-term Value multiplied with the overflow factor.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
@@ -1866,7 +1890,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A remark that applies to all of the abovementioned OELs. If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  BiologicalLimitValue *************  -->
@@ -2535,5 +2563,109 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+	</xs:complexType>
+	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
+	<xs:complexType name="SUMI">
+		<xs:annotation>
+			<xs:documentation>Safe Use Information for Mixtures. Based on a draft prepared by Qualisys GmbH, Langenfeld, Germany, and published under CC license BY-SA 4.0 during the BDI workshop in Berlin, 26 October 2016. Includes information from the presentation of Martin Kops at ENES 8 and other documents.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SumiReference">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SectorSumiCode" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Leave empty if the Sumi is not published by a chemical sector association and part of Use Map activities (no company specific SUMI codes here!). First word should be the sector name, e.g. AISE or FEICA, followed by the sector's SUMI code. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="VersionNumber" type="string16">
+							<xs:annotation>
+								<xs:documentation>Version number is optional here because SUMI info is part of the eSDS which is versioned, so the version date is expected to be the same and is sufficient to determine a sector SUMI version.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" name="Title" type="Phrase"> </xs:element>
+			<xs:element name="GeneralDescription">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="UseDescriptors" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="SectorOfUse" type="SectorOfUse"/>
+									<xs:element minOccurs="0" name="ProcessCategory"
+										type="ProcessCategory"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SwedReference"
+							type="Phrase">
+							<xs:annotation>
+								<xs:documentation>Reference to the Sector-specific Worker Exposure Description as named in the sector's Use Map.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" name="Text" type="Phrase"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OperationalConditions">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Properties">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="MaxDuration" type="OneUnitValue">
+										<xs:annotation>
+											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0"
+										name="RangeOfApplication" type="Phrase"/>
+									<xs:element minOccurs="0" name="AirExchangeRate"
+										type="OneUnitValue">
+										<xs:annotation>
+											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other"
+										type="Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" name="Text" type="Phrase"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RiskManagementMeasures">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="RmmWorker" type="Phrase"/>
+						<xs:element name="RmmPictogram" type="RmmPictogramEnum"
+							maxOccurs="unbounded" minOccurs="0"> </xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment"
+							type="Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="GoodPracticeAdvice">
+				<xs:annotation>
+					<xs:documentation>In Exposure Scenarios, also known as AGPA = Additional Good Practice Advice</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Text" type="Phrase"/>
+						<xs:element minOccurs="0" name="AgpaPictogram" type="AgpaPictogramEnum"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DisclaimerBoundaries"
+				type="Phrase">
+				<xs:annotation>
+					<xs:documentation>Describes the boundaries of the SUMI. Mandatory according to some sources, optional according to others.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
