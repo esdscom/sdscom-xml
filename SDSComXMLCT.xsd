@@ -1400,6 +1400,38 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="SpecificTargetOrganSE3" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>separate from SpecificTargetOrganSE3 because classified independently</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="IrritationToRespiratoryTract" type="ToxInfoStotSE3"/>
+						<xs:element name="NarcoticEffects" type="ToxInfoStotSE3"/>
+						<xs:element name="SpecificTargetOrganSETestResults" type="STOTData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificTargetOrganSEOtherInfo" minOccurs="0"
+							maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="General" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Inhalation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Skin" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Eye" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Ingestion" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AssessmentSpecificTargetOrganSEClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="SpecificTargetOrganRE" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
@@ -1541,6 +1573,24 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* EcologicalInformation ************  -->
+	<xs:complexType name="ToxInfoStotSE3">
+		<xs:sequence>
+			<xs:element name="HumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Usually just one phrase how the evaluation took place. See EuPhraC for content examples.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Source" type="Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Remark" type="Phrase">
+				<xs:annotation>
+					<xs:documentation>Usually just one phrase if dta lacking - see EuPhraC for cotent examples.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssessmentOrClassification" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="EcologicalInformation">
 		<xs:annotation>
 			<xs:documentation>
