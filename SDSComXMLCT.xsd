@@ -1456,6 +1456,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						</xs:element>
 						<xs:element name="AspirationHazardHydrocarbonContent" type="UnitValue"
 							minOccurs="0" maxOccurs="1"/>
+						<xs:element minOccurs="0" name="AspirationHazardKinematicViscosity40"
+							type="UnitValue">
+							<xs:annotation>
+								<xs:documentation>Kinematic viscosity value at 40°C</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element name="AspirationHazardOtherInfo" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
 						<xs:element name="AspirationHazardHumanExperience" type="Phrase"
