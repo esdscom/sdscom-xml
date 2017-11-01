@@ -176,6 +176,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				maxOccurs="1"/>
 			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0"
 				maxOccurs="unbounded"/>
+			<xs:element minOccurs="0" name="MolecularWeight" type="UnitValue"/>
 			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
