@@ -1938,6 +1938,9 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0"
 				maxOccurs="1"/>
 			<xs:element name="ExposureLimitLetter" minOccurs="0" maxOccurs="4">
+				<xs:annotation>
+					<xs:documentation>obsolete; use ParticleFraction instead</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="LetterCode" type="Phrase" minOccurs="0" maxOccurs="1"/>
@@ -1946,6 +1949,7 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="ParticleFraction" type="ExposureLimitFractionEnum"/>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -1955,6 +1959,12 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  BiologicalLimitValue *************  -->
+	<xs:simpleType name="ExposureLimitFractionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="inhalable"/>
+			<xs:enumeration value="respirable"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="BiologicalLimitValue">
 		<xs:annotation>
 			<xs:documentation>
