@@ -2008,6 +2008,11 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum"
 				minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DnelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the DNEL is very low and where more than 1 DNEL existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -2025,6 +2030,11 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum"
 				minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DmelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the DMEL is very low and where more than 1 DMEL existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -2043,6 +2053,11 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="ExposureFrequency" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TypeOfEffect" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="PnecValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the PNEC is very low and where more than 1 PNEC existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
