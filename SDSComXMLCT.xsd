@@ -338,10 +338,18 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:sequence>
 									<xs:element name="OccupationalExposureLimit"
 										type="OccupationalExposureLimit" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at the product in delivery state</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="IntendedUseOccupationalExposureLimit"
 										type="OccupationalExposureLimit" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at degradation product limit values during use</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -350,10 +358,18 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:sequence>
 									<xs:element name="BiologicalLimitValue"
 										type="BiologicalLimitValue" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at the product in delivery state</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="IntendedUseBiologicalLimitValue"
 										type="BiologicalLimitValue" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at degradation product limit values during use</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="BiologicalLimitValuesOtherInformation"
 										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
@@ -1768,6 +1784,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ResultsOfPbtAndVpvbAssessment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>There is no such info for mixtures as a whole. So this should be used only in instances for Components, or for substance SDSs.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="PbtAssessmentResults" type="Phrase" minOccurs="0"
