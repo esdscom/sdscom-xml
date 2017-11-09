@@ -176,6 +176,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				maxOccurs="1"/>
 			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0"
 				maxOccurs="unbounded"/>
+			<xs:element minOccurs="0" name="MolecularWeight" type="UnitValue"/>
 			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -337,10 +338,18 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:sequence>
 									<xs:element name="OccupationalExposureLimit"
 										type="OccupationalExposureLimit" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at the product in delivery state</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="IntendedUseOccupationalExposureLimit"
 										type="OccupationalExposureLimit" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at degradation product limit values during use</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -349,10 +358,18 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:sequence>
 									<xs:element name="BiologicalLimitValue"
 										type="BiologicalLimitValue" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at the product in delivery state</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="IntendedUseBiologicalLimitValue"
 										type="BiologicalLimitValue" minOccurs="0"
-										maxOccurs="unbounded"/>
+										maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>aims at degradation product limit values during use</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="BiologicalLimitValuesOtherInformation"
 										type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
@@ -1400,6 +1417,38 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="SpecificTargetOrganSE3" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>separate from SpecificTargetOrganSE3 because classified independently</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="IrritationToRespiratoryTract" type="ToxInfoStotSE3"/>
+						<xs:element name="NarcoticEffects" type="ToxInfoStotSE3"/>
+						<xs:element name="SpecificTargetOrganSETestResults" type="STOTData"
+							minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="SpecificTargetOrganSEOtherInfo" minOccurs="0"
+							maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="General" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Inhalation" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Skin" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Eye" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+									<xs:element name="Ingestion" type="Phrase" minOccurs="0"
+										maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AssessmentSpecificTargetOrganSEClassification"
+							type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="SpecificTargetOrganRE" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
@@ -1456,6 +1505,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						</xs:element>
 						<xs:element name="AspirationHazardHydrocarbonContent" type="UnitValue"
 							minOccurs="0" maxOccurs="1"/>
+						<xs:element minOccurs="0" name="AspirationHazardKinematicViscosity40"
+							type="UnitValue">
+							<xs:annotation>
+								<xs:documentation>Kinematic viscosity value at 40°C</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element name="AspirationHazardOtherInfo" type="Phrase" minOccurs="0"
 							maxOccurs="unbounded"/>
 						<xs:element name="AspirationHazardHumanExperience" type="Phrase"
@@ -1535,6 +1590,24 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* EcologicalInformation ************  -->
+	<xs:complexType name="ToxInfoStotSE3">
+		<xs:sequence>
+			<xs:element name="HumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Usually just one phrase how the evaluation took place. See EuPhraC for content examples.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Source" type="Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Remark" type="Phrase">
+				<xs:annotation>
+					<xs:documentation>Usually just one phrase if dta lacking - see EuPhraC for cotent examples.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssessmentOrClassification" type="Phrase" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="EcologicalInformation">
 		<xs:annotation>
 			<xs:documentation>
@@ -1711,6 +1784,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ResultsOfPbtAndVpvbAssessment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>There is no such info for mixtures as a whole. So this should be used only in instances for Components, or for substance SDSs.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="PbtAssessmentResults" type="Phrase" minOccurs="0"
@@ -1881,6 +1957,9 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0"
 				maxOccurs="1"/>
 			<xs:element name="ExposureLimitLetter" minOccurs="0" maxOccurs="4">
+				<xs:annotation>
+					<xs:documentation>obsolete; use ParticleFraction instead</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="LetterCode" type="Phrase" minOccurs="0" maxOccurs="1"/>
@@ -1889,6 +1968,7 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="ParticleFraction" type="ExposureLimitFractionEnum"/>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -1898,6 +1978,12 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  BiologicalLimitValue *************  -->
+	<xs:simpleType name="ExposureLimitFractionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="inhalable"/>
+			<xs:enumeration value="respirable"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="BiologicalLimitValue">
 		<xs:annotation>
 			<xs:documentation>
@@ -1941,6 +2027,11 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum"
 				minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DnelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the DNEL is very low and where more than 1 DNEL existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -1958,6 +2049,11 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum"
 				minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DmelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the DMEL is very low and where more than 1 DMEL existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -1976,6 +2072,11 @@ One of Value and PeakLimitationOverflowFactor is sufficient. If both are given, 
 			<xs:element name="ExposureFrequency" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TypeOfEffect" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="PnecValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the PNEC is very low and where more than 1 PNEC existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
