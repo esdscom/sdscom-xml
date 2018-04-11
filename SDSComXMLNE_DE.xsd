@@ -7,13 +7,13 @@ Purpose	: German Extension Schema Definition
  			  		as specified in the Format. For detailed 								
  			  		information please refer to 
  			  		http://www.eSDSCom.eu										
-Version	:  1.0.4.
-Rev. date: 2015.08.28												
 History	:  
+Recent changes are documented on https://github.com/esdscom/sdscom-xml
+
+History until SDScom v4.2.0: 																					
+
 2015.06.18 added to WaterHazardClassEnum new Enum "awg" = allgemein wassergefährdend
-2015.08.28 Revision of the GisCodeEnum (removed the duplicate items)
-Further changes according to GitHub change log at https://github.com/esdscom/sdscom-xml
-														
+2015.08.28 Revision of the GisCodeEnum (removed the duplicate items)														
 ***************************************************************************** -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
@@ -21,74 +21,110 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 	<!-- *******************************************************************  Datasheet *************  -->
 	<xs:complexType name="NationalExtensionDE">
 		<xs:annotation>
-			<xs:documentation>
-				Elements related to national legislation
-			</xs:documentation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> National legislations related to the chemical: National German laws which implement provisions, and any other national measures related to the chemical. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0"
-				maxOccurs="unbounded"/>
-			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0"
-				maxOccurs="1"/>
+			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TaLuft" type="TaLuft" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="WaterHazardClass" type="WaterHazardClass" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase"
-				minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase"
-				minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0"
-				maxOccurs="unbounded"/>
-			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE"
-				minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="GisCode" type="GisCodeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation> Other German legislation: </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation> National legislation: National requirements related to waste that applies to the product or its packaging. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> German storage class: Classification of the chemical in accordance with German regulation. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GisCode" type="GisCodeEnum" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> German GisCode of the BGBau for the construction industrie </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* NationalWasteLegislationDE *************  -->
 	<xs:complexType name="NationalWasteLegislationDE">
 		<xs:annotation>
-			<xs:documentation>
-					NationalWasteLegislationDE
-			</xs:documentation>
+			<xs:documentation> NationalWasteLegislationDE </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="WasteCode" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="WasteRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WasteCode" type="Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> National waste code: National identification number for the chemical and or its packaging as waste, with a corresponding description of the waste covered by the actual number. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WasteRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation> National waste regulations: National regulations related to waste that applies to the product or its packing. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Stoerfallverordnung *************  -->
 	<xs:complexType name="Stoerfallverordnung">
 		<xs:annotation>
-			<xs:documentation>
-					Stoerfallverordnung
-			</xs:documentation>
+			<xs:appinfo>SDScomChem</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Text" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Text" type="Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* WaterHazardClass *************  -->
 	<xs:complexType name="WaterHazardClass">
 		<xs:annotation>
-			<xs:documentation>
-					WaterHazardClass
-			</xs:documentation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> WaterHazardClass </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Class" type="WaterHazardClassEnum" maxOccurs="1"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Class" type="WaterHazardClassEnum" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> Water hazard class (WGK): </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Source" type="Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** TaLuft ********************* -->
 	<xs:complexType name="TaLuft">
-		<xs:annotation>
-			<xs:documentation>
-				TaLuft
-				source: Chapter 15
-			</xs:documentation>
-		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="WeightFraction" type="UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ClassOrClasses" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -99,9 +135,9 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 	<!-- ************************************************************** WaterHazardClassEnum ******  -->
 	<xs:simpleType name="WaterHazardClassEnum">
 		<xs:annotation>
-			<xs:documentation>
-				Enumaration of the german water hazard class 
-			</xs:documentation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> Enumaration of the german water hazard class. awg = "allgemein wassergefährdend", nwg = "nicht wassergefährdend" </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="1"/>
@@ -109,13 +145,13 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<xs:enumeration value="3"/>
 			<xs:enumeration value="nwg"/>
 			<xs:enumeration value="awg"/>
-			<!-- "nicht wasser gefährdend" -->
-			<!-- "allgemein wasser gefährdend" -->
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ************************************************************** StorageClassEnum ******  -->
 	<xs:simpleType name="StorageClassEnum">
 		<xs:annotation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
 			<xs:documentation>Enumaration of the german storage class according to TRGS 510.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -160,7 +196,7 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 			<!--LGK 6.1A: Brennbare, akut toxische Kat. 1 und 2/sehr giftige Gefahrstoffe-->
 			<!--LGK 6.1B: Nicht brennbare, akut toxische Kat. 1 und 2/sehr giftige Gefahrstoffe-->
 			<!--LGK 6.1C: Brennbare, akut toxische Kat. 3/giftige oder chronisch wirkende Gefahrstoffe-->
-			<!--LGK 6.1D: Nicht brennbare, akut toxische Kat. 3/giftige oder chronisch wirkende Ge-fahrstoffe-->
+			<!--LGK 6.1D: Nicht brennbare, akut toxische Kat. 3/giftige oder chronisch wirkende Gefahrstoffe-->
 			<!--LGK 6.2: Ansteckungsgefährliche Stoffe-->
 			<!--LGK 7: Radioaktive Stoffe-->
 			<!--LGK 8A: Brennbare ätzende Gefahrstoffe-->
@@ -175,9 +211,9 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 	<!-- ************************************************************** GisCodeEnum ******  -->
 	<xs:simpleType name="GisCodeEnum">
 		<xs:annotation>
-			<xs:documentation>
-				Enumaration of the german GisCode
-			</xs:documentation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> Enumaration of the german GisCode </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="BTM 10"/>
