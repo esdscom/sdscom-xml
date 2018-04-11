@@ -2113,7 +2113,6 @@ History before v4.2.0:
 										<xs:element name="TransportInBulk" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="TransportInBulkValue" type="xs:boolean"/>
 													<xs:element name="ProductName" type="string128" minOccurs="0"/>
 													<xs:element name="ShipType" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 													<xs:element name="PollutionCategory" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
