@@ -3076,6 +3076,14 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* PercentageValue *************  -->
+	<xs:simpleType name="TransportSubrisk">
+		<xs:annotation>
+			<xs:documentation>Subrisk for transportation, i.e. a list of transport classes connected with + sings</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d|\d.\d(\+\d|\+\d.\d)*"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="PercentageValue">
 		<xs:annotation>
 			<xs:documentation>Basically a UnitValue with a fixed unit "%"</xs:documentation>

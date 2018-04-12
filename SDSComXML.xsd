@@ -1799,13 +1799,6 @@ History before v4.2.0:
 															<xs:documentation> UN number ICAO: </xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:appinfo>SDScomBau</xs:appinfo>
-															<xs:appinfo>SDScomChem</xs:appinfo>
-															<xs:documentation> Comments to UN No: To add any information related to UN numbers. </xs:documentation>
-														</xs:annotation>
-													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -1930,7 +1923,6 @@ History before v4.2.0:
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
-													<xs:element name="ProperShippingNameComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -1957,7 +1949,7 @@ History before v4.2.0:
 																		<xs:appinfo>SDScomChem</xs:appinfo>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="SubsidiaryRiskAdrRid" type="Phrase" minOccurs="0" maxOccurs="2">
+																<xs:element name="SubsidiaryRiskAdrRid" type="TransportSubrisk" minOccurs="0" maxOccurs="2">
 																	<xs:annotation>
 																		<xs:appinfo>SDScomBau</xs:appinfo>
 																		<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1985,7 +1977,7 @@ History before v4.2.0:
 																		<xs:appinfo>SDScomChem</xs:appinfo>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="SubsidiaryRiskAdn" type="Phrase" minOccurs="0" maxOccurs="2">
+																<xs:element name="SubsidiaryRiskAdn" type="TransportSubrisk" minOccurs="0" maxOccurs="2">
 																	<xs:annotation>
 																		<xs:appinfo>SDScomBau</xs:appinfo>
 																		<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2002,7 +1994,7 @@ History before v4.2.0:
 																		<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="SubsidiaryRiskImdg" type="Phrase" minOccurs="0" maxOccurs="2"> </xs:element>
+																<xs:element name="SubsidiaryRiskImdg" type="TransportSubrisk" minOccurs="0" maxOccurs="2"> </xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -2010,7 +2002,7 @@ History before v4.2.0:
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="ClassIcaoIata" type="Phrase" minOccurs="0"/>
-																<xs:element name="SubsidiaryRiskIcaoIata" type="Phrase" minOccurs="0" maxOccurs="2"/>
+																<xs:element name="SubsidiaryRiskIcaoIata" type="TransportSubrisk" minOccurs="0" maxOccurs="2"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -2044,11 +2036,6 @@ History before v4.2.0:
 													</xs:element>
 													<xs:element name="PackingGroupImdg" type="PackingGroupEnum" minOccurs="0"/>
 													<xs:element name="PackingGroupIcaoIata" type="PackingGroupEnum" minOccurs="0"/>
-													<xs:element name="PackingGroupComments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:appinfo>SDScomChem</xs:appinfo>
-														</xs:annotation>
-													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -2059,45 +2046,37 @@ History before v4.2.0:
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="EnvironmHazardAccordAdrRid" type="xs:boolean" minOccurs="0"/>
-													<xs:element minOccurs="0" name="Adn">
+													<xs:element name="EnvironmHazardAccordAdrRid" type="Phrase" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="EnvironmHazardAccordAdn" type="Phrase" minOccurs="0">
 														<xs:annotation>
 															<xs:appinfo>SDScomBau</xs:appinfo>
 															<xs:appinfo>SDScomChem</xs:appinfo>
+															<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 														</xs:annotation>
-														<xs:complexType>
-															<xs:sequence>
-																<xs:element name="EnvironmHazardAccordAdn" type="xs:boolean" minOccurs="0">
-																	<xs:annotation>
-																		<xs:appinfo>SDScomBau</xs:appinfo>
-																		<xs:appinfo>SDScomChem</xs:appinfo>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="MarinePollutant" type="xs:boolean" minOccurs="0">
-																	<xs:annotation>
-																		<xs:appinfo>SDScomBau</xs:appinfo>
-																		<xs:appinfo>SDScomChem</xs:appinfo>
-																	</xs:annotation>
-																</xs:element>
-															</xs:sequence>
-														</xs:complexType>
 													</xs:element>
 													<xs:element name="Imdg" minOccurs="0">
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="EnvironmHazardAccordImdg" type="xs:boolean" minOccurs="0"/>
+																<xs:element name="EnvironmHazardAccordImdg" type="Phrase" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 																<xs:element name="MarinePollutant" type="xs:boolean" minOccurs="0">
 																	<xs:annotation>
-																		<xs:documentation> Marine pollutant: To state if the chemical is classified as a marine pollutant. Boolean. Prev. No, P, PP </xs:documentation>
+																		<xs:documentation> Marine pollutant: To state if the chemical is classified as a marine pollutant.</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
-													<xs:element name="EnvironmHazardAccordIcaoIata" type="xs:boolean" minOccurs="0"/>
-													<xs:element name="EnvironmentalHazardsDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+													<xs:element name="EnvironmHazardAccordIcaoIata" type="Phrase" minOccurs="0">
 														<xs:annotation>
-															<xs:documentation> Description of environmental hazards: Information related to transport of the chemical. </xs:documentation>
+															<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 														</xs:annotation>
 													</xs:element>
 												</xs:sequence>
@@ -2119,23 +2098,13 @@ History before v4.2.0:
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="TransportHazardLabels" minOccurs="0">
-														<xs:complexType>
-															<xs:sequence>
-																<xs:element name="AdrRidAdnHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
-																<xs:element name="ImdgHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
-																<xs:element name="IcaoIataHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
-															</xs:sequence>
-														</xs:complexType>
-													</xs:element>
-													<xs:element name="OtherTransportGeneral" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-													<xs:element name="AdrOtherInformation" minOccurs="0">
+													<xs:element name="AdrRidOtherInformation" minOccurs="0">
 														<xs:annotation>
 															<xs:appinfo>SDScomChem</xs:appinfo>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="AdrOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdrRidHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
 																<xs:element name="AdrTunnelRestrictionCode" type="string10" minOccurs="0" maxOccurs="unbounded">
 																	<xs:annotation>
 																		<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2148,32 +2117,45 @@ History before v4.2.0:
 																		<xs:documentation>also known as Kemler code</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
+																<xs:element name="AdrRidOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
-													<xs:element name="RidOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 													<xs:element name="AdnOtherInformation" minOccurs="0">
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="AdnOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdnHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
 																<xs:element name="AdnSpecialProvisions" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="AdnOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
 													<xs:element name="ImdgOtherInformation" minOccurs="0">
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="ImdgOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ImdgHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
 																<xs:element name="ImdgEmsCode" type="string40" minOccurs="0" maxOccurs="3"/>
 																<xs:element name="ImdgLimitedQty" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="ImdgOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
-													<xs:element name="IcaoIataOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+													<xs:element name="IcaoIataOtherInformation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="IcaoIataHazardLabel" type="Phrase" minOccurs="0" maxOccurs="3"/>
+																<xs:element name="IcaoIataOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Any other information that applies to all transport carriers</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
