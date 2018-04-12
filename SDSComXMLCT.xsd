@@ -2440,59 +2440,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="DpdDsdClassification" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation> Classification according to substance and preparation directives: The chemical's classification according to EU directives that will be terminated - 67/548/EEC (DSD) and 1999/45/EC (DPD). The hazard classification in accordance with EU directives valid until 2015, including notes and remarks. </xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="DpdDsdHazardClassification" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation> Individual classifications: The hazard classification of the trade product, consisting of symbol letter of danger (may be blank) together with the appropriate risk phrase(s). Examples: (Repr. Cat. 1, R61), (Repr. Cat. 3, R62), (Xn, R20/22), (R33), (N, R50-53). </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="DpdDsdClassificationCategory" type="ClassificationCategoryEnum" minOccurs="0" maxOccurs="1">
-										<xs:annotation>
-											<xs:documentation> Hazard class: Code for the category of danger (e.g. Xn, E, O, Muta. Cat.1, Carc. Cat.2) for the individual hazard. Can be blank. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="DpdDsdRiskPhrase" type="RiskPhrase" minOccurs="1" maxOccurs="3">
-										<xs:annotation>
-											<xs:documentation> Risk phrase code: States the risk phrase numbers corresponding to the category of danger. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1">
-										<xs:annotation>
-											<xs:documentation> Multiplying factor: The M-factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M-factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="FactorValue" type="int20" minOccurs="0" maxOccurs="1">
-													<xs:annotation>
-														<xs:documentation> M factor: Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="FactorComments" type="Phrase" minOccurs="0" maxOccurs="4">
-													<xs:annotation>
-														<xs:documentation> M factor remark: Comments or remarks to the stated M factor. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="DpdDsdClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="DpdDsdClassificationNotes" type="Phrase" minOccurs="0" maxOccurs="4">
-							<xs:annotation>
-								<xs:documentation> Classification notes: To identify classification notes (letters and/or figures) in the case that the trade product is a substance. This information shall be stated in the SDS together with the classifications of the substance. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="SimpleClassificationDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
