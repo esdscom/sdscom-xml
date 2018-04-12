@@ -668,17 +668,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:sequence>
 									<xs:element name="SkinHandProtectionShortTermContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="SkinHandProtectionLongTermContact" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="SuitableGlovesType" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="SuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
-										</xs:annotation>
-									</xs:element>
 									<xs:element name="UnsuitableMaterials" type="Phrase" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -687,36 +676,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 									<xs:element name="HandProtectionNecessaryProperties" type="Phrase" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="GloveBreakthroughTime" type="UnitValue" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="ThicknessOfGloveMaterial" type="UnitValue" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="WearDurationAtOccationalContact" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="WearDurationAtPermanentContact" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="HandProtectionEquipment" type="ProtectionArticle" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>deprecated; use Equipment instead</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Equipment" maxOccurs="unbounded" minOccurs="0">
@@ -2815,7 +2774,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Solubility" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>should be 0..1 only (unbounded is deprecated / on the lsit for refactoring).</xs:documentation>
+					<xs:documentation>should be 0..1 only (unbounded is deprecated / on the list for refactoring).</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>

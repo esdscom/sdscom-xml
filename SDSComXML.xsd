@@ -1643,27 +1643,17 @@ History before v4.2.0:
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
-										<xs:choice minOccurs="0">
+										<xs:element minOccurs="0" name="WasteTreatment">
 											<xs:annotation>
-												<xs:documentation/>
+												<xs:documentation> Waste treatment: Specify the appropriate methods of disposal of both the chemical and any contaminated packaging. The actual use of the chemical will often influence the classification of the waste. Waste treatment containers and methods shall be specified including the appropriate methods of waste treatment of both the chemical and any contaminated packaging (e.g. incineration, recycling, landfilling). Physical or chemical properties that may affect waste treatment options shall be specified. Sewage disposal shall be discouraged. Where appropriate, any special precautions for any recommended waste treatment option shall be identified. </xs:documentation>
 											</xs:annotation>
-											<xs:element minOccurs="0" name="WasteTreatment">
-												<xs:annotation>
-													<xs:documentation> Waste treatment: Specify the appropriate methods of disposal of both the chemical and any contaminated packaging. The actual use of the chemical will often influence the classification of the waste. Waste treatment containers and methods shall be specified including the appropriate methods of waste treatment of both the chemical and any contaminated packaging (e.g. incineration, recycling, landfilling). Physical or chemical properties that may affect waste treatment options shall be specified. Sewage disposal shall be discouraged. Where appropriate, any special precautions for any recommended waste treatment option shall be identified. </xs:documentation>
-												</xs:annotation>
-												<xs:complexType>
-													<xs:sequence>
-														<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductWaste" type="Phrase"/>
-														<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingWaste" type="Phrase"/>
-													</xs:sequence>
-												</xs:complexType>
-											</xs:element>
-											<xs:element name="WasteTreatmentMethods" type="Phrase" minOccurs="0" maxOccurs="unbounded">
-												<xs:annotation>
-													<xs:documentation>This element is deprecated and provided for backwards compatibility only. Use WasteTreatment instead.</xs:documentation>
-												</xs:annotation>
-											</xs:element>
-										</xs:choice>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductWaste" type="Phrase"/>
+													<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingWaste" type="Phrase"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 										<xs:element name="EuRequirements" minOccurs="0" maxOccurs="1">
 											<xs:annotation>
 												<xs:appinfo>SDScomBau</xs:appinfo>
@@ -2359,11 +2349,6 @@ History before v4.2.0:
 										<xs:element name="ManufacturersNotes" type="Phrase" minOccurs="0" maxOccurs="unbounded">
 											<xs:annotation>
 												<xs:documentation> Manufacturer’s or supplier’s notes: Information </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="RelevantRiskPhrases" type="RiskPhrase" minOccurs="0" maxOccurs="unbounded">
-											<xs:annotation>
-												<xs:documentation> Relevant risk phrases in full text: Write out the full text of any risk phrases referred to under section 2 and 3 of the SDS with code numbers. </xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="RelevantHazardStatements" type="HazardStatement" minOccurs="0" maxOccurs="unbounded">
