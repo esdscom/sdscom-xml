@@ -323,24 +323,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:documentation> Iupac or chemical name </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProductNameInSection2" type="string512" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Name to be used in section 2 and on hazard label: Alternative name that - if filled in - will be printed in section 2 of the SDS and eventually on the hazard label, provided that 3.2.1.4.2. has been filled in. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ProductNameInSection3" type="string512" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Name to be used in section 3: Alternative name that - if filled in - will be printed in section 3 of the SDS. This element is used if the name of the component is too long (&gt; 100 characters) </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ProductNameInSection8" type="string512" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Name to be used in section 8: Alternative name that - if filled in - will be printed in section 8 of the SDS to state the exposure limits for the component - provided that IsOccupationalExposureLimit has been filled in. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="NameDetergentsRegulation" type="string1024" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
