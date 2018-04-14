@@ -76,6 +76,11 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** string10 ********  -->
+	<xs:simpleType name="string4">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="string10">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 10 characters.</xs:documentation>
@@ -2821,14 +2826,6 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* PercentageValue *************  -->
-	<xs:simpleType name="TransportSubrisk">
-		<xs:annotation>
-			<xs:documentation>Subrisk for transportation, i.e. a list of transport classes connected with + sings</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="\d|\d.\d(\+\d|\+\d.\d)*"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:complexType name="PercentageValue">
 		<xs:annotation>
 			<xs:documentation>Basically a UnitValue with a fixed unit "%"</xs:documentation>
@@ -2973,6 +2970,14 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* PackingGroupEnum *************  -->
+	<xs:simpleType name="TransportClass">
+		<xs:annotation>
+			<xs:documentation>The word "class" is used differently for different carriers. This type denote a class with subclass, but without any categories (specified with letters after the subclass), i.e. it can represent "1" as well as "1.3", but not "1.3G" as used in ADR and ADN. This type can be used for transportation calsses and subrisks.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d(\.\d)?"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="PackingGroupEnum">
 		<xs:annotation>
 			<xs:documentation> Legal values for the PackingGroupEnum </xs:documentation>

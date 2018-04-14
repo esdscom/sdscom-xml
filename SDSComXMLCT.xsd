@@ -1624,20 +1624,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="AdrRid">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ClassAdrRid" type="Phrase">
+						<xs:element minOccurs="1" name="ClassAdrRid" type="TransportClass">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> ADR and RID hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ClassCodeAdrRid" type="Phrase">
+						<xs:element minOccurs="1" name="ClassCodeAdrRid" type="string4">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskAdrRid" type="TransportSubrisk">
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskAdrRid" type="TransportClass">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1653,19 +1653,19 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ClassAdn" type="Phrase">
+						<xs:element minOccurs="1" name="ClassAdn" type="TransportClass">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ClassCodeAdn" type="Phrase">
+						<xs:element minOccurs="1" name="ClassCodeAdn" type="string4">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskAdn" type="TransportSubrisk">
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskAdn" type="TransportClass">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1677,20 +1677,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="Imdg">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ClassImdg" type="Phrase">
+						<xs:element minOccurs="1" name="ClassImdg" type="TransportClass">
 							<xs:annotation>
 								<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskImdg" type="TransportSubrisk"> </xs:element>
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskImdg" type="TransportClass"> </xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="IcaoIata">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ClassIcaoIata" type="Phrase"/>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskIcaoIata" type="TransportSubrisk"/>
+						<xs:element minOccurs="1" name="ClassIcaoIata" type="TransportClass"/>
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskIcaoIata" type="TransportClass"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
