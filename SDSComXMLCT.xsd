@@ -1637,12 +1637,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskAdrRid" type="TransportClass">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdrRid" type="TransportClass"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1665,12 +1660,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskAdn" type="TransportClass">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdn" type="TransportClass"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1683,6 +1673,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskImdg" type="TransportClass"> </xs:element>
+						<xs:element maxOccurs="3" minOccurs="0" name="ImdgHazardLabel" type="TransportClass"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1691,6 +1682,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:sequence>
 						<xs:element minOccurs="1" name="ClassIcaoIata" type="TransportClass"/>
 						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRiskIcaoIata" type="TransportClass"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="IcaoIataHazardLabel" type="TransportClass"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1765,7 +1757,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="3" minOccurs="0" name="AdrRidHazardLabel" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrTunnelRestrictionCode" type="string10">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1785,7 +1776,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="AdnOtherInformation">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="3" minOccurs="0" name="AdnHazardLabel" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnSpecialProvisions" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnOtherInfo" type="Phrase"/>
 					</xs:sequence>
@@ -1794,7 +1784,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="ImdgOtherInformation">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="3" minOccurs="0" name="ImdgHazardLabel" type="Phrase"/>
 						<xs:element maxOccurs="3" minOccurs="0" name="ImdgEmsCode" type="string40"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ImdgLimitedQty" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ImdgOtherInfo" type="Phrase"/>
@@ -1804,7 +1793,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="IcaoIataOtherInformation">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="3" minOccurs="0" name="IcaoIataHazardLabel" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="IcaoIataOtherInfo" type="Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
