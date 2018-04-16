@@ -1744,7 +1744,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="AdrRidExemptedQty" type="TransportEq"/>
+						<xs:element minOccurs="0" name="AdrRidExceptedQty" type="TransportEq"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="string4"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="AdrTunnelRestrictionCode" type="string10">
 							<xs:annotation>
@@ -1778,7 +1778,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="AdnExemptedQty" type="TransportEq"/>
+						<xs:element minOccurs="0" name="AdnExceptedQty" type="TransportEq"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnSpecialProvisions" type="string4"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnOtherInfo" type="Phrase"/>
 					</xs:sequence>
@@ -1788,7 +1788,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="ImdgLimitedQty" type="string20"/>
-						<xs:element minOccurs="0" name="ImdgExemptedQty" type="TransportEq"/>
+						<xs:element minOccurs="0" name="ImdgExceptedQty" type="TransportEq"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ImdgSpecialProvisions" type="string4"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="ImdgEmsCode">
 							<xs:simpleType>

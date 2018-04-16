@@ -3021,4 +3021,21 @@ History before  v4.2.0:
 			<xs:enumeration value="CLP10-2017/776"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="TrasportClassEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4.1"/>
+			<xs:enumeration value="4.2"/>
+			<xs:enumeration value="4.3"/>
+			<xs:enumeration value="5.1"/>
+			<xs:enumeration value="5.2"/>
+			<xs:enumeration value="6.1"/>
+			<xs:enumeration value="6.2"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
