@@ -1739,14 +1739,29 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrTunnelRestrictionCode" type="string10">
+						<xs:element maxOccurs="1" minOccurs="0" name="AdrRidLimitedQty" type="string20">
+							<xs:annotation>
+								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="AdrRidExemptedQty" type="TransportEq"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="string4"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="AdrTunnelRestrictionCode" type="string10">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrLimitedQty" type="Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrTransportCategory" type="Phrase"/>
-						<xs:element minOccurs="0" name="AdrHazardIdentificationNo" type="Phrase">
+						<xs:element maxOccurs="1" minOccurs="0" name="AdrTransportCategory">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="3"/>
+									<xs:enumeration value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element minOccurs="0" name="AdrHazardIdentificationNo" type="string10">
 							<xs:annotation>
 								<xs:documentation>also known as Kemler code</xs:documentation>
 							</xs:annotation>
@@ -1758,7 +1773,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="AdnOtherInformation">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnSpecialProvisions" type="Phrase"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="AdnLimitedQty" type="string20">
+							<xs:annotation>
+								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="AdnExemptedQty" type="TransportEq"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnSpecialProvisions" type="string4"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdnOtherInfo" type="Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -1766,8 +1787,16 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="ImdgOtherInformation">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="3" minOccurs="0" name="ImdgEmsCode" type="string40"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ImdgLimitedQty" type="Phrase"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="ImdgLimitedQty" type="string20"/>
+						<xs:element minOccurs="0" name="ImdgExemptedQty" type="TransportEq"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ImdgSpecialProvisions" type="string4"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="ImdgEmsCode">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="F-\p{Lu}, S-\p{Lu}"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ImdgOtherInfo" type="Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -1775,6 +1804,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element minOccurs="0" name="IcaoIataOtherInformation">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" name="IcaoIataLimitedQty" type="string20">
+							<xs:annotation>
+								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="IcaoIataExemptedQty" type="TransportEq"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="IcaoIataSpecialProvisions" type="string4"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="IcaoIataOtherInfo" type="Phrase"/>
 					</xs:sequence>
 				</xs:complexType>

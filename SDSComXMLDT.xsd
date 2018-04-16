@@ -2978,6 +2978,11 @@ History before  v4.2.0:
 			<xs:pattern value="\d(\.\d)?"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="TransportEq">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="E\d"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="PackingGroupEnum">
 		<xs:annotation>
 			<xs:documentation> Legal values for the PackingGroupEnum </xs:documentation>
