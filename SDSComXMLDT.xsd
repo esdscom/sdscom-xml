@@ -1751,8 +1751,6 @@ History before  v4.2.0:
 			<xs:enumeration value="Inhalation(Gas)"/>
 			<xs:enumeration value="Inhalation(Vapour)"/>
 			<xs:enumeration value="Inhalation(Dust/Mist)"/>
-			<xs:enumeration value="Inhalation(Dust)"/>
-			<xs:enumeration value="Inhalation(Mist)"/>
 			<xs:enumeration value="Subcutane"/>
 			<xs:enumeration value="Intraperitonial"/>
 			<xs:enumeration value="Intravenal"/>
