@@ -678,7 +678,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="TestMaterial" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
