@@ -2714,35 +2714,10 @@ History before v4.2.0:
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSEOtherInfo">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSEOtherInfo" type="Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="General" type="Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Inhalation" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Skin" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Eye" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ingestion" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganSEHumanExperience" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganSEClassification" type="Phrase"/>
@@ -2771,31 +2746,10 @@ History before v4.2.0:
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSEOtherInfo">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSEOtherInfo" type="Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="General" type="Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Inhalation" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Skin" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Eye" type="Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ingestion" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganSEClassification" type="Phrase"/>
 					</xs:sequence>
@@ -2812,35 +2766,10 @@ History before v4.2.0:
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganREOtherInfo">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganREOtherInfo" type="Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="General" type="Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Inhalation" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Skin" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Eye" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ingestion" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganREHumanExperience" type="Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganREClassification" type="Phrase"/>
