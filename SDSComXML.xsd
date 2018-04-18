@@ -2403,6 +2403,7 @@ History before v4.2.0:
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="TestResults">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>e.g. LD50 and ATEmix values</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2486,35 +2487,6 @@ History before v4.2.0:
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ingestion" type="Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteToxicityEstimatesMixture">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="EffectDoseConcentration" type="DoseEnum">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="ExposureRouteEnum">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="1" name="Value" type="UnitValue">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
