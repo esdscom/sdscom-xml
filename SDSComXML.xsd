@@ -2551,33 +2551,20 @@ History before v4.2.0:
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationTestResults" type="CorrosionIrritationData"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAcidicOrAlkalineReserve">
+						<xs:element minOccurs="0" name="SkinCorrosionAcidicOrAlkalineReserve2">
 							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAcidicReserve">
+								<xs:choice>
+									<xs:element maxOccurs="unbounded" minOccurs="1" name="SkinCorrosionAcidicReserve" type="Phrase">
 										<xs:annotation>
 											<xs:documentation> Acidic reserve: Buffer capacity for mixtures with extreme pH values - expressed for instance as g NaOH/100 g product </xs:documentation>
 										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAcidicReserveValue" type="UnitValue"/>
-												<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAcidicReserveResult" type="Phrase"/>
-											</xs:sequence>
-										</xs:complexType>
 									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAlkalineReserve">
+									<xs:element maxOccurs="unbounded" minOccurs="1" name="SkinCorrosionAlkalineReserve" type="Phrase">
 										<xs:annotation>
 											<xs:documentation> Alkaline reserve: Buffer capacity for mixtures with extreme pH values - expressed for instance as g H2SO4/100 g product </xs:documentation>
 										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAlkalineReserveValue" type="UnitValue"/>
-												<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionAlkalineReserveResult" type="Phrase"/>
-											</xs:sequence>
-										</xs:complexType>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionAcidicOrAlkalineReserveComments" type="Phrase"/>
-								</xs:sequence>
+								</xs:choice>
 							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationOtherInformation" type="Phrase"/>
