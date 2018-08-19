@@ -1200,6 +1200,15 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ESVersion *****  -->
+	<xs:simpleType name="Ufi">
+		<xs:annotation>
+			<xs:documentation>Represents a Unique Formula Identifier without dashes. See https://poisoncentres.echa.europa.eu/de/ufi-generator</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse"/>
+			<xs:length value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="ESVersion">
 		<xs:annotation>
 			<xs:documentation> Data type describe an exposure scenario version. </xs:documentation>
