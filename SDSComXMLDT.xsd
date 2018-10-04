@@ -1206,7 +1206,7 @@ History before  v4.2.0:
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:whiteSpace value="collapse"/>
-			<xs:length value="16"/>
+			<xs:pattern value="([A-Z0-9]{4}-){3}[A-Z0-9]{4}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ESVersion">
