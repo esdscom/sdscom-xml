@@ -64,58 +64,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					 IsDangerReleasingSubstanceImdg
 					 IsDangerReleasingSubstanceIcao
 ***************************************************************************** -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<!-- National extensions to the standard. Initially empty. -->
-	<xs:include schemaLocation="SDSComXMLNE_AD.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_AL.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_AM.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_AT.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_BA.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_BE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_BG.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_BY.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_CH.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_CZ.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_DE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_DK.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_EE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_ES.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_FI.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_FR.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_GB.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_GE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_GR.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_HR.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_HU.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_IE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_IS.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_IT.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_KZ.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_LI.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_LT.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_LU.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_LV.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_MC.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_MD.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_ME.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_MK.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_MT.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_NL.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_PL.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_PT.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_RO.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_RS.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_RU.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_SE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_SI.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_SK.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_SM.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_TR.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_UA.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_UZ.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_VA.xsd"/>
 	<!-- ******************************************************************* SectorOfUse *************  -->
 	<xs:complexType name="SectorOfUse">
 		<xs:annotation>
@@ -124,13 +78,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> SectorOfUse, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SuCode" type="SectorOfUseCodeEnum" minOccurs="1" maxOccurs="1">
+			<xs:element name="SuCode" type="SDScom:SectorOfUseCodeEnum" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SuFulltext" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="SuFulltext" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -146,13 +100,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> ProductCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PcCode" type="ProductCategoryCodeEnum" minOccurs="1" maxOccurs="1">
+			<xs:element name="PcCode" type="SDScom:ProductCategoryCodeEnum" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PcFulltext" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="PcFulltext" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -168,13 +122,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> ProcessCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ProcCode" type="ProcessCategoryCodeEnum" minOccurs="1" maxOccurs="1">
+			<xs:element name="ProcCode" type="SDScom:ProcessCategoryCodeEnum" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProcFulltext" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ProcFulltext" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -190,13 +144,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> ArticleCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="AcCode" type="ArticleCategoryCodeEnum" minOccurs="1" maxOccurs="1">
+			<xs:element name="AcCode" type="SDScom:ArticleCategoryCodeEnum" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AcFulltext" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="AcFulltext" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -210,8 +164,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> CorrespondingEs source: Chapter 1 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ExposureScenarioName" type="string128" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="LegalDocumentFileName" type="string256" minOccurs="0" maxOccurs="1">
+			<xs:element name="ExposureScenarioName" type="SDScom:string128" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LegalDocumentFileName" type="SDScom:string256" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> File name: For example, a locked PDF document. Static URL possible. </xs:documentation>
 				</xs:annotation>
@@ -221,12 +175,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:documentation> Print date: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LegalDocumentSignature" type="string64" minOccurs="0" maxOccurs="1">
+			<xs:element name="LegalDocumentSignature" type="SDScom:string64" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Digital signature: Digital signature to verify the document </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="XmlFileName" type="string256" minOccurs="0" maxOccurs="1">
+			<xs:element name="XmlFileName" type="SDScom:string256" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Xml file name: File name if the exposure scenarios is available in an Xml format. </xs:documentation>
 				</xs:annotation>
@@ -240,13 +194,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice>
-				<xs:element name="SubstanceName" type="string1024" minOccurs="0" maxOccurs="1">
+				<xs:element name="SubstanceName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="GenericName" type="string1024" minOccurs="0">
+				<xs:element name="GenericName" type="SDScom:string1024" minOccurs="0">
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
@@ -254,88 +208,88 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element name="InciName" type="string1024" minOccurs="0">
+			<xs:element name="InciName" type="SDScom:string1024" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>according to EU cosmetics regulation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CasNo" type="CasNo" minOccurs="0" maxOccurs="1">
+			<xs:element name="CasNo" type="SDScom:CasNo" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> CAS No: Identification number for trade products that are substances. Identification number issued by Chemical Abstract Service. An internationally recognized system for identification of pure substances and groups of substances. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IndexNo" type="IndexNo" minOccurs="0" maxOccurs="1">
+			<xs:element name="IndexNo" type="SDScom:IndexNo" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Index No: Identification number applied on chemical substances classified by authorities and listed in part 3 of Annex VI to CLP regulation (EC) No 1272/2008. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AuthorisationNo" type="string32" minOccurs="0" maxOccurs="1">
+			<xs:element name="AuthorisationNo" type="SDScom:string32" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EcNo" type="EcNo" minOccurs="0" maxOccurs="1">
+			<xs:element name="EcNo" type="SDScom:EcNo" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> EC No: Identification number for trade products that are substances. Identification number for chemical substances within EEA. The EC number is assigned either in EINECS or in ELINCS. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReachRegNo" type="ReachRegNo" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ReachRegNo" type="SDScom:ReachRegNo" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReachRegNoComments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ReachRegNoComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IdNoCLInventory" type="ReachRegNo" minOccurs="0" maxOccurs="1">
+			<xs:element name="IdNoCLInventory" type="SDScom:ReachRegNo" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Identification No. C and L Inventory: The substance's identification number in EU's Classification and Labelling Inventory. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Synonym" type="string1024" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Synonym" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Formula" type="string256" minOccurs="0" maxOccurs="1">
+			<xs:element name="Formula" type="SDScom:string256" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Formula: Field to state the gross formula for the chemical (applies to pure substances). The formula shall be stated according to standard from Chemical Abstract Service. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IupacName" type="string1024" minOccurs="0" maxOccurs="1">
+			<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Iupac or chemical name </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NameDetergentsRegulation" type="string1024" minOccurs="0" maxOccurs="1">
+			<xs:element name="NameDetergentsRegulation" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SubstanceAdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SubstanceAdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MolecularWeight" type="UnitValue" minOccurs="0"/>
-			<xs:element name="ChemicalPurity" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
+			<xs:element name="ChemicalPurity" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* StateUnderStandardConditionsEnum ******  -->
@@ -352,24 +306,24 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<!-- ******************************************************************* EcologicalInformation ************  -->
 	<xs:complexType name="ToxInfoStotSE3">
 		<xs:sequence>
-			<xs:element name="HumanExperience" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="HumanExperience" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OtherInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Usually just one phrase how the evaluation took place. See EuPhraC for content examples.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Source" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Usually just one phrase if dta lacking - see EuPhraC for cotent examples.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AssessmentOrClassification" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AssessmentOrClassification" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* EcologicalInformation ************  -->
 	<!--Missing-->
-	<!--<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>-->
+	<!--<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>-->
 	<!-- *************************************************************  Classification ********************************************** -->
 	<xs:complexType name="Classifications">
 		<xs:annotation>
@@ -378,20 +332,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> Classification, source: Chapter 2, called by CT "Component" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ClpClassification" type="Classification" minOccurs="0" maxOccurs="1">
+			<xs:element name="ClpClassification" type="SDScom:Classification" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> CLP classification: The chemical’s hazard classification according to EU-CLP, with any remarks and notes. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SimpleClassificationDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SimpleClassificationDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Textual description of the classification: An easily understandable description on what the actual classification of the chemical means. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClassificationAdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClassificationAdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -411,21 +365,21 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ClpHazardClassCategory" type="HazardClassCategoryEnum" minOccurs="1" maxOccurs="1">
+						<xs:element name="ClpHazardClassCategory" type="SDScom:HazardClassCategoryEnum" minOccurs="1" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="0" maxOccurs="2">
+						<xs:element name="ClpHazardStatement" type="SDScom:HazardStatement" minOccurs="0" maxOccurs="2">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Hazard statement: The code and the text of the hazard statement corresponding to the hazard class and category. Zero instances for classes "Expl. 1.6", "Org. Perox. G" and "Self-react. G". One instance usually. Two instances for Aerosols category 1 and 2.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ClpClassificationProcedure" type="Phrase" minOccurs="0" maxOccurs="1">
+						<xs:element name="ClpClassificationProcedure" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -439,13 +393,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="FactorValue" type="int20" minOccurs="0" maxOccurs="1">
+									<xs:element name="FactorValue" type="SDScom:int20" minOccurs="0" maxOccurs="1">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> M factor: Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="FactorComments" type="Phrase" minOccurs="0" maxOccurs="4">
+									<xs:element name="FactorComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="4">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> M Factor comment: Comments or remarks to the stated M factor. </xs:documentation>
@@ -457,12 +411,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ClpClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpClassificationComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpClassificationNotes" type="Phrase" minOccurs="0" maxOccurs="4">
+			<xs:element name="ClpClassificationNotes" type="SDScom:Phrase" minOccurs="0" maxOccurs="4">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Classification notes: To identify classification notes (letters and/or figures) in the case that the trade product is a substance. This information shall be stated in the SDS together with the classifications of the substance. </xs:documentation>
@@ -472,14 +426,14 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	</xs:complexType>
 	<xs:complexType name="HazardLabellings">
 		<xs:sequence>
-			<xs:element name="ClpLabellingInfo" type="HazardLabelling" minOccurs="0">
+			<xs:element name="ClpLabellingInfo" type="SDScom:HazardLabelling" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> CLP hazard labelling: Hazard labelling information according to CLP (GHS). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Additional information and comments to hazard labelling. </xs:documentation>
@@ -514,19 +468,19 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ProductSubcategory" type="Phrase" minOccurs="0">
+									<xs:element name="ProductSubcategory" type="SDScom:Phrase" minOccurs="0">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> Product Subcategory: The type of paint or varnish </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="VocLimitForSubcategory" type="UnitValue" minOccurs="0">
+									<xs:element name="VocLimitForSubcategory" type="SDScom:UnitValue" minOccurs="0">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> Maximum VOC content limit for the mixture: The maximum concentration of VOC in the actual product. To begiven i gram per litre. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MaxVocConcInMixture" type="UnitValue" minOccurs="0">
+									<xs:element name="MaxVocConcInMixture" type="SDScom:UnitValue" minOccurs="0">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> Actual max. concentration in the mixture: The concentration of VOC in the mixture. To begiven i gram per litre. </xs:documentation>
@@ -535,17 +489,17 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="DetergentLabelling" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DetergentLabelling" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation> Detergent labelling: Labelling requirements according to detergents regulation (648/2004/EC with later amanedments). Includes dosing recommendations. Concentration groups: _lt 5 weight%, 5 - _lt 15 vekt%, 15 - _lt 30 weight%, og _ge 30 weight%. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="AerosolLabelling" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="AerosolLabelling" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation> Aerosol labelling: Labelling of aerosol dispensers in accordance with EU directive (75/324/EEC with later amendments) </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="OtherEuLabellingRequirements" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="OtherEuLabellingRequirements" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation> Other labelling requirenments in accordance with EU legislation: Labelling requirements imposed to the chemical in accordance with EU legislation not stated above. </xs:documentation>
 							</xs:annotation>
@@ -557,55 +511,55 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	</xs:complexType>
 	<xs:complexType name="HazardLabelling">
 		<xs:sequence>
-			<xs:element name="ClpHazardPictogram" type="HazardPictogram" minOccurs="0" maxOccurs="6">
+			<xs:element name="ClpHazardPictogram" type="SDScom:HazardPictogram" minOccurs="0" maxOccurs="6">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Pictogram: A graphical presentation that includes a symbol plus other graphic elements, such as a border, background pattern or colour that is intended to convey specific information on the hazard concerned. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpSignalWord" type="SignalWord" minOccurs="0" maxOccurs="1">
+			<xs:element name="ClpSignalWord" type="SDScom:SignalWord" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Signal word: A word that indicates the relative level of severity of hazards to alert the reader to a potential hazard. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpHazardStatement" type="HazardStatement" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpHazardStatement" type="SDScom:HazardStatement" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Hazard statement: A phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpPrecautionaryStatement" type="PrecautionaryStatement" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpPrecautionaryStatement" type="SDScom:PrecautionaryStatement" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Precautionary statement: A phrase that describes recommended measure(s) to minimise or prevent adverse effects resulting from exposure to a hazardous substance or mixture due to its use or disposal. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpSupplementalHazardInformation" type="SupplementalHazardInformation" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpSupplementalHazardInformation" type="SDScom:SupplementalHazardInformation" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Supplemental information on the label: Statements shall be included in the section for supplemental information on the label where a substance or mixture classified as hazardous has the physical properties or health properties referred to in sections 1.1 and 1.2 of Annex II of CLP. E.g. EUH001, EUH203, EUH401, etc. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SpecialSupplementalLabelInfo" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpSpecialSupplementalLabelInfoMixtures" type="SDScom:SpecialSupplementalLabelInfo" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Special supplemental labelling information: Labelling requirements according to REACH Annex XVII. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpAdditionalLabellingInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpAdditionalLabellingInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Additional information, CLP labelling: Information for instance on labelling of combined user and transport packing (with reference.to Section 14 of the SDS). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClpSpecialRulesOnPackaging" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ClpSpecialRulesOnPackaging" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -617,13 +571,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation>see Github issue #116 regarding multiple limit values</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Limit8H" type="UnitValue" minOccurs="0" maxOccurs="2">
+			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="SDScom:ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Limit8H" type="SDScom:UnitValue" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LimitShortTerm" type="STEL" minOccurs="0" maxOccurs="2">
+			<xs:element name="LimitShortTerm" type="SDScom:STEL" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
 				</xs:annotation>
@@ -634,26 +588,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="PeakLimitationOverflowFactor" type="Value" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="PeakLimitationOverflowFactor" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="RecommendedMonitoringProcedure" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RecommendedMonitoringProcedure" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureLimitLetter" minOccurs="0" maxOccurs="4">
 				<xs:annotation>
 					<xs:documentation>obsolete; use ParticleFraction instead</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="LetterCode" type="Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="LetterDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="LetterCode" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="LetterDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ParticleFraction" type="ExposureLimitFractionEnum" minOccurs="0"/>
-			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ParticleFraction" type="SDScom:ExposureLimitFractionEnum" minOccurs="0"/>
+			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A remark that applies to all of the abovementioned OELs. If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit.</xs:documentation>
 				</xs:annotation>
@@ -672,13 +626,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> BiologicalLimitValue, source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="InvestigationParameter" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestMaterial" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="SDScom:ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InvestigationParameter" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestMaterial" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  STEL ******************************  -->
@@ -687,8 +641,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> Short Term Exposure Limit </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AppraisalPeriod" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AppraisalPeriod" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  DNEL ******************************  -->
@@ -697,20 +651,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> DNEL, source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Group" type="EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum" minOccurs="1" maxOccurs="1">
+			<xs:element name="Group" type="SDScom:EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ExposureRouteFrequencyAndEffect" type="SDScom:EffectLevelTypeEnum" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Exposure route, frequency and type of effect: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DnelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="AssessmentFactor" type="Value" minOccurs="0">
+			<xs:element name="DnelValue" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AssessmentFactor" type="SDScom:Value" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the DNEL is very low and where more than 1 DNEL existing to show how high the influence on the deviation was.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  DMEL *****************************  -->
@@ -719,16 +673,16 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> DNEL source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Group" type="EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ExposureRouteFrequencyAndEffect" type="EffectLevelTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="DmelValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="AssessmentFactor" type="Value" minOccurs="0">
+			<xs:element name="Group" type="SDScom:EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ExposureRouteFrequencyAndEffect" type="SDScom:EffectLevelTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DmelValue" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AssessmentFactor" type="SDScom:Value" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the DMEL is very low and where more than 1 DMEL existing to show how high the influence on the deviation was.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  PNEC ****************************  -->
@@ -737,26 +691,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PNEC source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Group" type="EffectLevelGroupEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Type" type="PNECTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ExposureFrequency" type="UnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="Group" type="SDScom:EffectLevelGroupEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Type" type="SDScom:PNECTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ExposureFrequency" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Acute (short term) Repeated (long term) </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TypeOfEffect" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="TypeOfEffect" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Local or systemic </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PnecValue" type="UnitValue" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="AssessmentFactor" type="Value" minOccurs="0">
+			<xs:element name="PnecValue" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AssessmentFactor" type="SDScom:Value" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the PNEC is very low and where more than 1 PNEC existing to show how high the influence on the deviation was.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Reference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* RespiratoryProtectionArticle *****  -->
@@ -772,17 +726,17 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="EquipmentForSelfRescue" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="EquipmentForSelfRescue" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MaskType" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="MaskType" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="FilterApparatusType" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="FilterApparatusType" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
@@ -790,22 +744,22 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Description" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Description" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Manufacturer" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Manufacturer" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SourcesOfSupply" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SourcesOfSupply" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ReferenceRelevantStandard" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Reference relevant standard: Only to be used for referencing old standards for compatibility </xs:documentation>
@@ -820,22 +774,22 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> ProtectionArticle source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Description" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Description" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Manufacturer" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Manufacturer" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SourcesOfSupply" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SourcesOfSupply" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReferenceRelevantStandard" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ReferenceRelevantStandard" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Reference relevant standard: Only to be used for referencing old standards for compatibility </xs:documentation>
@@ -850,12 +804,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PhysicalHazardsScreeningProcedures source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ScreeningType" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ScreeningType" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ScreeningResult" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="ScreeningResult" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -869,12 +823,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PhysicalHazardsSafetyCharacteristics source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SafetyParameter" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="SafetyParameter" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SafetyResult" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="SafetyResult" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -889,20 +843,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PhValue source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="State" type="PhValueStateEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="State" type="SDScom:PhValueStateEnum" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> State: "in delivery state" or "in aqueous solution" </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Value" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1">
+			<xs:element name="Value" type="SDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -914,7 +868,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
       <xs:extension base="PhysChemValueWithTemperature">
         <xs:sequence>
           <xs:element name="State" type="PhValueStateEnum" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
       </xs:extension>
 		</xs:complexContent -->
@@ -927,19 +881,19 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> FlashPoint source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="Value" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ValueComments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ValueComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -949,8 +903,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		<!--xs:complexContent>
 			<xs:extension base="PhysChemUnitValue">
 				<xs:sequence>
-					<xs:element name="Valuation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="ValueComments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Valuation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ValueComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -962,7 +916,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation>Describes the solutibities in one medium, optionally at various temperatures (section 9). </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SolubilityDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SolubilityDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -974,18 +928,18 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Medium" type="SolubilityMediumEnum" minOccurs="1" maxOccurs="1">
+						<xs:element name="Medium" type="SDScom:SolubilityMediumEnum" minOccurs="1" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="OtherMediumDescription" type="Phrase" minOccurs="0" maxOccurs="1">
+						<xs:element name="OtherMediumDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> Specify solubility medium if Medium above is Other. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>If the product has a low solubility or is insoluble in the specified medium, and if there is no numerical translation of this circumstance, put the respective phrase in Comments. (see issue #71)</xs:documentation>
@@ -998,8 +952,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		<!--xs:complexContent>
 			<xs:extension base="PhysChemUnitValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="Medium" type="Phrase" minOccurs="0" maxOccurs="1"/> 
-					<xs:element name="OtherMediumDescription" type="Phrase" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Medium" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/> 
+					<xs:element name="OtherMediumDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -1010,15 +964,15 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> HydrolysisRate source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="PhValue" type="Value" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!-- xs:complexContent>
 			<xs:extension base="PhysChemValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="PhValue" type="Value" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -1030,13 +984,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PartitionCoefficient n-octanol/water (log P O/W) source: Chapter 9, 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1">
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<!-- Was PhysChemValueWithTemperature -->
-			<xs:element name="Ph" type="Value" minOccurs="0" maxOccurs="1">
+			<xs:element name="Ph" type="SDScom:Value" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -1045,7 +999,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		<!--xs:complexContent>
 			<xs:extension base="PhysChemValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="PhValue" type="Value" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent-->
@@ -1057,22 +1011,22 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> Viscosity source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1">
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Type" type="ViscosityTypeEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="Type" type="SDScom:ViscosityTypeEnum" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OtherTypeDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="OtherTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -1082,8 +1036,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:extension base="PhysChemUnitValueWithTemperature">
 				<xs:sequence>
 					<xs:element name="Type" type="ViscosityTypeEnum" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="OtherTypeDescription" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="OtherTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent-->
@@ -1094,13 +1048,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> DissociationConstant source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!-- xs:complexContent>
 			<xs:extension base="PhysChemValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -1111,13 +1065,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> SolutionExtractionBehaviourOfPolymersInWater source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="PhValue" type="Value" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!-- xs:complexContent>
 			<xs:extension base="PhysChemUnitValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="PhValue" type="Value" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -1128,13 +1082,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> RelativeVapourDensity source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ReferenceGas" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ReferenceGas" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!-- xs:complexContent>
 			<xs:extension base="PhysChemUnitValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="ReferenceGas" type="Phrase" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="ReferenceGas" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -1145,15 +1099,15 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> CorrosionIrritationData, source: Chapter 11 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ResultEvaluationScore" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ResultEvaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ResultEvaluationScore" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* CMRData ************************************  -->
@@ -1162,18 +1116,18 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> CMRData, source: Chapter 11 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Dose" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectValue" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="Species" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Result" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Dose" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureRoute" type="SDScom:ExposureRouteEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectValue" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="SDScom:Species" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Result" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ResultEvaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* STOTData ***************************  -->
@@ -1183,41 +1137,41 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> STOTData, source: Chapter 11 used by DT: STOT </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1">
+			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExposureRoute" type="ExposureRouteEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="ExposureRoute" type="SDScom:ExposureRouteEnum" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<!--xs:element name="Dose" type="DoseEnum" minOccurs="0" maxOccurs="1"/ -->
-			<xs:element name="Dose" type="UnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="Dose" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureFrequency" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="Species" minOccurs="1" maxOccurs="1">
+			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureFrequency" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="SDScom:Species" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Species = Organism or cell line </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SpecificEffect" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OrganAffected" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Result" type="UnitValue" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ResultEvaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SpecificEffect" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OrganAffected" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Result" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ResultEvaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** SurfaceTension ********************* -->
@@ -1226,13 +1180,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> SurfaceTension, source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<!--xs:complexContent>
 			<xs:extension base="PhysChemUnitValueWithTemperature">
 				<xs:sequence>
-					<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent -->
@@ -1243,13 +1197,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> FurtherEcologicalData, source: Chapter 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Concentration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<!-- xs:element name="Temperature" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/ -->
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<!-- xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/ -->
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* BiologicalDegradation *************  -->
@@ -1259,17 +1213,17 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> BiologicalDegradation, source: Chapter 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="PhysChemUnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="Value" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Type" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Type" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -1282,14 +1236,14 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> DegradationElimination, source: Chapter 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Type" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Type" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<!-- Was PhysChemUnitValue -->
-			<!-- xs:element name="TestDuration" type="Phrase" minOccurs="0" maxOccurs="1"/ -->
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- xs:element name="TestDuration" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/ -->
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* MobilityData *************************  -->
@@ -1298,10 +1252,10 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> MobilityData, source: Chapter 12. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* WasteListEntry ***********************  -->
@@ -1310,13 +1264,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> WasteListEntry, source: Chapter 13. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="WasteCode" type="WasteCode" minOccurs="1" maxOccurs="1">
+			<xs:element name="WasteCode" type="SDScom:WasteCode" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WasteDescription" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="WasteDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1337,20 +1291,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> ProductGtin </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="No" type="int20" minOccurs="1" maxOccurs="1">
+			<xs:element name="No" type="SDScom:int20" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> GTIN No: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Name" type="string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Name" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* StorageStability *************  -->
 	<xs:complexType name="StorageStability">
 		<xs:sequence>
-			<xs:element name="StorageTemperature" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Pressure" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MaximumStoragePeriod" type="UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StorageTemperature" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MaximumStoragePeriod" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Ecotoxicity *************  -->
@@ -1359,16 +1313,16 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> Ecotoxicity. Source: Chapter 12. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Value" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectDoseConcentration" type="DoseEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureTime" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDuration" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="Species" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Evaluation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  GasGroup *********************************  -->
@@ -1377,11 +1331,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> GasGroup. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="GasGroupEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="SDScom:GasGroupEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  Species *************  -->
@@ -1390,8 +1344,8 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> Species used in tests </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="Phrase"/>
-			<xs:element name="Gender" type="Phrase" minOccurs="0"/>
+			<xs:element name="Value" type="SDScom:Phrase"/>
+			<xs:element name="Gender" type="SDScom:Phrase" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  TemperatureClass **************************  -->
@@ -1400,11 +1354,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> TemperatureClass </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Method" type="Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="TemperatureClassEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
+			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0"/>
+			<xs:element name="TestResults" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Evaluation" type="SDScom:TemperatureClassEnum" minOccurs="0"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
@@ -1413,9 +1367,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PhysicalHazardsGeneralInformation. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="JustificationForDataWaiving" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Assessment" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Classification" type="Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="JustificationForDataWaiving" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Assessment" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Classification" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ****************************************************************************** PhraseCatalogue *****  -->
@@ -1424,21 +1378,21 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> Catalogue of standard phrases used in the datasheet. Used in chapter 0 and referred in for example exposure scenarios. PhraseCatalogues and PhraseIds simplifies translation to other languages. Example: EUPhraC catalogue. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCatalogueName" type="string256" minOccurs="0">
+			<xs:element name="PhraseCatalogueName" type="SDScom:string256" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation>Phrase catalogue Name, eg. EuPhraC</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PhraseCatalogueIssuer" type="string256" minOccurs="0">
+			<xs:element name="PhraseCatalogueIssuer" type="SDScom:string256" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Phrase catalogue issuer: Identification of the suppler of the phrase catalogue to the exporting system, eg. EuPhraC-Workinggroup. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PhraseCatalogueVersion" type="string64" minOccurs="0">
+			<xs:element name="PhraseCatalogueVersion" type="SDScom:string64" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1458,26 +1412,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="TransportUnNumbers">
 		<xs:sequence>
-			<xs:element name="UnNoAdrRid" type="int4" minOccurs="0">
+			<xs:element name="UnNoAdrRid" type="SDScom:int4" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> UN number ADR and RID: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="UnNoAdn" type="int4" minOccurs="0">
+			<xs:element name="UnNoAdn" type="SDScom:int4" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> UN number ADN: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="UnNoImdg" type="int4" minOccurs="0">
+			<xs:element name="UnNoImdg" type="SDScom:int4" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation> UN number IMDG: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="UnNoIcao" type="int4" minOccurs="0">
+			<xs:element name="UnNoIcao" type="SDScom:int4" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation> UN number ICAO: </xs:documentation>
 				</xs:annotation>
@@ -1494,26 +1448,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ProperShippingNameEnglishAdrRid" type="Phrase" minOccurs="0">
+						<xs:element name="ProperShippingNameEnglishAdrRid" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ProperShippingNameNationalAdrRid" type="Phrase" minOccurs="0">
+						<xs:element name="ProperShippingNameNationalAdrRid" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="DangerReleasingSubstanceEnglishAdrRid" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DangerReleasingSubstanceEnglishAdrRid" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="DangerReleasingSubstanceNationalAdrRid" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DangerReleasingSubstanceNationalAdrRid" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1531,26 +1485,26 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ProperShippingNameEnglishAdn" type="Phrase" minOccurs="0">
+						<xs:element name="ProperShippingNameEnglishAdn" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ProperShippingNameNationalAdn" type="Phrase" minOccurs="0">
+						<xs:element name="ProperShippingNameNationalAdn" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="DangerReleasingSubstanceEnglishAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DangerReleasingSubstanceEnglishAdn" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="DangerReleasingSubstanceNationalAdn" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DangerReleasingSubstanceNationalAdn" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1566,13 +1520,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ProperShippingNameEnglishImdg" type="Phrase" minOccurs="0">
+						<xs:element name="ProperShippingNameEnglishImdg" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<!-- Updated from English only -->
-						<xs:element name="DangerReleasingSubstanceEnglishImdg" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DangerReleasingSubstanceEnglishImdg" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
@@ -1586,12 +1540,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ProperShippingNameEnglishIcao" type="Phrase" minOccurs="0">
+						<xs:element name="ProperShippingNameEnglishIcao" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="DangerReleasingSubstanceEnglishIcao" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="DangerReleasingSubstanceEnglishIcao" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
@@ -1606,20 +1560,20 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="AdrRid" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ClassAdrRid" type="TransportClassEnum" minOccurs="1">
+						<xs:element name="ClassAdrRid" type="SDScom:TransportClassEnum" minOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> ADR and RID hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ClassCodeAdrRid" type="string4" minOccurs="1">
+						<xs:element name="ClassCodeAdrRid" type="SDScom:string4" minOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HazardLabelAdrRid" type="TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="HazardLabelAdrRid" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1630,45 +1584,45 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ClassAdn" type="TransportClassEnum" minOccurs="1">
+						<xs:element name="ClassAdn" type="SDScom:TransportClassEnum" minOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ClassCodeAdn" type="string4" minOccurs="1">
+						<xs:element name="ClassCodeAdn" type="SDScom:string4" minOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HazardLabelAdn" type="TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="HazardLabelAdn" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Imdg" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ClassImdg" type="TransportClassEnum" minOccurs="1">
+						<xs:element name="ClassImdg" type="SDScom:TransportClassEnum" minOccurs="1">
 							<xs:annotation>
 								<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SubsidiaryRiskImdg" type="TransportClassEnum" minOccurs="0" maxOccurs="2"/>
-						<xs:element name="ImdgHazardLabel" type="TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="SubsidiaryRiskImdg" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="2"/>
+						<xs:element name="ImdgHazardLabel" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="IcaoIata" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ClassIcaoIata" type="TransportClassEnum" minOccurs="1"/>
-						<xs:element name="SubsidiaryRiskIcaoIata" type="TransportClassEnum" minOccurs="0" maxOccurs="2"/>
-						<xs:element name="IcaoIataHazardLabel" type="TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="ClassIcaoIata" type="SDScom:TransportClassEnum" minOccurs="1"/>
+						<xs:element name="SubsidiaryRiskIcaoIata" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="2"/>
+						<xs:element name="IcaoIataHazardLabel" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="TransportHazardClassificationComments" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TransportHazardClassificationComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Comments to transport hazard classification: </xs:documentation>
@@ -1678,30 +1632,30 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	</xs:complexType>
 	<xs:complexType name="TransportPackingGroups">
 		<xs:sequence>
-			<xs:element name="PackingGroupAdrRid" type="PackingGroupEnum" minOccurs="0">
+			<xs:element name="PackingGroupAdrRid" type="SDScom:PackingGroupEnum" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PackingGroupAdn" type="PackingGroupEnum" minOccurs="0">
+			<xs:element name="PackingGroupAdn" type="SDScom:PackingGroupEnum" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PackingGroupImdg" type="PackingGroupEnum" minOccurs="0"/>
-			<xs:element name="PackingGroupIcaoIata" type="PackingGroupEnum" minOccurs="0"/>
+			<xs:element name="PackingGroupImdg" type="SDScom:PackingGroupEnum" minOccurs="0"/>
+			<xs:element name="PackingGroupIcaoIata" type="SDScom:PackingGroupEnum" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TransportEnvironmentalHazards">
 		<xs:sequence>
-			<xs:element name="EnvironmHazardAccordAdrRid" type="Phrase" minOccurs="0">
+			<xs:element name="EnvironmHazardAccordAdrRid" type="SDScom:Phrase" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EnvironmHazardAccordAdn" type="Phrase" minOccurs="0">
+			<xs:element name="EnvironmHazardAccordAdn" type="SDScom:Phrase" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1711,7 +1665,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="Imdg" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="EnvironmHazardAccordImdg" type="Phrase" minOccurs="0">
+						<xs:element name="EnvironmHazardAccordImdg" type="SDScom:Phrase" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 							</xs:annotation>
@@ -1724,7 +1678,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="EnvironmHazardAccordIcaoIata" type="Phrase" minOccurs="0">
+			<xs:element name="EnvironmHazardAccordIcaoIata" type="SDScom:Phrase" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 				</xs:annotation>
@@ -1739,14 +1693,14 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="AdrRidLimitedQty" type="string20" minOccurs="0" maxOccurs="1">
+						<xs:element name="AdrRidLimitedQty" type="SDScom:string20" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="AdrRidExceptedQty" type="TransportEq" minOccurs="0"/>
-						<xs:element name="AdrRidSpecialProvisions" type="string4" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AdrTunnelRestrictionCode" type="string10" minOccurs="0" maxOccurs="1">
+						<xs:element name="AdrRidExceptedQty" type="SDScom:TransportEq" minOccurs="0"/>
+						<xs:element name="AdrRidSpecialProvisions" type="SDScom:string4" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdrTunnelRestrictionCode" type="SDScom:string10" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
@@ -1761,35 +1715,35 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="AdrHazardIdentificationNo" type="string10" minOccurs="0">
+						<xs:element name="AdrHazardIdentificationNo" type="SDScom:string10" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>also known as Kemler code</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="AdrRidOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdrRidOtherInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="AdnOtherInformation" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="AdnLimitedQty" type="string20" minOccurs="0" maxOccurs="1">
+						<xs:element name="AdnLimitedQty" type="SDScom:string20" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="AdnExceptedQty" type="TransportEq" minOccurs="0"/>
-						<xs:element name="AdnSpecialProvisions" type="string4" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AdnOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdnExceptedQty" type="SDScom:TransportEq" minOccurs="0"/>
+						<xs:element name="AdnSpecialProvisions" type="SDScom:string4" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdnOtherInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ImdgOtherInformation" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ImdgLimitedQty" type="string20" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="ImdgExceptedQty" type="TransportEq" minOccurs="0"/>
-						<xs:element name="ImdgSpecialProvisions" type="string4" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ImdgLimitedQty" type="SDScom:string20" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="ImdgExceptedQty" type="SDScom:TransportEq" minOccurs="0"/>
+						<xs:element name="ImdgSpecialProvisions" type="SDScom:string4" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="ImdgEmsCode" minOccurs="0" maxOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -1797,21 +1751,21 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="ImdgOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ImdgOtherInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="IcaoIataOtherInformation" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="IcaoIataLimitedQty" type="string20" minOccurs="0" maxOccurs="1">
+						<xs:element name="IcaoIataLimitedQty" type="SDScom:string20" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="IcaoIataExemptedQty" type="TransportEq" minOccurs="0"/>
-						<xs:element name="IcaoIataSpecialProvisions" type="string4" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="IcaoIataOtherInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="IcaoIataExemptedQty" type="SDScom:TransportEq" minOccurs="0"/>
+						<xs:element name="IcaoIataSpecialProvisions" type="SDScom:string4" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="IcaoIataOtherInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1820,61 +1774,61 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<xs:complexType name="NationalRegulations">
 		<xs:sequence>
 			<!-- National Extensions introduced in SdsXmlNE_<Regioncode>.xsd  schema files -->
-			<xs:element name="NationalLegislationAndorra" type="NationalExtensionAD" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationAlbania" type="NationalExtensionAL" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationArmenia" type="NationalExtensionAM" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationAustria" type="NationalExtensionAT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBosniaAndHerzegovina" type="NationalExtensionBA" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBelgium" type="NationalExtensionBE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBulgaria" type="NationalExtensionBG" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBelarus" type="NationalExtensionBY" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSwitzerland" type="NationalExtensionCH" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationCzechRepublic" type="NationalExtensionCZ" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationGermany" type="NationalExtensionDE" minOccurs="0" maxOccurs="1">
+			<xs:element name="NationalLegislationAndorra" type="SDScom:NationalExtensionAD" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationAlbania" type="SDScom:NationalExtensionAL" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationArmenia" type="SDScom:NationalExtensionAM" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationAustria" type="SDScom:NationalExtensionAT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationBosniaAndHerzegovina" type="SDScom:NationalExtensionBA" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationBelgium" type="SDScom:NationalExtensionBE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationBulgaria" type="SDScom:NationalExtensionBG" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationBelarus" type="SDScom:NationalExtensionBY" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSwitzerland" type="SDScom:NationalExtensionCH" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationCzechRepublic" type="SDScom:NationalExtensionCZ" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationGermany" type="SDScom:NationalExtensionDE" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> National legislations related to the chemical: National German laws which implement provisions, and any other national measures related to the chemical. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NationalLegislationDenmark" type="NationalExtensionDK" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationEstonia" type="NationalExtensionEE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSpain" type="NationalExtensionES" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationFinland" type="NationalExtensionFI" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationFrance" type="NationalExtensionFR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationUnitedKingdom" type="NationalExtensionGB" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationGeorgia" type="NationalExtensionGE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationGreece" type="NationalExtensionGR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationCroatia" type="NationalExtensionHR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationHungary" type="NationalExtensionHU" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationIreland" type="NationalExtensionIE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationIceland" type="NationalExtensionIS" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationItaly" type="NationalExtensionIT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationKazakhstan" type="NationalExtensionKZ" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLiechtenstein" type="NationalExtensionLI" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLithuania" type="NationalExtensionLT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLuxembourg" type="NationalExtensionLU" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLatvia" type="NationalExtensionLV" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationMonaco" type="NationalExtensionMC" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationRepublicOfMoldova" type="NationalExtensionMD" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationMontenegro" type="NationalExtensionME" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="NationalExtensionMK" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationMalta" type="NationalExtensionMT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationNetherlands" type="NationalExtensionNL" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationNorway" type="NationalExtensionNO" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationPoland" type="NationalExtensionPL" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationPortugal" type="NationalExtensionPT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationRomania" type="NationalExtensionRO" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSerbia" type="NationalExtensionRS" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationRussianFederation" type="NationalExtensionRU" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSweden" type="NationalExtensionSE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSlovenia" type="NationalExtensionSI" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSlovakia" type="NationalExtensionSK" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSanMarino" type="NationalExtensionSM" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationTurkey" type="NationalExtensionTR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationUkraine" type="NationalExtensionUA" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationUzbekistan" type="NationalExtensionUZ" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationVaticanCityState" type="NationalExtensionVA" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationDenmark" type="SDScom:NationalExtensionDK" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationEstonia" type="SDScom:NationalExtensionEE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSpain" type="SDScom:NationalExtensionES" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationFinland" type="SDScom:NationalExtensionFI" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationFrance" type="SDScom:NationalExtensionFR" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationUnitedKingdom" type="SDScom:NationalExtensionGB" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationGeorgia" type="SDScom:NationalExtensionGE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationGreece" type="SDScom:NationalExtensionGR" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationCroatia" type="SDScom:NationalExtensionHR" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationHungary" type="SDScom:NationalExtensionHU" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationIreland" type="SDScom:NationalExtensionIE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationIceland" type="SDScom:NationalExtensionIS" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationItaly" type="SDScom:NationalExtensionIT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationKazakhstan" type="SDScom:NationalExtensionKZ" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationLiechtenstein" type="SDScom:NationalExtensionLI" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationLithuania" type="SDScom:NationalExtensionLT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationLuxembourg" type="SDScom:NationalExtensionLU" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationLatvia" type="SDScom:NationalExtensionLV" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationMonaco" type="SDScom:NationalExtensionMC" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationRepublicOfMoldova" type="SDScom:NationalExtensionMD" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationMontenegro" type="SDScom:NationalExtensionME" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="SDScom:NationalExtensionMK" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationMalta" type="SDScom:NationalExtensionMT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationNetherlands" type="SDScom:NationalExtensionNL" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationNorway" type="SDScom:NationalExtensionNO" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationPoland" type="SDScom:NationalExtensionPL" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationPortugal" type="SDScom:NationalExtensionPT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationRomania" type="SDScom:NationalExtensionRO" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSerbia" type="SDScom:NationalExtensionRS" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationRussianFederation" type="SDScom:NationalExtensionRU" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSweden" type="SDScom:NationalExtensionSE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSlovenia" type="SDScom:NationalExtensionSI" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSlovakia" type="SDScom:NationalExtensionSK" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationSanMarino" type="SDScom:NationalExtensionSM" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationTurkey" type="SDScom:NationalExtensionTR" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationUkraine" type="SDScom:NationalExtensionUA" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationUzbekistan" type="SDScom:NationalExtensionUZ" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationVaticanCityState" type="SDScom:NationalExtensionVA" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SUMI">
@@ -1890,7 +1844,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:documentation>Leave empty if the Sumi is not published by a chemical sector association and part of Use Map activities (no company specific SUMI codes here!). First word should be the sector name, e.g. AISE or FEICA, followed by the sector's SUMI code. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="VersionNumber" type="string16" minOccurs="0">
+						<xs:element name="VersionNumber" type="SDScom:string16" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Version number is optional here because SUMI info is part of the eSDS which is versioned, so the version date is expected to be the same and is sufficient to determine a sector SUMI version.</xs:documentation>
 							</xs:annotation>
@@ -1898,24 +1852,24 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Title" type="Phrase" maxOccurs="unbounded"/>
+			<xs:element name="Title" type="SDScom:Phrase" maxOccurs="unbounded"/>
 			<xs:element name="GeneralDescription">
 				<xs:complexType>
 					<xs:choice>
 						<xs:element name="UseDescriptors" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SectorOfUse" type="SectorOfUse" minOccurs="0"/>
-									<xs:element name="ProcessCategory" type="ProcessCategory" minOccurs="0"/>
+									<xs:element name="SectorOfUse" type="SDScom:SectorOfUse" minOccurs="0"/>
+									<xs:element name="ProcessCategory" type="SDScom:ProcessCategory" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="SwedReference" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="SwedReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Reference to the Sector-specific Worker Exposure Description as named in the sector's Use Map.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Text" type="Phrase" maxOccurs="unbounded"/>
+						<xs:element name="Text" type="SDScom:Phrase" maxOccurs="unbounded"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -1925,31 +1879,31 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 						<xs:element name="Properties">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="MaxDuration" type="OneUnitValue" minOccurs="0">
+									<xs:element name="MaxDuration" type="SDScom:OneUnitValue" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="RangeOfApplication" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="AirExchangeRate" type="OneUnitValue" minOccurs="0">
+									<xs:element name="RangeOfApplication" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="AirExchangeRate" type="SDScom:OneUnitValue" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="Other" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Other" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Text" type="Phrase" maxOccurs="unbounded"/>
+						<xs:element name="Text" type="SDScom:Phrase" maxOccurs="unbounded"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="RiskManagementMeasures">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="RmmWorker" type="Phrase" maxOccurs="unbounded"/>
-						<xs:element name="RmmPictogram" type="RmmPictogramEnum" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="RmmEnvironment" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="RmmWorker" type="SDScom:Phrase" maxOccurs="unbounded"/>
+						<xs:element name="RmmPictogram" type="SDScom:RmmPictogramEnum" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="RmmEnvironment" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1959,13 +1913,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Text" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="AgpaPictogram" type="AgpaPictogramEnum" minOccurs="0"/>
+						<xs:element name="Text" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AgpaPictogram" type="SDScom:AgpaPictogramEnum" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="AdditionalInfo" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="DisclaimerBoundaries" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DisclaimerBoundaries" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the boundaries of the SUMI. Mandatory according to some sources, optional according to others.</xs:documentation>
 				</xs:annotation>

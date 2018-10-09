@@ -15,7 +15,7 @@ History until SDScom v4.2.0:
 2015.06.18 added to WaterHazardClassEnum new Enum "awg" = allgemein wassergefährdend
 2015.08.28 Revision of the GisCodeEnum (removed the duplicate items)														
 ***************************************************************************** -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<!-- *******************************************************************  Datasheet *************  -->
@@ -26,30 +26,30 @@ History until SDScom v4.2.0:
 			<xs:documentation> National legislations related to the chemical: National German laws which implement provisions, and any other national measures related to the chemical. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="RestrictionsOfOccupation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stoerfallverordnung" type="Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TaLuft" type="TaLuft" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="WaterHazardClass" type="WaterHazardClass" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="RestrictionsOfOccupation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Stoerfallverordnung" type="SDScom:Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TaLuft" type="SDScom:TaLuft" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WaterHazardClass" type="SDScom:WaterHazardClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> Other German legislation: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AdditionalInformation" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalWasteLegislationDE" type="NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalWasteLegislationDE" type="SDScom:NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> National legislation: National requirements related to waste that applies to the product or its packaging. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StorageClass" type="StorageClassEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="StorageClass" type="SDScom:StorageClassEnum" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> German storage class: Classification of the chemical in accordance with German regulation. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GisCode" type="string16" minOccurs="0" maxOccurs="1">
+			<xs:element name="GisCode" type="SDScom:string16" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -64,12 +64,12 @@ History until SDScom v4.2.0:
 			<xs:documentation> NationalWasteLegislationDE </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="WasteCode" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="WasteCode" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> National waste code: National identification number for the chemical and or its packaging as waste, with a corresponding description of the waste covered by the actual number. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WasteRegulations" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="WasteRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> National waste regulations: National regulations related to waste that applies to the product or its packing. </xs:documentation>
 				</xs:annotation>
@@ -82,12 +82,12 @@ History until SDScom v4.2.0:
 			<xs:appinfo>SDScomChem</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Text" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Text" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -102,20 +102,20 @@ History until SDScom v4.2.0:
 			<xs:documentation> WaterHazardClass </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Class" type="WaterHazardClassEnum" maxOccurs="1">
+			<xs:element name="Class" type="SDScom:WaterHazardClassEnum" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Water hazard class (WGK): </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Source" type="Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -126,10 +126,10 @@ History until SDScom v4.2.0:
 	<!-- ******************************************************************** TaLuft ********************* -->
 	<xs:complexType name="TaLuft">
 		<xs:sequence>
-			<xs:element name="WeightFraction" type="UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ClassOrClasses" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="No" type="Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Remark" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WeightFraction" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ClassOrClasses" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="No" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ************************************************************** WaterHazardClassEnum ******  -->

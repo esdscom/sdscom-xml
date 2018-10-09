@@ -56,7 +56,7 @@ History before  v4.2.0:
 					 Rename Flam. Aerosol 1,2,3 to Aerosol 1,2,3
 														
 ********************************************************************************************** -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<!-- ******************************************************************** string2 ********  -->
 	<xs:simpleType name="string2">
 		<xs:annotation>
@@ -1154,7 +1154,7 @@ History before  v4.2.0:
 		<xs:annotation>
 			<xs:documentation>Name of a separate physical file. For a proper data exchange, the file name should contain no path information or a relative path which applies during information exchange, e.g. within a ZIP file containing SDScom XML and related documents.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string256"/>
+		<xs:restriction base="SDScom:string256"/>
 	</xs:simpleType>
 	<xs:simpleType name="ReachRegNo">
 		<xs:annotation>
@@ -2098,9 +2098,9 @@ History before  v4.2.0:
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="PhraseCode" type="string64" minOccurs="0"/>
-				<xs:element name="FullText" type="string1024" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="PhraseCode" type="SDScom:string64" minOccurs="0"/>
+				<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:element name="NewLine">
 				<xs:annotation>
@@ -2108,7 +2108,7 @@ History before  v4.2.0:
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<!-- Phase catalogues used are defined and assigned a PhraseCatalogueId in section 0 -->
 	</xs:complexType>
@@ -2118,10 +2118,10 @@ History before  v4.2.0:
 			<xs:documentation> Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present. Note the use of MergePhrase restricts the nesting depth to one level. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MergeText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Delimiter" type="string3" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergeText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Delimiter" type="SDScom:string3" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
 		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
@@ -2132,11 +2132,11 @@ History before  v4.2.0:
 			<xs:documentation> CLP Hazard pictogram </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="PictogramCodeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PhraseCode" type="SDScom:PictogramCodeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SignalWord ***************************  -->
@@ -2145,11 +2145,11 @@ History before  v4.2.0:
 			<xs:documentation> CLP Signal Word, ie. danger or warning. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="SignalWordEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PhraseCode" type="SDScom:SignalWordEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* HazardStatement ***************************  -->
@@ -2158,11 +2158,11 @@ History before  v4.2.0:
 			<xs:documentation>CLP Hazard Statement. Systems can export PhraseCode only, without FullText or other phrase references - this is useful if data tranfer of only SDS parts takes place without any use of phrases. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="HazardStatementEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PhraseCode" type="SDScom:HazardStatementEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* PrecautionaryStatement ***************************  -->
@@ -2171,11 +2171,11 @@ History before  v4.2.0:
 			<xs:documentation> Precautionary Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="PrecautionaryStatementEnum" minOccurs="1" maxOccurs="5"/>
-			<xs:element name="FullText" type="string512" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PhraseCode" type="SDScom:PrecautionaryStatementEnum" minOccurs="1" maxOccurs="5"/>
+			<xs:element name="FullText" type="SDScom:string512" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SupplementalHazardInformation ***************************  -->
@@ -2184,11 +2184,11 @@ History before  v4.2.0:
 			<xs:documentation> Supplemental Hazard Information Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="SupplementalHazardInformationEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PhraseCode" type="SDScom:SupplementalHazardInformationEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ************************************************************* SpecialSupplementalLabelInfo ***************************  -->
@@ -2197,11 +2197,11 @@ History before  v4.2.0:
 			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="SpecialSupplementalLabelInfoEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MergePhrase" type="MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PhraseCode" type="SDScom:SpecialSupplementalLabelInfoEnum" minOccurs="0"/>
+			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="PhraseId"/>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ******************************************************************** Unit *************  -->
@@ -2213,25 +2213,25 @@ History before  v4.2.0:
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="UnitAbbreviation" type="string32"/>
+			<xs:element name="UnitAbbreviation" type="SDScom:string32"/>
     </xs:sequence>
-		<xs:attribute name="UnitId" type="string16"/>
+		<xs:attribute name="UnitId" type="SDScom:string16"/>
 		<xs:attribute name="UnitSetId" type="xs:integer"/>
 	</xs:complexType -->
 	<!-- ******************************************************************* Value *************  -->
 	<xs:complexType name="OneValue">
 		<xs:sequence>
-			<xs:element name="ValueSymbol" type="SymbolEnum"/>
+			<xs:element name="ValueSymbol" type="SDScom:SymbolEnum"/>
 			<xs:element name="Value" type="xs:float"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="OneUnitValue">
 		<xs:complexContent>
-			<xs:extension base="OneValue">
+			<xs:extension base="SDScom:OneValue">
 				<xs:sequence>
-					<xs:element name="Unit" type="string32"/>
+					<xs:element name="Unit" type="SDScom:string32"/>
 				</xs:sequence>
-				<xs:attribute name="UnitId" type="UnitIdEnum"/>
+				<xs:attribute name="UnitId" type="SDScom:UnitIdEnum"/>
 				<xs:attribute name="UnitSetId" type="xs:integer">
 					<xs:annotation>
 						<xs:documentation>This is the Norwegian unit Id. Please see http://pib.no/Main.aspx?Gui/UnitSet#Top</xs:documentation>
@@ -2246,13 +2246,13 @@ History before  v4.2.0:
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="ExactValueSymbol" type="SymbolEnum" minOccurs="0"/>
+				<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
 				<xs:element name="ExactValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:sequence>
-				<xs:element name="UpperValueSymbol" type="SymbolEnum" minOccurs="0"/>
+				<xs:element name="UpperValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
 				<xs:element name="UpperValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="LowerValueSymbol" type="SymbolEnum" minOccurs="0"/>
+				<xs:element name="LowerValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
 				<xs:element name="LowerValue" type="xs:float" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:choice>
@@ -2263,11 +2263,11 @@ History before  v4.2.0:
 			<xs:documentation> UnitValue. The ExactValue should only be printed on the datasheet if both the LowerValue and UpperValue are missing. The main purpose of the LowerValue-UpperValue range is for printing while an additional ExactValue can be used for calculations. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="Value">
+			<xs:extension base="SDScom:Value">
 				<xs:sequence>
-					<xs:element name="Unit" type="string32" minOccurs="0"/>
+					<xs:element name="Unit" type="SDScom:string32" minOccurs="0"/>
 				</xs:sequence>
-				<xs:attribute name="UnitId" type="UnitIdEnum"/>
+				<xs:attribute name="UnitId" type="SDScom:UnitIdEnum"/>
 				<xs:attribute name="UnitSetId" type="xs:integer">
 					<xs:annotation>
 						<xs:documentation>This is the Norwegian unit Id. Please see http://pib.no/Main.aspx?Gui/UnitSet#Top</xs:documentation>
@@ -2838,7 +2838,7 @@ History before  v4.2.0:
 			<xs:documentation>Basically a UnitValue with a fixed unit "%"</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="Value"/>
+			<xs:extension base="SDScom:Value"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValue***********  -->
@@ -2849,13 +2849,13 @@ History before  v4.2.0:
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="Value" type="Value" minOccurs="0"/>
-					<xs:element name="Method" type="Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+					<xs:element name="Value" type="SDScom:Value" minOccurs="0"/>
+					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
@@ -2866,13 +2866,13 @@ History before  v4.2.0:
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="UnitValue" type="UnitValue" minOccurs="0"/>
-					<xs:element name="Method" type="Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="Phrase" minOccurs="0"/>
+					<xs:element name="UnitValue" type="SDScom:UnitValue" minOccurs="0"/>
+					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="Comments" type="Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
@@ -2881,14 +2881,14 @@ History before  v4.2.0:
 			<xs:documentation> PhysChemValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemValue">
+			<xs:extension base="SDScom:PhysChemValue">
 				<xs:sequence minOccurs="0">
-					<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+					<xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Pressure" type="UnitValue" minOccurs="0">
+					<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
 						</xs:annotation>
@@ -2903,14 +2903,14 @@ History before  v4.2.0:
 			<xs:documentation> PhysChemUnitValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="PhysChemUnitValue">
+			<xs:extension base="SDScom:PhysChemUnitValue">
 				<xs:sequence minOccurs="0">
-					<xs:element name="Temperature" type="UnitValue" minOccurs="0">
+					<xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Pressure" type="UnitValue" minOccurs="0">
+					<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
 						</xs:annotation>
