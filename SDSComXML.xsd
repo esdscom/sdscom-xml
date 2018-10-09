@@ -1337,9 +1337,9 @@ History before v4.2.0:
 			<xs:element maxOccurs="1" minOccurs="0" name="ControlParameters">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="ExposureGuidelines">
+						<xs:element maxOccurs="1" minOccurs="0" name="OccupationalExposureLimits ">
 							<xs:annotation>
-								<xs:documentation> Occupational exposure limits: Occupational exposure limit values shall be given for the country where the substance or preparation is placed on the market. Give information on currently recommended monitoring procedures. For preparations, it is useful to provide values for those constituent substances which are required to be listed in the Safety Data Sheet. </xs:documentation>
+								<xs:documentation>Occupational exposure limit: Values shall be given for the country where the substance or preparation is placed on the market. Give information on currently recommended monitoring procedures. For mixtures, it is useful to provide values for those constituent substances which are required to be listed in the Safety Data Sheet. </xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
