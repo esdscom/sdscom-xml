@@ -2737,19 +2737,10 @@ History before v4.2.0:
 			<xs:element maxOccurs="1" minOccurs="0" name="AspirationHazard">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="AspirationHazardTestResults">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="ToxicityType" type="SDScom:ToxicityTypeEnum"/>
-									<xs:element maxOccurs="1" minOccurs="1" name="TestMethod" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="SDScom:ExposureRouteEnum"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ExposureTime" type="SDScom:UnitValue"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="Value" type="SDScom:UnitValue"/>
-									<xs:element maxOccurs="1" minOccurs="1" name="Species" type="SDScom:Species"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
-								</xs:sequence>
-							</xs:complexType>
+						<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>AspirationHazard is based on human experience only, thus there are no test results. This field covers a reference to the source (otherwise named TestReference, which is adopted here for consistency).</xs:documentation>
+							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="AspirationHazardHydrocarbonContent" type="SDScom:UnitValue">
 							<xs:annotation>
@@ -2761,8 +2752,6 @@ History before v4.2.0:
 								<xs:documentation>Kinematic viscosity value at 40°C</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AspirationHazardOtherInfo" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AspirationHazardHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentAspirationHazardClassification" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AspirationHazardComments" type="SDScom:Phrase"/>
 					</xs:sequence>
