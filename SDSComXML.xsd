@@ -3353,63 +3353,6 @@ History before v4.2.0:
 					<xs:documentation> Relevant hazard statements in full text: Write out the full text of any hazard statements referred to under section 2 and 3 of the SDS, with code numbers. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClassificationAccordingClp" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ClpHazardClassification" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation> CLP classification: The chemical’s individual hazard classifications according to EU-CLP. </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="ClpHazardClassCategory" type="SDScom:HazardClassCategoryEnum">
-										<xs:annotation>
-											<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="ClpHazardStatement" type="SDScom:HazardStatement">
-										<xs:annotation>
-											<xs:documentation> Hazard statement: The code of the hazard statement corresponding to the hazard class and category. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="ClpClassificationProcedure" type="SDScom:Phrase" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation> CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="MultiplyingFactor" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="FactorValue" type="SDScom:int20" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation> M factor: Multiflying factor for substances highly toxic to the environment. Part of the classification of pure substances. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="FactorComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="4">
-													<xs:annotation>
-														<xs:documentation> M factor remark: Comments or remarks to the stated M factor. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element minOccurs="0" name="ClpAtp" type="SDScom:AtpEnum">
-							<xs:annotation>
-								<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="ClpClassificationComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ClpClassificationNotes" type="SDScom:Phrase" minOccurs="0" maxOccurs="4">
-							<xs:annotation>
-								<xs:documentation> Classification notes: The meaning of some notes may be changed with CLP. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="EducationalRecommendations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> Educational recommendations: Training advice </xs:documentation>
