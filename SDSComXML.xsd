@@ -3340,9 +3340,17 @@ History before v4.2.0:
 					<xs:documentation> Main information sources: References to information sources applied in the compilation of the SDS. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Acronym" type="string"/>
+						<xs:element name="Meaning" type="SDScom:Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation> Abbreviations and acronyms: Explanation of terms used in the SDS. </xs:documentation>
+					<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RevisionInformation" minOccurs="0">
