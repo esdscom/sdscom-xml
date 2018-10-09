@@ -2455,44 +2455,11 @@ History before v4.2.0:
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="AcuteToxicityOtherInformation">
+						<xs:element maxOccurs="1" minOccurs="0" name="AcuteToxicityOtherInformation" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>e.g. other animal observings.</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherToxicologicalData" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteToxicityDescriptionGeneral" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Inhalation" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Skin" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Eye" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ingestion" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteToxicityHumanExperience" type="SDScom:Phrase">
 							<xs:annotation>
