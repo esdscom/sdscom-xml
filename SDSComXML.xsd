@@ -3003,10 +3003,10 @@ History before v4.2.0:
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="POXPurgeableOrganohalogens" type="SDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EOXExtractableOrganohalogens" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalEcologicalInformation" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalEcologicalInformation" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Conclusion" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
