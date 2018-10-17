@@ -662,7 +662,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> DNEL source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Group" type="SDScom:EffectLevelGroupEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ExposureRouteFrequencyAndEffect" type="SDScom:EffectLevelTypeEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="DmelValue" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="AssessmentFactor" type="SDScom:Value" minOccurs="0">
@@ -680,7 +679,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:documentation> PNEC source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Group" type="SDScom:EffectLevelGroupEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Type" type="SDScom:PNECTypeEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ExposureFrequency" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>

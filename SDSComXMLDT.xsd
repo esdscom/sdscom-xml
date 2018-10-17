@@ -1742,10 +1742,8 @@ History before  v4.2.0:
 			<xs:documentation> The legal values for the EffectLevelGroupEnum </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Industrial"/>
-			<xs:enumeration value="Professional"/>
+			<xs:enumeration value="Worker"/>
 			<xs:enumeration value="Consumer"/>
-			<xs:enumeration value="Undefined"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* ExposureRouteEnum *********************  -->
