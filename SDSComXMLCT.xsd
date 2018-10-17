@@ -339,12 +339,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:documentation> CLP classification: The chemical’s hazard classification according to EU-CLP, with any remarks and notes. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SimpleClassificationDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Textual description of the classification: An easily understandable description on what the actual classification of the chemical means. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="ClassificationAdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
