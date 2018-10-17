@@ -577,22 +577,13 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="RecommendedMonitoringProcedure" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureLimitLetter" minOccurs="0" maxOccurs="4">
-				<xs:annotation>
-					<xs:documentation>obsolete; use ParticleFraction instead</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="LetterCode" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="LetterDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="ParticleFraction" type="SDScom:ExposureLimitFractionEnum" minOccurs="0"/>
 			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A remark that applies to all of the abovementioned OELs. If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit.</xs:documentation>
+					<xs:documentation>A remark that applies to all of the abovementioned OELs. Can cover specific info like code letters (H, Sh, Sa, Y, Z in Germany's TRGS 900) either as the letter or as the respective explanatory text.
+
+If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit - ofr example, two instances for inhalable and respirable fraction OEL's.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
