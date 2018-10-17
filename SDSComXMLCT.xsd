@@ -674,16 +674,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="SDScom:PNECTypeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ExposureFrequency" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation> Acute (short term) Repeated (long term) </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TypeOfEffect" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation> Local or systemic </xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="PnecValue" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="AssessmentFactor" type="SDScom:Value" minOccurs="0">
 				<xs:annotation>
