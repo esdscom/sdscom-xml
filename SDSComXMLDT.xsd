@@ -2129,11 +2129,11 @@ History before  v4.2.0:
 	<!-- ************************************************************* HazardPictogram ***************************  -->
 	<xs:complexType name="HazardPictogram">
 		<xs:annotation>
-			<xs:documentation> CLP Hazard pictogram </xs:documentation>
+			<xs:documentation>CLP Hazard Pictogram</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="SDScom:PictogramCodeEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhraseCode" type="SDScom:PictogramCodeEnum" minOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
@@ -2146,7 +2146,7 @@ History before  v4.2.0:
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="PhraseCode" type="SDScom:SignalWordEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
@@ -2159,7 +2159,7 @@ History before  v4.2.0:
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="PhraseCode" type="SDScom:HazardStatementEnum" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
@@ -2172,7 +2172,7 @@ History before  v4.2.0:
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="PhraseCode" type="SDScom:PrecautionaryStatementEnum" minOccurs="1" maxOccurs="5"/>
-			<xs:element name="FullText" type="SDScom:string512" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
@@ -2184,8 +2184,8 @@ History before  v4.2.0:
 			<xs:documentation> Supplemental Hazard Information Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="SDScom:SupplementalHazardInformationEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhraseCode" type="SDScom:SupplementalHazardInformationEnum" minOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
@@ -2197,8 +2197,8 @@ History before  v4.2.0:
 			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="SDScom:SpecialSupplementalLabelInfoEnum" minOccurs="0"/>
-			<xs:element name="FullText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PhraseCode" type="SDScom:SpecialSupplementalLabelInfoEnum" minOccurs="1"/>
+			<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
