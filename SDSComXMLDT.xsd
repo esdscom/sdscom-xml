@@ -1576,10 +1576,10 @@ History before  v4.2.0:
 			<xs:enumeration value="Aerosol 3"/>
 			<xs:enumeration value="Ox. Gas 1"/>
 			<xs:enumeration value="Press. Gas"/>
-			<xs:enumeration value="Compr. Gas"/>
-			<xs:enumeration value="Liquef. Gas"/>
-			<xs:enumeration value="Refr. Liquef. Gas"/>
-			<xs:enumeration value="Diss. Gas"/>
+			<xs:enumeration value="Press. Gas (Comp.)"/>
+			<xs:enumeration value="Press. Gas (Liq.)"/>
+			<xs:enumeration value="Press. Gas (Ref. Liq.)"/>
+			<xs:enumeration value="Press. Gas (Diss.)"/>
 			<xs:enumeration value="Flam. Liq. 1"/>
 			<xs:enumeration value="Flam. Liq. 2"/>
 			<xs:enumeration value="Flam. Liq. 3"/>
