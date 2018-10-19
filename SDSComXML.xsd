@@ -178,6 +178,34 @@ History before v4.2.0:
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Packaging">
+				<xs:annotation>
+					<xs:documentation>This node and enclosed information are not required for the SDS, but helpful to identfy the packaged product and required for poison center notification according to CLP article 45.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="TypeOfPackaging" type="SDScom:PackagingTypeEnum"/>
+						<xs:element minOccurs="0" name="SizeOfPackaging" type="SDScom:UnitValue"/>
+						<xs:element minOccurs="0" name="MaterialOfPackaging" type="SDScom:PackagingMaterialEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Compatibility" type="SDScom:Phrase"/>
+						<xs:element minOccurs="0" name="ChildResistantPackaging" type="xs:boolean">
+							<xs:annotation>
+								<xs:documentation>results from EU classification, but characterizes the packaging</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="TactileWarning" type="xs:boolean">
+							<xs:annotation>
+								<xs:documentation>results from EU classification, but characterizes the packaging</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Description" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element minOccurs="0" name="InformationOnTheSds">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
@@ -749,6 +777,11 @@ History before v4.2.0:
 					<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="FormulationType" type="SDScom:FormulationTypeEnum">
+				<xs:annotation>
+					<xs:documentation>Just for transmission of Poison Center Notification data! This type has some overlap with form, product categories, and other types. Take care of consistency!</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalCharacterization" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation>was "DescriptionOfTheMixture" up to v4.2.3; see issue #95</xs:documentation>
@@ -777,12 +810,13 @@ History before v4.2.0:
 						<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Stabilizer" type="SDScom:Component">
+				<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:Component">
 					<xs:annotation>
 						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation>describes additives which support the application stability</xs:documentation>
+						<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:Component"/>
 			</xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="CompositionComments" type="SDScom:Phrase"/>
 		</xs:sequence>
@@ -835,18 +869,6 @@ History before v4.2.0:
 								<xs:documentation> The component has a biological limit value: 'True' means that the actual component or designation has a biological limit value and shall be displayed under section 8 of the SDS. Just a few substances have such a biological limit value; the default value for this element should be 'false'�. However, if this is not a component of the mixture it shall not be displayed in section 3; only in section 8. In such cases, the value of IncludeBiologicalLimitValues should be 'false'�. Examples on this are maximum level of lead in blood and maximum concentration of mercury in urine. The components can be lead compounds, but the limit is related to level of lead. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="IsImpurity" type="xs:boolean">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> The component is an impurity: 'True' means that the component is a contaminant in a component and shall be displayed in section 3 of an SDS for a substance. The default value of this element should be 'false'; this element is appropriate for a limited number of components; only exceptions. Normally, an impurity that is listed in section 3 contributes to the hazard classification of the substance, but it is not mandatory to display its hazard classification in section 3. Some impurities may also have an exposure limit to be displayed in section 8 by setting IsImpurity to 'true'�. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="IsStabilizer" type="xs:boolean">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> The component is a stabilizing additive: 'True'� means that the component is an added stabiliser in a component and shall be displayed in section 3 of an SDS for a component. The default value of this element should be 'false'; this element is appropriate for a limited number of components. Normally, a stabiliser that is listed in 3 contributes to the hazard classification of the component. However, it is not mandatory to display its hazard classification in section 3. Some stabilisers may also have an exposure limit to be displayed in section 8 by setting IsStabilizer to 'true'. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="IncludePhysicalValues" type="xs:boolean">
 							<xs:annotation>
 								<xs:documentation> Information on the component to be displayed in section 9: </xs:documentation>
@@ -869,6 +891,7 @@ History before v4.2.0:
 								<xs:documentation> Reason for stating the component in the SDS: To describe components that do not have a classification etc. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element minOccurs="0" name="Function" type="SDScom:ComponentFunctionEnum"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="IdentifiedUse">
 							<xs:annotation>
 								<xs:documentation> NB: Optional attribute IdentifiedUseId to identify the actual identified use (ExposureScenario). The optional attribute PrintAsAttachment can be used to toggle printing the exposue scenario inline in the Sds or as an attachment. </xs:documentation>
@@ -1699,24 +1722,31 @@ History before v4.2.0:
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhysicalState" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="Form" type="SDScom:FormEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="FormDescription" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Physical state: Indicate the physical state (solid, liquid, gas) of the substance or preparation as supplied. </xs:documentation>
+								<xs:documentation>Indicate the form (solid, liquid, gas or other descriptive terms) of the substance or mixture as supplied. May be omitted if specified in field Form. If Form is "other", put more details in this field.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="StateUnderStandardConditions" type="SDScom:StateUnderStandardConditionsEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>physical state (only solid/liquid/gaseous) under standard conditions (20°C, 1013 hpa) </xs:documentation>
+								<xs:documentation>Physical state (only solid/liquid/gaseous) under standard conditions (20°C, 1013 hpa) </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Colour" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Colour" type="SDScom:ColourEnum">
+							<xs:annotation>
+								<xs:documentation>Multiple entries (only) in case of "multicolour" and "colouring agent"</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ColourDescription" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Product colour: Indicate the colour of the substance or preparation as supplied. </xs:documentation>
+								<xs:documentation>Product colour: Indicate the colour of the substance or preparation as supplied. May be omitted if Colour is used. This field is also used if none of ColourEnum matches.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element minOccurs="0" name="ColourIntensity" type="SDScom:ColourIntensityEnum"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Odour" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>

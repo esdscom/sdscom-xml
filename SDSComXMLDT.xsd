@@ -1518,13 +1518,14 @@ History before  v4.2.0:
 	<!-- ******************************************************************** CompositionTypeEnum ******  -->
 	<xs:simpleType name="CompositionTypeEnum">
 		<xs:annotation>
-			<xs:documentation>Legal view on the composition, to determine whether the product is a substance, mixture, or else.</xs:documentation>
+			<xs:documentation>Legal view on the composition, to determine whether the product is a substance, mixture, or else. Polymer is included for compatibility with Iuclid6 picklist N08.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="SingleConstituent"/>
 			<xs:enumeration value="MultiConstituent"/>
 			<xs:enumeration value="UVCB"/>
 			<xs:enumeration value="Mixture"/>
+			<xs:enumeration value="Mixture: Polymer"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ToxicityTypeEnum ******  -->
@@ -3487,6 +3488,485 @@ History before  v4.2.0:
 			<xs:enumeration value="PP-PRD-15"/>
 			<xs:enumeration value="PP-PRD-16"/>
 			<xs:enumeration value="PP-PRD-OTH"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FormEnum">
+		<xs:annotation>
+			<xs:documentation>Form as specified in Iuclid6 Picklist A101 v3.0:
+A101 - v3.0 – Mixture form
+60037 aerosol dispenser: not specified
+60038 aerosol dispenser: foam aerosol
+60039 aerosol dispenser: spray aerosol
+2830 gas
+60040 gas: vapour
+60041 gas under pressure: compressed gas
+60042 gas under pressure: dissolved gas
+60043 gas under pressure: liquefied gas
+60044 gas under pressure: refrigerated liquefied gas
+64931 cream / paste
+5994 foam
+6003 gel
+2038 liquid
+60048 liquid: viscous
+60049 liquid: volatile
+60045 liquid - liquid: emulsion
+60047 liquid - solid: mixture of
+60050 semi-solid (amorphous): gel
+2381 solid
+61424 solid: bulk
+60051 solid: compact
+60052 solid: crystalline
+60053 solid: fibres
+60054 solid: filaments
+60055 solid: flakes
+60056 solid: granular
+60058 solid: particulate/powder
+60057 solid: pellets
+64932 solid: pressed powder
+61861 solid: nanomaterial, surface-treated
+61862 solid: nanomaterial, no surface treatment
+60059 solid: nanomaterial
+64933 solid: tabs / tablets
+60062 solid - liquid: aqueous solution
+60063 solid - liquid: suspension
+60064 solid - solid: alloy
+1342 other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="aerosol dispenser: not specified"/>
+			<xs:enumeration value="aerosol dispenser: foam aerosol"/>
+			<xs:enumeration value="aerosol dispenser: spray aerosol"/>
+			<xs:enumeration value="gas"/>
+			<xs:enumeration value="gas: vapour"/>
+			<xs:enumeration value="gas under pressure: compressed gas"/>
+			<xs:enumeration value="gas under pressure: dissolved gas"/>
+			<xs:enumeration value="gas under pressure: liquefied gas"/>
+			<xs:enumeration value="gas under pressure: refrigerated liquefied gas"/>
+			<xs:enumeration value="cream / paste"/>
+			<xs:enumeration value="foam"/>
+			<xs:enumeration value="gel"/>
+			<xs:enumeration value="liquid"/>
+			<xs:enumeration value="liquid: viscous"/>
+			<xs:enumeration value="liquid: volatile"/>
+			<xs:enumeration value="liquid - liquid: emulsion"/>
+			<xs:enumeration value="liquid - solid: mixture of"/>
+			<xs:enumeration value="semi-solid (amorphous): gel"/>
+			<xs:enumeration value="solid"/>
+			<xs:enumeration value="solid: bulk"/>
+			<xs:enumeration value="solid: compact"/>
+			<xs:enumeration value="solid: crystalline"/>
+			<xs:enumeration value="solid: fibres"/>
+			<xs:enumeration value="solid: filaments"/>
+			<xs:enumeration value="solid: flakes"/>
+			<xs:enumeration value="solid: granular"/>
+			<xs:enumeration value="solid: particulate/powder"/>
+			<xs:enumeration value="solid: pellets"/>
+			<xs:enumeration value="solid: pressed powder"/>
+			<xs:enumeration value="solid: nanomaterial, surface-treated"/>
+			<xs:enumeration value="solid: nanomaterial, no surface treatment"/>
+			<xs:enumeration value="solid: nanomaterial"/>
+			<xs:enumeration value="solid: tabs / tablets"/>
+			<xs:enumeration value="solid - liquid: aqueous solution"/>
+			<xs:enumeration value="solid - liquid: suspension"/>
+			<xs:enumeration value="solid - solid: alloy"/>
+			<xs:enumeration value="other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ColourEnum">
+		<xs:annotation>
+			<xs:documentation>Colour as described in Iuclid6 picklist PG6-60569 v1.0 – Mixture colour
+64912 colourless
+64913 black
+64914 blue
+64915 brown
+64916 gold
+64917 green
+64918 grey
+64919 orange
+64920 pink
+64921 purple
+64922 red
+64923 silver
+64924 violet
+64925 white
+64926 yellow
+64927 multicolour (select all relevant colours)
+64928 mixture containing generic product identifier ‘colouring agent’ (select all relevant colours)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="colourless"/>
+			<xs:enumeration value="black"/>
+			<xs:enumeration value="blue"/>
+			<xs:enumeration value="brown"/>
+			<xs:enumeration value="gold"/>
+			<xs:enumeration value="green"/>
+			<xs:enumeration value="grey"/>
+			<xs:enumeration value="orange"/>
+			<xs:enumeration value="pink"/>
+			<xs:enumeration value="purple"/>
+			<xs:enumeration value="red"/>
+			<xs:enumeration value="silver"/>
+			<xs:enumeration value="violet"/>
+			<xs:enumeration value="white"/>
+			<xs:enumeration value="yellow"/>
+			<xs:enumeration value="multicolour"/>
+			<xs:enumeration value="colouring agent"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ColourIntensityEnum">
+		<xs:annotation>
+			<xs:documentation>Colour intensity as specified in Iuclid6 picklist PG6-60568 v1.0 – Mixture colour intensity:
+64908 transparent [should be translucent, as transparent means colourless)
+64909 light
+64910 dark
+64911 fluorescent
+		    </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="translucent"/>
+			<xs:enumeration value="light"/>
+			<xs:enumeration value="dark"/>
+			<xs:enumeration value="fluorescent"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PackagingTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Type of Packaging as specified in Iuclid6 picklist B05 v2.0:
+58353 aerosol can
+58354 airspray
+64859 atomizer
+58355 bag / sack
+58356 baitbox
+58357 blister
+58358 bottle
+58359 box
+64861 brick
+64862 bucket
+58360 can / tin
+64863 carboy
+58361 case
+64864 dispenser
+58362 dropper
+58363 drum
+64865 envelope
+58364 IBC (intermediate bulk container)
+64866 jar
+58365 jerry can
+64867 jug
+58366 packet
+58367 sachet
+64868 phial
+64869 stick
+64870 syringe
+58368 talcum powder container
+64871 tank
+58369 tea bag (product disperses through the container when added to water)
+64872 tube
+58370 water soluble bag
+1342 other:
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="aerosol can"/>
+			<xs:enumeration value="airspray"/>
+			<xs:enumeration value="atomizer"/>
+			<xs:enumeration value="bag / sack"/>
+			<xs:enumeration value="baitbox"/>
+			<xs:enumeration value="blister"/>
+			<xs:enumeration value="bottle"/>
+			<xs:enumeration value="box"/>
+			<xs:enumeration value="brick"/>
+			<xs:enumeration value="bucket"/>
+			<xs:enumeration value="can / tin"/>
+			<xs:enumeration value="carboy"/>
+			<xs:enumeration value="case"/>
+			<xs:enumeration value="dispenser"/>
+			<xs:enumeration value="dropper"/>
+			<xs:enumeration value="drum"/>
+			<xs:enumeration value="envelope"/>
+			<xs:enumeration value="IBC (intermediate bulk container)"/>
+			<xs:enumeration value="jar"/>
+			<xs:enumeration value="jerry can"/>
+			<xs:enumeration value="jug"/>
+			<xs:enumeration value="packet"/>
+			<xs:enumeration value="sachet"/>
+			<xs:enumeration value="phial"/>
+			<xs:enumeration value="stick"/>
+			<xs:enumeration value="syringe"/>
+			<xs:enumeration value="talcum powder container"/>
+			<xs:enumeration value="tank"/>
+			<xs:enumeration value="tea bag (product disperses through the container when added to water)"/>
+			<xs:enumeration value="tube"/>
+			<xs:enumeration value="water soluble bag"/>
+			<xs:enumeration value="other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PackagingMaterialEnum">
+		<xs:annotation>
+			<xs:documentation>Material as specified in Iuclid6 picklist B07:
+58378	glass
+58379	plastic: HDPE
+58380	plastic: LDPE
+58381	plastic: PET
+58382	plastic: composite:
+58383	metal:
+58384	paper, cardboard
+1342	other:
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="glass"/>
+			<xs:enumeration value="plastic: HDPE"/>
+			<xs:enumeration value="plastic: LDPE"/>
+			<xs:enumeration value="plastic: PET"/>
+			<xs:enumeration value="plastic: composite"/>
+			<xs:enumeration value="metal"/>
+			<xs:enumeration value="paper, cardboard"/>
+			<xs:enumeration value="other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SubstanceTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Substance type as represented in Iuclid6 picklist N58:
+1756	element
+2003	inorganic
+1334	organic
+2240	organometallic
+2262	petroleum product
+1342	other:
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="element"/>
+			<xs:enumeration value="inorganic"/>
+			<xs:enumeration value="organic"/>
+			<xs:enumeration value="organometallic"/>
+			<xs:enumeration value="petroleum product"/>
+			<xs:enumeration value="other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FormulationTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Formulation Type as represented in Iuclid6 picklist B04 v1.0:
+58439	AE Aerosol dispenser
+58440	AL Any other liquid
+58441	AP Any other powder
+58442	BR Briquette
+58443	CB Bait concentrate
+58444	CL Contact liquid or gel
+58445	CP Contact powder
+58446	CS Capsule suspension
+58447	DC Dispersible concentrate
+58448	DP Dustable powder
+58449	DT Tablet for direct application
+58450	EC Emulsifiable concentrate
+58451	EG Emulsifiable granule
+58452	EO Emulsion, water in oil
+58453	EP Emulsifiable powder
+58454	EW Emulsion, oil in water
+58455	FU Smoke generator
+58456	GA Gas
+58457	GE Gas generating product
+58458	GL Emulsifiable gel
+58459	GR Granule
+58460	GS Grease
+58461	GW Water soluble gel
+58462	HN Hot fogging concentrate
+58463	KK Combi-pack solid/liquid
+58464	KL Combi-pack liquid/liquid
+58465	KN Cold fogging concentrate
+58466	LN Long-lasting insecticidal net
+58467	LV Liquid vaporizer
+58468	MC Mosquito coil
+58469	ME Micro-emulsion
+58470	MV Vaporizing mats
+58471	OD Oil dispersion
+58472	OF Oil miscible flowable concentrate (oil miscible suspension)
+58473	OL Oil miscible liquid
+58474	OP Oil dispersible powder
+58475	PA Paste
+58476	PC Gel or paste concentrate
+58477	PO Pour-on
+58478	RB Bait (ready for use)
+58479	SA Spot-on
+58480	SC Suspension concentrate (= flowable concentrate)
+58481	SD Suspension concentrate for direct application
+58482	SE Suspo-emulsion
+58483	SG Water soluble granule
+58484	SL Soluble concentrate
+58485	SO Spreading oil
+58486	SP Water soluble powder
+58487	ST Water soluble tablet
+58488	SU Ultra-low volume (ULV) suspension
+58489	TB Tablet
+58490	TC Technical material
+58491	TK Technical concentrate
+58492	UL Ultra-low volume (ULV) liquid
+58493	VP Vapour releasing product
+58494	WG Water dispersible granules
+58495	WP Wettable powder
+58496	WT Water dispersible tablet
+58497	ZC A mixed formulation of CS and SC
+58498	ZE A mixed formulation of CS and SE
+58499	ZW A mixed formulation of CS and EW
+58500	XX Others:
+</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="AE Aerosol dispenser"/>
+			<xs:enumeration value="AL Any other liquid"/>
+			<xs:enumeration value="AP Any other powder"/>
+			<xs:enumeration value="BR Briquette"/>
+			<xs:enumeration value="CB Bait concentrate"/>
+			<xs:enumeration value="CL Contact liquid or gel"/>
+			<xs:enumeration value="CP Contact powder"/>
+			<xs:enumeration value="CS Capsule suspension"/>
+			<xs:enumeration value="DC Dispersible concentrate"/>
+			<xs:enumeration value="DP Dustable powder"/>
+			<xs:enumeration value="DT Tablet for direct application"/>
+			<xs:enumeration value="EC Emulsifiable concentrate"/>
+			<xs:enumeration value="EG Emulsifiable granule"/>
+			<xs:enumeration value="EO Emulsion, water in oil"/>
+			<xs:enumeration value="EP Emulsifiable powder"/>
+			<xs:enumeration value="EW Emulsion, oil in water"/>
+			<xs:enumeration value="FU Smoke generator"/>
+			<xs:enumeration value="GA Gas"/>
+			<xs:enumeration value="GE Gas generating product"/>
+			<xs:enumeration value="GL Emulsifiable gel"/>
+			<xs:enumeration value="GR Granule"/>
+			<xs:enumeration value="GS Grease"/>
+			<xs:enumeration value="GW Water soluble gel"/>
+			<xs:enumeration value="HN Hot fogging concentrate"/>
+			<xs:enumeration value="KK Combi-pack solid/liquid"/>
+			<xs:enumeration value="KL Combi-pack liquid/liquid"/>
+			<xs:enumeration value="KN Cold fogging concentrate"/>
+			<xs:enumeration value="LN Long-lasting insecticidal net"/>
+			<xs:enumeration value="LV Liquid vaporizer"/>
+			<xs:enumeration value="MC Mosquito coil"/>
+			<xs:enumeration value="ME Micro-emulsion"/>
+			<xs:enumeration value="MV Vaporizing mats"/>
+			<xs:enumeration value="OD Oil dispersion"/>
+			<xs:enumeration value="OF Oil miscible flowable concentrate (oil miscible suspension)"/>
+			<xs:enumeration value="OL Oil miscible liquid"/>
+			<xs:enumeration value="OP Oil dispersible powder"/>
+			<xs:enumeration value="PA Paste"/>
+			<xs:enumeration value="PC Gel or paste concentrate"/>
+			<xs:enumeration value="PO Pour-on"/>
+			<xs:enumeration value="RB Bait (ready for use)"/>
+			<xs:enumeration value="SA Spot-on"/>
+			<xs:enumeration value="SC Suspension concentrate (= flowable concentrate)"/>
+			<xs:enumeration value="SD Suspension concentrate for direct application"/>
+			<xs:enumeration value="SE Suspo-emulsion"/>
+			<xs:enumeration value="SG Water soluble granule"/>
+			<xs:enumeration value="SL Soluble concentrate"/>
+			<xs:enumeration value="SO Spreading oil"/>
+			<xs:enumeration value="SP Water soluble powder"/>
+			<xs:enumeration value="ST Water soluble tablet"/>
+			<xs:enumeration value="SU Ultra-low volume (ULV) suspension"/>
+			<xs:enumeration value="TB Tablet"/>
+			<xs:enumeration value="TC Technical material"/>
+			<xs:enumeration value="TK Technical concentrate"/>
+			<xs:enumeration value="UL Ultra-low volume (ULV) liquid"/>
+			<xs:enumeration value="VP Vapour releasing product"/>
+			<xs:enumeration value="WG Water dispersible granules"/>
+			<xs:enumeration value="WP Wettable powder"/>
+			<xs:enumeration value="WT Water dispersible tablet"/>
+			<xs:enumeration value="ZC A mixed formulation of CS and SC"/>
+			<xs:enumeration value="ZE A mixed formulation of CS and SE"/>
+			<xs:enumeration value="ZW A mixed formulation of CS and EW"/>
+			<xs:enumeration value="XX Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ComponentFunctionEnum">
+		<xs:annotation>
+			<xs:documentation>Function of a component according to Iuclid6 picklists N28 and N28A (map "stabilizer" to "stabilizer: other"):
+2675	absorbent
+1699	active substance
+2680	adsorbent
+2693	anticaking agent
+2694	anticoagulant
+2721	booster
+2728	buffer
+2752	coagulant
+2753	coating agent
+2756	colourant
+2761	complexing agent
+2763	conditioner
+2768	controlled release agent
+2772	crystal growth regulator
+2781	dehydrating agent
+2783	denaturant
+2794	drying agent
+2795	dye
+2802	emulsifier
+2819	filler
+2823	flow aid agent
+2824	fragrance
+2847	hardener
+2895	lubricant
+2918	moisturiser
+2937	neutraliser
+2976	odour masking agent
+3442	pH adjuster
+2999	pigment
+3026	propellant
+3342	solvent
+61432	stabiliser: antioxidant
+61433	stabiliser: inhibitor
+61434	stabiliser: UV absorber
+61435	stabiliser: other
+3350	stiffener
+3400	UV absorber
+3424	viscosity modifier
+3426	water repellent
+3429	wetting agent
+1342	other:
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="absorbent"/>
+			<xs:enumeration value="active substance"/>
+			<xs:enumeration value="adsorbent"/>
+			<xs:enumeration value="anticaking agent"/>
+			<xs:enumeration value="anticoagulant"/>
+			<xs:enumeration value="booster"/>
+			<xs:enumeration value="buffer"/>
+			<xs:enumeration value="coagulant"/>
+			<xs:enumeration value="coating agent"/>
+			<xs:enumeration value="colourant"/>
+			<xs:enumeration value="complexing agent"/>
+			<xs:enumeration value="conditioner"/>
+			<xs:enumeration value="controlled release agent"/>
+			<xs:enumeration value="crystal growth regulator"/>
+			<xs:enumeration value="dehydrating agent"/>
+			<xs:enumeration value="denaturant"/>
+			<xs:enumeration value="drying agent"/>
+			<xs:enumeration value="dye"/>
+			<xs:enumeration value="emulsifier"/>
+			<xs:enumeration value="filler"/>
+			<xs:enumeration value="flow aid agent"/>
+			<xs:enumeration value="fragrance"/>
+			<xs:enumeration value="hardener"/>
+			<xs:enumeration value="lubricant"/>
+			<xs:enumeration value="moisturiser"/>
+			<xs:enumeration value="neutraliser"/>
+			<xs:enumeration value="odour masking agent"/>
+			<xs:enumeration value="pH adjuster"/>
+			<xs:enumeration value="pigment"/>
+			<xs:enumeration value="propellant"/>
+			<xs:enumeration value="solvent"/>
+			<xs:enumeration value="stabiliser: antioxidant"/>
+			<xs:enumeration value="stabiliser: inhibitor"/>
+			<xs:enumeration value="stabiliser: UV absorber"/>
+			<xs:enumeration value="stabiliser: other"/>
+			<xs:enumeration value="stiffener"/>
+			<xs:enumeration value="UV absorber"/>
+			<xs:enumeration value="viscosity modifier"/>
+			<xs:enumeration value="water repellent"/>
+			<xs:enumeration value="wetting agent"/>
+			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

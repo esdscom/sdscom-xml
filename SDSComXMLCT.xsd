@@ -283,9 +283,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="SubstanceType" type="SDScom:SubstanceTypeEnum"/>
 			<xs:element name="SubstanceAdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>If SubstanceType is other (or not used), specify the details here.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
