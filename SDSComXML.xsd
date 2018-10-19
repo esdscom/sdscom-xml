@@ -226,6 +226,8 @@ History before v4.2.0:
 					<xs:documentation>true if dealers are out of stock. See also DistributionStoppedDate.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="MainIntendedUse" type="SDScom:EuPCSEnum"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SecondaryUses" type="SDScom:EuPCSEnum"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="RelevantIdentifiedUse">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
@@ -3365,6 +3367,7 @@ History before v4.2.0:
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RevisionNo" type="SDScom:string16" minOccurs="0"/>
+						<xs:element minOccurs="0" name="RevisionJustification" type="SDScom:JustificationForUpdate"/>
 						<xs:element name="RevisionComments" type="SDScom:Phrase" minOccurs="0"/>
 						<xs:element name="RevisionResponsible" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="LastUpdateDate" type="xs:date" minOccurs="0"/>
