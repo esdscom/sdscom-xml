@@ -3969,4 +3969,13 @@ A101 - v3.0 – Mixture form
 			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="Uuid">
+		<xs:annotation>
+			<xs:documentation>UUIDs are a 16 byte identified, represented in hex, thus 32 characters. Compatible with ESCom UUID type.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:minLength value="32"/>
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

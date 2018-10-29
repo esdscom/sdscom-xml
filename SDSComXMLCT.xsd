@@ -292,6 +292,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:element>
 			<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
 			<xs:element name="ChemicalPurity" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
+				<xs:annotation>
+					<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* StateUnderStandardConditionsEnum ******  -->
