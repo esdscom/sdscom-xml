@@ -255,13 +255,6 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IdNoCLInventory" type="SDScom:ReachRegNo" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Identification No. C and L Inventory: The substance's identification number in EU's Classification and Labelling Inventory. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Synonym" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
