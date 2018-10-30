@@ -241,19 +241,25 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					<xs:documentation> EC No: Identification number for trade products that are substances. Identification number for chemical substances within EEA. The EC number is assigned either in EINECS or in ELINCS. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReachRegNo" type="SDScom:ReachRegNo" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ReachRegNoComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
-				</xs:annotation>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ReachRegistration">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RegistrationNumber" type="SDScom:ReachRegNo" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="Synonym" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
