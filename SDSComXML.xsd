@@ -3005,28 +3005,72 @@ History before v4.2.0:
 			<xs:element maxOccurs="1" minOccurs="0" name="OtherAdverseEffects">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherAdverseEffectsDescription" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OzoneDepletionPotential" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhotochemicalOzoneCreationPotential" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="GlobalWarmingPotential" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AtmosphericLifetime" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruptingPotential" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DissolvedOrganicCarbon" type="SDScom:FurtherEcologicalData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TotalOrganicCarbon" type="SDScom:FurtherEcologicalData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InorganicCarbon" type="SDScom:FurtherEcologicalData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TheoreticalCarbonDioxideAmount" type="SDScom:FurtherEcologicalData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AOXAdsorbableOrganohalogens" type="SDScom:PhysChemUnitValue">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OzoneDepletionPotential" type="SDScom:PhysChemUnitValue">
 							<xs:annotation>
-								<xs:documentation> Adsorbable organohalogens </xs:documentation>
+								<xs:documentation>a.k.a. ODP</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="POXPurgeableOrganohalogens" type="SDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EOXExtractableOrganohalogens" type="SDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhotochemicalOzoneCreationPotential" type="SDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>a.k.a. POCP</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="GlobalWarmingPotential" type="SDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>a.k.a. GWP</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AtmosphericLifetime" type="SDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruptingPotential" type="SDScom:PhysChemUnitValue"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalEcologicalInformation" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Conclusion" type="SDScom:Phrase"/>
+			<xs:element minOccurs="0" name="AdditionalEcotoxInformation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DissolvedOrganicCarbon" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. DOC</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TheoreticalOxygenDemand" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. ThOD</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TheoreticalCarbonDioxideAmount" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. ThCO2</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalOxygenDemand" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. COD</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="BiochemicalOxygenDemand" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. BOD</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Bod5CodRatio" type="SDScom:PhysChemValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TotalOrganicCarbon" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. TOC</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InorganicCarbon" type="SDScom:FurtherEcologicalData">
+							<xs:annotation>
+								<xs:documentation>a.k.a. IC</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AOXAdsorbableOrganohalogens" type="SDScom:PhysChemUnitValue"> </xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="POXPurgeableOrganohalogens" type="SDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EOXExtractableOrganohalogens" type="SDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInformation" type="SDScom:Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 13 ========================================================= -->
