@@ -874,39 +874,6 @@ History before v4.2.0:
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="Function" type="SDScom:ComponentFunctionEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="IdentifiedUse">
-							<xs:annotation>
-								<xs:documentation> NB: Optional attribute IdentifiedUseId to identify the actual identified use (ExposureScenario). The optional attribute PrintAsAttachment can be used to toggle printing the exposue scenario inline in the Sds or as an attachment. </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SectorOfUse" type="SDScom:SectorOfUse"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductCategory" type="SDScom:ProductCategory"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProcessCategory" type="SDScom:ProcessCategory"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalReleaseCategory">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element minOccurs="0" name="ErcCode" type="SDScom:EnvironmentalReleaseCategoryCodeEnum"/>
-												<xs:element minOccurs="0" name="ErcFulltext" type="SDScom:Phrase"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificEnvironmentalReleaseCategory">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element minOccurs="0" name="SpercCode" type="SDScom:SpecificEnvironmentalReleaseCategoryCodeEnum"/>
-												<xs:element minOccurs="0" name="SpercFulltext" type="SDScom:Phrase"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryNoIntendedRelease" type="SDScom:ArticleCategory"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryWithIntendedRelease" type="SDScom:ArticleCategory"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="CorrespondingExposureScenario" type="SDScom:CorrespondingEs"/>
-								</xs:sequence>
-								<xs:attribute default="0" name="IdentifiedUseId" type="xs:integer"/>
-								<xs:attribute default="true" name="PrintAsAttachment" type="xs:boolean"/>
-							</xs:complexType>
-						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
