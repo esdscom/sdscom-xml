@@ -1181,12 +1181,13 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:documentation> BiologicalDegradation, source: Chapter 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Inoculum" type="SDScom:Phrase"/>
+			<xs:element name="Parameter" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Type" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Value" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
@@ -1196,6 +1197,7 @@ If there are multiple limit values depending on conditions described in remarks 
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Source" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* DegradationElimination *************  -->
@@ -1205,27 +1207,14 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
 			<!-- Was PhysChemUnitValue -->
 			<!-- xs:element name="TestDuration" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/ -->
-			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element minOccurs="0" name="pH" type="SDScom:Value"/>
+			<xs:element minOccurs="0" name="Source" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* MobilityData *************************  -->
-	<xs:complexType name="MobilityData">
-		<xs:annotation>
-			<xs:documentation> MobilityData, source: Chapter 12. </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ******************************************************************* WasteListEntry ***********************  -->
 	<xs:complexType name="WasteListEntry">
 		<xs:annotation>

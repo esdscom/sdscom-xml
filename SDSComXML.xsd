@@ -2771,70 +2771,63 @@ History before v4.2.0:
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="EcotoxicityTestResults">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
+						<xs:element minOccurs="0" name="AquaticToxicity">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="FishToxicity" type="SDScom:Ecotoxicity">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteFishToxicity" type="SDScom:Ecotoxicity">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="CrustaceanToxicity" type="SDScom:Ecotoxicity">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicFishToxicity" type="SDScom:Ecotoxicity">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AlgaeToxicity" type="SDScom:Ecotoxicity">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteInvertebrateToxicity" type="SDScom:Ecotoxicity">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="BacteriaToxicity" type="SDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="BirdToxicity" type="SDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="InsectToxicity" type="SDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="EarthwormToxicity" type="SDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SoilMicroorganismsToxicity" type="SDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SedimentLivingOrganismsToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicInvertebrateToxicity" type="SDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteAlgaeToxicity" type="SDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicAlgaeToxicity" type="SDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="PlantToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="MicroorganismToxicity" type="SDScom:Ecotoxicity"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoFishAcute" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SedimentToxicity" type="SDScom:Ecotoxicity">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoFishChronic" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
+						<xs:element minOccurs="0" name="TerrestrialToxicity">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SoilMicroorganismsToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteEarthwormToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicEarthwormToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="InsectToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcutePlantToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicPlantToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteSubchronicBirdToxicity" type="SDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="BirdReproductionToxicity" type="SDScom:Ecotoxicity"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoAlgaePlantAcute" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoAlgaePlantChronic" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoCrustaceansAcute" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Add information here if the species is listed as "Aquatic invertebrates" or "Daphnia", or if the species is unknown.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoCrustaceansChronic" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEcotoxInfoImpactOnSewageTreatment" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EcotoxicologyOtherData" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EcotoxicologyOverallEvaluation" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -2845,46 +2838,13 @@ History before v4.2.0:
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityDescription" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DegradationHalfLife" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="DegradationAndEliminationResults">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="BiologicalDegradability" type="SDScom:BiologicalDegradation">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="BiologicalDegradability" type="SDScom:BiologicalDegradation">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AbioticDegradationInAir" type="SDScom:DegradationElimination"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="HydrolysisInSeaWater" type="SDScom:DegradationElimination"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="HydrolysisInFreshWater" type="SDScom:DegradationElimination"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="HydrolysisInSoil" type="SDScom:DegradationElimination"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="PhysicochemicalElimination" type="SDScom:DegradationElimination"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Photolysis" type="SDScom:DegradationElimination"/>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DegradationInSewagePlantDescription" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalOxygenDemand" type="SDScom:FurtherEcologicalData">
-							<xs:annotation>
-								<xs:documentation> Unit = mg/L (formerly ppm was used) </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="BiochemicalOxygenDemand" type="SDScom:FurtherEcologicalData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Bod5CodRatio">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="Value" type="SDScom:UnitValue"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TheoreticalOxygenDemand" type="SDScom:FurtherEcologicalData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityAdditionalInfo" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityComments" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbioticDegradationInAir" type="SDScom:DegradationElimination"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityEvaluation" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2894,7 +2854,6 @@ History before v4.2.0:
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="BioaccumulationDescription" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="BioconcentrationFactor">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2942,32 +2901,21 @@ History before v4.2.0:
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="Mobility">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Mobility">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="MobilityDescription" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="KnownOrPredictedDistributionToEnvironmentalCompartments" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdsorptionCoefficient" type="SDScom:MobilityData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DesorptionCoefficient" type="SDScom:MobilityData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="WaterAirVolatilityRate" type="SDScom:MobilityData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HenryConstant" type="SDScom:MobilityData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SoilAirVolatilityRate" type="SDScom:MobilityData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbsorptionDesorptionInfo" type="SDScom:Phrase"/>
+						<xs:element minOccurs="0" name="Distribution" type="SDScom:Phrase"/>
+						<xs:element minOccurs="0" name="TransportType" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Result" type="SDScom:PhysChemValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Source" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="MobilityEvaluation" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="MobilityComments" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="ResultsOfPbtAndVpvbAssessment">
+			<xs:element maxOccurs="1" minOccurs="0" name="ResultsOfPbtAndVpvbAssessment" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation>There is no such info for mixtures as a whole. So this should be used only in instances for Components, or for substance SDSs.</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PbtAssessmentResults" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="VpvbAssessmentResults" type="SDScom:Phrase"/>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="OtherAdverseEffects">
 				<xs:complexType>
@@ -3390,7 +3338,7 @@ History before v4.2.0:
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RevisionNo" type="SDScom:string16" minOccurs="0"/>
-						<xs:element minOccurs="0" name="RevisionJustification" type="SDScom:JustificationForUpdate"/>
+						<xs:element minOccurs="0" name="RevisionJustification" type="SDScom:JustificationForUpdateEnum"/>
 						<xs:element name="RevisionComments" type="SDScom:Phrase" minOccurs="0"/>
 						<xs:element name="RevisionResponsible" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="LastUpdateDate" type="xs:date" minOccurs="0"/>
