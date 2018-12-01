@@ -1272,17 +1272,16 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Ecotoxicity *************  -->
-	<xs:complexType name="Ecotoxicity">
+	<xs:complexType name="EcotoxicityAquatic">
 		<xs:annotation>
-			<xs:documentation> Ecotoxicity. Source: Chapter 12. </xs:documentation>
+			<xs:documentation>Ecotoxicity for aquatic environment. Source: Chapter 12. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -1290,6 +1289,22 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  GasGroup *********************************  -->
+	<xs:complexType name="Ecotoxicity">
+		<xs:annotation>
+			<xs:documentation>Ecotoxicity for plants and mammals. Source: Chapter 12. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="GasGroup">
 		<xs:annotation>
 			<xs:documentation> GasGroup. Source: Chapter 9. </xs:documentation>
