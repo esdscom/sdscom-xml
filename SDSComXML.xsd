@@ -2380,6 +2380,41 @@ History before v4.2.0:
 			<xs:documentation>SDS section 11. Also used in "Component"</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="ToxicokineticInfo">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="NonHumanToxicologicalData">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="1" minOccurs="0" name="Method" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="Species" type="SDScom:Species">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="1" name="Dose" type="SDScom:DoseEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="ExposureRoute" type="SDScom:ExposureRouteEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Results" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="HumanToxicologicalData" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ToxicokineticInfoComments" type="SDScom:Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="AcuteToxicity">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2457,17 +2492,6 @@ History before v4.2.0:
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="ToxicokineticInfo">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DistributionInBody" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Metabolism" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Toxicokinetics" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HumanToxicologicalData" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ToxicokineticInfoComments" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2710,6 +2734,16 @@ History before v4.2.0:
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="SymptomsOfExposure">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfIngestion" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfSkinContact" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfInhalation" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfEyeContact" type="SDScom:Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Phototoxicity">
 				<xs:complexType>
 					<xs:sequence>
@@ -2743,19 +2777,8 @@ History before v4.2.0:
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherAdverseToxicologicalEffects" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="SymptomsOfExposure">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfIngestion" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfSkinContact" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfInhalation" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfEyeContact" type="SDScom:Phrase"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruption" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInformation" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 12 ========================================================= -->
