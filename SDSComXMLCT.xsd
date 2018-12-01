@@ -194,11 +194,29 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice>
-				<xs:element name="SubstanceName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:appinfo>SDScomBau</xs:appinfo>
-						<xs:appinfo>SDScomChem</xs:appinfo>
-					</xs:annotation>
+				<xs:element minOccurs="0" name="SubstanceName">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>IUPAC or chemical name</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="CasInventoryName" type="SDScom:string1024">
+								<xs:annotation>
+									<xs:documentation>a.k.a CAIN, Name in the CAS Online Inventory</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Synonyme" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
 				</xs:element>
 				<xs:element name="GenericName" type="SDScom:string1024" minOccurs="0">
 					<xs:annotation>
@@ -211,6 +229,11 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			<xs:element name="InciName" type="SDScom:string1024" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameDetergentsRegulation" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CasNo" type="SDScom:CasNo" minOccurs="0" maxOccurs="1">
@@ -261,25 +284,9 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Synonym" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Formula" type="SDScom:string256" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Formula: Field to state the gross formula for the chemical (applies to pure substances). The formula shall be stated according to standard from Chemical Abstract Service. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation> Iupac or chemical name </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NameDetergentsRegulation" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="SubstanceType" type="SDScom:SubstanceTypeEnum"/>
