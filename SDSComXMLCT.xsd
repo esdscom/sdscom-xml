@@ -1074,7 +1074,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:documentation> CorrosionIrritationData, source: Chapter 11 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="InvestigationMethod" type="SDScom:InvestigationMethodEnum"/>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
@@ -1091,7 +1091,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:documentation> CMRData, source: Chapter 11 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Dose" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureRoute" type="SDScom:ExposureRouteEnum" minOccurs="0" maxOccurs="1"/>
@@ -1112,11 +1111,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:documentation> STOTData, source: Chapter 11 used by DT: STOT </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1277,7 +1271,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:documentation>Ecotoxicity for aquatic environment. Source: Chapter 12. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
@@ -1294,7 +1287,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:documentation>Ecotoxicity for plants and mammals. Source: Chapter 12. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ToxicityType" type="SDScom:ToxicityTypeEnum" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>

@@ -2428,11 +2428,6 @@ History before v4.2.0:
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="ToxicityType" type="SDScom:ToxicityTypeEnum">
-										<xs:annotation>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-										</xs:annotation>
-									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="1" name="EffectTested" type="SDScom:DoseEnum">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2541,7 +2536,6 @@ History before v4.2.0:
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratoryOrSkinSensitisationTestResults">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="ToxicityType" type="SDScom:ToxicityTypeEnum"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="Method" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="Dose" type="SDScom:UnitValue"/>
 									<!-- Was Phrase -->
@@ -2590,7 +2584,7 @@ History before v4.2.0:
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="TestResults">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="ToxicityType" type="SDScom:ToxicityTypeEnum"/>
+									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="SDScom:InvestigationMethodEnum"/>
 									<xs:element maxOccurs="1" minOccurs="1" name="Method" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="EffectValue" type="SDScom:UnitValue"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestDuration" type="SDScom:UnitValue"/>
@@ -2627,9 +2621,13 @@ History before v4.2.0:
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="ReproductiveToxicity">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicity">
+				<xs:annotation>
+					<xs:documentation>Can have one instance for each ReproductiveToxicityType</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element minOccurs="0" name="ReproductiveToxicityType" type="SDScom:ReproductiveToxicityTypeEnum"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityTestResults" type="SDScom:CMRData"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityOtherInfo" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityHumanExperience" type="SDScom:Phrase"/>
@@ -2750,7 +2748,7 @@ History before v4.2.0:
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhototoxicityTestResults">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="ToxicityType" type="SDScom:ToxicityTypeEnum"/>
+									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="SDScom:InvestigationMethodEnum"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestMethod" type="SDScom:Phrase"/>
 									<!-- xs:element name="Dose" type="DoseEnum" minOccurs="0" maxOccurs="1"/ -->
 									<xs:element maxOccurs="1" minOccurs="0" name="Dose" type="SDScom:UnitValue"/>

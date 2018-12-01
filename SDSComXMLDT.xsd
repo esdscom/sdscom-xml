@@ -1529,32 +1529,6 @@ History before  v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ToxicityTypeEnum ******  -->
-	<xs:simpleType name="ToxicityTypeEnum">
-		<xs:annotation>
-			<xs:documentation> The legal values for the ToxicityTypeEnum. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Acute"/>
-			<xs:enumeration value="Delayed"/>
-			<xs:enumeration value="Subchronic"/>
-			<xs:enumeration value="Chronic"/>
-			<xs:enumeration value="ReproductionSexualFunction"/>
-			<xs:enumeration value="ReproductionDevToxicity"/>
-			<xs:enumeration value="ReproductionLactation"/>
-			<xs:enumeration value="Carcinogenicity"/>
-			<xs:enumeration value="InVivoMutagenicity"/>
-			<xs:enumeration value="InVitroMutagenicity"/>
-			<xs:enumeration value="RespiratorySensitivity"/>
-			<xs:enumeration value="SkinSensitivity"/>
-			<xs:enumeration value="SkinCorrosion"/>
-			<xs:enumeration value="EyeIrritation"/>
-			<xs:enumeration value="SkinIrritation"/>
-			<xs:enumeration value="EyeDamage"/>
-			<xs:enumeration value="Aspiration"/>
-			<xs:enumeration value="Other"/>
-			<xs:enumeration value="Unreported"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************** HazardClassCategoryEnum ******  -->
 	<xs:simpleType name="HazardClassCategoryEnum">
 		<xs:annotation>
@@ -3976,6 +3950,19 @@ A101 - v3.0 – Mixture form
 		<xs:restriction base="string">
 			<xs:minLength value="32"/>
 			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InvestigationMethodEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="in-vivo"/>
+			<xs:enumeration value="in-vitro"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReproductiveToxicityTypeEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="sexual function"/>
+			<xs:enumeration value="developmental"/>
+			<xs:enumeration value="lactation"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
