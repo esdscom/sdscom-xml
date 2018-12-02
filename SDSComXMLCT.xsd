@@ -188,36 +188,35 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Substance *************  -->
+	<xs:complexType name="SubstanceName">
+		<xs:sequence>
+			<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>IUPAC or chemical name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="CasInventoryName" type="SDScom:string1024">
+				<xs:annotation>
+					<xs:documentation>a.k.a CAIN, Name in the CAS Online Inventory</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Synonyme" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="Substance">
 		<xs:annotation>
 			<xs:documentation> Substance </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:choice>
-				<xs:element minOccurs="0" name="SubstanceName">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
-								<xs:annotation>
-									<xs:appinfo>SDScomBau</xs:appinfo>
-									<xs:appinfo>SDScomChem</xs:appinfo>
-									<xs:documentation>IUPAC or chemical name</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element minOccurs="0" name="CasInventoryName" type="SDScom:string1024">
-								<xs:annotation>
-									<xs:documentation>a.k.a CAIN, Name in the CAS Online Inventory</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="Synonyme" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:appinfo>SDScomBau</xs:appinfo>
-									<xs:appinfo>SDScomChem</xs:appinfo>
-								</xs:annotation>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
+			<xs:choice minOccurs="0">
+				<xs:element minOccurs="0" name="SubstanceName" type="SDScom:SubstanceName"> </xs:element>
 				<xs:element name="GenericName" type="SDScom:string1024" minOccurs="0">
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>

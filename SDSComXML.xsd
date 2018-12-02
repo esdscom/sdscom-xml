@@ -147,18 +147,16 @@ History before v4.2.0:
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="TradeName" type="SDScom:string512">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Trade name: Name of the chemical that appears on the packages. Shall be identical with the name on the hazard label. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Synonym" type="SDScom:string512">
-							<xs:annotation>
-								<xs:documentation> Synonym: Alternative name of the chemical, trivial name, chemical name, etc. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
+						<xs:choice minOccurs="0">
+							<xs:element minOccurs="0" name="SubstanceName" type="SDScom:SubstanceName"/>
+							<xs:element name="TradeName" type="SDScom:string512" maxOccurs="unbounded" minOccurs="0">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>Trade name: Name(s) of the chemical that appears on the packages. Shall be identical with the name on the hazard label. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
 							<xs:annotation>
 								<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
