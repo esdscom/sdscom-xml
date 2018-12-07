@@ -68,6 +68,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<!-- National extensions to the standard. Initially empty. -->
 	<xs:include schemaLocation="SDSComXMLNE.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_CH.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_DE.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>
 	<!-- ******************************************************************* SectorOfUse *************  -->
@@ -1214,7 +1215,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element minOccurs="0" name="Source" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* MobilityData *************************  -->
 	<!-- ******************************************************************* WasteListEntry ***********************  -->
 	<xs:complexType name="WasteListEntry">
 		<xs:annotation>
@@ -1379,7 +1379,26 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:sequence>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
-	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
+	<!-- ****************************************************************************** Stoerfallverordnung ***** -->
+	<xs:complexType name="Stoerfallverordnung">
+		<xs:annotation>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation>used in National Extensions for the adaptation of European directive 96/82/EC.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="Text" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Remark" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ****************************************************************************** Transport Types ***** -->
 	<xs:complexType name="TransportUnNumbers">
 		<xs:sequence>
 			<xs:element name="UnNoAdrRid" type="SDScom:int4" minOccurs="0">
@@ -1801,6 +1820,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="NationalLegislationVaticanCityState" type="SDScom:NationalExtensionVA" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="SUMI">
 		<xs:annotation>
 			<xs:documentation>Safe Use Information for Mixtures. Based on a draft prepared by Qualisys GmbH, Langenfeld, Germany, and published under CC license BY-SA 4.0 during the BDI workshop in Berlin, 26 October 2016. Includes information from the presentation of Martin Kops at ENES 8 and other documents.</xs:documentation>

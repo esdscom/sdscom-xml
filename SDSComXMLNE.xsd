@@ -63,12 +63,6 @@
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionCH">
-        <xs:annotation>
-            <xs:documentation>National legislation - Switzerland</xs:documentation>
-        </xs:annotation>
-        <xs:sequence> </xs:sequence>
-    </xs:complexType>
     <xs:complexType name="NationalExtensionCY">
         <xs:annotation>
             <xs:documentation>National legislation - Cyprus</xs:documentation>

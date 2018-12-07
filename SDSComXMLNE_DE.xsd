@@ -23,7 +23,7 @@ History until SDScom v4.2.0:
 		<xs:annotation>
 			<xs:appinfo>SDScomBau</xs:appinfo>
 			<xs:appinfo>SDScomChem</xs:appinfo>
-			<xs:documentation> National legislations related to the chemical: National German laws which implement provisions, and any other national measures related to the chemical. </xs:documentation>
+			<xs:documentation>Elements related to national legislation of Germany</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="RestrictionsOfOccupation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -72,24 +72,6 @@ History until SDScom v4.2.0:
 			<xs:element name="WasteRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> National waste regulations: National regulations related to waste that applies to the product or its packing. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- ******************************************************************* Stoerfallverordnung *************  -->
-	<xs:complexType name="Stoerfallverordnung">
-		<xs:annotation>
-			<xs:appinfo>SDScomChem</xs:appinfo>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Text" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
