@@ -3414,7 +3414,7 @@ History before v4.2.0:
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="XmlStandardVersionNo" type="SDScom:XmlStandardVersionEnum" minOccurs="1" maxOccurs="1">
+						<xs:element name="SdscomVersionNo" type="SDScom:XmlStandardVersionEnum" minOccurs="1" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -3569,7 +3569,7 @@ History before v4.2.0:
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="XMLStandardSubset" type="SDScom:XMLStandardSubsetEnum" minOccurs="0">
+						<xs:element name="SdscomSubset" type="SDScom:XMLStandardSubsetEnum" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
