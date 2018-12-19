@@ -42,7 +42,7 @@ History until SDScom v4.2.0:
 					<xs:documentation> National legislation: National requirements related to waste that applies to the product or its packaging. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StorageClass" type="SDScom:StorageClassEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="StorageClassDE" type="SDScom:StorageClassEnumDE" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -130,7 +130,7 @@ History until SDScom v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ************************************************************** StorageClassEnum ******  -->
-	<xs:simpleType name="StorageClassEnum">
+	<xs:simpleType name="StorageClassEnumDE">
 		<xs:annotation>
 			<xs:appinfo>SDScomBau</xs:appinfo>
 			<xs:appinfo>SDScomChem</xs:appinfo>
