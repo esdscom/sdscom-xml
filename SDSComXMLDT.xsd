@@ -1,61 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ********************************************************************************************** 
- Issue		: 	SDScom XML schema definition 4.x    	
- Purpose	: 	Basic data types Schema Definition      					
- 			  	  	to enable a xml-based		 									
- 			  	  	distribution of Safety Data Sheets (SDS)		 		
- 			  	  	specified in the Format. For detailed 				 	
-			  		  information please refer to 									
- 			  		  http://www.eSDScom.eu										
-
-History	:  
-Recent changes are documented on https://github.com/esdscom/sdscom-xml
-
-History before  v4.2.0: 																					
-
- 2013.03.15: HazardClassCategoryEnum changed by adding "Acute Tox. 1","Acute Tox. 2","Acute Tox. 3"
-             and "Acute Tox. 4". The non-standard Acute Tox values with exposure route oral/dermal/inhalation
-						 have been removed. Keeping them for backward compatibilty was discussed and rejected. See also
-						 comments in the code.	
-
- 2013.04.23 Added "4.0.2" to the legal set of versions in the type XmlStandardVersionEnum. 
-
- 2013.05.24 Changed the ClpSignalWord from Phrase to Enumeration with values "DGR", "WNG" or empty.
-
- 2013.05.25 Added the type HazardPictogram refering to Phrase and HazardPictogramEnum. The previous version
-						had no option for adding a text, only the code. 
-
- 2013.08.30 The set of leagl CLP H-phrass in HazardPhraseEnum and CLP P-phrases PrecautionPhraseEnum 
-						have been update with new entries. Such phrases to be removed in the future, are commented
-						in the code.
-
- 2013.10.11 The minOccur="0" and maxOccurs="1" consistently for the FullText in all variants of Phrases.
-						A text is not needed if a PhraseId identifies a sentance in a PhraseCatalogue. 
-
- 2013.10.16 MinOccurs=0 og MaxOccur=1 set consistently on ExactValue, UpperValue and LowerValue in
-						UnitValue and value. 
-
- 2013.10.29 SafetySign and SafetySignEnum added to make SafetySign an enum instead of a phrase.
-
- 2013.11.26 Updates in CLP HazardClassCategoryEnum. Flam. Aerosol 1 & 2 renamed to Aerosol 1 og Aerosol 2.
-						In addition Aerosol 3, which is not flammable, is introdused. Flammable gasses has two new
-						values Chem.Unst.Gas A og Chem.Unst.Gas B.See also comments i code.
-
- 2014.04.10 The PhysChemUnitValueWithTemperature element Temperature is given minOccurs=1 to be consistent
-						with PhysChemValueWithTemperature.
-
-2014.07.22 Pattern of RechRegNo adapted (make X available in the last section of the number, e.g  01-0000017295-68-XXXX )
-						New XMLStandardSubsetEnum, PackingGroupEnum
-2015.05.21  XMLStandardSubset has a new Enum value "undefined"
-					 Changed "Value" to a choice between ExactValue or Upper/Lower
-					 Added Enum for UnitId (UnitIdEnum)
-2015.06.18  derive "UnitValue" from "Value"
-					 derive "PercentageValue" from "Value"
-					 Added SimpleType "string3"
-					 Changed "Delimiter" from string 2 to string3
-					 Rename Flam. Aerosol 1,2,3 to Aerosol 1,2,3
-														
-********************************************************************************************** -->
+<!-- ****************************************************************************
+SDScom XML schema definition version 5   	
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
+***************************************************************************** -->
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<!-- ******************************************************************** string2 ********  -->
 	<xs:simpleType name="string2">
@@ -239,7 +187,7 @@ History before  v4.2.0:
 			<xs:documentation> The version of the XML standard which is applied in the transmission of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89 </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="4.4.0"/>
+			<xs:enumeration value="5.0.0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->

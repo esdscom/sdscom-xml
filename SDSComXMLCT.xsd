@@ -1,68 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Nils Jattkowski (eska Ingenieurgesellschaft mbH) bearbeitet -->
-<!-- ***************************************************************************** 
-Issue		: SDScom XML schema definition 4.x
-Purpose	: Complex Types Schema Definition      					
-		  		to enable a xml-based		 									
-		  		distribution of Safety Data Sheets (SDS)		 		
-		  		as specified in the Format. For detailed 				 
-		  		information please refer to 									
-		  		http://www.eSDSCom.eu									
-
-History	:  
-Recent changes are documented on https://github.com/esdscom/sdscom-xml
-
-History until v4.2.0: 																					
-
-2013.04.12 Normally, either a pure substance or a mixture is specified in the composition type. But 
-pure substances with stabilizers or impurities, might use both. The stabilizers and impurities can 
-be specified as components under the mixture with the IsIpurity og IsStabilizers flags set. An XSD
-CHOICE construction in the type Composition has been removedto allow use of both Substance and 
-Mixture in such cases. The MinOccurence for both Substance and Mixture has been set to 0.
-
-2013.09.16 Update of ClpHazardStatement from maxOccur 1 to 2 according to CLP ATP 4. 
-
-2013.09.20 Added the attribute ComponentInternalSdsId to components. Optional GUID to identfy
-components in mixtures as identical to pure substances with the same GUID as InternalSdsId. 
-
-2013.09.22 Added the the optional attribute PrintAsAttachment to exposure scenarios.
-
-2013.09.23 Added two new fields IsPhysicalValues and IsToxicologicalValues to flag substances of 
-mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all such "show in section X"-flags.
-
-2013.10.14 Added missing MinOccurs=0 and MaxOccurs=1 to IsDetergent.
-
-2013.11.21 The type of AssessedEuRestrictions and AssessedNationalRestrictions changed from xs:boolen
-					 to AssessmentEnum for consistency.
-
-2013.11.29 Added a new field IsEcoToxicologicalValues to flag substances of mixtures to be shown in section 12.
-
-2014.02.11 Updated minOccurrence to 0 for Medium in Solubilities according to Excel sheet.
-
-2014.02.12 The type for SafetySigns updated to phrase from SafetySign (enumeration) according to the Excel 
-					 definition.
-
-2014.04.04 MinOccurrence changed from 0 to 1 for SuCode, PcCode, ProcCode, AcCode.
-
-2014.07.22 New complexType for ProductGtin
-2015.05.21 ReachRegNo maxOccur changed to unbound
-					 Changed StorageStability from type phrase to own type
-					 Changed GloveThickness from type phrase to UnitValue
-					 Changed GloveBreakInTime from type phrase to UnitValue
-2015.06.18 Added under PhysicalChemicalProperties->Appearance a new state "StateUnderStandardConditions"
-					 Added StateUnderStandardConditionsEnum
-					 Changed "IsOccupationalExposureLimit" to "IncludeOccupationalExposureLimit"
-					 Changed "IsBiologicalLimitValues" to "IncludeBiologicalLimitValues"
-					 Changed "IsPhysicalValues" to "IncludePhysicalValues"
-					 Changed "IsToxicologicalValues" to "IncludeToxicologicalValues"
-					 Changed "IsEcoToxicologicalValues" to "IncludeEcoToxicologicalValues"
-					 Changed LowerExplosionLimit from PhysChemValue to PhysChemUnitValue
-					 Changed UpperExplosionLimit from PhysChemValue to PhysChemUnitValue
-										
-2015.07.30 Extended Component with TransportInformation
-					 IsDangerReleasingSubstanceAdrRidAdn
-					 IsDangerReleasingSubstanceImdg
-					 IsDangerReleasingSubstanceIcao
+<!-- ****************************************************************************
+SDScom XML schema definition version 5   	
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
@@ -226,63 +166,12 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element name="InciName" type="SDScom:string1024" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>according to EU cosmetics regulation</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NameDetergentsRegulation" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="CasNo" type="SDScom:CasNo" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> CAS No: Identification number for trade products that are substances. Identification number issued by Chemical Abstract Service. An internationally recognized system for identification of pure substances and groups of substances. </xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="IndexNo" type="SDScom:IndexNo" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Index No: Identification number applied on chemical substances classified by authorities and listed in part 3 of Annex VI to CLP regulation (EC) No 1272/2008. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="AuthorisationNo" type="SDScom:string32" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="EcNo" type="SDScom:EcNo" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> EC No: Identification number for trade products that are substances. Identification number for chemical substances within EEA. The EC number is assigned either in EINECS or in ELINCS. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ReachRegistration">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="RegistrationNumber" type="SDScom:ReachRegNo" minOccurs="0">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="Formula" type="SDScom:string256" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -298,10 +187,67 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 			</xs:element>
 			<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
 			<xs:element name="ChemicalPurity" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
-				<xs:annotation>
-					<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
-				</xs:annotation>
+			<xs:element minOccurs="0" name="RegionEU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="InciName" type="SDScom:string1024" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NameDetergentsRegulation" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndexNo" type="SDScom:IndexNo" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Index No: Identification number applied on chemical substances classified by authorities and listed in part 3 of Annex VI to CLP regulation (EC) No 1272/2008. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AuthorisationNo" type="SDScom:string32" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EcNo" type="SDScom:EcNo" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> EC No: Identification number for trade products that are substances. Identification number for chemical substances within EEA. The EC number is assigned either in EINECS or in ELINCS. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReachRegistration">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="RegistrationNumber" type="SDScom:ReachRegNo" minOccurs="0">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
+							<xs:annotation>
+								<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
