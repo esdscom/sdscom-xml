@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ****************************************************************************
+SDScom XML schema definition version 5   	
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
+***************************************************************************** -->
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
+	<xs:complexType name="SectorOfUse">
+		<xs:annotation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> SectorOfUse, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="SuCode" type="SDScom:SectorOfUseCodeEnum">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="SuFulltext" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductCategory">
+		<xs:annotation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> ProductCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="PcCode" type="SDScom:ProductCategoryCodeEnum">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="PcFulltext" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessCategory">
+		<xs:annotation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> ProcessCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="ProcCode" type="SDScom:ProcessCategoryCodeEnum">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="ProcFulltext" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArticleCategory">
+		<xs:annotation>
+			<xs:appinfo>SDScomBau</xs:appinfo>
+			<xs:appinfo>SDScomChem</xs:appinfo>
+			<xs:documentation> ArticleCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="AcCode" type="SDScom:ArticleCategoryCodeEnum">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="AcFulltext" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CorrespondingEs">
+		<xs:annotation>
+			<xs:documentation> CorrespondingEs source: Chapter 1 </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="ExposureScenarioName" type="SDScom:string128"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentFileName" type="SDScom:string256">
+				<xs:annotation>
+					<xs:documentation> File name: For example, a locked PDF document. Static URL possible. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentPrintDate" type="date">
+				<xs:annotation>
+					<xs:documentation> Print date: </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentSignature" type="SDScom:string64">
+				<xs:annotation>
+					<xs:documentation> Digital signature: Digital signature to verify the document </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="XmlFileName" type="SDScom:string256">
+				<xs:annotation>
+					<xs:documentation> Xml file name: File name if the exposure scenarios is available in an Xml format. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DNEL">
+		<xs:annotation>
+			<xs:documentation> DNEL, source: Chapter 8 </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="Group" type="SDScom:EffectLevelGroupEnum"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="ExposureRouteFrequencyAndEffect" type="SDScom:EffectLevelTypeEnum">
+				<xs:annotation>
+					<xs:documentation> Exposure route, frequency and type of effect: </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="DnelValue" type="SDScom:UnitValue"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="SDScom:Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the DNEL is very low and where more than 1 DNEL existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DMEL">
+		<xs:annotation>
+			<xs:documentation> DNEL source: Chapter 8 </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="ExposureRouteFrequencyAndEffect" type="SDScom:EffectLevelTypeEnum"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="DmelValue" type="SDScom:UnitValue"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="SDScom:Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the DMEL is very low and where more than 1 DMEL existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PNEC">
+		<xs:annotation>
+			<xs:documentation> PNEC source: Chapter 8 </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="Type" type="SDScom:PNECTypeEnum"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="PnecValue" type="SDScom:UnitValue"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="SDScom:Value">
+				<xs:annotation>
+					<xs:documentation>May be important in those cases where the PNEC is very low and where more than 1 PNEC existing to show how high the influence on the deviation was.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SUMI">
+		<xs:annotation>
+			<xs:documentation>Safe Use Information for Mixtures. Based on a draft prepared by Qualisys GmbH, Langenfeld, Germany, and published under CC license BY-SA 4.0 during the BDI workshop in Berlin, 26 October 2016. Includes information from the presentation of Martin Kops at ENES 8 and other documents.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SumiReference">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SectorSumiCode" type="string">
+							<xs:annotation>
+								<xs:documentation>Leave empty if the Sumi is not published by a chemical sector association and part of Use Map activities (no company specific SUMI codes here!). First word should be the sector name, e.g. AISE or FEICA, followed by the sector's SUMI code. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="VersionNumber" type="SDScom:string16">
+							<xs:annotation>
+								<xs:documentation>Version number is optional here because SUMI info is part of the eSDS which is versioned, so the version date is expected to be the same and is sufficient to determine a sector SUMI version.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" name="Title" type="SDScom:Phrase"/>
+			<xs:element name="GeneralDescription">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element minOccurs="0" name="UseDescriptors">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="SectorOfUse" type="SDScom:SectorOfUse"/>
+									<xs:element minOccurs="0" name="ProcessCategory" type="SDScom:ProcessCategory"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SwedReference" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Reference to the Sector-specific Worker Exposure Description as named in the sector's Use Map.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" name="Text" type="SDScom:Phrase"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OperationalConditions">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Properties">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="MaxDuration" type="SDScom:OneUnitValue">
+										<xs:annotation>
+											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="SDScom:Phrase"/>
+									<xs:element minOccurs="0" name="AirExchangeRate" type="SDScom:OneUnitValue">
+										<xs:annotation>
+											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" name="Text" type="SDScom:Phrase"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RiskManagementMeasures">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="RmmWorker" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmPictogram" type="SDScom:RmmPictogramEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment" type="SDScom:Phrase"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="GoodPracticeAdvice">
+				<xs:annotation>
+					<xs:documentation>In Exposure Scenarios, also known as AGPA = Additional Good Practice Advice</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Text" type="SDScom:Phrase"/>
+						<xs:element minOccurs="0" name="AgpaPictogram" type="SDScom:AgpaPictogramEnum"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DisclaimerBoundaries" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Describes the boundaries of the SUMI. Mandatory according to some sources, optional according to others.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ReachRegNo">
+		<xs:annotation>
+			<xs:documentation> The EC number identification string for a substance. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:pattern value="\d{2}-\d{10}-\d{2}(-\d{4}|-xxxx|-XXXX)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EcNo">
+		<xs:annotation>
+			<xs:documentation>The EC number (EINECS/ELINCS/NLP) string for a substance. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:pattern value="\d{3}-\d{3}-\d{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IndexNo">
+		<xs:annotation>
+			<xs:documentation>The Index number string for a substance, as listed in part 3 of Annex VI to CLP regulation (EC) No 1272/2008. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9,X]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ufi">
+		<xs:annotation>
+			<xs:documentation>Represents a Unique Formula Identifier without dashes. See https://poisoncentres.echa.europa.eu/de/ufi-generator</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="([A-Z0-9]{4}-){3}[A-Z0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ESVersion">
+		<xs:annotation>
+			<xs:documentation> Data type describe an exposure scenario version. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:pattern value="[0-9]{1,2}.[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReachRoleDescriptionEnum">
+		<xs:annotation>
+			<xs:documentation>The role values of a contact as defined under REACH. Used in field Role. See issue #18. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="Manufacturer"/>
+			<xs:enumeration value="Importer"/>
+			<xs:enumeration value="Only representative"/>
+			<xs:enumeration value="Distributor"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AtpEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="CLP00-1272/2008"/>
+			<xs:enumeration value="CLP01-790/2009"/>
+			<xs:enumeration value="CLP02-286/2011"/>
+			<xs:enumeration value="CLP03-618/2012"/>
+			<xs:enumeration value="CLP04-487/2013"/>
+			<xs:enumeration value="CLP05-944/2013"/>
+			<xs:enumeration value="CLP06-605/2014"/>
+			<xs:enumeration value="CLP06a-1297/2014"/>
+			<xs:enumeration value="CLP07-2015/1221"/>
+			<xs:enumeration value="CLP08-2016/918"/>
+			<xs:enumeration value="CLP09-2016/1179"/>
+			<xs:enumeration value="CLP09a-2017/542"/>
+			<xs:enumeration value="CLP10-2017/776"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PNECTypeEnum">
+		<xs:annotation>
+			<xs:documentation> The legal codes for the PNECTypeEnum. Source: Chapter 8 </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="Soil"/>
+			<xs:enumeration value="Sediment, marine water"/>
+			<xs:enumeration value="Sediment, freshwater"/>
+			<xs:enumeration value="Aquatic, intermittent release"/>
+			<xs:enumeration value="Aquatic, marine water"/>
+			<xs:enumeration value="Aquatic, freshwater"/>
+			<xs:enumeration value="Sewage treatment plant (STP)"/>
+			<xs:enumeration value="Secondary poisoning"/>
+			<xs:enumeration value="Air"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

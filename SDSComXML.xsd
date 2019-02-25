@@ -69,11 +69,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:annotation>
 							</xs:element>
 						</xs:choice>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
-							<xs:annotation>
-								<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductGtin" type="SDScom:ProductGtin">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -91,6 +86,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> Comments to information provided in product identity. </xs:documentation>
 							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="RegionEU">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
+										<xs:annotation>
+											<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -626,67 +632,73 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 2 ========================================================== -->
-	<xs:complexType name="HazardIdentificationEU">
+	<xs:complexType name="HazardIdentification">
 		<xs:annotation>
 			<xs:documentation>SDS section 2</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Classification" type="SDScom:Classifications">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Product classification: To collect alternative ways of product classification in one group. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellings">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="OtherHazardsInfo">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Other hazards: Hazards which do not result in classification but which may contribute to the overall hazards of the substance or mixture, such as formation of air contaminants during hardening or processing, dustiness, dust explosion hazards, cross-sensitisation, suffocation, freezing, high potency for odour or taste, or environmental effects like hazards to soil-dwelling organisms, or photochemical ozone creation potential. </xs:documentation>
-				</xs:annotation>
+			<xs:element minOccurs="0" name="RegionEU">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HazardDescriptionGeneral" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="Classification" type="SDScom:Classifications">
 							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Hazard identification: Description of the most important hazardous effects connected to the chemical in normal use and foreseeable misuse. This element should not be used in the compilation of SDSs - only to receive information from existing SDSs in import! </xs:documentation>
+								<xs:documentation> Product classification: To collect alternative ways of product classification in one group. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhysicochemicalEffect" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellings">
 							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Physicochemical effects: The most important adverse physicochemical effects and symptoms. </xs:documentation>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HealthEffect" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="OtherHazardsInfo">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Health effects: The most important adverse health effects and symptoms. </xs:documentation>
+								<xs:documentation> Other hazards: Hazards which do not result in classification but which may contribute to the overall hazards of the substance or mixture, such as formation of air contaminants during hardening or processing, dustiness, dust explosion hazards, cross-sensitisation, suffocation, freezing, high potency for odour or taste, or environmental effects like hazards to soil-dwelling organisms, or photochemical ozone creation potential. </xs:documentation>
 							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalEffect" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Environmental effects: The most important adverse environmental effects and symptoms. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EffectsOfMisuse" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Effects of misuse: Description of the most important adverse effects and symptoms of possible misuses that can be reasonably foreseen. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherHazards" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Ohter hazards: Other hazards necessary to mention which do not result in classification, but which contribute to overall hazards. </xs:documentation>
-							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="HazardDescriptionGeneral" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Hazard identification: Description of the most important hazardous effects connected to the chemical in normal use and foreseeable misuse. This element should not be used in the compilation of SDSs - only to receive information from existing SDSs in import! </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="PhysicochemicalEffect" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Physicochemical effects: The most important adverse physicochemical effects and symptoms. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="HealthEffect" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Health effects: The most important adverse health effects and symptoms. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalEffect" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Environmental effects: The most important adverse environmental effects and symptoms. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="EffectsOfMisuse" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Effects of misuse: Description of the most important adverse effects and symptoms of possible misuses that can be reasonably foreseen. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherHazards" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Ohter hazards: Other hazards necessary to mention which do not result in classification, but which contribute to overall hazards. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -699,55 +711,64 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>SDS section 3</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CompositionType" type="SDScom:CompositionTypeEnum">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="FormulationType" type="SDScom:FormulationTypeEnum">
-				<xs:annotation>
-					<xs:documentation>Just for transmission of Poison Center Notification data! This type has some overlap with form, product categories, and other types. Take care of consistency!</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalCharacterization" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation>was "DescriptionOfTheMixture" up to v4.2.3; see issue #95</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:sequence>
-				<xs:choice>
-					<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
-						<xs:annotation>
-							<xs:appinfo>SDScomBau</xs:appinfo>
-							<xs:appinfo>SDScomChem</xs:appinfo>
-							<xs:documentation>describes a single constituent substance</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:Component">
-						<xs:annotation>
-							<xs:appinfo>SDScomBau</xs:appinfo>
-							<xs:appinfo>SDScomChem</xs:appinfo>
-							<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:choice>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:Component">
-					<xs:annotation>
-						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:Component">
-					<xs:annotation>
-						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:Component"/>
-			</xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="CompositionComments" type="SDScom:Phrase"/>
+			<xs:element minOccurs="0" name="RegionEU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="SDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="FormulationType" type="SDScom:FormulationTypeEnum">
+							<xs:annotation>
+								<xs:documentation>Just for transmission of Poison Center Notification data! This type has some overlap with form, product categories, and other types. Take care of consistency!</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
+							</xs:annotation>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:Component">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:Component">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:Component">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:Component"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Component">
@@ -796,11 +817,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstanceImdg" type="xs:boolean"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstanceIcao" type="xs:boolean"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstanceIata" type="xs:boolean"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionEU">
+				<xs:annotation>
+					<xs:documentation>Listing information is covered in type Substance via the EcNumber and ReachRegistrationNumber fields.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="Classification" type="SDScom:Classification"/>
@@ -2899,11 +2923,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="ResultsOfPbtAndVpvbAssessment" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation>There is no such info for mixtures as a whole. So this should be used only in instances for Components, or for substance SDSs.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="OtherAdverseEffects">
 				<xs:complexType>
 					<xs:sequence>
@@ -2973,6 +2992,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionEU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" name="ResultsOfPbtAndVpvbAssessment" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>There is no such info for mixtures as a whole. So this should be used only in instances for Components, or for substance SDSs.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 13 ========================================================= -->
@@ -2992,11 +3022,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="EuRequirements">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> EU requirements: Information related to EU waste legislation. </xs:documentation>
+					<xs:documentation> Comments on disposal considerations: Comments or information related to the information provided in this section. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="RegionEU">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3035,13 +3071,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Comments on disposal considerations: Comments or information related to the information provided in this section. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 14 ========================================================= -->
@@ -3051,71 +3080,320 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<!-- (Not following EuphraC) -->
-			<xs:element minOccurs="0" name="UnNo" type="SDScom:TransportUnNumbers">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> UN number: Identification number for products classified as dangerous goods. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="ProperShippingName" type="SDScom:TransportProperShippingNames">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Proper shipping name: Designation of the dangerous goods according to the transport regulations. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="TransportHazardClassification" type="SDScom:TransportHazardClassifications">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="PackingGroup" type="SDScom:TransportPackingGroups">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="EnvironmentalHazards" type="SDScom:TransportEnvironmentalHazards">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialPrecautionUser" type="SDScom:Phrase"/>
-			<xs:element minOccurs="0" name="TransportInBulk">
+			<xs:element minOccurs="0" name="Imdg">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ProductName" type="SDScom:string128"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ShipType" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PollutionCategory" type="SDScom:Phrase"/>
+						<xs:element minOccurs="0" name="UnNo" type="SDScom:int4">
+							<xs:annotation>
+								<xs:documentation> UN number IMDG: </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum">
+							<xs:annotation>
+								<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="SDScom:TransportClassEnum"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum"/>
+						<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="MarinePollutant" type="boolean">
+							<xs:annotation>
+								<xs:documentation> Marine pollutant: To state if the chemical is classified as a marine pollutant.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="OtherInformation">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="SDScom:string20"/>
+									<xs:element minOccurs="0" name="ExceptedQty" type="SDScom:TransportEq"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="EmsCode">
+										<xs:simpleType>
+											<xs:restriction base="string">
+												<xs:pattern value="F-\p{Lu}, S-\p{Lu}"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="OtherTransportInformation" type="SDScom:TransportOtherInformation">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
+			<xs:element minOccurs="0" name="IataDgr">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="UnNo" type="SDScom:int4">
+							<xs:annotation>
+								<xs:documentation> UN number ICAO: </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum"/>
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="SDScom:TransportClassEnum"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum"/>
+						<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="OtherInformation">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="SDScom:string20">
+										<xs:annotation>
+											<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="ExemptedQty" type="SDScom:TransportEq"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialPrecautionUser" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation>Any other information that applies to all transport carriers</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionEU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="AdrRid">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="UnNo" type="SDScom:int4">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> UN number ADR and RID: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="ProperShippingNameNational" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNational" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> ADR and RID hazard class: The chemical’s most important transport hazard class. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="1" name="ClassCode" type="SDScom:string4">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+									<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="OtherInformation">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element maxOccurs="1" minOccurs="0" name="AdrRidLimitedQty" type="SDScom:string20">
+													<xs:annotation>
+														<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element minOccurs="0" name="AdrRidExceptedQty" type="SDScom:TransportEq"/>
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="SDScom:string4"/>
+												<xs:element maxOccurs="1" minOccurs="0" name="AdrTunnelRestrictionCode" type="SDScom:string10">
+													<xs:annotation>
+														<xs:appinfo>SDScomChem</xs:appinfo>
+													</xs:annotation>
+												</xs:element>
+												<xs:element maxOccurs="1" minOccurs="0" name="AdrTransportCategory">
+													<xs:simpleType>
+														<xs:restriction base="string">
+															<xs:enumeration value="1"/>
+															<xs:enumeration value="2"/>
+															<xs:enumeration value="3"/>
+															<xs:enumeration value="4"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element minOccurs="0" name="AdrHazardIdentificationNo" type="SDScom:string10">
+													<xs:annotation>
+														<xs:documentation>also known as Kemler code</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidOtherInfo" type="SDScom:Phrase"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="Adn">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="UnNo" type="SDScom:int4">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> UN number ADN: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="ProperShippingNameNational" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNational" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="1" name="ClassCode" type="SDScom:string4">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+									<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="OtherInformation">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="SDScom:string20">
+													<xs:annotation>
+														<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element minOccurs="0" name="ExceptedQty" type="SDScom:TransportEq"/>
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="TransportInBulk">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="ProductName" type="SDScom:string128"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ShipType" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="PollutionCategory" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 15 ========================================================= -->
-	<xs:complexType name="RegulatoryInfo">
+	<xs:complexType name="RegulatoryInformation">
 		<xs:annotation>
-			<xs:documentation>SDS section 15</xs:documentation>
+			<xs:documentation>SDS section 15. This type covers information on the product. Any information on substances which might be necessary to be listed in section 15 is covered in type "Substance".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="SpecificProvisionsRelatedToProduct">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInformationComments" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInfoAdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element minOccurs="0" name="RegionEU">
 				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Specific regulations related to the chemical: If the chemical is subject of specific provisions in relation to protection of man or environment, these provisions shall be stated. </xs:documentation>
+					<xs:documentation>This element refers to all countries an regulations that will be covered by a safety data sheet in EU REACH format. Including a country here is no political statement, i.e. it does not mean the country is, will be or should be(come) part of the European Union.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3151,7 +3429,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element maxOccurs="1" minOccurs="0" name="IsDetergent" type="xs:boolean"> </xs:element>
+												<xs:element maxOccurs="1" minOccurs="0" name="IsDetergent" type="boolean"> </xs:element>
 												<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentInformation" type="SDScom:Phrase"> </xs:element>
 											</xs:sequence>
 										</xs:complexType>
@@ -3219,54 +3497,194 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element minOccurs="0" name="NationalLegislation">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="NationalLegislationAndorra" type="SDScom:NationalExtensionAD">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAlbania" type="SDScom:NationalExtensionAL">
+										<xs:annotation>
+											<xs:documentation>EU candidate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAustria" type="SDScom:NationalExtensionAT"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBosniaAndHerzegovina" type="SDScom:NationalExtensionBA">
+										<xs:annotation>
+											<xs:documentation>not a EU member and witout chemicals law - except for the Srpska province, which aligns its safety data sheet to the EU.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelgium" type="SDScom:NationalExtensionBE"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBulgaria" type="SDScom:NationalExtensionBG"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSwitzerland" type="SDScom:NationalExtensionCH">
+										<xs:annotation>
+											<xs:documentation>no EU member, but has its legislation widely aligned to EU law, thus accepts safety data sheets in EU format.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="NationalLegislationCyprus" type="SDScom:NationalExtensionCY"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCzechRepublic" type="SDScom:NationalExtensionCZ"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGermany" type="SDScom:NationalExtensionDE">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationDenmark" type="SDScom:NationalExtensionDK"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia" type="SDScom:NationalExtensionEE"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSpain" type="SDScom:NationalExtensionES">
+										<xs:annotation>
+											<xs:documentation>includes the Canaries.
+Includes Ceuta and Melilla, which are not part of the European Customs Union.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFinland" type="SDScom:NationalExtensionFI"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFrance" type="SDScom:NationalExtensionFR">
+										<xs:annotation>
+											<xs:documentation>includes French Guayana, Guadeloupe, Martinique, Réunion, Mayotte and Saint Martin, which are not part of the European Customs Union.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUnitedKingdom" type="SDScom:NationalExtensionGB">
+										<xs:annotation>
+											<xs:documentation>No EU member anymore after March 29, 2019. Until deviating legislation is established, the UK will be covered with a EU safety data sheet.
+Includes Gibraltar, which is not part of the European Customs Union.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGreece" type="SDScom:NationalExtensionGR"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCroatia" type="SDScom:NationalExtensionHR"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationHungary" type="SDScom:NationalExtensionHU"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIreland" type="SDScom:NationalExtensionIE"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIceland" type="SDScom:NationalExtensionIS">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but chemical legislation aligned with EU legislation.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationItaly" type="SDScom:NationalExtensionIT"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLiechtenstein" type="SDScom:NationalExtensionLI">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLithuania" type="SDScom:NationalExtensionLT"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLuxembourg" type="SDScom:NationalExtensionLU"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLatvia" type="SDScom:NationalExtensionLV"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMonaco" type="SDScom:NationalExtensionMC">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMontenegro" type="SDScom:NationalExtensionME">
+										<xs:annotation>
+											<xs:documentation>EU candidate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorthMacedonia" type="SDScom:NationalExtensionMK">
+										<xs:annotation>
+											<xs:documentation>EU candidate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMalta" type="SDScom:NationalExtensionMT"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNetherlands" type="SDScom:NationalExtensionNL"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorway" type="SDScom:NationalExtensionNO">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPoland" type="SDScom:NationalExtensionPL"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPortugal" type="SDScom:NationalExtensionPT">
+										<xs:annotation>
+											<xs:documentation>includes the Azores and Madeira</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRomania" type="SDScom:NationalExtensionRO"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSerbia" type="SDScom:NationalExtensionRS">
+										<xs:annotation>
+											<xs:documentation>EU candidate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSweden" type="SDScom:NationalExtensionSE"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovenia" type="SDScom:NationalExtensionSI"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovakia" type="SDScom:NationalExtensionSK"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSanMarino" type="SDScom:NationalExtensionSM">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUkraine" type="SDScom:NationalExtensionUA">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but legislation allows SDS according to EU standards.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationVaticanCityState" type="SDScom:NationalExtensionVA">
+										<xs:annotation>
+											<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="ChemicalSafetyAssessmentInfo">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="ChemicalSafetyAssessmentCarriedOut" type="boolean">
+										<xs:annotation>
+											<xs:documentation> Chemical safety assessment (CSA) carried out: To state if CSA has been performed on the substance or the individual substances of a mixture. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalSafetyAssessment" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="ChemicalSafetyReport">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="CsrRequired" type="boolean"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="CsrLocation" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="ExposureScenario">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="MixtureExposureScenarioInAnnex" type="boolean">
+										<xs:annotation>
+											<xs:documentation> Exposure scenarios for the mixture: To state if information on the actual use of the mixture, similar to information in an exposure scenario for a substance, is enclosed the SDS. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioComments" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation> Comments to exposure scenarioes: To provide information on status of ES, ES not required etc. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="NationalLegislation" type="SDScom:NationalRegulations">
+			<xs:element minOccurs="0" name="RegionJP" type="SDScom:NationalExtensionJP"/>
+			<xs:element name="RegionRU" minOccurs="0">
 				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> National legislation related to chemicals: National legislation can be defined as optional extensions prepared in national Xsd files, e.g. SdsXmlNE_DE.xsd for Germany. These files are included in the main SDSComXML.xsd validation file. </xs:documentation>
+					<xs:documentation>This region is formed by countries having a customs union, as this gives the strongest indication of future alignment of (existing and new) legislation.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelarus" type="SDScom:NationalExtensionBY"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationKazakhstan" type="SDScom:NationalExtensionKZ"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRussianFederation" type="SDScom:NationalExtensionRU"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegionTR" minOccurs="0" type="SDScom:NationalExtensionTR">
+				<xs:annotation>
+					<xs:documentation>Although an EU candidate, Turkish chemicals legislation is moving away from the EU again and thus treated as a separate region.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInformationComments" type="SDScom:Phrase"/>
-			<xs:element minOccurs="0" name="ChemicalSafetyAssessmentInfo">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="ChemicalSafetyAssessmentCarriedOut" type="xs:boolean">
-							<xs:annotation>
-								<xs:documentation> Chemical safety assessment (CSA) carried out: To state if CSA has been performed on the substance or the individual substances of a mixture. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalSafetyAssessment" type="SDScom:Phrase"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="ChemicalSafetyReport">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="CsrRequired" type="xs:boolean"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CsrLocation" type="SDScom:Phrase"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="ExposureScenario">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="MixtureExposureScenarioInAnnex" type="xs:boolean">
-							<xs:annotation>
-								<xs:documentation> Exposure scenarios for the mixture: To state if information on the actual use of the mixture, similar to information in an exposure scenario for a substance, is enclosed the SDS. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioComments" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:documentation> Comments to exposure scenarioes: To provide information on status of ES, ES not required etc. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInfoAdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 16 ========================================================= -->
@@ -3305,19 +3723,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Main information sources: References to information sources applied in the compilation of the SDS. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Acronym" type="string"/>
-						<xs:element name="Meaning" type="SDScom:Phrase"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="RevisionInformation" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation> Revision information: Information on changes in the SDS. </xs:documentation>
@@ -3352,22 +3757,41 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Comments to information in this section: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PositiveEcolabelling" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
-				</xs:annotation>
+			<xs:element minOccurs="0" name="RegionEU">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="EcoLabelName" type="SDScom:string64" minOccurs="0"/>
-						<xs:element name="ExpirationDate" type="xs:date" minOccurs="0"/>
-						<xs:element name="LicenceNo" type="SDScom:string64" minOccurs="0"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Acronym" type="string"/>
+									<xs:element name="Meaning" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PositiveEcolabelling" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="EcoLabelName" type="SDScom:string64" minOccurs="0"/>
+									<xs:element name="ExpirationDate" type="date" minOccurs="0"/>
+									<xs:element name="LicenceNo" type="SDScom:string64" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
-			</xs:element>
-			<xs:element name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
-				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -3382,14 +3806,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="SdscomVersionNo" type="SDScom:XmlStandardVersionEnum" minOccurs="1" maxOccurs="1">
+						<xs:element name="SdscomVersionNo" type="SDScom:SdscomVersionEnum" minOccurs="1" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Version Number: The version of the SDSCom standard which is applied in the transmission of information. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SdscomSubset" type="SDScom:XMLStandardSubsetEnum" minOccurs="0">
+						<xs:element name="SdscomSubset" type="SDScom:SdscomSubsetEnum" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -3531,17 +3955,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 2 (Hazards identification) *******************************************************************************  -->
-			<xs:element name="HazardIdentification" minOccurs="1" maxOccurs="1">
+			<xs:element name="HazardIdentification" minOccurs="1" maxOccurs="1" type="SDScom:HazardIdentification">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Hazard identification: </xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RegionEU" type="SDScom:HazardIdentificationEU"/>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 3 (Composition/information on ingredients) ***********************************************************  -->
 			<xs:element name="Composition" minOccurs="1" maxOccurs="1" type="SDScom:Composition"> </xs:element>
@@ -3550,7 +3968,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> First aid measures: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 5 (Firefighting measures) ******************************************************************************  -->
@@ -3558,7 +3975,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Fire fighting measures: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 6 (Accidental release measures) *********************************************************************  -->
@@ -3632,7 +4048,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<!-- ******************************************************************  SECTION 15 (Regulatory information) ************************************************************************  -->
-			<xs:element name="RegulatoryInfo" minOccurs="1" maxOccurs="1" type="SDScom:RegulatoryInfo">
+			<xs:element name="RegulatoryInformation" minOccurs="1" maxOccurs="1" type="SDScom:RegulatoryInformation">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>

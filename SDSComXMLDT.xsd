@@ -182,7 +182,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
-	<xs:simpleType name="XmlStandardVersionEnum">
+	<xs:simpleType name="SdscomVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation> The version of the XML standard which is applied in the transmission of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89 </xs:documentation>
 		</xs:annotation>
@@ -1104,14 +1104,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:restriction base="SDScom:string256"/>
 	</xs:simpleType>
-	<xs:simpleType name="ReachRegNo">
-		<xs:annotation>
-			<xs:documentation> The EC number identification string for a substance. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="\d{2}-\d{10}-\d{2}(-\d{4}|-xxxx|-XXXX)?"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************** CasNo *****  -->
 	<xs:simpleType name="CasNo">
 		<xs:annotation>
@@ -1130,41 +1122,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:pattern value="\d{9}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="EcNo">
-		<xs:annotation>
-			<xs:documentation> The EC number identification string for a substance. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="\d{3}-\d{3}-\d{1}"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************** IndexNo *****  -->
-	<xs:simpleType name="IndexNo">
-		<xs:annotation>
-			<xs:documentation> The Index number identification string for a substance. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9,X]"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************** ESVersion *****  -->
-	<xs:simpleType name="Ufi">
-		<xs:annotation>
-			<xs:documentation>Represents a Unique Formula Identifier without dashes. See https://poisoncentres.echa.europa.eu/de/ufi-generator</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:whiteSpace value="collapse"/>
-			<xs:pattern value="([A-Z0-9]{4}-){3}[A-Z0-9]{4}"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ESVersion">
-		<xs:annotation>
-			<xs:documentation> Data type describe an exposure scenario version. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{1,2}.[0-9]{1,2}"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************** RoleDescriptionEnum ******  -->
 	<xs:simpleType name="RoleDescriptionEnum">
 		<xs:annotation>
@@ -1761,22 +1720,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* PNECTypeEnum *************  -->
-	<xs:simpleType name="PNECTypeEnum">
-		<xs:annotation>
-			<xs:documentation> The legal codes for the PNECTypeEnum. Source: Chapter 8 </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Soil"/>
-			<xs:enumeration value="Sediment, marine water"/>
-			<xs:enumeration value="Sediment, freshwater"/>
-			<xs:enumeration value="Aquatic, intermittent release"/>
-			<xs:enumeration value="Aquatic, marine water"/>
-			<xs:enumeration value="Aquatic, freshwater"/>
-			<xs:enumeration value="Sewage treatment plant (STP)"/>
-			<xs:enumeration value="Secondary poisoning"/>
-			<xs:enumeration value="Air"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************* PhValueStateEnum *************  -->
 	<xs:simpleType name="PhValueStateEnum">
 		<xs:annotation>
@@ -2886,7 +2829,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* XMLStandardSubsetEnum *************  -->
-	<xs:simpleType name="XMLStandardSubsetEnum">
+	<xs:simpleType name="SdscomSubsetEnum">
 		<xs:annotation>
 			<xs:documentation> Legal values for the XMLStandardSubsetEnum </xs:documentation>
 		</xs:annotation>
@@ -2919,34 +2862,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="I"/>
 			<xs:enumeration value="II"/>
 			<xs:enumeration value="III"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ReachRoleDescriptionEnum">
-		<xs:annotation>
-			<xs:documentation>The role values of a contact as defined under REACH. Used in field Role. See issue #18. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Manufacturer"/>
-			<xs:enumeration value="Importer"/>
-			<xs:enumeration value="Only representative"/>
-			<xs:enumeration value="Distributor"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="AtpEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="CLP00-1272/2008"/>
-			<xs:enumeration value="CLP01-790/2009"/>
-			<xs:enumeration value="CLP02-286/2011"/>
-			<xs:enumeration value="CLP03-618/2012"/>
-			<xs:enumeration value="CLP04-487/2013"/>
-			<xs:enumeration value="CLP05-944/2013"/>
-			<xs:enumeration value="CLP06-605/2014"/>
-			<xs:enumeration value="CLP06a-1297/2014"/>
-			<xs:enumeration value="CLP07-2015/1221"/>
-			<xs:enumeration value="CLP08-2016/918"/>
-			<xs:enumeration value="CLP09-2016/1179"/>
-			<xs:enumeration value="CLP09a-2017/542"/>
-			<xs:enumeration value="CLP10-2017/776"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TransportClassEnum">
