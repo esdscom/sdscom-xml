@@ -51,7 +51,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" name="ProductIdentity">
+			<xs:element maxOccurs="unbounded" name="ProductIdentity" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -114,22 +114,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
 							</xs:annotation>
-						</xs:element>
-						<xs:element minOccurs="0" name="RegionEU">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element minOccurs="0" name="ChildResistantPackaging" type="boolean">
-										<xs:annotation>
-											<xs:documentation>results from EU classification, but characterizes the packaging</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element minOccurs="0" name="TactileWarning" type="boolean">
-										<xs:annotation>
-											<xs:documentation>results from EU classification, but characterizes the packaging</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
