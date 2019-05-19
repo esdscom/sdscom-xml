@@ -3799,154 +3799,6 @@ Includes Gibraltar, which is not part of the European Customs Union.</xs:documen
 	<xs:complexType name="Datasheet">
 		<xs:sequence>
 			<!-- *******************************************************************  SECTION 0 (Header informations) ************************  -->
-			<xs:element name="InformationFromExportingSystem" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="SdscomVersionNo" type="SDScom:SdscomVersionEnum" minOccurs="1" maxOccurs="1">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Version Number: The version of the SDSCom standard which is applied in the transmission of information. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SdscomSubset" type="SDScom:SdscomSubsetEnum" minOccurs="0">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Reference to the SDScomXML subsets SDScomBau and SDScomChem containing SDSComXML fields. More informaion to SDScomBau and SDScomChem are available at www.sdbtransfer.de </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="PhraseCatalogue" type="SDScom:PhraseCatalogue" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Phrase catalogue: The phrase library(ies) applied in the preparation of the information. The optional attribute PhraseCatalogueId allows multiple catalogues to be used. Phrase must then have an attribute specifying the PhraseCatalogueId. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Language" minOccurs="1" maxOccurs="1">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>The language of the information, stated in a format according to ISO 639-1 (2 letters) followed by textual name </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="FreetextLanguageCode" type="SDScom:LanguageCodeEnum" minOccurs="1" maxOccurs="1">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> Enumeration with defined code set. Language independent. ISO 639-1 (2 letters) </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="FreetextLanguageName" type="SDScom:Phrase" minOccurs="0">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> String with actual language name. Possible to print. Automatic translation possible if a PhraseId is also given. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="RegulationsRelatedToCountryOrRegion" minOccurs="1" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Regulatory information related to country or region: What country the information applies to, stated as a code in accordance to ISO 3166 (two letters). This defines which SDSs can be derived from this file. (A SDS may be written in English, and the information given may be in accordance to Norwegian regulations). </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="RegulationsRelatedToCountryOrRegionCode" type="SDScom:CountryCodeEnum" minOccurs="1" maxOccurs="1">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> Enumeration with defined code set. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="RegulationsRelatedToCountryOrRegionName" type="SDScom:Phrase" minOccurs="0">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> String with actual country name. Possible to print. Automatic translation possible if a PhraseId is also given. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="LegalDocument" minOccurs="0" maxOccurs="1">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> Legal documents: </xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="LegalDocumentFileName" type="SDScom:FileName" minOccurs="1" maxOccurs="1">
-													<xs:annotation>
-														<xs:appinfo>SDScomBau</xs:appinfo>
-														<xs:appinfo>SDScomChem</xs:appinfo>
-														<xs:documentation> File name: For example, a locked PDF document. A fixed URL is possible. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="LegalDocumentPrintDate" type="date" minOccurs="0" maxOccurs="1">
-													<xs:annotation>
-														<xs:documentation> Print date </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="LegalDocumentSignature" type="SDScom:string128" minOccurs="0" maxOccurs="1">
-													<xs:annotation>
-														<xs:documentation> Digital signature: Digital signature to verify the document. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element minOccurs="0" name="InternalSdsId" type="SDScom:string64">
-													<xs:annotation>
-														<xs:appinfo>SDScomChem</xs:appinfo>
-														<xs:documentation>Internal SDS identitifier: The identity of the SDS in the system that generates the XML file. This field will usually not be shown in the SDS, but will be useful in future updates with new versions of previously received data sheets. This field is sufficiently large to accept GUID (Global Unique ID) on each SDS. System generated identity – not to be displayed. Use the same id independetly of the version of the SDS. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="RelatedDocuments" minOccurs="0" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:documentation> Reference to further documents related to the SDS e.g. technical bulletin or manual. </xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="FileName" type="SDScom:FileName">
-													<xs:annotation>
-														<xs:documentation> File name: For example, a locked PDF document. A fixed URL is possible. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="Description" type="SDScom:string256" minOccurs="0" maxOccurs="1">
-													<xs:annotation>
-														<xs:documentation> Description of the file type etc. </xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="SystemUsedInPreparation" type="SDScom:string64" minOccurs="1" maxOccurs="1">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Software applied in preparation of information: State which system the information has been exported from. The actual version number of the system applied or any other identifier that helps to understand the export scope or method should also be stated. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="DateGeneratedExport" type="xs:date">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Date of generation of this export file</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<!-- *******************************************************************  SECTION 1 (Identification of the substance/mixture and of the company/undertaking) ************************  -->
 			<xs:element name="IdentificationSubstPrep" minOccurs="1" maxOccurs="1" type="SDScom:IdentificationSubstPrep">
 				<xs:annotation>
@@ -4084,6 +3936,154 @@ Includes Gibraltar, which is not part of the European Customs Union.</xs:documen
 		<xs:complexType>
 			<xs:sequence>
 				<!-- *******************************************************************  Datasheet *************  -->
+				<xs:element name="InformationFromExportingSystem" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>SDScomBau</xs:appinfo>
+						<xs:appinfo>SDScomChem</xs:appinfo>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SdscomVersionNo" type="SDScom:SdscomVersionEnum" minOccurs="1" maxOccurs="1">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>Version Number: The version of the SDSCom standard which is applied in the transmission of information. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="SdscomSubset" type="SDScom:SdscomSubsetEnum" minOccurs="0">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation> Reference to the SDScomXML subsets SDScomBau and SDScomChem containing SDSComXML fields. More informaion to SDScomBau and SDScomChem are available at www.sdbtransfer.de </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PhraseCatalogue" type="SDScom:PhraseCatalogue" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>Phrase catalogue: The phrase library(ies) applied in the preparation of the information. The optional attribute PhraseCatalogueId allows multiple catalogues to be used. Phrase must then have an attribute specifying the PhraseCatalogueId. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Language" minOccurs="1" maxOccurs="1">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>The language of the information, stated in a format according to ISO 639-1 (2 letters) followed by textual name </xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="FreetextLanguageCode" type="SDScom:LanguageCodeEnum" minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation> Enumeration with defined code set. Language independent. ISO 639-1 (2 letters) </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="FreetextLanguageName" type="SDScom:Phrase" minOccurs="0">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation> String with actual language name. Possible to print. Automatic translation possible if a PhraseId is also given. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RegulationsRelatedToCountryOrRegion" minOccurs="1" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>Regulatory information related to country or region: What country the information applies to, stated as a code in accordance to ISO 3166 (two letters). This defines which SDSs can be derived from this file. (A SDS may be written in English, and the information given may be in accordance to Norwegian regulations). </xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegulationsRelatedToCountryOrRegionCode" type="SDScom:CountryCodeEnum" minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation> Enumeration with defined code set. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="RegulationsRelatedToCountryOrRegionName" type="SDScom:Phrase" minOccurs="0">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation> String with actual country name. Possible to print. Automatic translation possible if a PhraseId is also given. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="LegalDocument" minOccurs="0" maxOccurs="1">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation> Legal documents: </xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="LegalDocumentFileName" type="SDScom:FileName" minOccurs="1" maxOccurs="1">
+														<xs:annotation>
+															<xs:appinfo>SDScomBau</xs:appinfo>
+															<xs:appinfo>SDScomChem</xs:appinfo>
+															<xs:documentation> File name: For example, a locked PDF document. A fixed URL is possible. </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="LegalDocumentPrintDate" type="date" minOccurs="0" maxOccurs="1">
+														<xs:annotation>
+															<xs:documentation> Print date </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="LegalDocumentSignature" type="SDScom:string128" minOccurs="0" maxOccurs="1">
+														<xs:annotation>
+															<xs:documentation> Digital signature: Digital signature to verify the document. </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="InternalSdsId" type="SDScom:string64">
+														<xs:annotation>
+															<xs:appinfo>SDScomChem</xs:appinfo>
+															<xs:documentation>Internal SDS identitifier: The identity of the SDS in the system that generates the XML file. This field will usually not be shown in the SDS, but will be useful in future updates with new versions of previously received data sheets. This field is sufficiently large to accept GUID (Global Unique ID) on each SDS. System generated identity – not to be displayed. Use the same id independetly of the version of the SDS. </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RelatedDocuments" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation> Reference to further documents related to the SDS e.g. technical bulletin or manual. </xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="FileName" type="SDScom:FileName">
+														<xs:annotation>
+															<xs:documentation> File name: For example, a locked PDF document. A fixed URL is possible. </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Description" type="SDScom:string256" minOccurs="0" maxOccurs="1">
+														<xs:annotation>
+															<xs:documentation> Description of the file type etc. </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SystemUsedInPreparation" type="SDScom:string64" minOccurs="1" maxOccurs="1">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>Software applied in preparation of information: State which system the information has been exported from. The actual version number of the system applied or any other identifier that helps to understand the export scope or method should also be stated. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DateGeneratedExport" type="date">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>Date of generation of this export file</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
 				<xs:element name="Datasheet" maxOccurs="unbounded" type="SDScom:Datasheet">
 					<xs:annotation>
 						<xs:documentation>In fact, a product data set, i.e. data for a collection of safety data sheets for the same product.</xs:documentation>
