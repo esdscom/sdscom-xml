@@ -3373,6 +3373,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>SDS section 15. This type covers information on the product. Any information on substances which might be necessary to be listed in section 15 is covered in type "Substance".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInformationComments" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInfoAdditionalInfo" type="SDScom:Phrase"/>
 			<xs:element minOccurs="0" name="RegionEU">

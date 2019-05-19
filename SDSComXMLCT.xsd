@@ -78,219 +78,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 			<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
 			<xs:element name="ChemicalPurity" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element minOccurs="0" name="RegionAU">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="AicsListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionCA">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="DslListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element minOccurs="0" name="NdslListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionCN">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="IecscListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionEU">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="InciName" type="SDScom:string1024">
-							<xs:annotation>
-								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="SDScom:string1024">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="SDScom:string32">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="SDScom:EcNo">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReachRegistration">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element minOccurs="0" name="RegistrationNumber" type="SDScom:ReachRegNo">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
-							<xs:annotation>
-								<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionJP">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="EncsMitiNo" type="string">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionKO">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="KeciNo" type="string">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionMX">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="InsqListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionNZ">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="NziocListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionPH">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="PiccsListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionRU">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RpohvNo" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionTR">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="KkdikListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionTW">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="TcsiListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionUS">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="TscaListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element minOccurs="0" name="TscaHpvcListed" type="boolean"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionVN">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="VneciListed" type="boolean">
-							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* StateUnderStandardConditionsEnum ******  -->
@@ -1395,4 +1183,221 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
+	<xs:complexType name="Inventories">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="RegionAU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="AicsListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionCA">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="DslListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="NdslListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionCN">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="IecscListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionEU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="InciName" type="SDScom:string1024">
+							<xs:annotation>
+								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="SDScom:string1024">
+							<xs:annotation>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="SDScom:string32">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="SDScom:EcNo">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReachRegistration">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="RegistrationNumber" type="SDScom:ReachRegNo">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
+							<xs:annotation>
+								<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionJP">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="EncsMitiNo" type="string">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionKO">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="KeciNo" type="string">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionMX">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="InsqListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionNZ">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="NziocListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionPH">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="PiccsListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionRU">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RpohvNo" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionTR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="KkdikListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionTW">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="TcsiListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionUS">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="TscaListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="TscaHpvcListed" type="boolean"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionVN">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="VneciListed" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Chemical inventory</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
