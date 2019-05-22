@@ -2999,6 +2999,9 @@ History before  v4.2.0:
 			<xs:enumeration value="CLP09-2016/1179"/>
 			<xs:enumeration value="CLP09a-2017/542"/>
 			<xs:enumeration value="CLP10-2017/776"/>
+			<xs:enumeration value="CLP11-2018/669"/>
+			<xs:enumeration value="CLP13-2018/1480"/>
+			<xs:enumeration value="CLP12-2019/521"/>			
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TransportClassEnum">
