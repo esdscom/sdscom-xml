@@ -17,6 +17,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="NationalExtensionAM">
+        <xs:annotation>
+            <xs:documentation>National legislation - Armenia</xs:documentation>
+        </xs:annotation>
+        <xs:sequence> </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="NationalExtensionAT">
         <xs:annotation>
             <xs:documentation>National legislation - Austria</xs:documentation>
@@ -95,6 +101,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="NationalExtensionGE">
+        <xs:annotation>
+            <xs:documentation>National legislation - Georgia</xs:documentation>
+        </xs:annotation>
+        <xs:sequence> </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="NationalExtensionGR">
         <xs:annotation>
             <xs:documentation>National legislation - Greece</xs:documentation>
@@ -164,6 +176,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     <xs:complexType name="NationalExtensionMC">
         <xs:annotation>
             <xs:documentation>National legislation - Monaco</xs:documentation>
+        </xs:annotation>
+        <xs:sequence> </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="NationalExtensionMD">
+        <xs:annotation>
+            <xs:documentation>National legislation - Republic of Moldova</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
@@ -248,6 +266,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     <xs:complexType name="NationalExtensionUA">
         <xs:annotation>
             <xs:documentation>National legislation - Ukraine</xs:documentation>
+        </xs:annotation>
+        <xs:sequence> </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="NationalExtensionUZ">
+        <xs:annotation>
+            <xs:documentation>National legislation - Uzbekistan</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
