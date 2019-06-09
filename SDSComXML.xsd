@@ -87,17 +87,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Comments to information provided in product identity. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="RegionEU">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
-										<xs:annotation>
-											<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element minOccurs="0" name="RegionEU" type="SDScom:EuProductIdentity"> </xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -629,7 +619,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Additional information on classification: If the chemical do not meet the classification criteria etc. German: ClassificationAdditionalHints </xs:documentation>
+								<xs:documentation> Additional information on classification: If the chemical do not meet the classification criteria etc.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellings">
@@ -1234,47 +1224,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Comments on disposal considerations: Comments or information related to the information provided in this section. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="RegionEU">
+			<xs:element maxOccurs="1" minOccurs="0" name="RegionEU" type="SDScom:EuDisposalConsiderations">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="EuropeanWasteList">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> European waste list: EU classification of waste. </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="EWLProduct" type="SDScom:WasteListEntry">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> European waste list for the product: Identification number (EWL No.) and description of the waste under the actual EWL No. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="EWLPacking" type="SDScom:WasteListEntry">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> European waste list for the packaging: Identification number (EWL No.) and description of the waste under the actual EWL No. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuWasteRegulations" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> EU legislation: EU legislation related to waste that applies to the product or its packaging. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -1498,42 +1452,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Comments to information in this section: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionEU">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Acronym" type="string"/>
-									<xs:element name="Meaning" type="SDScom:Phrase"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="PositiveEcolabelling" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="EcoLabelName" type="SDScom:string64" minOccurs="0"/>
-									<xs:element name="ExpirationDate" type="date" minOccurs="0"/>
-									<xs:element name="LicenceNo" type="SDScom:string64" minOccurs="0"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="SDScom:EuOtherInformation"> </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Summary: The complete SDS ========================================== -->
