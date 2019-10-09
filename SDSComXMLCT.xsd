@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+SDScom XML schema definition version 5  
+Complex type definitions
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
-	<!-- National extensions to the standard. Initially empty. -->
 	<xs:include schemaLocation="SDSComXMLNE.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_CH.xsd"/>
-	<xs:include schemaLocation="SDSComXMLNE_DE.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_EU.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_JP.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>
-	<!-- ******************************************************************* SectorOfUse *************  -->
-	<!-- ******************************************************************* ProductCategory *************  -->
-	<!-- ******************************************************************* ProcessCategory *************  -->
-	<!-- ******************************************************************* ArticleCategory *************  -->
-	<!-- ******************************************************************* CorrespondingEs *****  -->
-	<!-- ******************************************************************* Substance *************  -->
 	<xs:include schemaLocation="SDSComXMLNE_TR.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_US.xsd"/>
 	<xs:complexType name="SubstanceName">
 		<xs:sequence>
 			<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
@@ -81,17 +74,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* StateUnderStandardConditionsEnum ******  -->
-	<xs:simpleType name="StateUnderStandardConditionsEnum">
-		<xs:annotation>
-			<xs:documentation> physical state (only solid/liquid/gaseous) under standard conditions (20°C, 1013 hpa) </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="solid"/>
-			<xs:enumeration value="liquid"/>
-			<xs:enumeration value="gaseous"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ******************************************************************* EcologicalInformation ************  -->
 	<xs:complexType name="ToxInfoStotSE3">
 		<xs:sequence>
@@ -110,14 +92,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="AssessmentOrClassification" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* EcologicalInformation ************  -->
-	<!--Missing-->
-	<!--<xs:element name="KnownOrPredictedDistributionToEnvironmentalCompartments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>-->
-	<!-- *************************************************************  Classification ********************************************** -->
 	<!-- *******************************************************************  OccupationalExposureLimit *************  -->
 	<xs:complexType name="Classification">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="RegionEU" type="SDScom:EuClassification"> </xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="SDScom:ClassificationEU"> </xs:element>
+			<xs:element name="RegionUS" type="SDScom:ClassificationUS"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="HazardLabellings">
@@ -302,12 +281,6 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  BiologicalLimitValue *************  -->
-	<xs:simpleType name="ExposureLimitFractionEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="inhalable"/>
-			<xs:enumeration value="respirable"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:complexType name="BiologicalLimitValue">
 		<xs:annotation>
 			<xs:documentation> BiologicalLimitValue, source: Chapter 8 </xs:documentation>
@@ -332,9 +305,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="AppraisalPeriod" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- *******************************************************************  DNEL ******************************  -->
-	<!-- *******************************************************************  DMEL *****************************  -->
-	<!-- *******************************************************************  PNEC ****************************  -->
 	<!-- ******************************************************************* RespiratoryProtectionArticle *****  -->
 	<xs:complexType name="RespiratoryProtectionArticle">
 		<xs:annotation>
@@ -1046,66 +1016,6 @@ If there are multiple limit values depending on conditions described in remarks 
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ****************************************************************************** Transport Types ***** -->
-	<xs:complexType name="NationalRegulations">
-		<xs:sequence>
-			<!-- National Extensions introduced in SdsXmlNE_<Regioncode>.xsd  schema files -->
-			<xs:element name="NationalLegislationAndorra" type="SDScom:NationalExtensionAD" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationAlbania" type="SDScom:NationalExtensionAL" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationArmenia" type="SDScom:NationalExtensionAM" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationAustria" type="SDScom:NationalExtensionAT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBosniaAndHerzegovina" type="SDScom:NationalExtensionBA" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBelgium" type="SDScom:NationalExtensionBE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBulgaria" type="SDScom:NationalExtensionBG" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationBelarus" type="SDScom:NationalExtensionBY" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSwitzerland" type="SDScom:NationalExtensionCH" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationCzechRepublic" type="SDScom:NationalExtensionCZ" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationGermany" type="SDScom:NationalExtensionDE" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> National legislations related to the chemical: National German laws which implement provisions, and any other national measures related to the chemical. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NationalLegislationDenmark" type="SDScom:NationalExtensionDK" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationEstonia" type="SDScom:NationalExtensionEE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSpain" type="SDScom:NationalExtensionES" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationFinland" type="SDScom:NationalExtensionFI" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationFrance" type="SDScom:NationalExtensionFR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationUnitedKingdom" type="SDScom:NationalExtensionGB" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationGeorgia" type="SDScom:NationalExtensionGE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationGreece" type="SDScom:NationalExtensionGR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationCroatia" type="SDScom:NationalExtensionHR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationHungary" type="SDScom:NationalExtensionHU" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationIreland" type="SDScom:NationalExtensionIE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationIceland" type="SDScom:NationalExtensionIS" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationItaly" type="SDScom:NationalExtensionIT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationKazakhstan" type="SDScom:NationalExtensionKZ" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLiechtenstein" type="SDScom:NationalExtensionLI" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLithuania" type="SDScom:NationalExtensionLT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLuxembourg" type="SDScom:NationalExtensionLU" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationLatvia" type="SDScom:NationalExtensionLV" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationMonaco" type="SDScom:NationalExtensionMC" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationRepublicOfMoldova" type="SDScom:NationalExtensionMD" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationMontenegro" type="SDScom:NationalExtensionME" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationTheFormerYugoslavRepublicOfMacedonia" type="SDScom:NationalExtensionMK" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationMalta" type="SDScom:NationalExtensionMT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationNetherlands" type="SDScom:NationalExtensionNL" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationNorway" type="SDScom:NationalExtensionNO" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationPoland" type="SDScom:NationalExtensionPL" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationPortugal" type="SDScom:NationalExtensionPT" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationRomania" type="SDScom:NationalExtensionRO" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSerbia" type="SDScom:NationalExtensionRS" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationRussianFederation" type="SDScom:NationalExtensionRU" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSweden" type="SDScom:NationalExtensionSE" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSlovenia" type="SDScom:NationalExtensionSI" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSlovakia" type="SDScom:NationalExtensionSK" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationSanMarino" type="SDScom:NationalExtensionSM" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationTurkey" type="SDScom:NationalExtensionTR" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationUkraine" type="SDScom:NationalExtensionUA" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationUzbekistan" type="SDScom:NationalExtensionUZ" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationVaticanCityState" type="SDScom:NationalExtensionVA" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="Inventories">
 		<xs:sequence>
@@ -1150,29 +1060,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element minOccurs="0" name="RegionEU">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="InciName" type="SDScom:string1024">
-							<xs:annotation>
-								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="SDScom:string1024">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="SDScom:string32">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="SDScom:EcNo">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -1202,11 +1089,6 @@ If there are multiple limit values depending on conditions described in remarks 
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
-							<xs:annotation>
-								<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
-							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>

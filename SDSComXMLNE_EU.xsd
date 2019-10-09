@@ -6,7 +6,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_CH.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_DE.xsd"/>
 	<xs:complexType name="SectorOfUse">
 		<xs:annotation>
 			<xs:appinfo>SDScomBau</xs:appinfo>
@@ -393,25 +396,28 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:simpleType>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="EuClassification">
+	<xs:complexType name="ClassificationEU">
 		<xs:sequence>
 			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Transition period from ATP 8 to ATP 12: until 17 October 2020.</xs:documentation>
+				</xs:annotation>
 				<xs:element maxOccurs="unbounded" minOccurs="0" name="ClpAtp08HazardClassification">
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation> CLP classification: The chemical’s individual hazard classifications according to EU-CLP. </xs:documentation>
+						<xs:documentation>The chemical’s individual hazard classifications according to EU regulation 1272/2008, revised until and including EU regulation 2016/918, based of GHS revision 5.</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="ClpHazardClassCategory" type="SDScom:EuClpAtp08ClassCategoryEnum">
+							<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp08ClassCategoryEnum">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="ClpClassificationProcedure" type="SDScom:Phrase">
+							<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
@@ -431,18 +437,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation> CLP classification: The chemical’s individual hazard classifications according to EU-CLP. </xs:documentation>
+						<xs:documentation>The chemical’s individual hazard classifications according to EU regulation 1272/2008, revised until and including EU regulation 2019/521, based of GHS revision 7.</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="ClpHazardClassCategory" type="SDScom:EuClpAtp12ClassCategoryEnum">
+							<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp12ClassCategoryEnum">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="ClpClassificationProcedure" type="SDScom:Phrase">
+							<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
@@ -461,12 +467,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:choice>
 			<xs:element minOccurs="0" name="ClpAtp" type="SDScom:AtpEnum">
 				<xs:annotation>
-					<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ClpClassificationComments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs. This is not rudundant with the classification nodes, which are only referring to the ATPs that adapt CLP to new GHS revisions, while other ATPs may still change harmonized classifications.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="4" minOccurs="0" name="ClpClassificationNotes" type="SDScom:Phrase">
@@ -475,13 +476,82 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Classification notes: To identify classification notes (letters and/or figures) in the case that the trade product is a substance. This information shall be stated in the SDS together with the classifications of the substance. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationComments" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EuComponent">
+	<xs:simpleType name="SupplementalHazardInformationEnum">
+		<xs:annotation>
+			<xs:documentation> Supplemental Hazard Information Code with a predefined set of legal values. CLP </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="001"/>
+			<xs:enumeration value="006"/>
+			<xs:enumeration value="014"/>
+			<xs:enumeration value="018"/>
+			<xs:enumeration value="019"/>
+			<xs:enumeration value="044"/>
+			<xs:enumeration value="029"/>
+			<xs:enumeration value="031"/>
+			<xs:enumeration value="032"/>
+			<xs:enumeration value="066"/>
+			<xs:enumeration value="070"/>
+			<xs:enumeration value="071"/>
+			<xs:enumeration value="059"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SupplementalHazardInformation">
+		<xs:annotation>
+			<xs:documentation> Supplemental Hazard Information Statement CLP </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" name="PhraseCode" type="SDScom:SupplementalHazardInformationEnum"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
+	</xs:complexType>
+	<xs:simpleType name="SpecialSupplementalLabelInfoEnum">
+		<xs:annotation>
+			<xs:documentation> Special Supplemental Label Info Code with a predefined set of legal values. CLP </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="201"/>
+			<xs:enumeration value="201A"/>
+			<xs:enumeration value="202"/>
+			<xs:enumeration value="203"/>
+			<xs:enumeration value="204"/>
+			<xs:enumeration value="205"/>
+			<xs:enumeration value="206"/>
+			<xs:enumeration value="207"/>
+			<xs:enumeration value="208"/>
+			<xs:enumeration value="209"/>
+			<xs:enumeration value="209A"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="401"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SpecialSupplementalLabelInfo">
+		<xs:annotation>
+			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" name="PhraseCode" type="SDScom:SpecialSupplementalLabelInfoEnum"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+		</xs:sequence>
+		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
+	</xs:complexType>
+	<xs:complexType name="ComponentEU">
 		<xs:complexContent>
 			<xs:extension base="SDScom:Component">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="EuClassification" type="SDScom:EuClassification"> </xs:element>
+					<xs:element minOccurs="0" name="EuClassification" type="SDScom:ClassificationEU"> </xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="OnEuLabel" type="boolean">
 						<xs:annotation>
 							<xs:appinfo>SDScomChem</xs:appinfo>
@@ -526,7 +596,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="EuProductIdentity">
+	<xs:complexType name="ProductIdentityEU">
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
 				<xs:annotation>
@@ -535,7 +605,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EuDisposalConsiderations">
+	<xs:complexType name="DisposalConsiderationsEU">
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="EuropeanWasteList">
 				<xs:annotation>
@@ -571,7 +641,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EuTransport">
+	<xs:complexType name="TransportEU">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="AdrRid">
 				<xs:complexType>
@@ -764,7 +834,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EuOtherInformation">
+	<xs:complexType name="OtherInformationEU">
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
 				<xs:complexType>
@@ -809,6 +879,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="AssessedLegislation" type="SDScom:AssessmentEnum"> </xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="SDScom:string32">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuAuthorisation" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -819,10 +896,22 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOfOccupation" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="RestrictionsAccordingReach" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> Restricted in use according REACH: Restrictions on the chemical according to Annex XVII of REACH </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="InciName" type="SDScom:string1024">
+							<xs:annotation>
+								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="Detergents">
@@ -833,6 +922,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="1" minOccurs="0" name="IsDetergent" type="boolean"> </xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="SDScom:string1024">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentInformation" type="SDScom:Phrase"> </xs:element>
 								</xs:sequence>
 							</xs:complexType>
@@ -896,7 +990,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Other EU legislations: Miscellaneous restrictions etc. that apply to the chemical based on EU legislations – e.g. regulation on construction products. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOfOccupation" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
+							<xs:annotation>
+								<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

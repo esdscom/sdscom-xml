@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ****************************************************************************
+SDScom XML schema definition version 5
+Basic type definitions, GHS related
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
+***************************************************************************** -->
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+    <xs:include schemaLocation="SDSComXMLDT.xsd"/>
+    <xs:simpleType name="GhsRev00ClassExpl">
+        <xs:annotation>
+            <xs:documentation>Explosive categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Expl. 1.1"/>
+            <xs:enumeration value="Expl. 1.2"/>
+            <xs:enumeration value="Expl. 1.3"/>
+            <xs:enumeration value="Expl. 1.4"/>
+            <xs:enumeration value="Expl. 1.5"/>
+            <xs:enumeration value="Expl. 1.6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardExpl">
+        <xs:restriction base="string">
+            <xs:enumeration value="200"/>
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="203"/>
+            <xs:enumeration value="204"/>
+            <xs:enumeration value="205"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01ClassExpl">
+        <xs:annotation>
+            <xs:documentation>Explosives according to UN GHS Revision 1 (2005).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Unst. Expl."/>
+            <xs:enumeration value="Expl. 1.1"/>
+            <xs:enumeration value="Expl. 1.2"/>
+            <xs:enumeration value="Expl. 1.3"/>
+            <xs:enumeration value="Expl. 1.4"/>
+            <xs:enumeration value="Expl. 1.5"/>
+            <xs:enumeration value="Expl. 1.6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01HazardExpl">
+        <xs:restriction base="string">
+            <xs:enumeration value="200"/>
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="203"/>
+            <xs:enumeration value="204"/>
+            <xs:enumeration value="205"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassFlamGas">
+        <xs:annotation>
+            <xs:documentation>Flammable Gas categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Flam. Gas 1"/>
+            <xs:enumeration value="Flam. Gas 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardFlamGas">
+        <xs:restriction base="string">
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="221"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev06ClassPyrGas">
+        <xs:annotation>
+            <xs:documentation>Pyrophoric Gas categories according to UN GHS revision 6 (2015). This is officially part of Flam. Gas., but must be applied in addition where applicable. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Pyr. Gas"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev06HazardPyrGas">
+        <xs:restriction base="string">
+            <xs:enumeration value="232"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev04ClassChemUnstGas">
+        <xs:annotation>
+            <xs:documentation>Chemically Unstable Gas categories according to UN GHS revision 4 (2011). This is officially part of Flam. Gas., but must be applied in addition where applicable. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Chem. Unst. Gas A"/>
+            <xs:enumeration value="Chem. Unst. Gas B"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev04HazardChemUnstGas">
+        <xs:restriction base="string">
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="231"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev07ClassFlamGas">
+        <xs:annotation>
+            <xs:documentation>Flammable Gas categories according to the original UN GHS (2003). Although part of category 1A, the only official abbreviation (in annex VI of the European CLP) chooses a wording which looks like different categories or even classes.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Flam. Gas 1A"/>
+            <xs:enumeration value="Flam. Gas 1B"/>
+            <xs:enumeration value="Flam. Gas 2"/>
+            <xs:enumeration value="Pyr. Gas"/>
+            <xs:enumeration value="Chem. Unstab. Gas A"/>
+            <xs:enumeration value="Chem. Unstab. Gas B"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev07HazardFlamGas">
+        <xs:restriction base="string">
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="221"/>
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="231"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassFlamAer">
+        <xs:annotation>
+            <xs:documentation>Flammable Aerosol categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Flam. Aer. 1"/>
+            <xs:enumeration value="Flam. Aer. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardFlamAer">
+        <xs:restriction base="string">
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="223"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev04ClassAerosol">
+        <xs:annotation>
+            <xs:documentation>Aerosol categories according to UN GHS revision 4 (2011).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Aerosol 1"/>
+            <xs:enumeration value="Aerosol 2"/>
+            <xs:enumeration value="Aerosol 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev04HazardAerosol">
+        <xs:restriction base="string">
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="223"/>
+            <xs:enumeration value="229"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassOxGas">
+        <xs:annotation>
+            <xs:documentation>Oxidizing Gas categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ox. Gas 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardOxGas">
+        <xs:restriction base="string">
+            <xs:enumeration value="270"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassPressGas">
+        <xs:annotation>
+            <xs:documentation>Gases under Pressure categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Press. Gas"/>
+            <xs:enumeration value="Press. Gas (Comp.)"/>
+            <xs:enumeration value="Press. Gas (Liq.)"/>
+            <xs:enumeration value="Press. Gas (Ref. Liq.)"/>
+            <xs:enumeration value="Press. Gas (Diss.)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardPressGas">
+        <xs:restriction base="string">
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="281"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassFlamLiq">
+        <xs:annotation>
+            <xs:documentation>Flammable Liquids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Flam. Liq. 1"/>
+            <xs:enumeration value="Flam. Liq. 2"/>
+            <xs:enumeration value="Flam. Liq. 3"/>
+            <xs:enumeration value="Flam. Liq. 4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardFlamLiq">
+        <xs:restriction base="string">
+            <xs:enumeration value="224"/>
+            <xs:enumeration value="225"/>
+            <xs:enumeration value="226"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassFlamSol">
+        <xs:annotation>
+            <xs:documentation>Flammable Solids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Flam. Sol. 1"/>
+            <xs:enumeration value="Flam. Sol. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardFlamSol">
+        <xs:restriction base="string">
+            <xs:enumeration value="228"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassSelfReact">
+        <xs:annotation>
+            <xs:documentation>Self-reactive categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Self-react. A"/>
+            <xs:enumeration value="Self-react. B"/>
+            <xs:enumeration value="Self-react. C"/>
+            <xs:enumeration value="Self-react. CD"/>
+            <xs:enumeration value="Self-react. D"/>
+            <xs:enumeration value="Self-react. E"/>
+            <xs:enumeration value="Self-react. EF"/>
+            <xs:enumeration value="Self-react. F"/>
+            <xs:enumeration value="Self-react. G"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardSelfReact">
+        <xs:restriction base="string">
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="242"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassPyrLiq">
+        <xs:annotation>
+            <xs:documentation>Pyrophoric Liquids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Pyr. Liq. 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardPyrLiq">
+        <xs:restriction base="string">
+            <xs:enumeration value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassPyrSol">
+        <xs:annotation>
+            <xs:documentation>Pyrophoric Solids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Pyr. Sol. 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardPyrSol">
+        <xs:restriction base="string">
+            <xs:enumeration value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassSelfHeat">
+        <xs:annotation>
+            <xs:documentation>Self-heating categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Self-heat. 1"/>
+            <xs:enumeration value="Self-heat. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardSelfHeat">
+        <xs:restriction base="string">
+            <xs:enumeration value="251"/>
+            <xs:enumeration value="252"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassWaterReact">
+        <xs:annotation>
+            <xs:documentation>Water-reactive categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Water-react. 1"/>
+            <xs:enumeration value="Water-react. 2"/>
+            <xs:enumeration value="Water-react. 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardWaterReact">
+        <xs:restriction base="string">
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="261"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassOxLiq">
+        <xs:annotation>
+            <xs:documentation>Oxidizing Liquids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ox. Liq. 1"/>
+            <xs:enumeration value="Ox. Liq. 2"/>
+            <xs:enumeration value="Ox. Liq. 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardOxLiq">
+        <xs:restriction base="string">
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="272"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassOxSol">
+        <xs:annotation>
+            <xs:documentation>Oxidizing Solids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ox. Sol. 1"/>
+            <xs:enumeration value="Ox. Sol. 2"/>
+            <xs:enumeration value="Ox. Sol. 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardOxSol">
+        <xs:restriction base="string">
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="272"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassOrgPerox">
+        <xs:annotation>
+            <xs:documentation>Organic Peroxides categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Org. Perox. A"/>
+            <xs:enumeration value="Org. Perox. B"/>
+            <xs:enumeration value="Org. Perox. C"/>
+            <xs:enumeration value="Org. Perox. CD"/>
+            <xs:enumeration value="Org. Perox. D"/>
+            <xs:enumeration value="Org. Perox. E"/>
+            <xs:enumeration value="Org. Perox. EF"/>
+            <xs:enumeration value="Org. Perox. F"/>
+            <xs:enumeration value="Org. Perox. G"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardOrgPerox">
+        <xs:restriction base="string">
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="242"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassMetCorr">
+        <xs:annotation>
+            <xs:documentation>Metal Corrosion categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Met. Corr. 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardMetCorr">
+        <xs:restriction base="string">
+            <xs:enumeration value="290"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev06ClassDesensExpl">
+        <xs:annotation>
+            <xs:documentation>Desensitized Explosives categories according to UN GHS revision 6 (2015).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Desen. Expl. 1"/>
+            <xs:enumeration value="Desen. Expl. 2"/>
+            <xs:enumeration value="Desen. Expl. 3"/>
+            <xs:enumeration value="Desen. Expl. 4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev06HazardDesensExpl">
+        <xs:restriction base="string">
+            <xs:enumeration value="206"/>
+            <xs:enumeration value="207"/>
+            <xs:enumeration value="208"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassAcuteToxOral">
+        <xs:annotation>
+            <xs:documentation>Acute Toxicity by oral intake categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Acute Tox. 1 (oral)"/>
+            <xs:enumeration value="Acute Tox. 2 (oral)"/>
+            <xs:enumeration value="Acute Tox. 3 (oral)"/>
+            <xs:enumeration value="Acute Tox. 4 (oral)"/>
+            <xs:enumeration value="Acute Tox. 5 (oral)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardAcuteToxOral">
+        <xs:restriction base="string">
+            <xs:enumeration value="300"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="302"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassAcuteToxDermal">
+        <xs:annotation>
+            <xs:documentation>Acute Toxicity by dermal contact categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Acute Tox. 1 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 2 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 3 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 4 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 5 (dermal)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardAcuteToxDermal">
+        <xs:restriction base="string">
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="311"/>
+            <xs:enumeration value="312"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassAcuteToxInhal">
+        <xs:annotation>
+            <xs:documentation>Acute Toxicity by inhalation categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Acute Tox. 1 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 2 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 3 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 4 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 5 (inhalation)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardAcuteToxInhal">
+        <xs:restriction base="string">
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="332"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassSkinCorr">
+        <xs:annotation>
+            <xs:documentation>Skin Corrosion/Irritiation categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Skin Corr. 1"/>
+            <xs:enumeration value="Skin Corr. 1A"/>
+            <xs:enumeration value="Skin Corr. 1B"/>
+            <xs:enumeration value="Skin Corr. 1C"/>
+            <xs:enumeration value="Skin Irrit. 2"/>
+            <xs:enumeration value="Skin Irrit. 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardSkinCorr">
+        <xs:restriction base="string">
+            <xs:enumeration value="314"/>
+            <xs:enumeration value="315"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassEyeDam">
+        <xs:annotation>
+            <xs:documentation>Eye Damage/Irritation categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Eye Dam. 1"/>
+            <xs:enumeration value="Eye Irrit. 2"/>
+            <xs:enumeration value="Eye Irrit. 2A"/>
+            <xs:enumeration value="Eye Irrit. 2B"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardEyeDamm">
+        <xs:restriction base="string">
+            <xs:enumeration value="318"/>
+            <xs:enumeration value="319"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassRespSens">
+        <xs:annotation>
+            <xs:documentation>Respiratory tract sensitizer categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Resp. Sens."/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardRespSens">
+        <xs:restriction base="string">
+            <xs:enumeration value="334"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev02ClassRespSens">
+        <xs:annotation>
+            <xs:documentation>Respiratory tract sensitizer categories according to UN GHS revision 2 (2007).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Resp. Sens. 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev02HazardRespSens">
+        <xs:restriction base="string">
+            <xs:enumeration value="334"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev03ClassRespSens">
+        <xs:annotation>
+            <xs:documentation>Respiratory tract sensitizer categories according to UN GHS revision 3 (2009).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Resp. Sens. 1"/>
+            <xs:enumeration value="Resp. Sens. 1A"/>
+            <xs:enumeration value="Resp. Sens. 1B"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev03HazardRespSens">
+        <xs:restriction base="string">
+            <xs:enumeration value="334"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassSkinSens">
+        <xs:annotation>
+            <xs:documentation>Skin Sensitizer categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Skin Sens."/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardSkinSens">
+        <xs:restriction base="string">
+            <xs:enumeration value="317"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev02ClassSkinSens">
+        <xs:annotation>
+            <xs:documentation>Skin Sensitizer categories according to UN GHS revision 2 (2007).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Skin Sens. 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev02HazardSkinSens">
+        <xs:restriction base="string">
+            <xs:enumeration value="317"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev03ClassSkinSens">
+        <xs:annotation>
+            <xs:documentation>Skin Sensitizer categories according to UN GHS revision 3 (2009).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Skin Sens. 1"/>
+            <xs:enumeration value="Skin Sens. 1A"/>
+            <xs:enumeration value="Skin Sens. 1B"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev03HazardSkinSens">
+        <xs:restriction base="string">
+            <xs:enumeration value="317"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassMuta">
+        <xs:annotation>
+            <xs:documentation>Mutagenicity categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Muta. 1"/>
+            <xs:enumeration value="Muta. 1A"/>
+            <xs:enumeration value="Muta. 1B"/>
+            <xs:enumeration value="Muta. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardMuta">
+        <xs:restriction base="string">
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="341"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassCarc">
+        <xs:annotation>
+            <xs:documentation>Carcinogenicity categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Carc. 1"/>
+            <xs:enumeration value="Carc. 1A"/>
+            <xs:enumeration value="Carc. 1B"/>
+            <xs:enumeration value="Carc. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardCarc">
+        <xs:restriction base="string">
+            <xs:enumeration value="350"/>
+            <xs:enumeration value="351"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassRepr">
+        <xs:annotation>
+            <xs:documentation>Flammable Solids categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Repr. 1"/>
+            <xs:enumeration value="Repr. 1A"/>
+            <xs:enumeration value="Repr. 1B"/>
+            <xs:enumeration value="Repr. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardRepr">
+        <xs:restriction base="string">
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="361"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassLact">
+        <xs:annotation>
+            <xs:documentation>Lactatioon effects category (offically a subcategory of Repr) according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Lact."/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardLact">
+        <xs:restriction base="string">
+            <xs:enumeration value="362"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassStotSe">
+        <xs:annotation>
+            <xs:documentation>STOT single exposure categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STOT SE 1"/>
+            <xs:enumeration value="STOT SE 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardStotSe">
+        <xs:restriction base="string">
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="371"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01ClassStotSe3">
+        <xs:annotation>
+            <xs:documentation>STOT single exposure category 3 according to UN GHS revision 1 (2005). Officially a part of STOT SE, but can be applied independently from STOT SE 1 and 2 as it describes different effects.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STOT SE 3 (resp.)"/>
+            <xs:enumeration value="STOT SE 3 (narc.)"/>
+            <xs:enumeration value="STOT SE 3 (resp., narc.)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01HazardStotSe3">
+        <xs:restriction base="string">
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="336"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassStotRe">
+        <xs:annotation>
+            <xs:documentation>STOT repreated exposure categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STOT RE 1"/>
+            <xs:enumeration value="STOT RE 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardStotRe">
+        <xs:restriction base="string">
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01ClassAspTox">
+        <xs:annotation>
+            <xs:documentation>Aspiration hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Asp. Tox. 1"/>
+            <xs:enumeration value="Asp. Tox. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01HazardAspTox">
+        <xs:restriction base="string">
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="305"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassAquaticAcute">
+        <xs:annotation>
+            <xs:documentation>Acute Aquatic environmental hazard categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Aquatic Acute I"/>
+            <xs:enumeration value="Aquatic Acute II"/>
+            <xs:enumeration value="Aquatic Acute III"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardAquaticAcute">
+        <xs:restriction base="string">
+            <xs:enumeration value="400"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="402"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01ClassAquaticAcute">
+        <xs:annotation>
+            <xs:documentation>Acute Aquatic environmental hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Aquatic Acute 1"/>
+            <xs:enumeration value="Aquatic Acute 2"/>
+            <xs:enumeration value="Aquatic Acute 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01HazardAquaticAcute">
+        <xs:restriction base="string">
+            <xs:enumeration value="400"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="402"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00ClassAquaticChronic">
+        <xs:annotation>
+            <xs:documentation>Chronic Aquatic environmental hazard categories according to the original UN GHS (2003).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Aquatic Chronic I"/>
+            <xs:enumeration value="Aquatic Chronic II"/>
+            <xs:enumeration value="Aquatic Chronic III"/>
+            <xs:enumeration value="Aquatic Chronic IV"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev00HazardAquaticChronic">
+        <xs:restriction base="string">
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="412"/>
+            <xs:enumeration value="413"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01ClassAquaticChronic">
+        <xs:annotation>
+            <xs:documentation>Chronic Aquatic environmental hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Aquatic Chronic 1"/> 
+            <xs:enumeration value="Aquatic Chronic 2"/>
+            <xs:enumeration value="Aquatic Chronic 3"/>
+            <xs:enumeration value="Aquatic Chronic 4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev01HazardAquaticChronic">
+        <xs:restriction base="string">
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="412"/>
+            <xs:enumeration value="413"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GhsRev03ClassOzone">
+        <xs:annotation>
+            <xs:documentation>Ozone layer hazard categories according to UN GHS revision 3 (2009).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ozone 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs00ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev00ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev00ClassFlamAer SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev00ClassRespSens SDScom:GhsRev00ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev00ClassStotRe SDScom:GhsRev00ClassAquaticAcute SDScom:GhsRev00ClassAquaticChronic"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs01ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev00ClassFlamAer SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev00ClassRespSens SDScom:GhsRev00ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs02ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev00ClassFlamAer SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev02ClassRespSens SDScom:GhsRev02ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs03ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev00ClassFlamAer SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev03ClassRespSens SDScom:GhsRev03ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic SDScom:GhsRev03ClassOzone"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs04ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev04ClassChemUnstGas SDScom:GhsRev04ClassAerosol SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev03ClassRespSens SDScom:GhsRev03ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic SDScom:GhsRev03ClassOzone"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs05ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev04ClassChemUnstGas SDScom:GhsRev04ClassAerosol SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev03ClassRespSens SDScom:GhsRev03ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic SDScom:GhsRev03ClassOzone"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs06ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev00ClassFlamGas SDScom:GhsRev06ClassPyrGas SDScom:GhsRev04ClassChemUnstGas SDScom:GhsRev04ClassAerosol SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev06ClassDesensExpl SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev03ClassRespSens SDScom:GhsRev03ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic SDScom:GhsRev03ClassOzone"/>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs07ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:GhsRev01ClassExpl SDScom:GhsRev07ClassFlamGas SDScom:GhsRev04ClassAerosol SDScom:GhsRev00ClassOxGas SDScom:GhsRev00ClassPressGas SDScom:GhsRev00ClassFlamLiq SDScom:GhsRev00ClassFlamSol SDScom:GhsRev00ClassSelfReact SDScom:GhsRev00ClassPyrLiq SDScom:GhsRev00ClassPyrSol SDScom:GhsRev00ClassSelfHeat SDScom:GhsRev00ClassWaterReact SDScom:GhsRev00ClassOxLiq SDScom:GhsRev00ClassOxSol SDScom:GhsRev00ClassOrgPerox SDScom:GhsRev00ClassMetCorr SDScom:GhsRev06ClassDesensExpl SDScom:GhsRev00ClassAcuteToxOral SDScom:GhsRev00ClassAcuteToxDermal SDScom:GhsRev00ClassAcuteToxInhal SDScom:GhsRev00ClassSkinCorr SDScom:GhsRev00ClassEyeDam SDScom:GhsRev03ClassRespSens SDScom:GhsRev03ClassSkinSens SDScom:GhsRev00ClassMuta SDScom:GhsRev00ClassCarc SDScom:GhsRev00ClassRepr SDScom:GhsRev00ClassLact SDScom:GhsRev00ClassStotSe SDScom:GhsRev01ClassStotSe3 SDScom:GhsRev00ClassStotRe SDScom:GhsRev01ClassAspTox SDScom:GhsRev01ClassAquaticAcute SDScom:GhsRev01ClassAquaticChronic SDScom:GhsRev03ClassOzone"/>
+    </xs:simpleType>
+    <xs:simpleType name="PictogramCodeEnum">
+        <xs:annotation>
+            <xs:documentation> Pictogram code enumeration with a predefined set of legal values. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="string">
+            <xs:enumeration value="GHS01"/>
+            <xs:enumeration value="GHS02"/>
+            <xs:enumeration value="GHS03"/>
+            <xs:enumeration value="GHS04"/>
+            <xs:enumeration value="GHS05"/>
+            <xs:enumeration value="GHS06"/>
+            <xs:enumeration value="GHS07"/>
+            <xs:enumeration value="GHS08"/>
+            <xs:enumeration value="GHS09"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="HazardPictogram">
+        <xs:annotation>
+            <xs:documentation>CLP Hazard Pictogram</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PhraseCode" type="SDScom:PictogramCodeEnum" minOccurs="1"/>
+            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
+    </xs:complexType>
+    <xs:simpleType name="SignalWordEnum">
+        <xs:annotation>
+            <xs:documentation> Pictogram code enumeration with a predefined set of legal values. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="string">
+            <xs:enumeration value="DGR"/>
+            <xs:enumeration value="WNG"/>
+            <!-- Danger -->
+            <!-- Warning -->
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SignalWord">
+        <xs:annotation>
+            <xs:documentation> CLP Signal Word, ie. danger or warning. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PhraseCode" type="SDScom:SignalWordEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
+    </xs:complexType>
+    <xs:simpleType name="Ghs00HazardStatementEnum">
+        <xs:annotation>
+            <xs:documentation> Hazard statement code with a predefined set of legal values. Also called H-phrases. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="string">
+            <xs:enumeration value="200"/>
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="203"/>
+            <xs:enumeration value="204"/>
+            <xs:enumeration value="205"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="221"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="223"/>
+            <xs:enumeration value="224"/>
+            <xs:enumeration value="225"/>
+            <xs:enumeration value="226"/>
+            <xs:enumeration value="228"/>
+            <xs:enumeration value="229"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="242"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="251"/>
+            <xs:enumeration value="252"/>
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="272"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="281"/>
+            <xs:enumeration value="290"/>
+            <xs:enumeration value="300"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="311"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="314"/>
+            <xs:enumeration value="315"/>
+            <xs:enumeration value="317"/>
+            <xs:enumeration value="318"/>
+            <xs:enumeration value="319"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="332"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="336"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="341"/>
+            <xs:enumeration value="350"/>
+            <xs:enumeration value="350i"/>
+            <xs:enumeration value="351"/>
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="360F"/>
+            <xs:enumeration value="360D"/>
+            <xs:enumeration value="360FD"/>
+            <xs:enumeration value="360Fd"/>
+            <xs:enumeration value="360Df"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="361f"/>
+            <xs:enumeration value="361d"/>
+            <xs:enumeration value="361fd"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="400"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="412"/>
+            <xs:enumeration value="413"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="300+310"/>
+            <xs:enumeration value="300+330"/>
+            <xs:enumeration value="310+330"/>
+            <xs:enumeration value="300+310+330"/>
+            <xs:enumeration value="301+311"/>
+            <xs:enumeration value="301+331"/>
+            <xs:enumeration value="311+331"/>
+            <xs:enumeration value="301+311+331"/>
+            <xs:enumeration value="302+312"/>
+            <xs:enumeration value="302+332"/>
+            <xs:enumeration value="312+332"/>
+            <xs:enumeration value="302+312+332"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs06HazardStatementEnum">
+        <xs:annotation>
+            <xs:documentation>List of Hazard Statement codes according to GHS revision 6, adding Desen. Expl. (H206, H207, H208).</xs:documentation>
+        </xs:annotation>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="SDScom:Ghs00HazardStatementEnum"> </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="string">
+                    <xs:enumeration value="206"/>
+                    <xs:enumeration value="207"/>
+                    <xs:enumeration value="208"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs07HazardStatementEnum">
+        <xs:annotation>
+            <xs:documentation>List of Hazard Statement codes according to GHS revision 7, adding Pyr. Gas (H232)</xs:documentation>
+        </xs:annotation>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="SDScom:Ghs06HazardStatementEnum"> </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="string">
+                    <xs:enumeration value="232"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="PrecautionaryStatementEnum">
+        <xs:annotation>
+            <xs:documentation>Precautionary Statement Code with a predefined set of legal values, or any combination of up to four such values (actually, this type only checks for combinations of up to four three-digit numbers). Also called CLP P-phrases. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="string">
+            <xs:enumeration value="101"/>
+            <xs:enumeration value="102"/>
+            <xs:enumeration value="103"/>
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="211"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="221"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="223"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="242"/>
+            <xs:enumeration value="243"/>
+            <xs:enumeration value="244"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="251"/>
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="262"/>
+            <xs:enumeration value="263"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="272"/>
+            <xs:enumeration value="273"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="281"/>
+            <xs:enumeration value="282"/>
+            <xs:enumeration value="283"/>
+            <xs:enumeration value="284"/>
+            <xs:enumeration value="285"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="303"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="305"/>
+            <xs:enumeration value="306"/>
+            <xs:enumeration value="307"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="309"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="311"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="313"/>
+            <xs:enumeration value="314"/>
+            <xs:enumeration value="315"/>
+            <xs:enumeration value="320"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="322"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="332"/>
+            <xs:enumeration value="333"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="336"/>
+            <xs:enumeration value="337"/>
+            <xs:enumeration value="338"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="341"/>
+            <xs:enumeration value="342"/>
+            <xs:enumeration value="350"/>
+            <xs:enumeration value="351"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="353"/>
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="363"/>
+            <xs:enumeration value="364"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="374"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="376"/>
+            <xs:enumeration value="377"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
+            <xs:enumeration value="381"/>
+            <xs:enumeration value="390"/>
+            <xs:enumeration value="391"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="402"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="404"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="406"/>
+            <xs:enumeration value="407"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="412"/>
+            <xs:enumeration value="413"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="422"/>
+            <xs:enumeration value="501"/>
+            <xs:enumeration value="502"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="HazardStatement">
+        <xs:annotation>
+            <xs:documentation>CLP Hazard Statement. Systems can export PhraseCode only, without FullText or other phrase references - this is useful if data tranfer of only SDS parts takes place without any use of phrases. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PhraseCode" type="SDScom:Ghs00HazardStatementEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+    </xs:complexType>
+    <xs:complexType name="PrecautionaryStatement">
+        <xs:annotation>
+            <xs:documentation> Precautionary Statement CLP </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PhraseCode" type="SDScom:PrecautionaryStatementEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+    </xs:complexType>
+</xs:schema>

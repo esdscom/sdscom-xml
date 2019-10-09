@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+SDScom XML schema definition version 5   
+Main schema - root element is DatasheetFeed
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
-	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<!-- Section 1 ========================================================== -->
+	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
 	<xs:complexType name="IdentificationSubstPrep">
 		<xs:annotation>
 			<xs:documentation>SDS section 1</xs:documentation>
@@ -87,7 +88,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Comments to information provided in product identity. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="RegionEU" type="SDScom:EuProductIdentity"> </xs:element>
+						<xs:element minOccurs="0" name="RegionEU" type="SDScom:ProductIdentityEU"> </xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -614,7 +615,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="RegionEU">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ClpClassification" type="SDScom:EuClassification"/>
+						<xs:element minOccurs="0" name="ClpClassification" type="SDScom:ClassificationEU"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationAdditionalInformation" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -718,7 +719,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										<xs:documentation>describes a single constituent substance</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:EuComponent">
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:ComponentEU">
 									<xs:annotation>
 										<xs:appinfo>SDScomBau</xs:appinfo>
 										<xs:appinfo>SDScomChem</xs:appinfo>
@@ -726,19 +727,63 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									</xs:annotation>
 								</xs:element>
 							</xs:choice>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:EuComponent">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:ComponentEU">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:EuComponent">
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:ComponentEU">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:EuComponent"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:ComponentEU"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionUS">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="SDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:ComponentUS">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:ComponentUS">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:ComponentUS">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:ComponentUS"/>
 						</xs:sequence>
 					</xs:sequence>
 				</xs:complexType>
@@ -1224,7 +1269,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Comments on disposal considerations: Comments or information related to the information provided in this section. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="RegionEU" type="SDScom:EuDisposalConsiderations">
+			<xs:element maxOccurs="1" minOccurs="0" name="RegionEU" type="SDScom:DisposalConsiderationsEU">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1345,7 +1390,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Any other information that applies to all transport carriers</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionEU" type="SDScom:EuTransport"> </xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="SDScom:TransportEU"> </xs:element>
+			<xs:element minOccurs="0" name="RegionUS" type="SDScom:TransportUS"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 15 ========================================================= -->
@@ -1354,7 +1400,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>SDS section 15. This type covers information on the product. Any information on substances which might be necessary to be listed in section 15 is covered in type "Substance".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories"/>
+			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories">
+				<xs:annotation>
+					<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInformationComments" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInfoAdditionalInfo" type="SDScom:Phrase"/>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:NationalExtensionEU">
@@ -1380,6 +1430,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Although an EU candidate, Turkish chemicals legislation is moving away from the EU again and thus treated as a separate region.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionUS" type="SDScom:NationalExtensionUS"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 16 ========================================================= -->
@@ -1452,7 +1503,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Comments to information in this section: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionEU" type="SDScom:EuOtherInformation"> </xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="SDScom:OtherInformationEU"> </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Summary: The complete SDS ========================================== -->
@@ -1746,7 +1797,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:element>
 				<xs:element name="Datasheet" maxOccurs="unbounded" type="SDScom:Datasheet">
 					<xs:annotation>
-						<xs:documentation>In fact, a product data set, i.e. data for a collection of safety data sheets for the same product.</xs:documentation>
+						<xs:documentation>In fact, this is a product data set, i.e. data for a collection of safety data sheets for the same product.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
