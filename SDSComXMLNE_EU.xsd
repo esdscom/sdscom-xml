@@ -875,6 +875,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="TransportHazardLabelAdrAdnOnlyEnum">
+		<xs:annotation>
+			<xs:documentation>List of carrier specific hazard label elements for ADR.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="7E"/>
+			<xs:enumeration value="7X"/>
+			<xs:enumeration value="9A"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TransportHazardLabelAdrAdnEnum">
+		<xs:union memberTypes="SDScom:TransportHazardLabelEnum SDScom:TransportHazardLabelAdrAdnOnlyEnum"/>
+	</xs:simpleType>
+	<xs:simpleType name="TransportHazardLabelRidOnlyEnum">
+		<xs:annotation>
+			<xs:documentation>List of carrier specific hazard label elements for RID.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="7E"/>
+			<xs:enumeration value="7X"/>
+			<xs:enumeration value="9A"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TransportHazardLabelRidEnum">
+		<xs:union memberTypes="SDScom:TransportHazardLabelEnum SDScom:TransportHazardLabelRidOnlyEnum"/>
+	</xs:simpleType>
 	<xs:complexType name="TransportEU">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="AdrRid">
@@ -926,16 +954,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdr" type="SDScom:TransportHazardLabelAdrAdnEnum"/>
+						<xs:element maxOccurs="4" minOccurs="0" name="HazardLabelRid" type="SDScom:TransportHazardLabelRidEnum"/>
 						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="OtherInformation">
@@ -1026,18 +1050,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportHazardLabelAdrAdnEnum"/>
 						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-						<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="OtherInformation">
@@ -1274,8 +1291,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia" type="SDScom:NationalExtensionEE"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSpain" type="SDScom:NationalExtensionES">
 							<xs:annotation>
-								<xs:documentation>includes the Canaries.
-Includes Ceuta and Melilla, which are not part of the European Customs Union.</xs:documentation>
+								<xs:documentation>Includes the Canaries. Includes Ceuta and Melilla which are not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFinland" type="SDScom:NationalExtensionFI"/>
@@ -1286,8 +1302,7 @@ Includes Ceuta and Melilla, which are not part of the European Customs Union.</x
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUnitedKingdom" type="SDScom:NationalExtensionGB">
 							<xs:annotation>
-								<xs:documentation>No EU member anymore after March 29, 2019. Until deviating legislation is established, the UK will be covered with a EU safety data sheet.
-Includes Gibraltar, which is not part of the European Customs Union.</xs:documentation>
+								<xs:documentation>No EU member anymore after March 29, 2019. Until deviating legislation is established, the UK will be covered with a EU safety data sheet. Includes Gibraltar, which is not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGreece" type="SDScom:NationalExtensionGR"/>

@@ -1994,13 +1994,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="SDScom:TransportClassEnum"/>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
 						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum"/>
-						<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
-							</xs:annotation>
-						</xs:element>
 						<xs:element minOccurs="0" name="MarinePollutant" type="boolean">
 							<xs:annotation>
 								<xs:documentation> Marine pollutant: To state if the chemical is classified as a marine pollutant.</xs:documentation>
@@ -2046,13 +2040,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						</xs:element>
 						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum"/>
 						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="SDScom:TransportClassEnum"/>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
-						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum"/>
-						<xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelEnglish" type="SDScom:Phrase">
 							<xs:annotation>
-								<xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
+								<xs:documentation>In analogy to issue #13, this content should be in English language because it is never used in other languages in shipping papers. Nevertheless, the phrase type makes it translatable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum"/>
 						<xs:element minOccurs="0" name="OtherInformation">
 							<xs:complexType>
 								<xs:sequence>

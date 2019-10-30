@@ -215,6 +215,51 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    <xs:simpleType name="TransportHazardLabelUsaOnlyEnum">
+        <xs:annotation>
+            <xs:documentation>List of carrier specific hazard label elements for transportation under U.S. DOT rules.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="string">
+            <xs:enumeration value="1.1A"/>
+            <xs:enumeration value="1.1B"/>
+            <xs:enumeration value="1.1C"/>
+            <xs:enumeration value="1.1D"/>
+            <xs:enumeration value="1.1E"/>
+            <xs:enumeration value="1.1F"/>
+            <xs:enumeration value="1.1G"/>
+            <xs:enumeration value="1.1J"/>
+            <xs:enumeration value="1.1L"/>
+            <xs:enumeration value="1.2B"/>
+            <xs:enumeration value="1.2C"/>
+            <xs:enumeration value="1.2D"/>
+            <xs:enumeration value="1.2E"/>
+            <xs:enumeration value="1.2F"/>
+            <xs:enumeration value="1.2G"/>
+            <xs:enumeration value="1.2H"/>
+            <xs:enumeration value="1.2J"/>
+            <xs:enumeration value="1.2K"/>
+            <xs:enumeration value="1.2L"/>
+            <xs:enumeration value="1.3C"/>
+            <xs:enumeration value="1.3G"/>
+            <xs:enumeration value="1.3H"/>
+            <xs:enumeration value="1.3J"/>
+            <xs:enumeration value="1.3K"/>
+            <xs:enumeration value="1.3L"/>
+            <xs:enumeration value="1.4B"/>
+            <xs:enumeration value="1.4C"/>
+            <xs:enumeration value="1.4D"/>
+            <xs:enumeration value="1.4E"/>
+            <xs:enumeration value="1.4F"/>
+            <xs:enumeration value="1.4G"/>
+            <xs:enumeration value="1.4B"/>
+            <xs:enumeration value="1.4S"/>
+            <xs:enumeration value="1.5D"/>
+            <xs:enumeration value="1.6N"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TransportHazardLabelUsaEnum">
+        <xs:union memberTypes="SDScom:TransportHazardLabelEnum SDScom:TransportHazardLabelUsaOnlyEnum"/>
+    </xs:simpleType>
     <xs:complexType name="TransportUS">
         <xs:sequence>
             <xs:element minOccurs="0" name="IdNoUsaDot" type="SDScom:UnIdNo">
@@ -230,16 +275,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 </xs:annotation>
             </xs:element>
             <xs:element maxOccurs="2" minOccurs="0" name="Subrisk" type="SDScom:TransportClassEnum"/>
-            <xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
+            <xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportHazardLabelUsaEnum"/>
             <xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
                 <xs:annotation>
                     <xs:appinfo>SDScomBau</xs:appinfo>
                     <xs:appinfo>SDScomChem</xs:appinfo>
-                </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
-                <xs:annotation>
-                    <xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="OtherInformation">

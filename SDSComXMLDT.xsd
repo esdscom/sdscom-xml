@@ -2381,7 +2381,7 @@ It is used to reference the version number in the XML data file, as the schema n
 	<xs:simpleType name="TransportClassEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="1"/>
-			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
 			<xs:enumeration value="3"/>
 			<xs:enumeration value="4.1"/>
 			<xs:enumeration value="4.2"/>
@@ -2395,6 +2395,31 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="9"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<simpleType name="TransportHazardLabelEnum">
+		<restriction base="xs:string">
+			<enumeration value="1"/>
+			<enumeration value="1.1"/>
+			<enumeration value="1.2"/>
+			<enumeration value="1.3"/>
+			<enumeration value="1.4"/>
+			<enumeration value="1.5"/>
+			<enumeration value="1.6"/>
+			<enumeration value="2.1"/>
+			<enumeration value="2.2"/>
+			<enumeration value="2.3"/>
+			<enumeration value="3"/>
+			<enumeration value="4.1"/>
+			<enumeration value="4.2"/>
+			<enumeration value="4.3"/>
+			<enumeration value="5.1"/>
+			<enumeration value="5.2"/>
+			<enumeration value="6.1"/>
+			<enumeration value="6.2"/>
+			<enumeration value="7"/>
+			<enumeration value="8"/>
+			<enumeration value="9"/>
+		</restriction>
+	</simpleType>		
 	<xs:simpleType name="JustificationForUpdateEnum">
 		<xs:annotation>
 			<xs:documentation>Enumeration for structured communication of SDS changes, consistent with Iuclid6 PG6-60571 v1.0 (Justifications for update) for CLP article 45 notification:

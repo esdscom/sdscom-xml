@@ -91,16 +91,10 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
                 </xs:annotation>
             </xs:element>
             <xs:element maxOccurs="2" minOccurs="0" name="Subrisk" type="SDScom:TransportClassEnum"/>
-            <xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportClassEnum"/>
             <xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
                 <xs:annotation>
                     <xs:appinfo>SDScomBau</xs:appinfo>
                     <xs:appinfo>SDScomChem</xs:appinfo>
-                </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" name="EnvironmentalHazard" type="SDScom:Phrase">
-                <xs:annotation>
-                    <xs:documentation>either "Environmentally hazardous" or empty</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="OtherInformation">
