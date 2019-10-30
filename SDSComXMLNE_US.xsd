@@ -43,7 +43,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:complexType name="ClassificationUS">
         <xs:sequence>
-            <xs:element name="Hazcom2012HazardClassification">
+            <xs:element name="Hazcom2012HazardClassification" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Classification according to 29 CFR 1910.1200</xs:documentation>
                 </xs:annotation>
@@ -70,11 +70,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>
-            </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-                <xs:annotation>
-                    <xs:documentation>DO NOT PRINT. Any data processing information that might be relevant. If phrases are not necessary, put all content in one phrase.</xs:documentation>
-                </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
@@ -288,7 +283,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="SDScom:string20"> </xs:element>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="SDScom:string20"> </xs:element>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

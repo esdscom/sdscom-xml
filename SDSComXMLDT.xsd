@@ -196,7 +196,7 @@ It is used to reference the version number in the XML data file, as the schema n
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
 	<xs:simpleType name="LanguageCodeEnum">
 		<xs:annotation>
-			<xs:documentation> Language according to ISO standard ISO 639-1 (2 letters). Language name as comment. </xs:documentation>
+			<xs:documentation> Language according to ISO standard ISO 639-1 (2 letters).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="aa"/>
@@ -573,7 +573,7 @@ It is used to reference the version number in the XML data file, as the schema n
 	<!-- ******************************************************************** CountryCodeEnum ********** -->
 	<xs:simpleType name="CountryCodeEnum">
 		<xs:annotation>
-			<xs:documentation> Country according to ISO standard ISO 3166 (2 letters). Country name as comment. </xs:documentation>
+			<xs:documentation> Country according to ISO standard ISO 3166 (2 letters).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AD"/>
@@ -1240,7 +1240,9 @@ It is used to reference the version number in the XML data file, as the schema n
 	<!-- ******************************************************************* ExposureLimitValueTypeEnum *************  -->
 	<xs:simpleType name="ExposureLimitValueTypeEnum">
 		<xs:annotation>
-			<xs:documentation> The legal codes for the ExposureLimitValueTypeEnum. Country origin as comments. Source: Chapter 8 </xs:documentation>
+			<xs:documentation> The legal codes for the ExposureLimitValueTypeEnum. Source: Chapter 8.
+DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, PK, MK / US: PEL / CH: MAK / PL: NDS, NDSCH, NDSP / DK: GV / SE: NGV, TGV, KTV / NO: AN, ADN / FI: HTP 			
+			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AGW"/>
@@ -1266,29 +1268,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="AN"/>
 			<xs:enumeration value="ADN"/>
 			<xs:enumeration value="HTP"/>
-			<!-- (DE)-->
-			<!-- (ES) -->
-			<!-- (NL) -->
-			<!-- (UK) -->
-			<!-- (EC) -->
-			<!-- (EC) -->
-			<!-- (EC) -->
-			<!-- (FR) -->
-			<!-- (HU) -->
-			<!-- (HU) -->
-			<!-- (HU) -->
-			<!-- (US) -->
-			<!-- (CH) -->
-			<!-- (PL) -->
-			<!-- (PL) -->
-			<!-- (PL) -->
-			<!-- (DK) -->
-			<!-- (SE) -->
-			<!-- (SE) -->
-			<!-- (SE) -->
-			<!-- (NO) -->
-			<!-- (NO) -->
-			<!-- (FI) -->
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************* EffectLevelTypeEnum *************  -->
@@ -2233,7 +2212,7 @@ It is used to reference the version number in the XML data file, as the schema n
 				</xs:sequence>
 				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
@@ -2250,7 +2229,7 @@ It is used to reference the version number in the XML data file, as the schema n
 				</xs:sequence>
 				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->

@@ -140,7 +140,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DMEL">
@@ -156,7 +156,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PNEC">
@@ -172,7 +172,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="PNECTypeEnum">
@@ -498,11 +498,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="ClpAtp" type="SDScom:AtpEnum">
 				<xs:annotation>
 					<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs. This is not rudundant with the classification nodes, which are only referring to the ATPs that adapt CLP to new GHS revisions, while other ATPs may still change harmonized classifications.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation>DO NOT PRINT. Any data processing information that might be relevant. If phrases are not necessary, put all content in one phrase.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -995,7 +990,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:documentation>also known as Kemler code</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidOtherInfo" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1067,7 +1062,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									</xs:element>
 									<xs:element minOccurs="0" name="ExceptedQty" type="SDScom:TransportEq"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1087,19 +1082,24 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	</xs:complexType>
 	<xs:complexType name="OtherInformationEU">
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Acronym" type="string"/>
-						<xs:element name="Meaning" type="SDScom:Phrase"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase">
+			<xs:choice>
 				<xs:annotation>
-					<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
+					<xs:documentation>Acronym lists are mandatory, but not their form. Either use the list format (preferred) or a less formal string representation.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Acronym" type="string"/>
+							<xs:element name="Meaning" type="SDScom:Phrase"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase">
+					<xs:annotation>
+						<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="PositiveEcolabelling">
 				<xs:annotation>
 					<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
@@ -1203,7 +1203,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:documentation>Voc contents: To be usually measured in g/L</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="VocRestrictionComments" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1224,7 +1224,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:documentation>Voc contents: To be usually measured in g/L</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="OtherInformation" type="SDScom:Phrase"/>
+									<xs:element minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1232,7 +1232,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element minOccurs="0" name="FluorinatedGreenhouseGasesMethod" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="FluorinatedGreenhouseGasesComments" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1406,9 +1406,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Exposure scenarios for the mixture: To state if information on the actual use of the mixture, similar to information in an exposure scenario for a substance, is enclosed the SDS. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioComments" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 							<xs:annotation>
-								<xs:documentation> Comments to exposure scenarioes: To provide information on status of ES, ES not required etc. </xs:documentation>
+								<xs:documentation>To provide information on status of ES, ES not required etc. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>

@@ -39,19 +39,21 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
     </xs:simpleType>
     <xs:complexType name="ClassificationCA">
         <xs:sequence>
-            <xs:element minOccurs="0" name="WhmisHazardClassification" maxOccurs="unbounded">
+            <xs:element minOccurs="0" name="WhmisHazardClassification">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:WhmisClassCategoryEnum"> </xs:element>
-                        <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
-                            <xs:annotation>
-                                <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:WhmisClassCategoryEnum"> </xs:element>
+                            <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
+                                <xs:annotation>
+                                    <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"> </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationComments" type="SDScom:Phrase"> </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="ComponentCA">
@@ -103,7 +105,7 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="SDScom:string20"> </xs:element>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="SDScom:string20"> </xs:element>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

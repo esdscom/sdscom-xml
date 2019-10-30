@@ -79,18 +79,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:complexType name="ToxInfoStotSE3">
 		<xs:sequence>
 			<xs:element name="HumanExperience" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OtherInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Usually just one phrase how the evaluation took place. See EuPhraC for content examples.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AssessmentOrClassification" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Usually just one phrase if dta lacking - see EuPhraC for cotent examples.</xs:documentation>
+					<xs:documentation>E.g. how the evaluation took place or why data is lacking. See EuPhraC for content examples.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AssessmentOrClassification" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  OccupationalExposureLimit *************  -->
@@ -130,11 +125,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="RecommendedMonitoringProcedure" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ParticleFraction" type="SDScom:ExposureLimitFractionEnum" minOccurs="0"/>
 			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A remark that applies to all of the abovementioned OELs. Can cover specific info like code letters (H, Sh, Sa, Y, Z in Germany's TRGS 900) either as the letter or as the respective explanatory text.
-
-If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit - ofr example, two instances for inhalable and respirable fraction OEL's.</xs:documentation>
+					<xs:documentation>A remark that applies to all of the abovementioned OELs. Can cover specific info like code letters (H, Sh, Sa, Y, Z in Germany's TRGS 900) either as the letter or as the respective explanatory text. If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit - ofr example, two instances for inhalable and respirable fraction OEL's.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -151,7 +144,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="TestMaterial" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  STEL ******************************  -->
@@ -344,21 +337,13 @@ If there are multiple limit values depending on conditions described in remarks 
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ValueComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<!--xs:complexContent>
-			<xs:extension base="PhysChemUnitValue">
-				<xs:sequence>
-					<xs:element name="Valuation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="ValueComments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************** Solubilities ************** -->
 	<xs:complexType name="Solubilities">
@@ -393,21 +378,13 @@ If there are multiple limit values depending on conditions described in remarks 
 						<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>If the product has a low solubility or is insoluble in the specified medium, and if there is no numerical translation of this circumstance, put the respective phrase in Comments. (see issue #71)</xs:documentation>
+								<xs:documentation>If the product has a low solubility or is insoluble in the specified medium, and if there is no numerical translation of this circumstance, put the respective phrase in AdditionalInfo. (see issue #71)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
-		<!--xs:complexContent>
-			<xs:extension base="PhysChemUnitValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="Medium" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/> 
-					<xs:element name="OtherMediumDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************** HydrolysisRate ********************* -->
 	<xs:complexType name="HydrolysisRate">
@@ -558,7 +535,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="ResultEvaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ResultEvaluationScore" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* CMRData ************************************  -->
@@ -577,7 +554,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Result" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ResultEvaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* STOTData ***************************  -->
@@ -616,7 +593,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Result" type="SDScom:UnitValue" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ResultEvaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** SurfaceTension ********************* -->
@@ -628,13 +605,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<!--xs:complexContent>
-			<xs:extension base="PhysChemUnitValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************* FurtherEcologicalData *************  -->
 	<xs:complexType name="FurtherEcologicalData">
@@ -645,10 +615,6 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<!-- xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/ -->
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* BiologicalDegradation *************  -->
@@ -753,7 +719,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  GasGroup *********************************  -->
@@ -769,7 +735,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Evaluation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="GasGroup">
@@ -781,7 +747,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0"/>
 			<xs:element name="TestResults" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Evaluation" type="SDScom:GasGroupEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  Species *************  -->
@@ -804,7 +770,7 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0"/>
 			<xs:element name="TestResults" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Evaluation" type="SDScom:TemperatureClassEnum" minOccurs="0"/>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *****************************************************************  PhysicalHazardsGeneralInformation ***********  -->
@@ -939,11 +905,11 @@ If there are multiple limit values depending on conditions described in remarks 
 											<xs:documentation> REACH registration number: A number issued by ECHA to state that a registration of a substance is complete. The last four digits are identification of the company and may be omitted by DUs (downstream users). </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation> Comments to REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
+											<xs:documentation>Info on REACH registration No: E.g. used to describe why a registration number is not supplied. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1081,9 +1047,9 @@ If there are multiple limit values depending on conditions described in remarks 
 					<xs:documentation> Concentration: The concentration of the component in a mixture. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ComponentComments" type="SDScom:Phrase">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 				<xs:annotation>
-					<xs:documentation> Comments on the component: Relevant information on the component that is not presented elsewhere. </xs:documentation>
+					<xs:documentation>Relevant information on the component that is not presented elsewhere. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="ExposureControlPersonalProtection" type="SDScom:BaseExposureControlPersonalProtection">
@@ -1217,11 +1183,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ControlParametersComments" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:documentation> Predicted no effect concentration (PNEC): Where a Chemical Safety Report is required, the relevant PNECs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed. </xs:documentation>
-							</xs:annotation>
-						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 						<xs:element minOccurs="0" name="RegionEU">
 							<xs:complexType>
 								<xs:sequence>
@@ -1255,7 +1217,7 @@ If there are multiple limit values depending on conditions described in remarks 
 									<xs:element maxOccurs="1" minOccurs="0" name="ScaleOfUse" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="AbilityToBecomeAirborne" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="ControlApproach" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1323,7 +1285,7 @@ If there are multiple limit values depending on conditions described in remarks 
 											<xs:documentation> Reference relevant standard: Only to be used for referencing old standards for compatibility </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratoryProtectionComments" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1339,7 +1301,7 @@ If there are multiple limit values depending on conditions described in remarks 
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeProtectionEquipment" type="SDScom:ProtectionArticle"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalEyeProtectionMeasures" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceRelevantStandard" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeProtectionComments" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1413,7 +1375,7 @@ If there are multiple limit values depending on conditions described in remarks 
 											<xs:documentation> Reference relevant standard: Only to be used for referencing old standards for compatibility </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="HandProtectionComments" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -1464,7 +1426,7 @@ If there are multiple limit values depending on conditions described in remarks 
 											<xs:documentation> Reference relevant standard: Only to be used for referencing old standards for compatibility </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinProtectionComments" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -1477,7 +1439,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersonalProtectionEquipmentComments" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
@@ -1509,7 +1471,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalExposureControlComments" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1522,7 +1484,7 @@ If there are multiple limit values depending on conditions described in remarks 
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureControlsPersonalProtectionAdditionalInfo" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureControlComments" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BasePhysicalChemicalProperties">
@@ -2169,7 +2131,7 @@ If there are multiple limit values depending on conditions described in remarks 
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherPhysicalChemicalProperty" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalPhysicalPropertiesComments" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 			<!-- MISSING						
 						<xs:element name="SolventContent" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
 			-->
@@ -2228,7 +2190,7 @@ If there are multiple limit values depending on conditions described in remarks 
 							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="HumanToxicologicalData" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ToxicokineticInfoComments" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2280,19 +2242,13 @@ If there are multiple limit values depending on conditions described in remarks 
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="AcuteToxicityOtherInformation" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>e.g. other animal observings.</xs:documentation>
-							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteToxicityHumanExperience" type="SDScom:Phrase">
 							<xs:annotation>
@@ -2302,6 +2258,12 @@ If there are multiple limit values depending on conditions described in remarks 
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentAcuteToxicityClassification" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>e.g. other animal observings.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2327,11 +2289,11 @@ If there are multiple limit values depending on conditions described in remarks 
 								</xs:choice>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationOtherInformation" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Irritation" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Corrosivity" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentCorrosionIrritationClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2339,11 +2301,11 @@ If there are multiple limit values depending on conditions described in remarks 
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationTestResults" type="SDScom:CorrosionIrritationData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationOtherInfo" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeIrritation" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeCorrosivity" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentEyeDamageOrIrritationClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2363,16 +2325,7 @@ If there are multiple limit values depending on conditions described in remarks 
 									<xs:element maxOccurs="1" minOccurs="0" name="Result" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ResultEvaluation" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="RespiratoryOrSkinSensitisationOtherInformation">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratoryOrSkinSensitisationGeneral" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratorySensitisationOtherInfo" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinSensitisationOtherInfo" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2392,6 +2345,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2418,13 +2372,13 @@ If there are multiple limit values depending on conditions described in remarks 
 									<xs:element maxOccurs="1" minOccurs="0" name="Result" type="SDScom:UnitValue"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ResultEvaluation" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="GermCellMutagenicityOtherInfo" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="GermCellMutagenicityHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentGermCellMutagenicityClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2432,9 +2386,9 @@ If there are multiple limit values depending on conditions described in remarks 
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityTestResults" type="SDScom:CMRData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityOtherInfo" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentCarcinogenicityClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2446,9 +2400,9 @@ If there are multiple limit values depending on conditions described in remarks 
 					<xs:sequence>
 						<xs:element minOccurs="0" name="ReproductiveToxicityType" type="SDScom:ReproductiveToxicityTypeEnum"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityTestResults" type="SDScom:CMRData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityOtherInfo" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentReproductiveToxicityClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2464,13 +2418,9 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSEOtherInfo" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganSEHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganSEClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2481,12 +2431,12 @@ If there are multiple limit values depending on conditions described in remarks 
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="IrritationToRespiratoryTract" type="SDScom:ToxInfoStotSE3">
+						<xs:element name="IrritationToRespiratoryTract" type="SDScom:ToxInfoStotSE3" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="NarcoticEffects" type="SDScom:ToxInfoStotSE3">
+						<xs:element name="NarcoticEffects" type="SDScom:ToxInfoStotSE3" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
@@ -2496,12 +2446,8 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSEOtherInfo" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganSEClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2516,13 +2462,9 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganREOtherInfo" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganREHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganREClassification" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2545,7 +2487,7 @@ If there are multiple limit values depending on conditions described in remarks 
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentAspirationHazardClassification" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AspirationHazardComments" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2584,16 +2526,16 @@ If there are multiple limit values depending on conditions described in remarks 
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="Species" type="SDScom:Species"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhototoxicityOtherInfo" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruption" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInformation" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BaseEcologicalInformation">
@@ -2717,7 +2659,7 @@ If there are multiple limit values depending on conditions described in remarks 
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -2730,7 +2672,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="BioaccumulationComments" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>

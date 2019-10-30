@@ -82,10 +82,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>This is the place to describe kits. If the data describes a product P which is part of kit K, create two instances of ProductIdentity: One for P, and one for K with an entry in ProductDefinition that describes "This Product is a kit. The data describes one part of the kit."</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="IdentificationComments" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Comments to information provided in product identity. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="RegionEU" type="SDScom:ProductIdentityEU"> </xs:element>
@@ -447,9 +446,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 														<xs:documentation> Exposure scenarios incorporated in the SDS: To state if the SDS is complete (eSDS) - meaning that the user has to adapt to the information in the SDS within 12 months. </xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element maxOccurs="unbounded" minOccurs="0" name="ExtendedSdsWithEsIncorporatedComments" type="SDScom:Phrase">
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 													<xs:annotation>
-														<xs:documentation> Comments on the eSDS with information from ES incorporated in the text: Information on expossure scenarioes (ESs) incorporated into the safety data sheet (SDS). </xs:documentation>
+														<xs:documentation>Info on the eSDS with information from ES incorporated in the text: Information on expossure scenarioes (ESs) incorporated into the safety data sheet (SDS). </xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -1477,11 +1476,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation>DO NOT PRINT. Any data processing information that might be relevant. If phrases are not necessary, put all content in one phrase.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 4 ========================================================== -->
@@ -1608,10 +1603,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Specific first aid equipment: Information about specific equipment that must be available at the work place for instantaneous specific treatment in case of an accident. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="FirstAidComments" type="SDScom:Phrase">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> First aid comments: For instance information to first aid staff or medical information. Indicate whether professional assistance by a doctor is needed or advisable. </xs:documentation>
+					<xs:documentation>For instance information to first aid staff or medical information. Indicate whether professional assistance by a doctor is needed or advisable. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1666,11 +1661,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProtectiveEquipmentForFirefighters" type="SDScom:Phrase"> </xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="FireAndExplosionComments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation> Comments on fire and explosion information: Additional information and comments to any of the elements in the section. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 6 ========================================================== -->
@@ -1715,7 +1706,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Cleaning up: Ways of cleaning-up spills, for instance by application of absorbing material, and the application of water to dilute effluent or restrict emission of gas or fume. Description of cleaning-up methods may be divided into small and large spills (specifications must be made by the individual SDS preparer). </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInformation" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation> Other information: Any other information relating to spills and releases, including advice on inappropriate containment or clean up techniques. </xs:documentation>
 							</xs:annotation>
@@ -1765,13 +1756,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="FurtherInformation" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="GeneralOccupationalHygiene" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation>Advice on general occupational hygiene, such as not to eat, drink and smoke in work areas, to wash hands after use, and to remove contaminated clothing and protective equipment before entering eating areas. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1809,7 +1799,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="HintsOnStorageAssembly" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="FurtherInformationOnStorageConditions" type="SDScom:Phrase"/>
 						<xs:element minOccurs="0" name="StorageTemperature" type="SDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1823,6 +1812,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Information on the use of stabilisers or antioxidants that are required to maintain the integrity of the chemical </xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1905,10 +1895,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Hazardous decomposition products: Hazardous chemicals which may be formed in dangerous quantity during decomposition. Address specifically hazardous decomposition products, if any, formed upon contact with water, and possibility of degradation to unstable products. Hazardous combustion products shall be included in Section 5. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Stability and reactivity comments: Additional comments or information to complement information provided under this section. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1950,11 +1939,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation>DO NOT PRINT. Any data processing information that might be relevant. If phrases are not necessary, put all content in one phrase.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="RegionEU" type="SDScom:DisposalConsiderationsEU">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
@@ -2013,7 +1998,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2056,7 +2041,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									</xs:element>
 									<xs:element minOccurs="0" name="ExemptedQty" type="SDScom:TransportEq"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherInfo" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2064,11 +2049,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialPrecautionUser" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation>DO NOT PRINT. Any data processing information that might be relevant. If phrases are not necessary, put all content in one phrase.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 			<xs:element minOccurs="0" name="RegionCA" type="SDScom:TransportCA"/>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:TransportEU"> </xs:element>
 			<xs:element minOccurs="0" name="RegionUS" type="SDScom:TransportUS"/>
@@ -2085,12 +2066,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="RegulatoryInfoAdditionalInfo" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation>DO NOT PRINT. Any data processing information that might be relevant. If phrases are not necessary, put all content in one phrase.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
 			<xs:element minOccurs="0" name="RegionCA"/>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:NationalExtensionEU">
 				<xs:annotation>
@@ -2144,11 +2120,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Recommended restrictions: Information from supplier on recommended restrictions on the chemical. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="FurtherInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation> Further information: </xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element name="FurtherInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"> </xs:element>
 			<xs:element name="MainInformationSource" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> Main information sources: References to information sources applied in the compilation of the SDS. </xs:documentation>
@@ -2162,7 +2134,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:sequence>
 						<xs:element name="RevisionNo" type="SDScom:string16" minOccurs="0"/>
 						<xs:element minOccurs="0" name="RevisionJustification" type="SDScom:JustificationForUpdateEnum"/>
-						<xs:element name="RevisionComments" type="SDScom:Phrase" minOccurs="0"/>
 						<xs:element name="RevisionResponsible" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="LastUpdateDate" type="xs:date" minOccurs="0"/>
 					</xs:sequence>
@@ -2183,18 +2154,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Comments" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation> Comments to information in this section: </xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:OtherInformationEU"> </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Summary: The complete SDS ========================================== -->
 	<xs:complexType name="Datasheet">
 		<xs:sequence>
-			<!-- *******************************************************************  SECTION 0 (Header informations) ************************  -->
 			<!-- *******************************************************************  SECTION 1 (Identification of the substance/mixture and of the company/undertaking) ************************  -->
 			<xs:element name="IdentificationSubstPrep" minOccurs="1" maxOccurs="1" type="SDScom:IdentificationSubstPrep">
 				<xs:annotation>
