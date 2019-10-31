@@ -14,6 +14,255 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_TR.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_US.xsd"/>
+	<xs:complexType name="SdsSupplierInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SdsNotLegallyRequired" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> SDS not legally required: The formal requirements to SDSs do not apply to chemicals that legally do not require such documents. In this field, the reason for no legal requirement for an SDS can be stated. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="VersionNo" type="SDScom:string10">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Version No: The current version of the SDS document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueDate" type="date">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> Date of issue: The date when this SDS was prepared for the first time. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RevisionDate" type="date">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Date of revision: The date of the last revision of the SDS document. See also EditingDate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="EditingDate" type="date">
+				<xs:annotation>
+					<xs:documentation>If the exporting system is the SDS authoring system, the value of EditingDate should be omitted or be equal to RevisionDate. If the export is prepared by another system, e.g. from a service provider, the EditingDate is the status of data entry of the SDS and is equal to or larger than RevisionDate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="DistributionStoppedDate" type="date">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Date when manufacturer stopped distribution. See also ProductDiscontinuedFromMarket.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" name="SupplierInformation">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> Supplier information: Contact information etc. on relevant actors in the supply chain. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" name="Role">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Description of role: To describe an actor’s role. </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="1" minOccurs="0" name="RoleCode" type="SDScom:RoleDescriptionEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Description of role: To describe an actor’s role. Accepted values: Responsible company, National responsible, Manufacturer, Importer, Only representative, Reimporter, Formulator, Distributor, Downstream user, Foreign manufacturer </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="RoleDescription" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation> Role description: Textual description of the role code. To allow language independent description in addition to English based role codes. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="1" name="Country" type="SDScom:CountryCodeEnum">
+							<xs:annotation>
+								<xs:documentation>This country informaion applies to all addresses and contacts and LegalRegistrationNumber within SupplierInformation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="1" name="Name" type="SDScom:string256">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Name: Name of the company </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="1" name="Address">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="VisitingAddressLine1" type="SDScom:string256"/>
+									<xs:element minOccurs="0" name="VisitingAddressLine2" type="SDScom:string256"/>
+									<xs:element minOccurs="0" name="VisitingAddressLine3" type="SDScom:string256"/>
+									<xs:element minOccurs="0" name="VisitingAddressPostCode" type="SDScom:string16">
+										<xs:annotation>
+											<xs:documentation> Postal code: Two-letter ISO3166 country code followed by a hyphen and the national postal code. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="VisitingAddressCity" type="SDScom:string80"/>
+									<xs:element minOccurs="0" name="PostAddressLine1" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Postal address: P.O.Box or street address </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PostAddressLine2" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PostAddressLine3" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PostCode" type="SDScom:string16">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Postal code: Two-letter ISO3166 country code followed by a hyphen and the national postal code. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PostCity" type="SDScom:string80">
+										<xs:annotation>
+											<xs:appinfo>SDScomBau</xs:appinfo>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Postal city: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="1" name="Phone" type="SDScom:string256">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Telephone number: </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Fax" type="SDScom:string256">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Faximile number: </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Email" type="SDScom:string256">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> e-mail address to the company: </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="CompanyUrl" type="SDScom:string256">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Company URL: Web address to the company’s home page </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="CompanyContact">
+							<xs:annotation>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Company contact: This field covers all contact persons related to the company. Department or person within the company that can be contacted regarding information on the actual chemical. </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="Name" type="SDScom:string512">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Name: Name of the company contact </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="Phone" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Telephone number: Telephone number of the company contact </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="Fax" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> Faximile number: Faximile number of the company contact </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="Url" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> URL: Web addressof the company contact </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="Email" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation> e-mail address: e-mail address of the company contact </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="NationalContact" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="EmailCompetentPerson" type="SDScom:string256">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="Duns" type="SDScom:DunsNo">
+							<xs:annotation>
+								<xs:documentation> The D-U-N-S Number references a legal entity and allows access to what could be considered a self-maintaining address book, created for the automotive and chemical industry. It should be added to any address in SDScom to help data integration. See also https://www.upik.de/ </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EmergencyPhone">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> Emergency phone: Contacts that can be used in case of an accident or trouble, e.g. the supplier’s own emergency phone or the phone number to an official advisory body. A Poison Information Center gives advice and instruction regarding treatment of acute poisoning caused by chemicals etc. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="No" type="SDScom:string256">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Telephone number: </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EmergencyPhoneDescription" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Information: This field is used to state what kind of assistance that can be obtained from the actual emergency telephone, if it is available only during office hours, etc. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="SubstanceName">
 		<xs:sequence>
 			<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
@@ -64,7 +313,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="SubstanceType" type="SDScom:SubstanceTypeEnum"/>
-			<xs:element name="SubstanceAdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SubstanceTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation>If SubstanceType is other (or not used), specify the details here.</xs:documentation>
@@ -123,7 +372,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="RecommendedMonitoringProcedure" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ParticleFraction" type="SDScom:ExposureLimitFractionEnum" minOccurs="0"/>
+			<xs:element minOccurs="0" name="ParticleFraction">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ParticleFraction" type="SDScom:ExposureLimitFractionEnum"/>
+						<xs:element minOccurs="0" name="ParticleFractionFulltext" type="SDScom:Phrase"> </xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Reference" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -308,14 +564,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<!-- xs:complexContent>
-      <xs:extension base="PhysChemValueWithTemperature">
-        <xs:sequence>
-          <xs:element name="State" type="PhValueStateEnum" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-        </xs:sequence>
-      </xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************** FlashPoint ******************** -->
 	<xs:complexType name="FlashPoint">
@@ -369,10 +617,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="OtherMediumDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
+						<xs:element name="MediumDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Specify solubility medium if Medium above is Other. </xs:documentation>
+								<xs:documentation> Specify solubility medium if Medium above is Other, or full text of the medium in printable form.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded">
@@ -396,14 +644,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<!-- xs:complexContent>
-			<xs:extension base="PhysChemValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************* PartitionCoefficient ********************** -->
 	<xs:complexType name="PartitionCoefficient">
@@ -417,20 +657,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<!-- Was PhysChemValueWithTemperature -->
 			<xs:element name="Ph" type="SDScom:Value" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<!--xs:complexContent>
-			<xs:extension base="PhysChemValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent-->
 	</xs:complexType>
 	<!-- ******************************************************************** Viscosity ******************** -->
 	<xs:complexType name="Viscosity">
@@ -449,9 +681,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OtherTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Specify viscosity type if type above is Other, or full text of the type in printable form.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
@@ -460,15 +693,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<!--xs:complexContent>
-			<xs:extension base="PhysChemUnitValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="Type" type="ViscosityTypeEnum" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="OtherTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent-->
 	</xs:complexType>
 	<!-- ******************************************************************** DissociationConstant ********************* -->
 	<xs:complexType name="DissociationConstant">
@@ -479,13 +703,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Value" type="SDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<!-- xs:complexContent>
-			<xs:extension base="PhysChemValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************** SolutionExtractionBehaviourOfPolymersInWater *** -->
 	<xs:complexType name="SolutionExtractionBehaviourOfPolymersInWater">
@@ -496,13 +713,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<!-- xs:complexContent>
-			<xs:extension base="PhysChemUnitValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="PhValue" type="SDScom:Value" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
 	</xs:complexType>
 	<!-- ******************************************************************** RelativeVapourDensity ******************** -->
 	<xs:complexType name="RelativeVapourDensity">
@@ -513,13 +723,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ReferenceGas" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<!-- xs:complexContent>
-			<xs:extension base="PhysChemUnitValueWithTemperature">
-				<xs:sequence>
-					<xs:element name="ReferenceGas" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent -->
+	</xs:complexType>
+	<xs:complexType name="InvestigationMethod">
+		<xs:sequence>
+			<xs:element name="Method" type="SDScom:InvestigationMethodEnum"/>
+			<xs:element minOccurs="0" name="MethodFulltext" type="SDScom:Phrase"/>
+		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* CorrosionIrritationData ******************  -->
 	<xs:complexType name="CorrosionIrritationData">
@@ -527,7 +736,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> CorrosionIrritationData, source: Chapter 11 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="InvestigationMethod" type="SDScom:InvestigationMethodEnum"/>
+			<xs:element minOccurs="0" name="InvestigationMethod" type="SDScom:InvestigationMethod"/>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
@@ -538,7 +747,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* CMRData ************************************  -->
+	<xs:complexType name="ExposureRoute">
+		<xs:sequence>
+			<xs:element name="Route" type="SDScom:ExposureRouteEnum"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="RouteFulltext" type="SDScom:Phrase"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="CMRData">
 		<xs:annotation>
 			<xs:documentation> CMRData, source: Chapter 11 </xs:documentation>
@@ -546,7 +760,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:sequence>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Dose" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureRoute" type="SDScom:ExposureRouteEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureRoute" type="SDScom:ExposureRoute" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EffectValue" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
@@ -569,12 +783,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExposureRoute" type="SDScom:ExposureRouteEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="ExposureRoute" type="SDScom:ExposureRoute" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<!--xs:element name="Dose" type="DoseEnum" minOccurs="0" maxOccurs="1"/ -->
 			<xs:element name="Dose" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -707,13 +920,19 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Ecotoxicity *************  -->
+	<xs:complexType name="Dose">
+		<xs:sequence>
+			<xs:element name="Type" type="SDScom:DoseEnum"/>
+			<xs:element minOccurs="0" name="TypeFulltext" type="SDScom:Phrase"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="EcotoxicityAquatic">
 		<xs:annotation>
 			<xs:documentation>Ecotoxicity for aquatic environment. Source: Chapter 12. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="SDScom:Dose" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Species" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
@@ -729,7 +948,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectDoseConcentration" type="SDScom:DoseEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="SDScom:Dose" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Species" type="SDScom:Species" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Method" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
@@ -1121,6 +1340,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="Function" type="SDScom:ComponentFunctionEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="FunctionDescription" type="SDScom:Phrase">
+							<xs:annotation>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Indicate the form (solid, liquid, gas or other descriptive terms) of the substance or mixture as supplied. May be omitted if specified in field Form. If Form is "other", put more details in this field.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1519,11 +1744,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Indicate the form (solid, liquid, gas or other descriptive terms) of the substance or mixture as supplied. May be omitted if specified in field Form. If Form is "other", put more details in this field.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="StateUnderStandardConditions" type="SDScom:StateUnderStandardConditionsEnum">
-							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Physical state (only solid/liquid/gaseous) under standard conditions (20°C, 1013 hpa) </xs:documentation>
-							</xs:annotation>
+						<xs:element minOccurs="0" name="StateUnderStandardConditions">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="State" type="SDScom:StateUnderStandardConditionsEnum">
+										<xs:annotation>
+											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Physical state (only solid/liquid/gaseous) under standard conditions (20°C, 1013 hpa) </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="StateFulltext" type="SDScom:Phrase"> </xs:element>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Colour" type="SDScom:ColourEnum">
 							<xs:annotation>
@@ -1537,6 +1769,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="ColourIntensity" type="SDScom:ColourIntensityEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ColourIntensityDescription" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Odour" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2186,12 +2419,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="1" name="Dose" type="SDScom:DoseEnum">
+									<xs:element maxOccurs="1" minOccurs="1" name="Dose" type="SDScom:Dose">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="0" name="ExposureRoute" type="SDScom:ExposureRouteEnum">
+									<xs:element maxOccurs="1" minOccurs="0" name="ExposureRoute" type="SDScom:ExposureRoute">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -2218,12 +2451,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="EffectTested" type="SDScom:DoseEnum">
+									<xs:element maxOccurs="1" minOccurs="1" name="EffectTested" type="SDScom:Dose">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="SDScom:ExposureRouteEnum">
+									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="SDScom:ExposureRoute">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -2366,11 +2599,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="TestResults">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="SDScom:InvestigationMethodEnum"/>
+									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="SDScom:InvestigationMethod"/>
 									<xs:element maxOccurs="1" minOccurs="1" name="Method" type="SDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="EffectValue" type="SDScom:UnitValue"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestDuration" type="SDScom:UnitValue"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ExposureRoute" type="SDScom:ExposureRouteEnum"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="ExposureRoute" type="SDScom:ExposureRoute"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="Dose" type="SDScom:UnitValue"/>
 									<!-- Was Phrase -->
 									<xs:element maxOccurs="1" minOccurs="0" name="ExposureTime" type="SDScom:UnitValue"/>
@@ -2409,7 +2642,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ReproductiveToxicityType" type="SDScom:ReproductiveToxicityTypeEnum"/>
+						<xs:element minOccurs="0" name="ReproductiveToxicityType">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Type" type="SDScom:ReproductiveToxicityTypeEnum"/>
+									<xs:element minOccurs="0" name="TypeFulltext" type="SDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityTestResults" type="SDScom:CMRData"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityHumanExperience" type="SDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentReproductiveToxicityClassification" type="SDScom:Phrase"/>
@@ -2518,11 +2758,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhototoxicityTestResults">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="SDScom:InvestigationMethodEnum"/>
+									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="SDScom:InvestigationMethod"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestMethod" type="SDScom:Phrase"/>
 									<!-- xs:element name="Dose" type="DoseEnum" minOccurs="0" maxOccurs="1"/ -->
 									<xs:element maxOccurs="1" minOccurs="0" name="Dose" type="SDScom:UnitValue"/>
-									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="SDScom:ExposureRouteEnum"/>
+									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="SDScom:ExposureRoute"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestDuration" type="SDScom:UnitValue"/>
 									<xs:element maxOccurs="1" minOccurs="1" name="Results">
 										<!-- Was Result -->
