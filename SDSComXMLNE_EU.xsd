@@ -1080,46 +1080,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="OtherInformationEU">
-		<xs:sequence>
-			<xs:choice>
-				<xs:annotation>
-					<xs:documentation>Acronym lists are mandatory, but not their form. Either use the list format (preferred) or a less formal string representation.</xs:documentation>
-				</xs:annotation>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Acronym" type="string"/>
-							<xs:element name="Meaning" type="SDScom:Phrase"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase">
-					<xs:annotation>
-						<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="PositiveEcolabelling">
-				<xs:annotation>
-					<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="EcoLabelName" type="SDScom:string64"/>
-						<xs:element minOccurs="0" name="ExpirationDate" type="date"/>
-						<xs:element minOccurs="0" name="LicenceNo" type="SDScom:string64"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="NationalExtensionEU">
+	<xs:complexType name="RegulationsEU">
+		<xs:annotation>
+			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentEU.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="EuLegislation">
 				<xs:annotation>
@@ -1413,6 +1377,45 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherInformationEU">
+		<xs:sequence>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Acronym lists are mandatory, but not their form. Either use the list format (preferred) or a less formal string representation.</xs:documentation>
+				</xs:annotation>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationAcronymList">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Acronym" type="string"/>
+							<xs:element name="Meaning" type="SDScom:Phrase"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase">
+					<xs:annotation>
+						<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="PositiveEcolabelling">
+				<xs:annotation>
+					<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="EcoLabelName" type="SDScom:string64"/>
+						<xs:element minOccurs="0" name="ExpirationDate" type="date"/>
+						<xs:element minOccurs="0" name="LicenceNo" type="SDScom:string64"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

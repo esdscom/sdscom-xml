@@ -1132,6 +1132,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegulatoryInformation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories">
+							<xs:annotation>
+								<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute default="0" name="ComponentId" type="integer"/>
 		<xs:attribute default="" name="ComponentInternalSdsId" type="SDScom:string64"/>

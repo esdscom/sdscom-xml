@@ -188,20 +188,101 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:complexContent>
             <xs:extension base="SDScom:Component">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationUS"> </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
-                        <xs:annotation>
-                            <xs:appinfo>SDScomChem</xs:appinfo>
-                            <xs:documentation> Name of the component to be displayed on the hazard label: The value "True" for this means that the name of the actual component shall be printed on the hazard label as well as in section 2 of the SDS under the sub-heading 'Dangerous substances'�. The default value of this element will be 'false'�. </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element minOccurs="0" name="UsTransportInformation">
+                    <xs:element minOccurs="0" name="RegionUS">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstance" type="boolean">
+                                <xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationUS"> </xs:element>
+                                <xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
                                     <xs:annotation>
-                                        <xs:documentation>according to DOT</xs:documentation>
+                                        <xs:appinfo>SDScomChem</xs:appinfo>
+                                        <xs:documentation> Name of the component to be displayed on the hazard label: The value "True" for this means that the name of the actual component shall be printed on the hazard label as well as in section 2 of the SDS under the sub-heading 'Dangerous substances'�. The default value of this element will be 'false'�. </xs:documentation>
                                     </xs:annotation>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="TransportInformation">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstance" type="boolean">
+                                                <xs:annotation>
+                                                    <xs:documentation>according to DOT</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="RegulatoryInformation">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="Federal">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element minOccurs="0" name="Sara313Threshold" type="SDScom:Value"/>
+                                                        <xs:element minOccurs="0" name="Sara302HazardousRQ" type="SDScom:Value"/>
+                                                        <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="SDScom:Value"/>
+                                                        <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="SDScom:Value"/>
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element minOccurs="0" name="State">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element minOccurs="0" name="California">
+                                                            <xs:complexType>
+                                                                <xs:sequence>
+                                                                    <xs:element minOccurs="0" name="Proposition65">
+                                                                        <xs:complexType>
+                                                                            <xs:choice>
+                                                                                <xs:element name="Candidate" type="boolean">
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Allows to indicate substances under discussion for inclusion</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                </xs:element>
+                                                                                <xs:sequence>
+                                                                                    <xs:element name="Listed" type="boolean"/>
+                                                                                    <xs:element minOccurs="0" name="ToxType" type="string"/>
+                                                                                    <xs:element minOccurs="0" name="Listing" type="string"/>
+                                                                                </xs:sequence>
+                                                                            </xs:choice>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                                </xs:sequence>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element minOccurs="0" name="RhodeIsland">
+                                                            <xs:complexType>
+                                                                <xs:sequence>
+                                                                    <xs:element minOccurs="0" name="HazardousSubstancesList">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>see http://www.dlt.ri.gov/occusafe/pdfs/HazardousCAS.pdf</xs:documentation>
+                                                                        </xs:annotation>
+                                                                        <xs:complexType>
+                                                                            <xs:sequence>
+                                                                                <xs:element name="Listed" type="boolean"/>
+                                                                                <xs:element minOccurs="0" name="SourceAcgih" type="boolean">
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>In the list, denoted by the letter T.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                </xs:element>
+                                                                                <xs:element minOccurs="0" name="SourceNfpa49" type="boolean">
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>In the list, denoted by the letter F.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                </xs:element>
+                                                                                <xs:element minOccurs="0" name="SourceIarc" type="boolean">
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>In the list, denoted by the letter C.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                </xs:element>
+                                                                            </xs:sequence>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                                </xs:sequence>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
                                 </xs:element>
                             </xs:sequence>
                         </xs:complexType>
@@ -209,6 +290,33 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DisposalConsiderationsUS">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Federal">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraWasteCode" type="string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCharacteristics" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraBasisForListing" type="SDScom:Phrase"> </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="State">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="California">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCode" type="string"/>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteStatus" type="SDScom:Phrase"> </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="TransportHazardLabelUsaOnlyEnum">
         <xs:annotation>
@@ -289,68 +397,117 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionUS">
+    <xs:complexType name="RegulationsUS">
         <xs:annotation>
-            <xs:documentation>National legislation - United States of America</xs:documentation>
+            <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentUS.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element minOccurs="0" name="Federal"/>
+            <xs:element minOccurs="0" name="Federal">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="EpaPesticideRegNo" type="string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideStatement" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideLabel" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="DrugPrecursors" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="WeaponsPrecursors" type="SDScom:Phrase"> </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element minOccurs="0" name="State">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="California">
+                        <xs:element minOccurs="0" name="Massachusetts">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="Proposition65">
-                                        <xs:complexType>
-                                            <xs:choice>
-                                                <xs:element name="Candidate" type="xs:boolean">
-                                                    <xs:annotation>
-                                                        <xs:documentation>Allows to indicate substances under discussion for inclusion</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:element>
-                                                <xs:sequence>
-                                                    <xs:element name="Listed" type="xs:boolean"/>
-                                                    <xs:element minOccurs="0" name="ToxType" type="xs:string"/>
-                                                    <xs:element minOccurs="0" name="Listing" type="xs:string"/>
-                                                </xs:sequence>
-                                            </xs:choice>
-                                        </xs:complexType>
-                                    </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="RhodeIsland">
+                        <xs:element minOccurs="0" name="NewJersey">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="HazardousSubstancesList">
-                                        <xs:annotation>
-                                            <xs:documentation>see http://www.dlt.ri.gov/occusafe/pdfs/HazardousCAS.pdf</xs:documentation>
-                                        </xs:annotation>
-                                        <xs:complexType>
-                                            <xs:sequence>
-                                                <xs:element name="Listed" type="xs:boolean"/>
-                                                <xs:element minOccurs="0" name="SourceAcgih" type="xs:boolean">
-                                                    <xs:annotation>
-                                                        <xs:documentation>In the list, denoted by the letter T.</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:element>
-                                                <xs:element minOccurs="0" name="SourceNfpa49" type="xs:boolean">
-                                                    <xs:annotation>
-                                                        <xs:documentation>In the list, denoted by the letter F.</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:element>
-                                                <xs:element minOccurs="0" name="SourceIarc" type="xs:boolean">
-                                                    <xs:annotation>
-                                                        <xs:documentation>In the list, denoted by the letter C.</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:element>
-                                            </xs:sequence>
-                                        </xs:complexType>
-                                    </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
+                        <xs:element minOccurs="0" name="Pennsylvania">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="OtherInformationUS">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="NfpaHazardRating">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Health">
+                            <xs:simpleType>
+                                <xs:restriction base="int">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="HealthChronic" type="boolean"/>
+                        <xs:element name="Flammability">
+                            <xs:simpleType>
+                                <xs:restriction base="int">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Instability">
+                            <xs:simpleType>
+                                <xs:restriction base="int">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PhysChemProperties" type="SDScom:string2"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="HmisRating">
+                <xs:annotation>
+                    <xs:documentation>HMIS III Rating is a Registered Trademark. Using this rating system or its graphical representation may require obtaining a license!</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Health">
+                            <xs:simpleType>
+                                <xs:restriction base="int">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="HealthChronic" type="boolean"/>
+                        <xs:element name="Flammability">
+                            <xs:simpleType>
+                                <xs:restriction base="int">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Instability">
+                            <xs:simpleType>
+                                <xs:restriction base="int">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Protection" type="SDScom:string2"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

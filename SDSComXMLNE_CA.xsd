@@ -111,9 +111,9 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionCA">
+    <xs:complexType name="RegulationsCA">
         <xs:annotation>
-            <xs:documentation>National legislation - United States of America</xs:documentation>
+            <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentCA.</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>

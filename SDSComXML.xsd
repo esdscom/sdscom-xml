@@ -1946,6 +1946,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="RegionUS" type="SDScom:DisposalConsiderationsUS">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 14 ========================================================= -->
@@ -2061,19 +2067,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>SDS section 15. This type covers information on the product. Any information on substances which might be necessary to be listed in section 15 is covered in type "Substance".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories">
-				<xs:annotation>
-					<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
-			<xs:element minOccurs="0" name="RegionCA"/>
-			<xs:element minOccurs="0" name="RegionEU" type="SDScom:NationalExtensionEU">
+			<xs:element minOccurs="0" name="RegionCA" type="SDScom:RegulationsCA"/>
+			<xs:element minOccurs="0" name="RegionEU" type="SDScom:RegulationsEU">
 				<xs:annotation>
 					<xs:documentation>This element refers to all countries an regulations that will be covered by a safety data sheet in EU REACH format. Including a country here is no political statement, i.e. it does not mean the country is, will be or should be(come) part of the European Union.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionJP" type="SDScom:NationalExtensionJP"/>
+			<xs:element minOccurs="0" name="RegionJP" type="SDScom:RegulationsJP"/>
 			<xs:element name="RegionRU" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This region is formed by countries having a customs union, as this gives the strongest indication of future alignment of (existing and new) legislation.</xs:documentation>
@@ -2091,7 +2092,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Although an EU candidate, Turkish chemicals legislation is moving away from the EU again and thus treated as a separate region.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionUS" type="SDScom:NationalExtensionUS"/>
+			<xs:element minOccurs="0" name="RegionUS" type="SDScom:RegulationsUS"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 16 ========================================================= -->
@@ -2155,6 +2156,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:OtherInformationEU"> </xs:element>
+			<xs:element minOccurs="0" name="RegionUS" type="SDScom:OtherInformationUS"> </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Summary: The complete SDS ========================================== -->
