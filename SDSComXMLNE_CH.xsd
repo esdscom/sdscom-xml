@@ -15,32 +15,14 @@ For more details, see https://github.com/esdscom/sdscom-xml
 														
 ***************************************************************************** -->
 
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<!-- *******************************************************************  NationalExtensionCH *************  -->
-	<xs:complexType name="NationalExtensionCH">
-		<xs:annotation>
-			<xs:documentation>
-				Elements related to national legislation of Switzerland
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Stoerfallverordnung" type="SDScom:Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalWasteLegislationCH" type="SDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="StorageClassCH" type="SDScom:StorageClassEnumCH" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Classification of the chemical in accordance with Swiss guidance on storage. See https://www.kvu.ch/de/arbeitsgruppen?id=151</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CPID" type="SDScom:CPID" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The product registration number for Swiss FOPH. Part of section 15 of SDS</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+	<xs:complexType name="ComponentCH">
+		<xs:complexContent>
+			<xs:extension base="SDScom:Component"/>
+		</xs:complexContent>
 	</xs:complexType>
-	<!-- ************************************************************** NationalWasteLegislationCH ******  -->
 	<xs:complexType name="NationalWasteLegislationCH">
 		<xs:annotation>
 			<xs:documentation>NationalWasteLegislation Switzerland
@@ -56,21 +38,19 @@ For more details, see https://github.com/esdscom/sdscom-xml
 			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ************************************************************** CPID ******  -->
 	<xs:simpleType name="CPID">
 		<xs:annotation>
 			<xs:documentation>The product registration number for Swiss FOPH.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
+		<xs:restriction base="string">
 			<xs:pattern value="\d+-\d+"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ************************************************************** NationalStorageClassCHEnum ******  -->
 	<xs:simpleType name="StorageClassEnumCH">
 		<xs:annotation>
-			<xs:documentation>Enumeration of the Swiss storage class in the style of TRGS 510.</xs:documentation>
+			<xs:documentation>Enumeration of the Swiss storage class in the style of German TRGS 510.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
+		<xs:restriction base="string">
 			<xs:enumeration value="1"/>
 			<xs:enumeration value="2"/>
 			<xs:enumeration value="3"/>
@@ -111,4 +91,26 @@ For more details, see https://github.com/esdscom/sdscom-xml
 			<!-- NK: Nicht klassifiziert/kein Gefahrstoff-->
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="RegulationsCH">
+		<xs:annotation>
+			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentCH.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Stoerfallverordnung" type="SDScom:Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalWasteLegislationCH" type="SDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StorageClassCH" type="SDScom:StorageClassEnumCH" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Classification of the chemical in accordance with Swiss guidance on storage. See https://www.kvu.ch/de/arbeitsgruppen?id=151</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CPID" type="SDScom:CPID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The product registration number for Swiss FOPH. Part of section 15 of SDS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ************************************************************** NationalWasteLegislationCH ******  -->
+	<!-- ************************************************************** CPID ******  -->
+	<!-- ************************************************************** NationalStorageClassCHEnum ******  -->
 </xs:schema>

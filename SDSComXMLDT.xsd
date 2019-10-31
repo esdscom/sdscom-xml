@@ -5,7 +5,7 @@ Basic type definitions
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
 	<!-- ******************************************************************** string2 ********  -->
 	<xs:simpleType name="string2">
 		<xs:annotation>
@@ -186,11 +186,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:simpleType name="SdscomVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation>The version of the XML standard which is applied in the transmission of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89.
-
 It is used to reference the version number in the XML data file, as the schema name does not include the version number. So this complements the version attribute in the xs:schema tag of the XSD files, and one of the enum values here must match the version attribute in the schema.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="5.0"/>
+			<xs:enumeration value="5.0.0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
