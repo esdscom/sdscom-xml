@@ -2333,6 +2333,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 												<xs:documentation> Enumeration with defined code set. Language independent. ISO 639-1 (2 letters) </xs:documentation>
 											</xs:annotation>
 										</xs:element>
+										<xs:element minOccurs="0" name="FreetextLanguageCountryCode" type="SDScom:CountryCodeEnum">
+											<xs:annotation>
+												<xs:documentation>If languages are used in more than one country, there might be national flavours that are significantly different (like pt-BR, en-US). In this case, indicate the country here. If empty, this field defaults to the originating country (pt-PT, en-GB).</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 										<xs:element name="FreetextLanguageName" type="SDScom:Phrase" minOccurs="0">
 											<xs:annotation>
 												<xs:appinfo>SDScomBau</xs:appinfo>
