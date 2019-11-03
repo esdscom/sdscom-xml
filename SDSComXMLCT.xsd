@@ -16,6 +16,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:include schemaLocation="SDSComXMLNE_US.xsd"/>
 	<xs:complexType name="SdsSupplierInfo">
 		<xs:sequence>
+			<xs:element minOccurs="0" name="SdsName" type="SDScom:string512">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Name of the SDS. Shall be identical with the name on the hazard label and package unless the SDS is a group SDS, in which case the hazard label name must match one of the instances of TradeProductIdentity. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="SdsNotLegallyRequired" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -277,7 +284,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>a.k.a CAIN, Name in the CAS Online Inventory</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Synonyme" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Synonyms" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -304,7 +311,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> CAS No: Identification number for trade products that are substances. Identification number issued by Chemical Abstract Service. An internationally recognized system for identification of pure substances and groups of substances. </xs:documentation>
+					<xs:documentation>CAS RN: Registration Number for chemical substances, including some groups and more complex cases like polymers and reaction products, issued by Chemical Abstract Service. For a discussion why there is just one CAS RN per substance, see issue #111.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Formula" type="SDScom:string256" minOccurs="0" maxOccurs="1">

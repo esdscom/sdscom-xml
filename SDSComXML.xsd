@@ -20,21 +20,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="SpecificationNo" type="SDScom:string16">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Specification No: Identification of a specification the chemical is in accordance with. </xs:documentation>
+					<xs:documentation>Sender-defined identification of a specification the chemical is in accordance with, e.g. a formulation number. This is not meant for compliance statements like international or vendor-internal standards!</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ItemNo" type="SDScom:string128">
+			<xs:element maxOccurs="unbounded" name="TradeProductIdentity">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> Producer product number: Identification number(s) of the trade product. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="ProductNo">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> User product number: Internal item number for the user (customer of the supplier) </xs:documentation>
+					<xs:documentation>At least one instance (with empty UserId) for the identification as delivered by the supplier. Use more instances for various package sizes, various products in a group SDS, or (with filled UserId) for reference to relabelled products of the SDS recipient.
+
+When importing, make sure that SDScom documents are not automatically replaced if the product identity is the same! GTINs are not necessarily unique (they should, but aren't in practice!), and product identities may refer to kits with multiple products and SDSs. Unique IDs that allow automatic overriding of data require a bilateral agreement between customer and supplier and should be placed in ProductNo.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -42,7 +37,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Identification of the user: The user (customer of the supplier) </xs:documentation>
+								<xs:documentation>The user (direct or indirect customer of the supplier, recipient of the SDS) that the information in this instance of TradeIdentity is meant for. Leave empty if this instance of TradeProductIdentity refers to the supplier.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" name="ProductNoUser" type="SDScom:string128">
@@ -52,19 +47,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>The user's item number: The item number(s) used internally by the customer (user)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" name="ProductIdentity" minOccurs="0">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>When importing, make sure that SDScom documents are not automatically replaced if the product identity is the same! GTINs are not necessarily unique (they should, but aren't in practice!), and product identities may refer to kits with multiple products and SDSs. Unique IDs that allow automatic overriding of data require a bilateral agreement between customer and supplier and should be placed in ProductNo.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:choice minOccurs="0">
-							<xs:element minOccurs="0" name="SubstanceName" type="SDScom:SubstanceName"/>
+						<xs:choice>
+							<xs:element minOccurs="0" name="SubstanceIdentity" type="SDScom:SubstanceName"/>
 							<xs:element name="TradeName" type="SDScom:string512" maxOccurs="unbounded" minOccurs="0">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
@@ -85,34 +69,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>This is the place to describe kits. If the data describes a product P which is part of kit K, create two instances of ProductIdentity: One for P, and one for K with an entry in ProductDefinition that describes "This Product is a kit. The data describes one part of the kit."</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element minOccurs="0" name="Packaging">
+							<xs:annotation>
+								<xs:documentation>This node and enclosed information are not required for the SDS, but helpful to identfy the packaged product and required for poison center notification according to CLP article 45.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="PackagingType" type="SDScom:PackagingTypeEnum"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingTypeDescription" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PackagingSize" type="SDScom:UnitValue"/>
+									<xs:element minOccurs="0" name="PackagingMaterial" type="SDScom:PackagingMaterialEnum"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingMaterialDescription" type="SDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="RegionEU" type="SDScom:ProductIdentityEU"> </xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Packaging">
-				<xs:annotation>
-					<xs:documentation>This node and enclosed information are not required for the SDS, but helpful to identfy the packaged product and required for poison center notification according to CLP article 45.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="PackagingType" type="SDScom:PackagingTypeEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingTypeDescription" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element minOccurs="0" name="PackagingSize" type="SDScom:UnitValue"/>
-						<xs:element minOccurs="0" name="PackagingMaterial" type="SDScom:PackagingMaterialEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingMaterialDescription" type="SDScom:Phrase">
-							<xs:annotation>
-								<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
