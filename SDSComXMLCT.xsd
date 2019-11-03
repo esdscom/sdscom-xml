@@ -838,14 +838,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Inoculum" type="SDScom:Phrase"/>
-			<xs:element name="Parameter" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element minOccurs="0" name="DegradationRate" type="SDScom:PhysChemUnitValue">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Value" type="SDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>always in %. Parameter should go into DegradationRate/TestReference. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TestDuration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
@@ -862,10 +858,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> DegradationElimination, source: Chapter 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Type" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Value" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
-			<!-- Was PhysChemUnitValue -->
-			<!-- xs:element name="TestDuration" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/ -->
+			<xs:element name="HalfLifeTime" type="SDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Time unit, e.g. d or h. Test type should go into HalfLifeTime/TestReference</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="pH" type="SDScom:Value"/>
 			<xs:element minOccurs="0" name="Source" type="SDScom:Phrase"/>
 		</xs:sequence>
@@ -2873,7 +2870,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbioticDegradationInAir" type="SDScom:DegradationElimination"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbioticDegradation" type="SDScom:DegradationElimination"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityEvaluation" type="SDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
