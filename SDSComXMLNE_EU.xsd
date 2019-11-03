@@ -1058,13 +1058,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element name="Properties">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="MaxDuration" type="SDScom:OneUnitValue">
+									<xs:element minOccurs="0" name="MaxDuration" type="SDScom:ExactUnitValue">
 										<xs:annotation>
 											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="SDScom:Phrase"/>
-									<xs:element minOccurs="0" name="AirExchangeRate" type="SDScom:OneUnitValue">
+									<xs:element minOccurs="0" name="AirExchangeRate" type="SDScom:ExactUnitValue">
 										<xs:annotation>
 											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
 										</xs:annotation>

@@ -1352,7 +1352,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
 		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
 	</xs:complexType>
-	<!-- ******************************************************************* OneValue *************  -->
 	<xs:simpleType name="UnitEnum">
 		<xs:annotation>
 			<xs:documentation>Sensible values for units in various contexts. SI units are used where available, and no super/subsets (i.e. 3 instead of ³)</xs:documentation>
