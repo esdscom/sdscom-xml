@@ -1075,7 +1075,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<!-- Zimbabwe -->
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** ReachRegNo *****  -->
 	<xs:simpleType name="RmmPictogramEnum">
 		<xs:annotation>
 			<xs:documentation>Mandatory signs related to Risk Management Measures, according to EN ISO 7010</xs:documentation>
@@ -1106,7 +1105,6 @@ It is used to reference the version number in the XML data file, as the schema n
 		</xs:annotation>
 		<xs:restriction base="SDScom:string256"/>
 	</xs:simpleType>
-	<!-- ******************************************************************** CasNo *****  -->
 	<xs:simpleType name="CasNo">
 		<xs:annotation>
 			<xs:documentation> The CAS identification string for a substance. </xs:documentation>
@@ -1115,7 +1113,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:pattern value="\d{2,7}-\d{2}-\d{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** EcNo *****  -->
 	<xs:simpleType name="DunsNo">
 		<xs:annotation>
 			<xs:documentation>The D-U-N-S® Number of a legal entity. See https://www.upik.de/</xs:documentation>
@@ -1124,7 +1121,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:pattern value="\d{9}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** RoleDescriptionEnum ******  -->
 	<xs:simpleType name="RoleDescriptionEnum">
 		<xs:annotation>
 			<xs:documentation> The role values of a contact. Used in field Role. Role definitions are compatible with Norwegian SDScom applications. </xs:documentation>
@@ -1154,7 +1150,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="Mixture: Polymer"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* SymbolEnum *************  -->
 	<xs:simpleType name="SymbolEnum">
 		<xs:annotation>
 			<xs:documentation> Symbols like less than, greater than, equal, greater or equal,less or equal or circa. </xs:documentation>

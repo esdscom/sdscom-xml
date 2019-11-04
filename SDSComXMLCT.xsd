@@ -270,7 +270,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="SubstanceName">
+	<xs:complexType name="SubstanceNames">
 		<xs:sequence>
 			<xs:element name="IupacName" type="SDScom:string1024" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -284,52 +284,67 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>a.k.a CAIN, Name in the CAS Online Inventory</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Synonyms" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="GenericName" type="SDScom:string1024" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Alternative chemical name to protect Confidential Business Information (in Europe, according to CLP article 24)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherName" type="SDScom:string1024" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Includes trade name(s) of the chemical that appear on the packages / hazard label.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubstanceIdentifiers">
+		<xs:complexContent>
+			<xs:extension base="SDScom:SubstanceNames">
+				<xs:sequence>
+					<xs:element name="CasNo" type="SDScom:CasNo" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:appinfo>SDScomBau</xs:appinfo>
+							<xs:appinfo>SDScomChem</xs:appinfo>
+							<xs:documentation>CAS RN: Registration Number for chemical substances, including some groups and more complex cases like polymers and reaction products, issued by Chemical Abstract Service. For a discussion why there is just one CAS RN per substance, see issue #111.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="RegionEU" type="SDScom:SubstanceIdentityEU"> </xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="Substance">
 		<xs:annotation>
 			<xs:documentation>Substance information. Includes identifiers (for section 1 in substance SDSs) as well as chemical inventory listing informaton (for section 15). Chemical inventory information is useful even if the data does not cover all regions, in case the customer wants to export to other regions.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:choice>
-				<xs:element name="SubstanceName" type="SDScom:SubstanceName"> </xs:element>
-				<xs:element name="GenericName" type="SDScom:string1024">
-					<xs:annotation>
-						<xs:appinfo>SDScomBau</xs:appinfo>
-						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation>in Europe, according to CLP article 24</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-			<xs:element name="CasNo" type="SDScom:CasNo" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>CAS RN: Registration Number for chemical substances, including some groups and more complex cases like polymers and reaction products, issued by Chemical Abstract Service. For a discussion why there is just one CAS RN per substance, see issue #111.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Formula" type="SDScom:string256" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation> Formula: Field to state the gross formula for the chemical (applies to pure substances). The formula shall be stated according to standard from Chemical Abstract Service. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="SubstanceType" type="SDScom:SubstanceTypeEnum"/>
-			<xs:element name="SubstanceTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>If SubstanceType is other (or not used), specify the details here.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
-			<xs:element name="ChemicalPurity" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories"/>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="SDScom:SubstanceIdentifiers">
+				<xs:sequence>
+					<xs:element name="Formula" type="SDScom:string256" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation> Formula: Field to state the gross formula for the chemical (applies to pure substances). The formula shall be stated according to standard from Chemical Abstract Service. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="SubstanceType" type="SDScom:SubstanceTypeEnum"/>
+					<xs:element name="SubstanceTypeDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:appinfo>SDScomChem</xs:appinfo>
+							<xs:documentation>If SubstanceType is other (or not used), specify the details here.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MolecularWeight" type="SDScom:UnitValue" minOccurs="0"/>
+					<xs:element name="ChemicalPurity" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories">
+						<xs:annotation>
+							<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* EcologicalInformation ************  -->
 	<xs:complexType name="ToxInfoStotSE3">
@@ -1108,13 +1123,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="RegionEU">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="SDScom:EcNo">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Chemical inventory</xs:documentation>
-							</xs:annotation>
-						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReachRegistration">
 							<xs:annotation>
 								<xs:documentation>Chemical inventory</xs:documentation>
@@ -1358,17 +1366,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstanceImdg" type="boolean"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstanceIata" type="boolean"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegulatoryInformation">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="Inventories" type="SDScom:Inventories">
-							<xs:annotation>
-								<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

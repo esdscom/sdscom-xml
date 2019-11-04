@@ -44,24 +44,46 @@ When importing, make sure that SDScom documents are not automatically replaced i
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>The user's item number: The item number(s) used internally by the customer (user)</xs:documentation>
+								<xs:documentation>The user's item number: The item number(s) used internally by the customer (user). Usually just 1 instance per TradeProductIdentity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:choice>
-							<xs:element minOccurs="0" name="SubstanceIdentity" type="SDScom:SubstanceName"/>
-							<xs:element name="TradeName" type="SDScom:string512" maxOccurs="unbounded" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>In case of an SDS for one single-constituent substance, there might be just one TradeProductIdentity with a SubstanceIdentity which is redundant with information in section 3. For group safety data sheets, each instance of TradeProductIdentity covers one substance or product.</xs:documentation>
+							</xs:annotation>
+							<xs:element minOccurs="0" name="SubstanceIdentifiers" type="SDScom:SubstanceIdentifiers">
 								<xs:annotation>
-									<xs:appinfo>SDScomBau</xs:appinfo>
-									<xs:appinfo>SDScomChem</xs:appinfo>
-									<xs:documentation>Trade name: Name(s) of the chemical that appears on the packages. Shall be identical with the name on the hazard label. </xs:documentation>
+									<xs:documentation>for single-constituent (chemically pure) Substances.</xs:documentation>
 								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="ProductIdentifiers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TradeName" type="SDScom:string1024" maxOccurs="unbounded" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>for Mixtures</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="RegionEU">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
+														<xs:annotation>
+															<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
 							</xs:element>
 						</xs:choice>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductGtin" type="SDScom:ProductGtin">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> GTIN No </xs:documentation>
+								<xs:documentation>GTIN No, in Europe also known as EAN. Has max. 1 instance in an ideal world.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="ProductDefinition" type="SDScom:Phrase">
@@ -96,7 +118,6 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="RegionEU" type="SDScom:ProductIdentityEU"> </xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

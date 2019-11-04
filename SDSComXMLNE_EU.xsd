@@ -1660,8 +1660,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="ProductIdentityEU">
+	<xs:complexType name="SubstanceIdentityEU">
 		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="SDScom:EcNo">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
 				<xs:annotation>
 					<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
@@ -1956,12 +1968,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="InciName" type="SDScom:string1024">
 							<xs:annotation>
 								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="Detergents">
