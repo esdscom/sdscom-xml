@@ -56,7 +56,7 @@ History before  v4.2.0:
 					 Rename Flam. Aerosol 1,2,3 to Aerosol 1,2,3
 														
 ********************************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xs:schema xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.esdscom.eu/SDScom" version="2.0">
 	<!-- ******************************************************************** string2 ********  -->
 	<xs:simpleType name="string2">
 		<xs:annotation>
@@ -1276,6 +1276,9 @@ History before  v4.2.0:
 			<xs:enumeration value="203"/>
 			<xs:enumeration value="204"/>
 			<xs:enumeration value="205"/>
+			<xs:enumeration value="206"/>
+			<xs:enumeration value="207"/>
+			<xs:enumeration value="208"/>
 			<xs:enumeration value="220"/>
 			<xs:enumeration value="221"/>
 			<xs:enumeration value="222"/>
@@ -1287,6 +1290,7 @@ History before  v4.2.0:
 			<xs:enumeration value="229"/>
 			<xs:enumeration value="230"/>
 			<xs:enumeration value="231"/>
+			<xs:enumeration value="232"/>
 			<xs:enumeration value="240"/>
 			<xs:enumeration value="241"/>
 			<xs:enumeration value="242"/>
@@ -1372,6 +1376,7 @@ History before  v4.2.0:
 			<xs:enumeration value="202"/>
 			<xs:enumeration value="210"/>
 			<xs:enumeration value="211"/>
+			<xs:enumeration value="212"/>
 			<xs:enumeration value="220"/>
 			<xs:enumeration value="221"/>
 			<xs:enumeration value="222"/>
@@ -1471,6 +1476,7 @@ History before  v4.2.0:
 			<xs:enumeration value="422"/>
 			<xs:enumeration value="501"/>
 			<xs:enumeration value="502"/>
+			<xs:enumeration value="503"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** SupplementalHazardInformationEnum ******  -->
@@ -1560,6 +1566,8 @@ History before  v4.2.0:
 			<xs:enumeration value="Flam. Liq. 3"/>
 			<xs:enumeration value="Flam. Sol. 1"/>
 			<xs:enumeration value="Flam. Sol. 2"/>
+			<xs:enumeration value="Flam. Gas 1A"/>
+			<xs:enumeration value="Flam. Gas 1B"/>
 			<xs:enumeration value="Self-react. A"/>
 			<xs:enumeration value="Self-react. B"/>
 			<xs:enumeration value="Self-react. C"/>
@@ -1571,6 +1579,7 @@ History before  v4.2.0:
 			<xs:enumeration value="Self-react. G"/>
 			<xs:enumeration value="Pyr. Liq. 1"/>
 			<xs:enumeration value="Pyr. Sol. 1"/>
+			<xs:enumeration value="Pyr. Gas"/>
 			<xs:enumeration value="Self-heat. 1"/>
 			<xs:enumeration value="Self-heat. 2"/>
 			<xs:enumeration value="Water-react. 1"/>
@@ -1631,6 +1640,10 @@ History before  v4.2.0:
 			<xs:enumeration value="Aquatic Chronic 3"/>
 			<xs:enumeration value="Aquatic Chronic 4"/>
 			<xs:enumeration value="Ozone 1"/>
+			<xs:enumeration value="Desen. Expl. 1"/>
+			<xs:enumeration value="Desen. Expl. 2"/>
+			<xs:enumeration value="Desen. Expl. 3"/>
+			<xs:enumeration value="Desen. Expl. 4"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** ClassificationCategoryEnum ******  -->
@@ -3001,13 +3014,13 @@ History before  v4.2.0:
 			<xs:enumeration value="CLP10-2017/776"/>
 			<xs:enumeration value="CLP11-2018/669"/>
 			<xs:enumeration value="CLP13-2018/1480"/>
-			<xs:enumeration value="CLP12-2019/521"/>			
+			<xs:enumeration value="CLP12-2019/521"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TransportClassEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="1"/>
-			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
 			<xs:enumeration value="3"/>
 			<xs:enumeration value="4.1"/>
 			<xs:enumeration value="4.2"/>
@@ -3021,6 +3034,36 @@ History before  v4.2.0:
 			<xs:enumeration value="9"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="TransportHazardLabelEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="1.1"/>
+			<xs:enumeration value="1.2"/>
+			<xs:enumeration value="1.3"/>
+			<xs:enumeration value="1.4"/>
+			<xs:enumeration value="1.5"/>
+			<xs:enumeration value="1.6"/>
+			<xs:enumeration value="2.1"/>
+			<xs:enumeration value="2.2"/>
+			<xs:enumeration value="2.3"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4.1"/>
+			<xs:enumeration value="4.2"/>
+			<xs:enumeration value="4.3"/>
+			<xs:enumeration value="5.1"/>
+			<xs:enumeration value="5.2"/>
+			<xs:enumeration value="6.1"/>
+			<xs:enumeration value="6.2"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="7E"/>
+			<xs:enumeration value="7X"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="9A"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="JustificationForUpdateEnum">
 		<xs:annotation>
 			<xs:documentation>Enumeration for structured communication of SDS changes, consistent with Iuclid6 PG6-60571 v1.0 (Justifications for update) for CLP article 45 notification:
@@ -3032,7 +3075,7 @@ History before  v4.2.0:
 64941 new toxicological information available
 1342 other</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="ChangeComponent"/>
 			<xs:enumeration value="ChangeConcentrationRange"/>
 			<xs:enumeration value="ChangeExactConcentration"/>
@@ -3255,7 +3298,7 @@ History before  v4.2.0:
 65143 PP-PRD-16 Viricides for plant protection
 65144 PP-PRD-OTH Other plant protection products</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="F"/>
 			<xs:enumeration value="PC-ADH-1"/>
 			<xs:enumeration value="PC-ADH-2"/>
@@ -3510,7 +3553,7 @@ A101 - v3.0 – Mixture form
 1342 other
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="aerosol dispenser: not specified"/>
 			<xs:enumeration value="aerosol dispenser: foam aerosol"/>
 			<xs:enumeration value="aerosol dispenser: spray aerosol"/>
@@ -3572,7 +3615,7 @@ A101 - v3.0 – Mixture form
 64928 mixture containing generic product identifier ‘colouring agent’ (select all relevant colours)
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="colourless"/>
 			<xs:enumeration value="black"/>
 			<xs:enumeration value="blue"/>
@@ -3601,7 +3644,7 @@ A101 - v3.0 – Mixture form
 64911 fluorescent
 		    </xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="translucent"/>
 			<xs:enumeration value="light"/>
 			<xs:enumeration value="dark"/>
@@ -3645,7 +3688,7 @@ A101 - v3.0 – Mixture form
 1342 other:
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="aerosol can"/>
 			<xs:enumeration value="airspray"/>
 			<xs:enumeration value="atomizer"/>
@@ -3693,7 +3736,7 @@ A101 - v3.0 – Mixture form
 1342	other:
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="glass"/>
 			<xs:enumeration value="plastic: HDPE"/>
 			<xs:enumeration value="plastic: LDPE"/>
@@ -3715,7 +3758,7 @@ A101 - v3.0 – Mixture form
 1342	other:
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="element"/>
 			<xs:enumeration value="inorganic"/>
 			<xs:enumeration value="organic"/>
@@ -3791,7 +3834,7 @@ A101 - v3.0 – Mixture form
 58500	XX Others:
 </xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="AE Aerosol dispenser"/>
 			<xs:enumeration value="AL Any other liquid"/>
 			<xs:enumeration value="AP Any other powder"/>
@@ -3902,7 +3945,7 @@ A101 - v3.0 – Mixture form
 1342	other:
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="absorbent"/>
 			<xs:enumeration value="active substance"/>
 			<xs:enumeration value="adsorbent"/>
@@ -3950,19 +3993,19 @@ A101 - v3.0 – Mixture form
 		<xs:annotation>
 			<xs:documentation>UUIDs are a 16 byte identified, represented in hex, thus 32 characters. Compatible with ESCom UUID type.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:minLength value="32"/>
 			<xs:maxLength value="32"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="InvestigationMethodEnum">
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="in-vivo"/>
 			<xs:enumeration value="in-vitro"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ReproductiveToxicityTypeEnum">
-		<xs:restriction base="string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="sexual function"/>
 			<xs:enumeration value="developmental"/>
 			<xs:enumeration value="lactation"/>

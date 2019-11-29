@@ -64,7 +64,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 					 IsDangerReleasingSubstanceImdg
 					 IsDangerReleasingSubstanceIcao
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<!-- National extensions to the standard. Initially empty. -->
 	<xs:include schemaLocation="SDSComXMLNE.xsd"/>
@@ -1562,7 +1562,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HazardLabelAdrRid" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="HazardLabelAdrRid" type="SDScom:TransportHazardLabelEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1585,7 +1585,7 @@ If there are multiple limit values depending on conditions described in remarks 
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HazardLabelAdn" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="HazardLabelAdn" type="SDScom:TransportHazardLabelEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1598,7 +1598,7 @@ If there are multiple limit values depending on conditions described in remarks 
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="SubsidiaryRiskImdg" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="2"/>
-						<xs:element name="ImdgHazardLabel" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="ImdgHazardLabel" type="SDScom:TransportHazardLabelEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1607,7 +1607,7 @@ If there are multiple limit values depending on conditions described in remarks 
 					<xs:sequence>
 						<xs:element name="ClassIcaoIata" type="SDScom:TransportClassEnum" minOccurs="1"/>
 						<xs:element name="SubsidiaryRiskIcaoIata" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="2"/>
-						<xs:element name="IcaoIataHazardLabel" type="SDScom:TransportClassEnum" minOccurs="0" maxOccurs="3"/>
+						<xs:element name="IcaoIataHazardLabel" type="SDScom:TransportHazardLabelEnum" minOccurs="0" maxOccurs="3"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
