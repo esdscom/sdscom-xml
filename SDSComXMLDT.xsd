@@ -24,12 +24,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string10 ********  -->
+	<!-- ******************************************************************** string4 ********  -->
 	<xs:simpleType name="string4">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="4"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- ******************************************************************** string10 ********  -->
 	<xs:simpleType name="string10">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 10 characters.</xs:documentation>
@@ -158,19 +159,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<!-- ********************************************************************** int4 ***********  -->
 	<xs:simpleType name="int4">
 		<xs:annotation>
-			<xs:documentation>A positive integer number with 4 digits.</xs:documentation>
+			<xs:documentation>A positive integer number with exactly 4 digits.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9]{4}"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<!-- ********************************************************************** int16 ***********  -->
-	<xs:simpleType name="int16">
-		<xs:annotation>
-			<xs:documentation>A positive integer number with 16 digits.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{16}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ********************************************************************** int20 ***********  -->
@@ -182,7 +174,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:pattern value="[0-9]{1,20}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
 	<xs:simpleType name="SdscomVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation>The version of the XML standard which is applied in the transmission of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89.

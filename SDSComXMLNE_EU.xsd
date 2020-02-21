@@ -10,6 +10,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_CH.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_DE.xsd"/>
+	<xs:simpleType name="MultiplyingFactorInt">
+		<xs:annotation>
+			<xs:documentation>A positive integer that covers powers of 10.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="10{0,8}"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="SectorOfUseCodeEnum">
 		<xs:annotation>
 			<xs:documentation> The legal codes for the SectorOfUseCodeEnum. Source: Chapter 1. </xs:documentation>
@@ -1244,7 +1252,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:int16">
+								<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:MultiplyingFactorInt">
 									<xs:annotation>
 										<xs:appinfo>SDScomChem</xs:appinfo>
 										<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
