@@ -393,7 +393,7 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1" type="SDScom:int16">
+						<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1" type="SDScom:MultiplyingFactorInt">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>

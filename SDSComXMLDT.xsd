@@ -233,6 +233,15 @@ History before  v4.2.0:
 			<xs:pattern value="[0-9]{1,20}"/>
 		</xs:restriction>
 	</xs:simpleType>
+<!-- ********************************************************************** MultiplyingFactorInt ***********  -->	
+	<xs:simpleType name="MultiplyingFactorInt">
+		<xs:annotation>
+			<xs:documentation>A positive integer that covers powers of 10.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="10{0,8}"/>
+		</xs:restriction>
+	</xs:simpleType>	
 	<!-- ************************************************************** XmlStandardVersionEnum ******  -->
 	<xs:simpleType name="XmlStandardVersionEnum">
 		<xs:annotation id="F0.1">
