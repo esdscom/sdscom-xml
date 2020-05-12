@@ -1407,7 +1407,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsSignalWordEnum">
+							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsPictogramCodeEnum">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1481,7 +1481,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsSignalWordEnum">
+							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsPictogramCodeEnum">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
