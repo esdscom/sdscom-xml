@@ -405,6 +405,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element minOccurs="0" name="Federal">
                 <xs:complexType>
                     <xs:sequence>
+                        <xs:element minOccurs="0" name="EpaTriChemicals">
+                            <xs:annotation>
+                                <xs:documentation>Toxics Release Inventory (TRI) Program, https://www.epa.gov/toxics-release-inventory-tri-program</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="listed" type="xs:boolean"/>
+                                    <xs:element minOccurs="0" name="CategoryName" type="SDScom:string10"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
                         <xs:element minOccurs="0" name="EpaPesticideRegNo" type="string"/>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideStatement" type="SDScom:Phrase"> </xs:element>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideLabel" type="SDScom:Phrase"> </xs:element>

@@ -1242,7 +1242,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:sequence>
 						<xs:element minOccurs="0" name="TscaListed" type="boolean">
 							<xs:annotation>
-								<xs:documentation>Chemical inventory</xs:documentation>
+								<xs:documentation>TSCA section 8(b) = TSCA Inventory, available at https://www.epa.gov/tsca-inventory/how-access-tsca-inventory#download</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="TscaHpvcListed" type="boolean"/>
