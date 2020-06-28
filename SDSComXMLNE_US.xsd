@@ -55,6 +55,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                     <xs:documentation>The hazard class and a corresponding category / differentiation according to Hazcom 2012. </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
+                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
                             <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
                                 <xs:annotation>
                                     <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
@@ -73,6 +80,22 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="Ghs03HazardStatementUS">
+        <xs:annotation>
+            <xs:documentation>GHS Hazard Statement. Contrary to the type Ghs03HazardStatement used in other regions, the phrase code is optional here because additional US hazard statements come without a code.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="PhraseCode" type="SDScom:Ghs03HazardEnum">
+                <xs:annotation>
+                    <xs:documentation>Should be present for GHS hazard statements, and omitted only for additional US hazard statements.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+        </xs:sequence>
+        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
+    </xs:complexType>
     <xs:complexType name="HazardLabellingUS">
         <xs:sequence>
             <xs:element minOccurs="0" name="Hazcom2012HazardLabelling">
@@ -83,7 +106,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsSignalWordEnum">
+                        <xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsPictogramCodeEnum">
                             <xs:annotation>
                                 <xs:appinfo>SDScomBau</xs:appinfo>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
@@ -97,7 +120,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                 <xs:documentation> Signal word: A word that indicates the relative level of severity of hazards to alert the reader to a potential hazard. </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="SDScom:Ghs03HazardStatement">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="SDScom:Ghs03HazardStatementUS">
                             <xs:annotation>
                                 <xs:appinfo>SDScomBau</xs:appinfo>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
