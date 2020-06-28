@@ -1223,6 +1223,53 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:simpleType>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="AteValue">
+		<xs:sequence>
+			<xs:element maxOccurs="1" name="Value" type="float"/>
+			<xs:element name="Unit" type="SDScom:Unit"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Restriction" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>e.g. "dust or mist"</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="ClpAtp08Classification">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp08ClassCategoryEnum">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="ClpAtp12Classification">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp12ClassCategoryEnum">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
 	<xs:complexType name="ClassificationEU">
 		<xs:sequence>
 			<xs:choice>
@@ -1237,35 +1284,52 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:sequence maxOccurs="unbounded" minOccurs="0">
-								<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp08ClassCategoryEnum">
-									<xs:annotation>
-										<xs:appinfo>SDScomBau</xs:appinfo>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
-									<xs:annotation>
-										<xs:appinfo>SDScomBau</xs:appinfo>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
-									<xs:annotation>
-										<xs:appinfo>SDScomBau</xs:appinfo>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:MultiplyingFactorInt">
-									<xs:annotation>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
-									</xs:annotation>
-								</xs:element>
-							</xs:sequence>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Classification">
+								<xs:annotation>
+									<xs:documentation>For the substance/product at 100% concentration</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:group ref="SDScom:ClpAtp08Classification"/>
+										<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:MultiplyingFactorInt">
+											<xs:annotation>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificConcLimit">
+								<xs:annotation>
+									<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:choice>
+											<xs:group ref="SDScom:ClpAtp08Classification"/>
+											<xs:element name="SupplementalHazard" type="SDScom:SupplementalHazardInformationEnum"/>
+										</xs:choice>
+										<xs:element name="MinPercentage" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>always interpreted as greater than or equal to the value</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="MaxPercentage" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>always interpreted as less than (not equal) to the value. If omitted, max percentage is 100.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="SDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1290,35 +1354,54 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:sequence maxOccurs="unbounded" minOccurs="0">
-								<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp12ClassCategoryEnum">
-									<xs:annotation>
-										<xs:appinfo>SDScomBau</xs:appinfo>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
-									<xs:annotation>
-										<xs:appinfo>SDScomBau</xs:appinfo>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
-									<xs:annotation>
-										<xs:appinfo>SDScomBau</xs:appinfo>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:int20">
-									<xs:annotation>
-										<xs:appinfo>SDScomChem</xs:appinfo>
-										<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
-									</xs:annotation>
-								</xs:element>
-							</xs:sequence>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Classification">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:group ref="SDScom:ClpAtp12Classification"/>
+										<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
+											<xs:annotation>
+												<xs:appinfo>SDScomBau</xs:appinfo>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="Ate" type="SDScom:AteValue">
+											<xs:annotation>
+												<xs:documentation>Acute Toxicity Estimate as per harmonized CLP classification, or as provided by the supplier.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:int20">
+											<xs:annotation>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificConcLimit">
+								<xs:annotation>
+									<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:choice>
+											<xs:group ref="SDScom:ClpAtp12Classification"/>
+											<xs:element name="SupplementalHazard" type="SDScom:SupplementalHazardInformationEnum"/>
+										</xs:choice>
+										<xs:element name="MinPercentage" type="float">
+											<xs:annotation>
+												<xs:documentation>always interpreted as greater than or equal to the value</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="MaxPercentage" type="float">
+											<xs:annotation>
+												<xs:documentation>always interpreted as less than (not equal) to the value. If omitted, max percentage is 100.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="SDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
