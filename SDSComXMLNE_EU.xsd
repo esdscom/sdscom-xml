@@ -1183,6 +1183,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="CLP11-2018/669"/>
 			<xs:enumeration value="CLP13-2018/1480"/>
 			<xs:enumeration value="CLP12-2019/521"/>
+			<xs:enumeration value="CLP14-2020/217"/>
+			<xs:enumeration value="CLP15-2020/1182"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp08ClassCategoryEnum">
@@ -1298,10 +1300,23 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 												<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:MultiplyingFactorInt">
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="MultiplyingFactor">
+								<xs:annotation>
+									<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="1" minOccurs="0" name="Acute" type="SDScom:MultiplyingFactorInt">
 											<xs:annotation>
 												<xs:appinfo>SDScomChem</xs:appinfo>
-												<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element maxOccurs="1" minOccurs="0" name="Chronic" type="SDScom:MultiplyingFactorInt">
+											<xs:annotation>
+												<xs:appinfo>SDScomChem</xs:appinfo>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -1329,6 +1344,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ClpSupplementalHazardInformation" type="SDScom:SupplementalHazardInformation">
+								<xs:annotation>
+									<xs:documentation>Supplemental Hazards are treated in CLP as labelling elements, but in fact are assessed like other classifications. For mixtures, supplemental hazards of ingredients need to be known to determine supplemental hazards of the mixture. Thus, systems can duplicate the information available as labelling here. See also https://github.com/esdscom/sdscom-xml/issues/229</xs:documentation>
+								</xs:annotation>
 							</xs:element>
 							<xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="SDScom:Phrase">
 								<xs:annotation>
@@ -1365,15 +1385,35 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 												<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element minOccurs="0" name="Ate" type="SDScom:AteValue">
-											<xs:annotation>
-												<xs:documentation>Acute Toxicity Estimate as per harmonized CLP classification, or as provided by the supplier.</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element maxOccurs="1" minOccurs="0" name="MultiplyingFactor" type="SDScom:int20">
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="Ate">
+								<xs:annotation>
+									<xs:documentation>Acute Toxicity Estimate as per harmonized CLP classification, or as provided by the supplier.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="Inhalation" type="SDScom:AteValue"> </xs:element>
+										<xs:element minOccurs="0" name="Dermal" type="SDScom:AteValue"> </xs:element>
+										<xs:element minOccurs="0" name="Oral" type="SDScom:AteValue"> </xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="MultiplyingFactor">
+								<xs:annotation>
+									<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="1" minOccurs="0" name="Acute" type="SDScom:MultiplyingFactorInt">
 											<xs:annotation>
 												<xs:appinfo>SDScomChem</xs:appinfo>
-												<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element maxOccurs="1" minOccurs="0" name="Chronic" type="SDScom:MultiplyingFactorInt">
+											<xs:annotation>
+												<xs:appinfo>SDScomChem</xs:appinfo>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -1381,7 +1421,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:element>
 							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificConcLimit">
 								<xs:annotation>
-									<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product</xs:documentation>
+									<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product.
+There is not just one SCL per hazard class, so this cannot be bound to such classes.</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -1401,6 +1442,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ClpSupplementalHazardInformation" type="SDScom:SupplementalHazardInformation">
+								<xs:annotation>
+									<xs:documentation>Supplemental Hazards are treated in CLP as labelling elements, but in fact are assessed like other classifications. For mixtures, supplemental hazards of ingredients need to be known to determine supplemental hazards of the mixture. Thus, systems can duplicate the information available as labelling here. See also https://github.com/esdscom/sdscom-xml/issues/229</xs:documentation>
+								</xs:annotation>
 							</xs:element>
 							<xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="SDScom:Phrase">
 								<xs:annotation>
