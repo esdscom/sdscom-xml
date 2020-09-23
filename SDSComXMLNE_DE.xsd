@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- *****************************************************************************
-Issue		: SDSComXML XSD   	
-Purpose	: German Extension Schema Definition      
- 			  		to enable a xml-based			 
- 			  		distribution of Safety Data Sheets (SDS)		
- 			  		as specified in the Format. For detailed 								
- 			  		information please refer to 
- 			  		http://www.eSDSCom.eu										
-History	:  
-Recent changes are documented on https://github.com/esdscom/sdscom-xml
-
-History until SDScom v4.2.0: 																					
-
-2015.06.18 added to WaterHazardClassEnum new Enum "awg" = allgemein wassergefährdend
-2015.08.28 Revision of the GisCodeEnum (removed the duplicate items)														
+<!-- ****************************************************************************
+SDScom XML schema definition version 5   	
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<!-- *******************************************************************  Datasheet *************  -->
-	<xs:complexType name="NationalExtensionDE">
+	<xs:complexType name="RegulationsDE">
 		<xs:annotation>
 			<xs:appinfo>SDScomBau</xs:appinfo>
 			<xs:appinfo>SDScomChem</xs:appinfo>
-			<xs:documentation>Elements related to national legislation of Germany</xs:documentation>
+			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, create type ComponentDE or refer to ComponentEU.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="RestrictionsOfOccupation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -42,7 +30,7 @@ History until SDScom v4.2.0:
 					<xs:documentation> National legislation: National requirements related to waste that applies to the product or its packaging. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StorageClass" type="SDScom:StorageClassEnum" minOccurs="0" maxOccurs="1">
+			<xs:element name="StorageClassDE" type="SDScom:StorageClassEnumDE" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -130,39 +118,39 @@ History until SDScom v4.2.0:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ************************************************************** StorageClassEnum ******  -->
-	<xs:simpleType name="StorageClassEnum">
+	<xs:simpleType name="StorageClassEnumDE">
 		<xs:annotation>
 			<xs:appinfo>SDScomBau</xs:appinfo>
 			<xs:appinfo>SDScomChem</xs:appinfo>
 			<xs:documentation>Enumaration of the german storage class according to TRGS 510.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="LGK 1"/>
-			<xs:enumeration value="LGK 2A"/>
-			<xs:enumeration value="LGK 2B"/>
-			<xs:enumeration value="LGK 3"/>
-			<xs:enumeration value="LGK 4.1A"/>
-			<xs:enumeration value="LGK 4.1B"/>
-			<xs:enumeration value="LGK 4.2"/>
-			<xs:enumeration value="LGK 4.3"/>
-			<xs:enumeration value="LGK 5.1A"/>
-			<xs:enumeration value="LGK 5.1B"/>
-			<xs:enumeration value="LGK 5.1C"/>
-			<xs:enumeration value="LGK 5.2"/>
-			<xs:enumeration value="LGK 6.1A"/>
-			<xs:enumeration value="LGK 6.1B"/>
-			<xs:enumeration value="LGK 6.1C"/>
-			<xs:enumeration value="LGK 6.1D"/>
-			<xs:enumeration value="LGK 6.2"/>
-			<xs:enumeration value="LGK 7"/>
-			<xs:enumeration value="LGK 8A"/>
-			<xs:enumeration value="LGK 8B"/>
-			<xs:enumeration value="LGK 9"/>
-			<xs:enumeration value="LGK 10"/>
-			<xs:enumeration value="LGK 11"/>
-			<xs:enumeration value="LGK 12"/>
-			<xs:enumeration value="LGK 13"/>
-			<xs:enumeration value="LGK 10-13"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2A"/>
+			<xs:enumeration value="2B"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4.1A"/>
+			<xs:enumeration value="4.1B"/>
+			<xs:enumeration value="4.2"/>
+			<xs:enumeration value="4.3"/>
+			<xs:enumeration value="5.1A"/>
+			<xs:enumeration value="5.1B"/>
+			<xs:enumeration value="5.1C"/>
+			<xs:enumeration value="5.2"/>
+			<xs:enumeration value="6.1A"/>
+			<xs:enumeration value="6.1B"/>
+			<xs:enumeration value="6.1C"/>
+			<xs:enumeration value="6.1D"/>
+			<xs:enumeration value="6.2"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8A"/>
+			<xs:enumeration value="8B"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="10-13"/>
 			<!--LGK 1: Explosive Gefahrstoffe-->
 			<!--LGK 2A: Gase (ohne Aerosolpackungen und Feuerzeuge)-->
 			<!--LGK 2B: Aerosolpackungen und Feuerzeuge-->

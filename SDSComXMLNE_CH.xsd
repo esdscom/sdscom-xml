@@ -7,32 +7,21 @@ Purpose	: Swiss Extension Schema Definition
  			  		as specified in the Format. For detailed 								
  			  		information please refer to 
  			  		http://www.eSDSCom.eu										
-Version	:  1.0.2.
-Rev. date: 2018.12.07												
-History	:  2018.12.07 CPID, StoerfallverordnungCH added
-Further changes according to GitHub change log at https://github.com/esdscom/sdscom-xml
+Version	:  1.0.3.
+Rev. date: 2018.12.19												
+History	:  2018.12.07 CPID, Stoerfallverordnung, NationalWasteLegislationCH added
+History	:  2018.12.19 NationalStorageClassCH added
+For more details, see https://github.com/esdscom/sdscom-xml
 														
 ***************************************************************************** -->
 
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<!-- *******************************************************************  NationalExtension *************  -->
-	<xs:complexType name="NationalExtensionCH">
-		<xs:annotation>
-			<xs:documentation>
-				Elements related to national legislation of Switzerland
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Stoerfallverordnung" type="SDScom:Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalWasteLegislationCH" type="SDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="CPID" type="SDScom:CPID" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The product registration number for Swiss FOPH. Part of section 15 of SDS</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+	<xs:complexType name="ComponentCH">
+		<xs:complexContent>
+			<xs:extension base="SDScom:Component"/>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="NationalWasteLegislationCH">
 		<xs:annotation>
@@ -53,8 +42,75 @@ Further changes according to GitHub change log at https://github.com/esdscom/sds
 		<xs:annotation>
 			<xs:documentation>The product registration number for Swiss FOPH.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
+		<xs:restriction base="string">
 			<xs:pattern value="\d+-\d+"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="StorageClassEnumCH">
+		<xs:annotation>
+			<xs:documentation>Enumeration of the Swiss storage class in the style of German TRGS 510.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4.1"/>
+			<xs:enumeration value="4.2"/>
+			<xs:enumeration value="4.3"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6.1"/>
+			<xs:enumeration value="6.2"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10/12"/>
+			<xs:enumeration value="11/13"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="NK"/>
+			<!-- 1: Explosive Gefahrstoffe-->
+			<!-- 2: Verflüssigte oder unter Druck stehende Gase-->
+			<!-- 3: Entzündbare Flüssigkeiten-->
+			<!-- 4.1: Entzündbare Feststoffe-->
+			<!-- 4.2:  Selbstentzündliche Stoffe-->
+			<!-- 4.3:  Mit Wasser brennbare Gase bildende Stoffe-->
+			<!-- 5: Brandfördernde Stoffe-->
+			<!-- 6.1: Giftige Stoffe-->
+			<!-- 6.2: Ansteckungsgefährliche Stoffe-->
+			<!-- 7: Radioaktive Stoffe-->
+			<!-- 8: Ätzende und korrosive Stoffe-->
+			<!-- 9: nicht besetzt-->
+			<!-- 10/12: Brennbare/Nicht brennbare Flüssigkeiten die keiner der vorgenannten LGK zuzuordnen sind-->
+			<!-- 11/13: Brennbare/Nicht brennbare Feststoffe, die keiner der vorgenannten LGK zuzuordnen sind-->
+			<!-- 10: Brennbare Flüssigkeiten die keiner der vorgenannten LGK zuzuordnen sind-->
+			<!-- 11: Brennbare Feststoffe, die keiner der vorgenannten LGK zuzuordnen sind-->
+			<!-- 12: Nicht brennbare Flüssigkeiten, die keiner der vorgenannten LGK zuzuordnen sind)-->
+			<!-- 13: Nicht brennbare Feststoffe, die keiner der vorgenannten LGK zuzuordnen sind-->
+			<!-- NK: Nicht klassifiziert/kein Gefahrstoff-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RegulationsCH">
+		<xs:annotation>
+			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentCH.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Stoerfallverordnung" type="SDScom:Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalWasteLegislationCH" type="SDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StorageClassCH" type="SDScom:StorageClassEnumCH" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Classification of the chemical in accordance with Swiss guidance on storage. See https://www.kvu.ch/de/arbeitsgruppen?id=151</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CPID" type="SDScom:CPID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The product registration number for Swiss FOPH. Part of section 15 of SDS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ************************************************************** NationalWasteLegislationCH ******  -->
+	<!-- ************************************************************** CPID ******  -->
+	<!-- ************************************************************** NationalStorageClassCHEnum ******  -->
 </xs:schema>

@@ -1,303 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ***************************************************************************** -->
-<!-- * Issue	: 	SDSComXMLNE.xsd                                              * -->
-<!-- * Purpose	: 	SDSComXML National Extensions Schema Definition              * -->
-<!-- * 				to enable xml-based	distribution of Safety Data Sheets (SDS) * -->
-<!-- * 				as specified in the general format extended with the national* -->
-<!-- * 				extensions below.                                            * -->
-<!-- *                                                                           * -->
-<!-- * 				This file declares empty national extensions as a preparation* -->
-<!-- * 				for future enhancements. More complex/complete definitions   * -->
-<!-- * 				are stored in separate files.                                * -->
-<!-- * 				                                                             * -->
-<!-- * 				For more information please refer to http://www.eSDScom.eu   * -->
-<!-- ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
-    <xs:include schemaLocation="SDSComXMLDT.xsd"/>
-    <xs:include schemaLocation="SDSComXMLCT.xsd"/>
-    <xs:complexType name="NationalExtensionAD">
+<!-- ****************************************************************************
+SDScom XML schema definition version 5   	
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
+***************************************************************************** -->
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
+    <xs:complexType name="RegulationsAD">
         <xs:annotation>
             <xs:documentation>National legislation - Andorra</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionAL">
+    <xs:complexType name="RegulationsAL">
         <xs:annotation>
             <xs:documentation>National legislation - Albania</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionAM">
+    <xs:complexType name="RegulationsAM">
         <xs:annotation>
             <xs:documentation>National legislation - Armenia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionAT">
+    <xs:complexType name="RegulationsAT">
         <xs:annotation>
             <xs:documentation>National legislation - Austria</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionBA">
+    <xs:complexType name="RegulationsBA">
         <xs:annotation>
             <xs:documentation>National legislation - Bosnia and Herzegowina</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionBE">
+    <xs:complexType name="RegulationsBE">
         <xs:annotation>
             <xs:documentation>National legislation - Belgium</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionBG">
+    <xs:complexType name="RegulationsBG">
         <xs:annotation>
             <xs:documentation>National legislation - Bulgaria</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionBY">
+    <xs:complexType name="RegulationsBY">
         <xs:annotation>
             <xs:documentation>National legislation - Belarus</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionCY">
+    <xs:complexType name="RegulationsCY">
         <xs:annotation>
             <xs:documentation>National legislation - Cyprus</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionCZ">
+    <xs:complexType name="RegulationsCZ">
         <xs:annotation>
             <xs:documentation>National legislation - Czech Republic</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionDK">
+    <xs:complexType name="RegulationsDK">
         <xs:annotation>
             <xs:documentation>National legislation - Denmark</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionEE">
+    <xs:complexType name="RegulationsEE">
         <xs:annotation>
             <xs:documentation>National legislation - Estonia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionES">
+    <xs:complexType name="RegulationsES">
         <xs:annotation>
             <xs:documentation>National legislation - Spain</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionFI">
+    <xs:complexType name="RegulationsFI">
         <xs:annotation>
             <xs:documentation>National legislation - Finland</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionFR">
+    <xs:complexType name="RegulationsFR">
         <xs:annotation>
             <xs:documentation>National legislation - France</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionGB">
+    <xs:complexType name="RegulationsGB">
         <xs:annotation>
             <xs:documentation>National legislation - Great Britain</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionGE">
+    <xs:complexType name="RegulationsGE">
         <xs:annotation>
             <xs:documentation>National legislation - Georgia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionGI">
-        <xs:annotation>
-            <xs:documentation>National legislation - Gibraltar</xs:documentation>
-        </xs:annotation>
-        <xs:sequence> </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="NationalExtensionGR">
+    <xs:complexType name="RegulationsGR">
         <xs:annotation>
             <xs:documentation>National legislation - Greece</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionHR">
+    <xs:complexType name="RegulationsHR">
         <xs:annotation>
             <xs:documentation>National legislation - Croatia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionHU">
+    <xs:complexType name="RegulationsHU">
         <xs:annotation>
             <xs:documentation>National legislation - Hungary</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionIE">
+    <xs:complexType name="RegulationsIE">
         <xs:annotation>
             <xs:documentation>National legislation - Ireland</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionIS">
+    <xs:complexType name="RegulationsIS">
         <xs:annotation>
             <xs:documentation>National legislation - Iceland</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionIT">
+    <xs:complexType name="RegulationsIT">
         <xs:annotation>
             <xs:documentation>National legislation - Italy</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionKZ">
+    <xs:complexType name="RegulationsKZ">
         <xs:annotation>
             <xs:documentation>National legislation - Kazakhstan</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionLI">
+    <xs:complexType name="RegulationsLI">
         <xs:annotation>
             <xs:documentation>National legislation - Liechtenstein</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionLT">
+    <xs:complexType name="RegulationsLT">
         <xs:annotation>
             <xs:documentation>National legislation - Lithuania</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionLU">
+    <xs:complexType name="RegulationsLU">
         <xs:annotation>
             <xs:documentation>National legislation - Luxembourg</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionLV">
+    <xs:complexType name="RegulationsLV">
         <xs:annotation>
             <xs:documentation>National legislation - Latvia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionMC">
+    <xs:complexType name="RegulationsMC">
         <xs:annotation>
             <xs:documentation>National legislation - Monaco</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionMD">
+    <xs:complexType name="RegulationsMD">
         <xs:annotation>
-            <xs:documentation>National legislation - Moldovia</xs:documentation>
+            <xs:documentation>National legislation - Republic of Moldova</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionME">
+    <xs:complexType name="RegulationsME">
         <xs:annotation>
             <xs:documentation>National legislation - Montenegro</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionMK">
+    <xs:complexType name="RegulationsMK">
         <xs:annotation>
             <xs:documentation>National legislation - Macedonia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionMT">
+    <xs:complexType name="RegulationsMT">
         <xs:annotation>
             <xs:documentation>National legislation - Malta</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionNL">
+    <xs:complexType name="RegulationsNL">
         <xs:annotation>
             <xs:documentation>National legislation - Netherlands</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionPL">
+    <xs:complexType name="RegulationsPL">
         <xs:annotation>
             <xs:documentation>National legislation - Poland</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionPT">
+    <xs:complexType name="RegulationsPT">
         <xs:annotation>
             <xs:documentation>National legislation - Portugal</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionRO">
+    <xs:complexType name="RegulationsRO">
         <xs:annotation>
             <xs:documentation>National legislation - Romania</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionRS">
+    <xs:complexType name="RegulationsRS">
         <xs:annotation>
             <xs:documentation>National legislation - Serbia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionRU">
+    <xs:complexType name="RegulationsRU">
         <xs:annotation>
             <xs:documentation>National legislation - Russian Federation</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionSE">
+    <xs:complexType name="RegulationsSE">
         <xs:annotation>
             <xs:documentation>National legislation - Sweden</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionSI">
+    <xs:complexType name="RegulationsSI">
         <xs:annotation>
             <xs:documentation>National legislation - Slovenia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionSK">
+    <xs:complexType name="RegulationsSK">
         <xs:annotation>
             <xs:documentation>National legislation - Slovakia</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionSM">
+    <xs:complexType name="RegulationsSM">
         <xs:annotation>
             <xs:documentation>National legislation - San Marino</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionTR">
-        <xs:annotation>
-            <xs:documentation>National legislation - Turkey</xs:documentation>
-        </xs:annotation>
-        <xs:sequence> </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="NationalExtensionUA">
+    <xs:complexType name="RegulationsUA">
         <xs:annotation>
             <xs:documentation>National legislation - Ukraine</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionUZ">
+    <xs:complexType name="RegulationsUZ">
         <xs:annotation>
             <xs:documentation>National legislation - Uzbekistan</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="NationalExtensionVA">
+    <xs:complexType name="RegulationsVA">
         <xs:annotation>
             <xs:documentation>National legislation - Vatican City State</xs:documentation>
         </xs:annotation>

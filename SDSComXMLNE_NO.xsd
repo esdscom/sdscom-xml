@@ -13,69 +13,50 @@
 <!-- * History	:  																					* -->
 <!-- * [When  ]		[What] 																	* -->
 <!-- ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<!-- *******************************************************************  Datasheet *************  -->
-	<xs:complexType name="NationalExtensionNO">
-		<xs:annotation>
-			<xs:documentation>
-				Elements related to Norwegian legislation
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionCode" type="SDScom:Phrase"/>
-			<xs:element name="AssessedRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationsDescription" type="SDScom:Phrase" minOccurs="0"
-				maxOccurs="unbounded"/>
-			<xs:element name="PrProductRegistrationNo" type="SDScom:PrProductRegistrationNo" minOccurs="0"
-				maxOccurs="unbounded"/>
-			<xs:element name="OccupationalAirRequirement" type="SDScom:OccupationalAirRequirement"
-				minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalWasteLegislation" type="SDScom:NationalWasteLegislation"
-				minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
+	<xs:complexType name="ComponentNO">
+		<xs:complexContent>
+			<xs:extension base="SDScom:Component"/>
+		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************** PrProductRegistrationNo ********************* -->
-	<xs:complexType name="PrProductRegistrationNo">
-		<xs:annotation>
-			<xs:documentation>
-				PrProductRegistrationNo
-			</xs:documentation>
-		</xs:annotation>
+	<xs:complexType name="PrProductRegistrationNO">
 		<xs:sequence>
 			<xs:element name="PrProductNo" type="SDScom:string128" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="NotApplicableReason" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="PrProductCode" type="SDScom:string20" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="UcnCode" type="SDScom:string20" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="SicCode" type="SDScom:string20" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NorwegianPrFunctionCode" type="SDScom:Phrase" minOccurs="0"
-				maxOccurs="unbounded"/>
+			<xs:element name="NorwegianPrFunctionCode" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** OccupationalAirRequirement ********************* -->
-	<xs:complexType name="OccupationalAirRequirement">
-		<xs:annotation>
-			<xs:documentation>
-				OccupationalAirRequirement
-			</xs:documentation>
-		</xs:annotation>
+	<xs:complexType name="OccupationalAirRequirementNO">
 		<xs:sequence>
 			<xs:element name="OarGroup" type="SDScom:string2" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="OarValue" type="SDScom:string32" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** NationalWasteLegislation ********************* -->
-	<xs:complexType name="NationalWasteLegislation">
-		<xs:annotation>
-			<xs:documentation>
-				NationalWasteLegislation
-			</xs:documentation>
-		</xs:annotation>
+	<xs:complexType name="NationalWasteLegislationNO">
 		<xs:sequence>
 			<xs:element name="NationalWasteCode" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"
-			/>
+			<xs:element name="NationalRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegulationsNO">
+		<xs:annotation>
+			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentNO.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionCode" type="SDScom:Phrase"/>
+			<xs:element name="AssessedRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalLegislationsDescription" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrProductRegistration" type="SDScom:PrProductRegistrationNO" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OccupationalAirRequirement" type="SDScom:OccupationalAirRequirementNO" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalWasteLegislation" type="SDScom:NationalWasteLegislationNO" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
