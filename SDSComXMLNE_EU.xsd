@@ -1939,6 +1939,21 @@ Transition period: until 9 September 2021.</xs:documentation>
 			<xs:element name="ReachRegNo" type="SDScom:ReachRegNo"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="ControlParametersEU">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedNoEffectLevel" type="SDScom:DNEL">
+				<xs:annotation>
+					<xs:documentation> Derived no effect level (DNEL): Where a Chemical Safety Report is required, the relevant DNELs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed in the safety data sheet. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedMinimalEffectLevel" type="SDScom:DMEL"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="PredictedNoEffectConcentration" type="SDScom:PNEC">
+				<xs:annotation>
+					<xs:documentation> Predicted no effect concentration (PNEC): Where a Chemical Safety Report is required, the relevant PNECs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="DisposalConsiderationsEU">
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="EuropeanWasteList">

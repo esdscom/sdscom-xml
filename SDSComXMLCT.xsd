@@ -1373,74 +1373,57 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:attribute default="0" name="ComponentId" type="integer"/>
 		<xs:attribute default="" name="ComponentInternalSdsId" type="SDScom:string64"/>
 	</xs:complexType>
+	<xs:complexType name="ControlParameters">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="OccupationalExposureLimits">
+				<xs:annotation>
+					<xs:documentation>Occupational exposure limit: Values shall be given for the country where the substance or preparation is placed on the market. Give information on currently recommended monitoring procedures. For mixtures, it is useful to provide values for those constituent substances which are required to be listed in the Safety Data Sheet. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OccupationalExposureLimit" type="SDScom:OccupationalExposureLimit">
+							<xs:annotation>
+								<xs:documentation>aims at the product in delivery state</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="IntendedUseOccupationalExposureLimit" type="SDScom:OccupationalExposureLimit">
+							<xs:annotation>
+								<xs:documentation>aims at degradation product limit values during use</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="BiologicalLimitValues">
+				<xs:annotation>
+					<xs:documentation>Biological limit value: aims at the product in delivery state. Information regarding biological limit values - e.g. concentration of lead in blood. Biological limits will refer to individual components, not preparations. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="BiologicalLimitValue" type="SDScom:BiologicalLimitValue">
+							<xs:annotation>
+								<xs:documentation>aims at the product in delivery state</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="IntendedUseBiologicalLimitValue" type="SDScom:BiologicalLimitValue">
+							<xs:annotation>
+								<xs:documentation>aims at degradation product limit values during use</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element minOccurs="0" name="RegionEU" type="SDScom:ControlParametersEU"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="BaseExposureControlPersonalProtection">
 		<xs:annotation>
 			<xs:documentation>Used in SDS section 8. Also used in "Component" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="PreventiveIndustrialMedicalExaminationRequired" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="ControlParameters">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="OccupationalExposureLimits">
-							<xs:annotation>
-								<xs:documentation>Occupational exposure limit: Values shall be given for the country where the substance or preparation is placed on the market. Give information on currently recommended monitoring procedures. For mixtures, it is useful to provide values for those constituent substances which are required to be listed in the Safety Data Sheet. </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="OccupationalExposureLimit" type="SDScom:OccupationalExposureLimit">
-										<xs:annotation>
-											<xs:documentation>aims at the product in delivery state</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="IntendedUseOccupationalExposureLimit" type="SDScom:OccupationalExposureLimit">
-										<xs:annotation>
-											<xs:documentation>aims at degradation product limit values during use</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="BiologicalLimitValues">
-							<xs:annotation>
-								<xs:documentation>Biological limit value: aims at the product in delivery state. Information regarding biological limit values - e.g. concentration of lead in blood. Biological limits will refer to individual components, not preparations. </xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="BiologicalLimitValue" type="SDScom:BiologicalLimitValue">
-										<xs:annotation>
-											<xs:documentation>aims at the product in delivery state</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="IntendedUseBiologicalLimitValue" type="SDScom:BiologicalLimitValue">
-										<xs:annotation>
-											<xs:documentation>aims at degradation product limit values during use</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
-						<xs:element minOccurs="0" name="RegionEU">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedNoEffectLevel" type="SDScom:DNEL">
-										<xs:annotation>
-											<xs:documentation> Derived no effect level (DNEL): Where a Chemical Safety Report is required, the relevant DNELs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed in the safety data sheet. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedMinimalEffectLevel" type="SDScom:DMEL"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="PredictedNoEffectConcentration" type="SDScom:PNEC">
-										<xs:annotation>
-											<xs:documentation> Predicted no effect concentration (PNEC): Where a Chemical Safety Report is required, the relevant PNECs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="ControlParameters" type="SDScom:ControlParameters"> </xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SummaryRMMeasures">
 				<xs:complexType>
 					<xs:sequence>
