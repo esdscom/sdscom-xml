@@ -1115,7 +1115,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	</xs:complexType>
 	<xs:simpleType name="ReachRegNo">
 		<xs:annotation>
-			<xs:documentation> The EC number identification string for a substance. </xs:documentation>
+			<xs:documentation>The REACH registration number for a substance. Last 4 digits might be ormitted or replaced by xxxx or XXXX where legally applicable, i.e. for mixture ingredients.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="string">
 			<xs:pattern value="\d{2}-\d{10}-\d{2}(-\d{4}|-xxxx|-XXXX)?"/>
@@ -1936,11 +1936,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
-				<xs:annotation>
-					<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element name="ReachRegNo" type="SDScom:ReachRegNo"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DisposalConsiderationsEU">
