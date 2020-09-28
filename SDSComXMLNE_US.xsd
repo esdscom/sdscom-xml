@@ -422,7 +422,7 @@ Chemical Diversion and Trafficking Act</xs:documentation>
             </xs:element>
             <xs:element minOccurs="0" name="ProperShippingName" type="SDScom:Phrase"> </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstance" type="SDScom:Phrase"> </xs:element>
-            <xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum">
+            <xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
                 <xs:annotation>
                     <xs:documentation>The chemical’s most important transport hazard class. </xs:documentation>
                 </xs:annotation>

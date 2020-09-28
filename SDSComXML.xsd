@@ -941,7 +941,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum">
+						<xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
 							<xs:annotation>
 								<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
@@ -991,7 +991,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum"/>
+						<xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum"/>
 						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="SDScom:TransportClassEnum"/>
 						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelEnglish" type="SDScom:Phrase">
 							<xs:annotation>
