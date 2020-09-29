@@ -1609,12 +1609,12 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="Weight-%"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="Unit">
+	<xs:group name="Unit">
 		<xs:sequence>
 			<xs:element name="Unit" type="SDScom:UnitEnum"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="SDScom:Phrase"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:group>
 	<xs:complexType name="ExactValue">
 		<xs:sequence>
 			<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum"/>
@@ -1624,9 +1624,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 	<xs:complexType name="ExactUnitValue">
 		<xs:complexContent>
 			<xs:extension base="SDScom:ExactValue">
-				<xs:sequence>
-					<xs:element name="Unit" type="SDScom:Unit"/>
-				</xs:sequence>
+				<xs:group ref="SDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1654,9 +1652,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SDScom:Value">
-				<xs:sequence>
-					<xs:element name="Unit" type="SDScom:Unit" minOccurs="0"/>
-				</xs:sequence>
+				<xs:group ref="SDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
