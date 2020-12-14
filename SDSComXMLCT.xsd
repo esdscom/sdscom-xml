@@ -392,16 +392,71 @@ mixtures to be shown in section 9 and 11. Min and MaxOccurrences set for all suc
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
 							</xs:annotation>
-						</xs:element>
-						<xs:element name="MultiplyingFactor" minOccurs="0" maxOccurs="1" type="SDScom:MultiplyingFactorInt">
+						</xs:element>			
+						<xs:element name="MultiplyingFactor" minOccurs="0">
 							<xs:annotation>
-								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+							</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Acute" type="SDScom:MultiplyingFactorInt" minOccurs="0" maxOccurs="1">
+											<xs:annotation>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Chronic" type="SDScom:MultiplyingFactorInt" minOccurs="0" maxOccurs="1">
+											<xs:annotation>
+												<xs:appinfo>SDScomChem</xs:appinfo>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>							
+						</xs:element>
+						<xs:element minOccurs="0" name="Ate">
+							<xs:annotation>
+								<xs:documentation>Acute Toxicity Estimate as per harmonized CLP classification, or as provided by the supplier.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="Inhalation" type="SDScom:AteValue"> </xs:element>
+									<xs:element minOccurs="0" name="Dermal" type="SDScom:AteValue"> </xs:element>
+									<xs:element minOccurs="0" name="Oral" type="SDScom:AteValue"> </xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>									
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SpecificConcLimit" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product.
+There is not just one SCL per hazard class, so this cannot be bound to such classes.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="HazardClassCategory" type="SDScom:HazardClassCategoryEnum" minOccurs="1" maxOccurs="1">
+								<xs:annotation>
+									<xs:appinfo>SDScomBau</xs:appinfo>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="SupplementalHazard" type="SDScom:SupplementalHazardInformationEnum"/>
+						</xs:choice>
+						<xs:element name="MinPercentage" type="xs:float">
+							<xs:annotation>
+								<xs:documentation>always interpreted as greater than or equal to the value</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MaxPercentage" type="xs:float" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>always interpreted as less than (not equal) to the value. If omitted, max percentage is 100.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
-			</xs:element>
+			</xs:element>			
 			<xs:element minOccurs="0" name="ClpAtp" type="SDScom:AtpEnum">
 				<xs:annotation>
 					<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs.</xs:documentation>
@@ -1912,6 +1967,16 @@ If there are multiple limit values depending on conditions described in remarks 
 			<xs:element name="DisclaimerBoundaries" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the boundaries of the SUMI. Mandatory according to some sources, optional according to others.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+		<xs:complexType name="AteValue">
+		<xs:sequence>
+			<xs:element maxOccurs="1" name="Value" type="SDScom:OneUnitValue"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Restriction" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>e.g. "dust or mist"</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

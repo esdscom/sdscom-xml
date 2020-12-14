@@ -1527,6 +1527,8 @@ History before  v4.2.0:
 			<xs:enumeration value="209"/>
 			<xs:enumeration value="209A"/>
 			<xs:enumeration value="210"/>
+			<xs:enumeration value="211"/>
+			<xs:enumeration value="212"/>			
 			<xs:enumeration value="401"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -1573,6 +1575,7 @@ History before  v4.2.0:
 			<xs:enumeration value="Flam. Liq. 1"/>
 			<xs:enumeration value="Flam. Liq. 2"/>
 			<xs:enumeration value="Flam. Liq. 3"/>
+			<xs:enumeration value="Flam. Liq. 4"/>
 			<xs:enumeration value="Flam. Sol. 1"/>
 			<xs:enumeration value="Flam. Sol. 2"/>
 			<xs:enumeration value="Flam. Gas 1A"/>
@@ -1614,11 +1617,15 @@ History before  v4.2.0:
 			<xs:enumeration value="Acute Tox. 2"/>
 			<xs:enumeration value="Acute Tox. 3"/>
 			<xs:enumeration value="Acute Tox. 4"/>
+			<xs:enumeration value="Acute Tox. 5 (oral)"/>
+			<xs:enumeration value="Acute Tox. 5 (dermal)"/>
+			<xs:enumeration value="Acute Tox. 5 (inhalation)"/>			
 			<xs:enumeration value="Skin Corr. 1"/>
 			<xs:enumeration value="Skin Corr. 1A"/>
 			<xs:enumeration value="Skin Corr. 1B"/>
 			<xs:enumeration value="Skin Corr. 1C"/>
 			<xs:enumeration value="Skin Irrit. 2"/>
+			<xs:enumeration value="Skin Irrit. 3"/>			
 			<xs:enumeration value="Eye Irrit. 2"/>
 			<xs:enumeration value="Eye Dam. 1"/>
 			<xs:enumeration value="Resp. Sens. 1"/>
@@ -1643,7 +1650,10 @@ History before  v4.2.0:
 			<xs:enumeration value="STOT RE 1"/>
 			<xs:enumeration value="STOT RE 2"/>
 			<xs:enumeration value="Asp. Tox. 1"/>
+			<xs:enumeration value="Asp. Tox. 2"/>			
 			<xs:enumeration value="Aquatic Acute 1"/>
+			<xs:enumeration value="Aquatic Acute 2"/>
+			<xs:enumeration value="Aquatic Acute 3"/>			
 			<xs:enumeration value="Aquatic Chronic 1"/>
 			<xs:enumeration value="Aquatic Chronic 2"/>
 			<xs:enumeration value="Aquatic Chronic 3"/>
