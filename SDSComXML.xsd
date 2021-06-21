@@ -5,7 +5,7 @@ Main schema - root element is DatasheetFeed
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<!-- Section 1 ========================================================== -->
 	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
@@ -17,7 +17,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:annotation>
 				<xs:documentation>Although not different in structure, a lot of this information is market specific and thus specified for each region separately.</xs:documentation>
 			</xs:annotation>
-			<xs:element minOccurs="0" name="SpecificationNo" type="SDScom:string16">
+			<xs:element minOccurs="0" name="SpecificationNo" type="SDScom:string128">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation>Sender-defined identification of a specification the chemical is in accordance with, e.g. a formulation number. This is not meant for compliance statements like international or vendor-internal standards!</xs:documentation>
