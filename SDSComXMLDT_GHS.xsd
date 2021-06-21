@@ -5,7 +5,7 @@ Basic type definitions, GHS related
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:simpleType name="Ghs02PrecautionGeneral">
         <xs:annotation>
@@ -66,7 +66,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionExpl">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--             <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
@@ -81,11 +81,27 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="380"/>
             <xs:enumeration value="401"/>
             <xs:enumeration value="501"/>
+ -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="281"/>
+            <xs:enumeration value="370"/> 
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="374"/>
+            <xs:enumeration value="380"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionExpl">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="234"/>
@@ -94,13 +110,27 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="280"/>
             <xs:enumeration value="370+372+380+373"/>
             <xs:enumeration value="370+380+375"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="401"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionExpl">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="234"/>
@@ -110,11 +140,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="370+372+380+373"/>
             <xs:enumeration value="370+380+375"/>
             <xs:enumeration value="401"/>
+            <xs:enumeration value="503"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="380"/>
+            <xs:enumeration value="401"/>
             <xs:enumeration value="503"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionExpl">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="203"/>
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370+372+380+373"/>
+            <xs:enumeration value="370+380+375"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="503"/> -->
             <xs:enumeration value="203"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
@@ -122,8 +177,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="240"/>
             <xs:enumeration value="250"/>
             <xs:enumeration value="280"/>
-            <xs:enumeration value="370+372+380+373"/>
-            <xs:enumeration value="370+380+375"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="401"/>
             <xs:enumeration value="503"/>
         </xs:restriction>
@@ -251,10 +309,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionFlamAer">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="210"/>
+            <xs:enumeration value="211"/>
+            <xs:enumeration value="251"/>
+            <xs:enumeration value="410+412"/> -->
             <xs:enumeration value="210"/>
             <xs:enumeration value="211"/>
             <xs:enumeration value="251"/>
-            <xs:enumeration value="410+412"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="412"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs04ClassAerosol">
@@ -279,10 +342,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionAerosol">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="210"/>
+            <xs:enumeration value="211"/>
+            <xs:enumeration value="251"/>
+            <xs:enumeration value="410+412"/> -->
             <xs:enumeration value="210"/>
             <xs:enumeration value="211"/>
             <xs:enumeration value="251"/>
-            <xs:enumeration value="410+412"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="412"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08ClassAerosolPressChem">
@@ -315,7 +383,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>For Chemicals Under Pressure in transportable cylinders, P410 may be omitted. Thus P403 is added in this list.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="211"/>
             <xs:enumeration value="251"/>
             <xs:enumeration value="376"/>
@@ -323,7 +391,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="381"/>
             <xs:enumeration value="403"/>
             <xs:enumeration value="410+403"/>
-            <xs:enumeration value="410+412"/>
+            <xs:enumeration value="410+412"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="211"/>
+            <xs:enumeration value="251"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="376"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="381"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="412"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassOxGas">
@@ -341,9 +419,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOxGas">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="220"/>
+            <xs:enumeration value="244"/>
+            <xs:enumeration value="370+376"/> -->
             <xs:enumeration value="220"/>
             <xs:enumeration value="244"/>
-            <xs:enumeration value="370+376"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="376"/>
             <xs:enumeration value="403"/>
         </xs:restriction>
     </xs:simpleType>
@@ -370,11 +452,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>For Gases Under Pressure in transportable cylinders, P410 may be omitted. Thus P403 is added in this list.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="string">
+<!--            <xs:enumeration value="282"/>
+            <xs:enumeration value="315"/>
+            <xs:enumeration value="336"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="410+403"/> -->
             <xs:enumeration value="282"/>
             <xs:enumeration value="315"/>
             <xs:enumeration value="336"/>
             <xs:enumeration value="403"/>
-            <xs:enumeration value="410+403"/>
+            <xs:enumeration value="410"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionPressGas">
@@ -382,10 +469,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>For Gases Under Pressure in transportable cylinders, P410 may be omitted. Thus P403 is added in this list.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="string">
-            <xs:enumeration value="282"/>
+<!--            <xs:enumeration value="282"/>
             <xs:enumeration value="336+315"/>
             <xs:enumeration value="403"/>
-            <xs:enumeration value="410+403"/>
+            <xs:enumeration value="410+403"/> -->
+            <xs:enumeration value="282"/>
+            <xs:enumeration value="315"/>
+            <xs:enumeration value="336"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="410"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassFlamLiq">
@@ -408,7 +500,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionFlamLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="240"/>
             <xs:enumeration value="241"/>
@@ -418,12 +510,27 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="303+361+353"/>
             <xs:enumeration value="370+378"/>
             <xs:enumeration value="403+235"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="242"/>
+            <xs:enumeration value="243"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="303"/>
+            <xs:enumeration value="353"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="403"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionFlamLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="240"/>
             <xs:enumeration value="241"/>
@@ -434,6 +541,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="370+378"/>
             <xs:enumeration value="403"/>
             <xs:enumeration value="403+235"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="242"/>
+            <xs:enumeration value="243"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="303"/>
+            <xs:enumeration value="353"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="403"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
@@ -453,11 +575,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionFlamSol">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="210"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="241"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370+378"/> -->
             <xs:enumeration value="210"/>
             <xs:enumeration value="240"/>
             <xs:enumeration value="241"/>
             <xs:enumeration value="280"/>
-            <xs:enumeration value="370+378"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassSelfReact">
@@ -485,7 +613,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSelfReact">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="280"/>
@@ -494,12 +622,25 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="403+235"/>
             <xs:enumeration value="411"/>
             <xs:enumeration value="420"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="420"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionSelfReact">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="235"/>
             <xs:enumeration value="240"/>
@@ -508,6 +649,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="370+378"/>
             <xs:enumeration value="370+380+375"/>
             <xs:enumeration value="370+380+375+378"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="403"/>
             <xs:enumeration value="411"/>
             <xs:enumeration value="420"/>
@@ -529,33 +685,59 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionPyrLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+334"/>
             <xs:enumeration value="370+378"/>
+            <xs:enumeration value="422"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
             <xs:enumeration value="422"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionPyrLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+334"/>
-            <xs:enumeration value="370+378"/>
+            <xs:enumeration value="370+378"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionPyrLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+334"/>
-            <xs:enumeration value="370+378"/>
+            <xs:enumeration value="370+378"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassPyrSol">
@@ -573,33 +755,61 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionPyrSol">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="335+334"/>
             <xs:enumeration value="370+378"/>
+            <xs:enumeration value="422"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
             <xs:enumeration value="422"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionPyrSol">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+335+334"/>
-            <xs:enumeration value="370+378"/>
+            <xs:enumeration value="370+378"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionPyrSol">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+335+334"/>
-            <xs:enumeration value="370+378"/>
+            <xs:enumeration value="370+378"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="222"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassSelfHeat">
@@ -619,9 +829,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSelfHeat">
         <xs:restriction base="string">
-            <xs:enumeration value="235+410"/>
+<!--            <xs:enumeration value="235+410"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="407"/>
+            <xs:enumeration value="413"/>
+            <xs:enumeration value="420"/> -->
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="407"/>
+            <xs:enumeration value="410"/>
             <xs:enumeration value="413"/>
             <xs:enumeration value="420"/>
         </xs:restriction>
@@ -663,23 +879,46 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionWaterReact">
         <xs:restriction base="string">
-            <xs:enumeration value="223"/>
+<!--            <xs:enumeration value="223"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="335+334"/>
             <xs:enumeration value="370+378"/>
             <xs:enumeration value="402+404"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="223"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="402"/>
+            <xs:enumeration value="404"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionWaterReact">
         <xs:restriction base="string">
-            <xs:enumeration value="223"/>
+<!--            <xs:enumeration value="223"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+335+334"/>
             <xs:enumeration value="370+378"/>
             <xs:enumeration value="402+404"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="223"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="334"/>
+            <xs:enumeration value="335"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="402"/>
+            <xs:enumeration value="404"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
@@ -701,7 +940,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOxLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="221"/>
             <xs:enumeration value="280"/>
@@ -709,18 +948,44 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="306+360"/>
             <xs:enumeration value="371+380+375"/>
             <xs:enumeration value="370+378"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="221"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="283"/>
+            <xs:enumeration value="306"/>
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionOxLiq">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="283"/>
             <xs:enumeration value="306+360"/>
             <xs:enumeration value="371+380+375"/>
             <xs:enumeration value="370+378"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="283"/>
+            <xs:enumeration value="306"/>
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="420"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -743,7 +1008,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOxSol">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="221"/>
             <xs:enumeration value="280"/>
@@ -751,18 +1016,44 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="306+360"/>
             <xs:enumeration value="371+380+375"/>
             <xs:enumeration value="370+378"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="221"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="283"/>
+            <xs:enumeration value="306"/>
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionOxSol">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="283"/>
             <xs:enumeration value="306+360"/>
             <xs:enumeration value="371+380+375"/>
             <xs:enumeration value="370+378"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="283"/>
+            <xs:enumeration value="306"/>
+            <xs:enumeration value="360"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="420"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -792,19 +1083,28 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOrgPerox">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="410"/>
             <xs:enumeration value="411+235"/>
             <xs:enumeration value="420"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="420"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionOrgPerox">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="235"/>
@@ -814,6 +1114,23 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="370+378"/>
             <xs:enumeration value="370+380+375"/>
             <xs:enumeration value="370+380+375+378"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="410"/>
+            <xs:enumeration value="411"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="235"/>
+            <xs:enumeration value="240"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="372"/>
+            <xs:enumeration value="373"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="378"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="403"/>
             <xs:enumeration value="410"/>
             <xs:enumeration value="411"/>
@@ -861,13 +1178,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs06PrecautionDesensExpl">
         <xs:restriction base="string">
-            <xs:enumeration value="210"/>
+<!--            <xs:enumeration value="210"/>
             <xs:enumeration value="212"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="370+380+375"/>
             <xs:enumeration value="371+380+375"/>
+            <xs:enumeration value="401"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="210"/>
+            <xs:enumeration value="212"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="380"/>
+            <xs:enumeration value="370"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="371"/>
+            <xs:enumeration value="375"/>
+            <xs:enumeration value="380"/>
             <xs:enumeration value="401"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -893,7 +1223,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAcuteToxOral">
         <xs:restriction base="string">
-            <xs:enumeration value="264"/>
+<!--            <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="301+310"/>
             <xs:enumeration value="301+312"/>
@@ -901,15 +1231,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="321"/>
             <xs:enumeration value="330"/>
             <xs:enumeration value="405"/>
-            <xs:enumeration value="501"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/>            
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionAcuteToxOral">
         <xs:restriction base="string">
-            <xs:enumeration value="264"/>
+<!--            <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="301+310"/>
             <xs:enumeration value="301+312"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="312"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="330"/>
             <xs:enumeration value="405"/>
@@ -918,10 +1267,19 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAcuteToxOral">
         <xs:restriction base="string">
-            <xs:enumeration value="264"/>
+<!--            <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="301+316"/>
             <xs:enumeration value="301+317"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="316"/>
+            <xs:enumeration value="317"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="330"/>
             <xs:enumeration value="405"/>
@@ -949,7 +1307,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-            <xs:enumeration value="262"/>
+<!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -961,12 +1319,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="361"/>
             <xs:enumeration value="363"/>
             <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="262"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="350"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="322"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="363"/>
+            <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-            <xs:enumeration value="262"/>
+<!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -977,12 +1349,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="361+364"/>
             <xs:enumeration value="362+364"/>
             <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="262"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
+            <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-            <xs:enumeration value="262"/>
+<!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -994,12 +1380,27 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="361+364"/>
             <xs:enumeration value="362+364"/>
             <xs:enumeration value="405"/>
-            <xs:enumeration value="501"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="262"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/>            
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-            <xs:enumeration value="262"/>
+<!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -1010,6 +1411,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="321"/>
             <xs:enumeration value="361+364"/>
             <xs:enumeration value="362+364"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="262"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="316"/>
+            <xs:enumeration value="317"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -1035,7 +1450,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAcuteToxInhal">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="284"/>
@@ -1048,12 +1463,28 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="321"/>
             <xs:enumeration value="403+233"/>
             <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="284"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="311"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="320"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAcuteToxInhal">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="284"/>
@@ -1065,11 +1496,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="321"/>
             <xs:enumeration value="403+233"/>
             <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="284"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="317"/>
+            <xs:enumeration value="316"/>
+            <xs:enumeration value="317"/>
+            <xs:enumeration value="320"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="403"/>
+            <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassSkinCorr">
-        <xs:annotation>
+        <xs:annotation>        
             <xs:documentation>Skin Corrosion/Irritiation categories according to the original UN GHS (2003).</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
@@ -1089,7 +1535,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSkinCorr">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="301+330+331"/>
@@ -1103,12 +1549,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="362"/>
             <xs:enumeration value="363"/>
             <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="303"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="305"/>
+            <xs:enumeration value="313"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="338"/>
+            <xs:enumeration value="351"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="353"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="332"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="363"/>
+            <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionSkinCorr">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="301+330+331"/>
@@ -1122,12 +1592,37 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="362+364"/>
             <xs:enumeration value="363"/>
             <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="303"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="305"/>
+            <xs:enumeration value="313"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="338"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="351"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="353"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="332"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
+            <xs:enumeration value="363"/>
+            <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionSkinCorr">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="301+330+331"/>
@@ -1139,6 +1634,29 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="321"/>
             <xs:enumeration value="332+317"/>
             <xs:enumeration value="362+364"/>
+            <xs:enumeration value="363"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="305"/>
+            <xs:enumeration value="316"/>
+            <xs:enumeration value="317"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="330"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="332"/>
+            <xs:enumeration value="338"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="354"/>
+            <xs:enumeration value="361"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
             <xs:enumeration value="363"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
@@ -1163,21 +1681,37 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionEyeDam">
         <xs:restriction base="string">
-            <xs:enumeration value="264"/>
+<!--            <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="305+351+338"/>
-            <xs:enumeration value="337+313"/>
             <xs:enumeration value="310"/>
+            <xs:enumeration value="337+313"/> -->
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="305"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="313"/>
+            <xs:enumeration value="337"/>
+            <xs:enumeration value="338"/>
+            <xs:enumeration value="351"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionEyeDam">
         <xs:restriction base="string">
-            <xs:enumeration value="264"/>
+<!--            <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="305+351+338"/>
             <xs:enumeration value="305+354+338"/>
             <xs:enumeration value="337+317"/>
+            <xs:enumeration value="317"/> -->
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="305"/>
             <xs:enumeration value="317"/>
+            <xs:enumeration value="337"/>
+            <xs:enumeration value="338"/>
+            <xs:enumeration value="351"/>
+            <xs:enumeration value="354"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassRespSens">
@@ -1208,10 +1742,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionRespSens">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="285"/>
             <xs:enumeration value="304+341"/>
             <xs:enumeration value="342+311"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="285"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="311"/>
+            <xs:enumeration value="341"/>
+            <xs:enumeration value="342"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
@@ -1232,19 +1773,33 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionRespSens">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="284"/>
             <xs:enumeration value="304+341"/>
             <xs:enumeration value="342+311"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="284"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="311"/>
+            <xs:enumeration value="341"/>
+            <xs:enumeration value="342"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionRespSens">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="284"/>
             <xs:enumeration value="304+341"/>
             <xs:enumeration value="342+316"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="284"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="316"/>
+            <xs:enumeration value="341"/>
+            <xs:enumeration value="342"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
@@ -1276,12 +1831,22 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSkinSens">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="272"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+352"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="333+313"/>
+            <xs:enumeration value="363"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="272"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="313"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="333"/>
             <xs:enumeration value="363"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -1303,25 +1868,47 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionSkinSens">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="272"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+352"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="333+313"/>
             <xs:enumeration value="362+364"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="272"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="313"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="333"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionSkinSens">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="272"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+352"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="333+317"/>
             <xs:enumeration value="362+364"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="272"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="302"/>
+            <xs:enumeration value="317"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="333"/>
+            <xs:enumeration value="352"/>
+            <xs:enumeration value="362"/>
+            <xs:enumeration value="364"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
@@ -1344,20 +1931,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionMuta">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="281"/>
             <xs:enumeration value="308+313"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="281"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionMuta">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="308+313"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -1390,20 +1991,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionCarc">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="281"/>
             <xs:enumeration value="308+313"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="281"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionCarc">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="308+313"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -1436,20 +2051,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionRepr">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="281"/>
             <xs:enumeration value="308+313"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="281"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionRepr">
         <xs:restriction base="string">
-            <xs:enumeration value="201"/>
+<!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="308+313"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="280"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -1478,23 +2107,38 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionLact">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="201"/>
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="263"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="308+313"/> -->
             <xs:enumeration value="201"/>
             <xs:enumeration value="260"/>
             <xs:enumeration value="263"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
-            <xs:enumeration value="308+313"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionLact">
         <xs:restriction base="string">
+<!--            <xs:enumeration value="201"/>
+            <xs:enumeration value="202"/>
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="263"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="308+313"/> -->
             <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="260"/>
             <xs:enumeration value="263"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
-            <xs:enumeration value="308+313"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="313"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionLact">
@@ -1524,11 +2168,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionStotSe">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="307+311"/>
             <xs:enumeration value="309+311"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="307"/>
+            <xs:enumeration value="309"/>
+            <xs:enumeration value="311"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
@@ -1536,10 +2189,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionStotSe">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="308+311"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="311"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
@@ -1547,10 +2208,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionStotSe">
         <xs:restriction base="string">
-            <xs:enumeration value="260"/>
+<!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="308+316"/>
+            <xs:enumeration value="321"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="260"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="270"/>
+            <xs:enumeration value="308"/>
+            <xs:enumeration value="316"/>
             <xs:enumeration value="321"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
@@ -1574,22 +2243,40 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionStotSe3">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="304+340"/>
             <xs:enumeration value="312"/>
             <xs:enumeration value="403+233"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="312"/>
+            <xs:enumeration value="403"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionStotSe3">
         <xs:restriction base="string">
-            <xs:enumeration value="261"/>
+<!--            <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="304+340"/>
             <xs:enumeration value="319"/>
             <xs:enumeration value="403+233"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="261"/>
+            <xs:enumeration value="271"/>
+            <xs:enumeration value="304"/>
+            <xs:enumeration value="319"/>
+            <xs:enumeration value="340"/>
+            <xs:enumeration value="403"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
         </xs:restriction>
@@ -1644,7 +2331,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAspTox">
         <xs:restriction base="string">
-            <xs:enumeration value="301+310"/>
+<!--            <xs:enumeration value="301+310"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="310"/>
             <xs:enumeration value="331"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>
@@ -1652,7 +2344,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAspTox">
         <xs:restriction base="string">
-            <xs:enumeration value="301+316"/>
+<!--            <xs:enumeration value="301+316"/>
+            <xs:enumeration value="331"/>
+            <xs:enumeration value="405"/>
+            <xs:enumeration value="501"/> -->
+            <xs:enumeration value="301"/>
+            <xs:enumeration value="316"/>
             <xs:enumeration value="331"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/>

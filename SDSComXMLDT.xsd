@@ -5,7 +5,7 @@ Basic type definitions
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
 	<!-- ******************************************************************** string2 ********  -->
 	<xs:simpleType name="string2">
 		<xs:annotation>
@@ -181,6 +181,7 @@ It is used to reference the version number in the XML data file, as the schema n
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="5.0.0"/>
+			<xs:enumeration value="5.0.1"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
@@ -1640,9 +1641,9 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			</xs:sequence>
 			<xs:sequence>
 				<xs:element name="UpperValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
-				<xs:element name="UpperValue" type="xs:float" maxOccurs="1"/>
+				<xs:element name="UpperValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
 				<xs:element name="LowerValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
-				<xs:element name="LowerValue" type="xs:float" maxOccurs="1"/>
+				<xs:element name="LowerValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
