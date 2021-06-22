@@ -4,7 +4,7 @@ SDScom XML schema definition version 5
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
@@ -1187,43 +1187,88 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="CLP15-2020/1182"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="Ghs00ClassFlamLiqEU">
+		<xs:annotation>
+			<xs:documentation>Flammable Liquids categories according to the original UN GHS (2003), restricted to CLP.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs00ClassFlamLiq">
+			<xs:enumeration value="Flam. Liq. 1"/>
+			<xs:enumeration value="Flam. Liq. 2"/>
+			<xs:enumeration value="Flam. Liq. 3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ghs00ClassAcuteToxOralEU">
+		<xs:annotation>
+			<xs:documentation>Acute Toxicity by oral intake categories according to the original UN GHS (2003), restricted to CLP.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs00ClassAcuteToxOral">
+			<xs:enumeration value="Acute Tox. 1 (oral)"/>
+			<xs:enumeration value="Acute Tox. 2 (oral)"/>
+			<xs:enumeration value="Acute Tox. 3 (oral)"/>
+			<xs:enumeration value="Acute Tox. 4 (oral)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ghs00ClassAcuteToxDermalEU">
+		<xs:annotation>
+			<xs:documentation>Acute Toxicity by dermal contact categories according to the original UN GHS (2003), restricted to CLP.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs00ClassAcuteToxDermal">
+			<xs:enumeration value="Acute Tox. 1 (dermal)"/>
+			<xs:enumeration value="Acute Tox. 2 (dermal)"/>
+			<xs:enumeration value="Acute Tox. 3 (dermal)"/>
+			<xs:enumeration value="Acute Tox. 4 (dermal)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ghs00ClassAcuteToxInhalEU">
+		<xs:annotation>
+			<xs:documentation>Acute Toxicity by inhalation categories according to the original UN GHS (2003), restricted to CLP.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs00ClassAcuteToxInhal">
+			<xs:enumeration value="Acute Tox. 1 (inhalation)"/>
+			<xs:enumeration value="Acute Tox. 2 (inhalation)"/>
+			<xs:enumeration value="Acute Tox. 3 (inhalation)"/>
+			<xs:enumeration value="Acute Tox. 4 (inhalation)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ghs00ClassSkinCorrEU">
+		<xs:annotation>
+			<xs:documentation>Skin Corrosion/Irritiation categories according to the original UN GHS (2003).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs00ClassSkinCorr">
+			<xs:enumeration value="Skin Corr. 1"/>
+			<xs:enumeration value="Skin Corr. 1A"/>
+			<xs:enumeration value="Skin Corr. 1B"/>
+			<xs:enumeration value="Skin Corr. 1C"/>
+			<xs:enumeration value="Skin Irrit. 2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ghs01ClassAspToxEU">
+		<xs:annotation>
+			<xs:documentation>Aspiration hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs01ClassAspTox">
+			<xs:enumeration value="Asp. Tox. 1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ghs01ClassAquaticAcuteEU">
+		<xs:annotation>
+			<xs:documentation>Acute Aquatic environmental hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="SDScom:Ghs01ClassAquaticAcute">
+			<xs:enumeration value="Aquatic Acute 1"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp08ClassCategoryEnum">
 		<xs:annotation>
 			<xs:documentation>ATP 8 = Regulation(EU) 2016/918 is based on GHS revision 5. Valid only before 17. October 2020.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction>
-			<xs:simpleType>
-				<xs:restriction base="SDScom:Ghs05ClassCategoryEnum">
-					<xs:enumeration value="Flam. Liq. 4"/>
-					<xs:enumeration value="Acute Tox. 5 (oral)"/>
-					<xs:enumeration value="Acute Tox. 5 (dermal)"/>
-					<xs:enumeration value="Acute Tox. 5 (inhalation)"/>
-					<xs:enumeration value="Skin Irrit. 3"/>
-					<xs:enumeration value="Asp. Tox. 2"/>
-					<xs:enumeration value="Aquatic Acute 2"/>
-					<xs:enumeration value="Aquatic Acute 3"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:restriction>
+		<xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiqEU SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOralEU SDScom:Ghs00ClassAcuteToxDermalEU SDScom:Ghs00ClassAcuteToxInhalEU SDScom:Ghs00ClassSkinCorrEU SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspToxEU SDScom:Ghs01ClassAquaticAcuteEU SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
 	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp12ClassCategoryEnum">
 		<xs:annotation>
 			<xs:documentation>ATP 12 = Regulation (EU) 2019/521 is based on GHS revision 7. Mandatory from 17 October 2020, optionally applicable before.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction>
-			<xs:simpleType>
-				<xs:restriction base="SDScom:Ghs07ClassCategoryEnum">
-					<xs:enumeration value="Flam. Liq. 4"/>
-					<xs:enumeration value="Acute Tox. 5 (oral)"/>
-					<xs:enumeration value="Acute Tox. 5 (dermal)"/>
-					<xs:enumeration value="Acute Tox. 5 (inhalation)"/>
-					<xs:enumeration value="Skin Irrit. 3"/>
-					<xs:enumeration value="Asp. Tox. 2"/>
-					<xs:enumeration value="Aquatic Acute 2"/>
-					<xs:enumeration value="Aquatic Acute 3"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:restriction>
+		<xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs07ClassFlamGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiqEU SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOralEU SDScom:Ghs00ClassAcuteToxDermalEU SDScom:Ghs00ClassAcuteToxInhalEU SDScom:Ghs00ClassSkinCorrEU SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspToxEU SDScom:Ghs01ClassAquaticAcuteEU SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
 	</xs:simpleType>
 	<xs:complexType name="AteValue">
 		<xs:sequence>
@@ -2163,6 +2208,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>There are a few cases in class 9 without a code. Leave empty then.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportHazardLabelAdrAdnEnum"/>
