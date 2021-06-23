@@ -4,7 +4,7 @@ SDScom XML schema definition version 5
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
@@ -2246,6 +2246,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<!-- Specific national flavours -->
 	<xs:complexType name="RegulationsEU">
 		<xs:annotation>
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentEU.</xs:documentation>
@@ -2380,31 +2381,31 @@ Transition period: until 9 September 2021.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="NationalLegislationAndorra" type="SDScom:RegulationsAD">
+						<xs:element minOccurs="0" name="NationalLegislationAndorra">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAlbania" type="SDScom:RegulationsAL">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAlbania">
 							<xs:annotation>
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAustria" type="SDScom:RegulationsAT"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBosniaAndHerzegovina" type="SDScom:RegulationsBA">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBosniaAndHerzegovina">
 							<xs:annotation>
 								<xs:documentation>not a EU member and witout chemicals law - except for the Srpska province, which aligns its safety data sheet to the EU.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelgium" type="SDScom:RegulationsBE"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBulgaria" type="SDScom:RegulationsBG"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelgium"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBulgaria"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSwitzerland" type="SDScom:RegulationsCH">
 							<xs:annotation>
 								<xs:documentation>no EU member, but has its legislation widely aligned to EU law, thus accepts safety data sheets in EU format.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="NationalLegislationCyprus" type="SDScom:RegulationsCY"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCzechRepublic" type="SDScom:RegulationsCZ"/>
+						<xs:element minOccurs="0" name="NationalLegislationCyprus"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCzechRepublic"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGermany" type="SDScom:RegulationsDE">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -2412,89 +2413,89 @@ Transition period: until 9 September 2021.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationDenmark" type="SDScom:RegulationsDK"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia" type="SDScom:RegulationsEE"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSpain" type="SDScom:RegulationsES">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSpain">
 							<xs:annotation>
 								<xs:documentation>Includes the Canaries. Includes Ceuta and Melilla which are not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFinland" type="SDScom:RegulationsFI"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFrance" type="SDScom:RegulationsFR">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFinland"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFrance">
 							<xs:annotation>
 								<xs:documentation>includes French Guayana, Guadeloupe, Martinique, Réunion, Mayotte and Saint Martin, which are not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUnitedKingdom" type="SDScom:RegulationsGB">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUnitedKingdom">
 							<xs:annotation>
 								<xs:documentation>No EU member anymore after March 29, 2019. Until deviating legislation is established, the UK will be covered with a EU safety data sheet. Includes Gibraltar, which is not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGreece" type="SDScom:RegulationsGR"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCroatia" type="SDScom:RegulationsHR"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationHungary" type="SDScom:RegulationsHU"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIreland" type="SDScom:RegulationsIE"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIceland" type="SDScom:RegulationsIS">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGreece"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCroatia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationHungary"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIreland"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIceland">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but chemical legislation aligned with EU legislation.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationItaly" type="SDScom:RegulationsIT"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLiechtenstein" type="SDScom:RegulationsLI">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationItaly"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLiechtenstein">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLithuania" type="SDScom:RegulationsLT"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLuxembourg" type="SDScom:RegulationsLU"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLatvia" type="SDScom:RegulationsLV"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMonaco" type="SDScom:RegulationsMC">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLithuania"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLuxembourg"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLatvia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMonaco">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMontenegro" type="SDScom:RegulationsME">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMontenegro">
 							<xs:annotation>
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorthMacedonia" type="SDScom:RegulationsMK">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorthMacedonia">
 							<xs:annotation>
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMalta" type="SDScom:RegulationsMT"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNetherlands" type="SDScom:RegulationsNL"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMalta"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNetherlands"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorway" type="SDScom:RegulationsNO">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPoland" type="SDScom:RegulationsPL"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPortugal" type="SDScom:RegulationsPT">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPoland"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPortugal">
 							<xs:annotation>
 								<xs:documentation>includes the Azores and Madeira</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRomania" type="SDScom:RegulationsRO"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSerbia" type="SDScom:RegulationsRS">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRomania"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSerbia">
 							<xs:annotation>
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSweden" type="SDScom:RegulationsSE"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovenia" type="SDScom:RegulationsSI"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovakia" type="SDScom:RegulationsSK"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSanMarino" type="SDScom:RegulationsSM">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSweden"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovenia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovakia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSanMarino">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUkraine" type="SDScom:RegulationsUA">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationUkraine">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but legislation allows SDS according to EU standards.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationVaticanCityState" type="SDScom:RegulationsVA">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationVaticanCityState">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
 							</xs:annotation>
