@@ -1253,6 +1253,21 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="In aqueous solution"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- ******************************************************************* PhNotRelevantEnum *************  -->
+	<xs:simpleType name="PhNotRelevantEnum">
+		<xs:annotation>
+			<xs:documentation>This type corresponds directly to Iuclid Picklist PH_1 nd is relevant e.g. for PCN notifications in Europe. Enumeration values are taken literally from this list to facilitate mapping.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="pH is below -3"/>
+			<xs:enumeration value="pH is above 15"/>
+			<xs:enumeration value="substance/mixture is a gas"/>
+			<xs:enumeration value="substance/mixture is non-polar/aprotic"/>
+			<xs:enumeration value="substance/mixture is non-soluble (in water)"/>
+			<xs:enumeration value="substance/mixture not stable"/>
+			<xs:enumeration value="substance/mixture reacts with water"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ******************************************************************* ViscosityTypeEnum *************  -->
 	<xs:simpleType name="ViscosityTypeEnum">
 		<xs:annotation>

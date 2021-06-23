@@ -569,28 +569,31 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:appinfo>SDScomChem</xs:appinfo>
 			<xs:documentation> PhValue source: Chapter 9 </xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="State" type="SDScom:PhValueStateEnum" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> State: "in delivery state" or "in aqueous solution" </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Value" type="SDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation> In aqueous solution </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="State" type="SDScom:PhValueStateEnum" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>SDScomBau</xs:appinfo>
+						<xs:appinfo>SDScomChem</xs:appinfo>
+						<xs:documentation> State: "in delivery state" or "in aqueous solution" </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Value" type="SDScom:PhysChemValueWithTemperature" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>SDScomBau</xs:appinfo>
+						<xs:appinfo>SDScomChem</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Concentration" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>SDScomBau</xs:appinfo>
+						<xs:appinfo>SDScomChem</xs:appinfo>
+						<xs:documentation> In aqueous solution </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:element name="PhNotRelevant" type="SDScom:PhNotRelevantEnum"/>
+		</xs:choice>
 	</xs:complexType>
 	<!-- ******************************************************************** FlashPoint ******************** -->
 	<xs:complexType name="FlashPoint">
