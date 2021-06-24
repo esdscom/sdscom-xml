@@ -7,7 +7,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:include schemaLocation="SDSComXMLCT.xsd"/>
-    <xs:simpleType name="WhmisClassCategoryEnumRestr">
+    <xs:simpleType name="Whmis2015ClassCategoryEnumRestr">
         <xs:annotation>
             <xs:documentation>This type restricts GHS revision 3 to the classes and categories which are covered in WHMIS. Since environmental hazards are optional, they are not excluded here.
 In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatible" with GHS revision 3, in order to be consistent with the USA. We are treating it as rev. 3 to make SDScom easier to read.</xs:documentation>
@@ -24,7 +24,7 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
             </xs:simpleType>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="WhmisClassCategoryEnumExt">
+    <xs:simpleType name="Whmis2015ClassCategoryEnumExt">
         <xs:annotation>
             <xs:documentation>Canada specific hazard classes</xs:documentation>
         </xs:annotation>
@@ -34,28 +34,42 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
             <xs:enumeration value="Combustible Dust"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="WhmisClassCategoryEnum">
-        <xs:union memberTypes="SDScom:WhmisClassCategoryEnumRestr SDScom:WhmisClassCategoryEnumExt"/>
+    <xs:simpleType name="Whmis2015ClassCategoryEnum">
+        <xs:union memberTypes="SDScom:Whmis2015ClassCategoryEnumRestr SDScom:Whmis2015ClassCategoryEnumExt"/>
     </xs:simpleType>
     <xs:complexType name="ClassificationCA">
         <xs:sequence>
-            <xs:element minOccurs="0" name="WhmisHazardClassification">
+            <xs:element minOccurs="0" name="Whmis2015HazardClassification">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">
-                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:WhmisClassCategoryEnum"> </xs:element>
+                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:Whmis2015ClassCategoryEnum"> </xs:element>
+                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
                             <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
                                 <xs:annotation>
                                     <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                         </xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInformation" type="SDScom:Phrase">
+                            <xs:annotation>
+                                <xs:appinfo>SDScomBau</xs:appinfo>
+                                <xs:appinfo>SDScomChem</xs:appinfo>
+                                <xs:documentation> Additional information on classification: If the chemical do not meet the classification criteria etc.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="HazardLabellingCA"/>
     <xs:complexType name="ComponentCA">
         <xs:complexContent>
             <xs:extension base="SDScom:Component">

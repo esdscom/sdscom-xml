@@ -7,21 +7,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 <xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:include schemaLocation="SDSComXMLCT.xsd"/>
-    <xs:simpleType name="Hazcom2012ClassCategoryEnumRestr">
-        <xs:annotation>
-            <xs:documentation>This type restricts GHS revision 3 to the classes and categories which are covered in HazCom 2012. Since environmental hazards are optional, they are not excluded here.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction>
-            <xs:simpleType>
-                <xs:restriction base="SDScom:Ghs03ClassCategoryEnum">
-                    <xs:enumeration value="Acute Tox. 5 (oral)"/>
-                    <xs:enumeration value="Acute Tox. 5 (dermal)"/>
-                    <xs:enumeration value="Acute Tox. 5 (inhalation)"/>
-                    <xs:enumeration value="Skin Irrit. 3"/>
-                    <xs:enumeration value="Asp. Tox. 2"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:restriction>
+    <xs:simpleType name="Hazcom2012ClassCategoryEnumGhs">
+        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral_no5 SDScom:Ghs00ClassAcuteToxDermal_no5 SDScom:Ghs00ClassAcuteToxInhal_no5 SDScom:Ghs00ClassSkinCorr_no3 SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox_no2 SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Hazcom2012ClassCategoryEnumExt">
         <xs:annotation>
@@ -34,7 +21,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Hazcom2012ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Hazcom2012ClassCategoryEnumRestr SDScom:Hazcom2012ClassCategoryEnumExt"/>
+        <xs:union memberTypes="SDScom:Hazcom2012ClassCategoryEnumGhs SDScom:Hazcom2012ClassCategoryEnumExt"/>
     </xs:simpleType>
     <xs:simpleType name="UnIdNo">
         <xs:restriction base="string">
@@ -211,119 +198,113 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:complexContent>
             <xs:extension base="SDScom:Component">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="RegionUS">
+                    <xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationUS"> </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
+                        <xs:annotation>
+                            <xs:appinfo>SDScomChem</xs:appinfo>
+                            <xs:documentation> Name of the component to be displayed on the hazard label: The value "True" for this means that the name of the actual component shall be printed on the hazard label as well as in section 2 of the SDS under the sub-heading 'Dangerous substances'�. The default value of this element will be 'false'�. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="UsTransportInformation">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationUS"> </xs:element>
-                                <xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
+                                <xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstance" type="boolean">
                                     <xs:annotation>
-                                        <xs:appinfo>SDScomChem</xs:appinfo>
-                                        <xs:documentation> Name of the component to be displayed on the hazard label: The value "True" for this means that the name of the actual component shall be printed on the hazard label as well as in section 2 of the SDS under the sub-heading 'Dangerous substances'�. The default value of this element will be 'false'�. </xs:documentation>
+                                        <xs:documentation>according to DOT</xs:documentation>
                                     </xs:annotation>
                                 </xs:element>
-                                <xs:element minOccurs="0" name="TransportInformation">
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="RegulatoryInformation">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element minOccurs="0" name="Federal">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element maxOccurs="1" minOccurs="0" name="IsDangerReleasingSubstance" type="boolean">
+                                            <xs:element minOccurs="0" name="OshaStandards" type="SDScom:Phrase">
                                                 <xs:annotation>
-                                                    <xs:documentation>according to DOT</xs:documentation>
+                                                    <xs:documentation>Chemical hazards and toxic substances are addressed in specific OSHA standards for general industry, shipyard employment, marine terminals, longshoring and construction. This highlights OSHA standards and documents related to chemical hazards and toxic substances, i.e. provides links to relevant literature.
+https://www.osha.gov/SLTC/hazardoustoxicsubstances/requirements.html</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:element>
+                                            <xs:element minOccurs="0" name="Sara313Threshold" type="SDScom:Value">
+                                                <xs:annotation>
+                                                    <xs:documentation>Superfund Amendments and Reauthorization Act</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:element>
+                                            <xs:element minOccurs="0" name="Sara302HazardousRQ" type="SDScom:Value"/>
+                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="SDScom:Value"/>
+                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="SDScom:Value"/>
+                                            <xs:element minOccurs="0" name="CwaToxicPollutant" type="boolean">
+                                                <xs:annotation>
+                                                    <xs:documentation>Clean Water Act</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:element>
+                                            <xs:element minOccurs="0" name="CwaPriorityPollutant" type="boolean"/>
+                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="DrugPrecursors" type="SDScom:Phrase">
+                                                <xs:annotation>
+                                                    <xs:documentation>Controlled Substances Act (CSA)
+Chemical Diversion and Trafficking Act</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:element>
+                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="WeaponsPrecursors" type="SDScom:Phrase">
+                                                <xs:annotation>
+                                                    <xs:documentation>Chemical Weapon Convention (CWC)</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element minOccurs="0" name="RegulatoryInformation">
+                                <xs:element minOccurs="0" name="State">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element minOccurs="0" name="Federal">
+                                            <xs:element minOccurs="0" name="California">
                                                 <xs:complexType>
                                                     <xs:sequence>
-                                                        <xs:element minOccurs="0" name="OshaStandards" type="SDScom:Phrase">
-                                                            <xs:annotation>
-                                                                <xs:documentation>Chemical hazards and toxic substances are addressed in specific OSHA standards for general industry, shipyard employment, marine terminals, longshoring and construction. This highlights OSHA standards and documents related to chemical hazards and toxic substances, i.e. provides links to relevant literature.
-https://www.osha.gov/SLTC/hazardoustoxicsubstances/requirements.html</xs:documentation>
-                                                            </xs:annotation>
-                                                        </xs:element>
-                                                        <xs:element minOccurs="0" name="Sara313Threshold" type="SDScom:Value">
-                                                            <xs:annotation>
-                                                                <xs:documentation>Superfund Amendments and Reauthorization Act</xs:documentation>
-                                                            </xs:annotation>
-                                                        </xs:element>
-                                                        <xs:element minOccurs="0" name="Sara302HazardousRQ" type="SDScom:Value"/>
-                                                        <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="SDScom:Value"/>
-                                                        <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="SDScom:Value"/>
-                                                        <xs:element minOccurs="0" name="CwaToxicPollutant" type="boolean">
-                                                            <xs:annotation>
-                                                                <xs:documentation>Clean Water Act</xs:documentation>
-                                                            </xs:annotation>
-                                                        </xs:element>
-                                                        <xs:element minOccurs="0" name="CwaPriorityPollutant" type="boolean"/>
-                                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="DrugPrecursors" type="SDScom:Phrase">
-                                                            <xs:annotation>
-                                                                <xs:documentation>Controlled Substances Act (CSA)
-Chemical Diversion and Trafficking Act</xs:documentation>
-                                                            </xs:annotation>
-                                                        </xs:element>
-                                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="WeaponsPrecursors" type="SDScom:Phrase">
-                                                            <xs:annotation>
-                                                                <xs:documentation>Chemical Weapon Convention (CWC)</xs:documentation>
-                                                            </xs:annotation>
+                                                        <xs:element minOccurs="0" name="Proposition65">
+                                                            <xs:complexType>
+                                                                <xs:choice>
+                                                                    <xs:element name="Candidate" type="boolean">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>Allows to indicate substances under discussion for inclusion</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:element>
+                                                                    <xs:sequence>
+                                                                        <xs:element name="Listed" type="boolean"/>
+                                                                        <xs:element minOccurs="0" name="ToxType" type="string"/>
+                                                                        <xs:element minOccurs="0" name="Listing" type="string"/>
+                                                                    </xs:sequence>
+                                                                </xs:choice>
+                                                            </xs:complexType>
                                                         </xs:element>
                                                     </xs:sequence>
                                                 </xs:complexType>
                                             </xs:element>
-                                            <xs:element minOccurs="0" name="State">
+                                            <xs:element minOccurs="0" name="RhodeIsland">
                                                 <xs:complexType>
                                                     <xs:sequence>
-                                                        <xs:element minOccurs="0" name="California">
+                                                        <xs:element minOccurs="0" name="HazardousSubstancesList">
+                                                            <xs:annotation>
+                                                                <xs:documentation>see http://www.dlt.ri.gov/occusafe/pdfs/HazardousCAS.pdf</xs:documentation>
+                                                            </xs:annotation>
                                                             <xs:complexType>
                                                                 <xs:sequence>
-                                                                    <xs:element minOccurs="0" name="Proposition65">
-                                                                        <xs:complexType>
-                                                                            <xs:choice>
-                                                                                <xs:element name="Candidate" type="boolean">
-                                                                                    <xs:annotation>
-                                                                                        <xs:documentation>Allows to indicate substances under discussion for inclusion</xs:documentation>
-                                                                                    </xs:annotation>
-                                                                                </xs:element>
-                                                                                <xs:sequence>
-                                                                                    <xs:element name="Listed" type="boolean"/>
-                                                                                    <xs:element minOccurs="0" name="ToxType" type="string"/>
-                                                                                    <xs:element minOccurs="0" name="Listing" type="string"/>
-                                                                                </xs:sequence>
-                                                                            </xs:choice>
-                                                                        </xs:complexType>
-                                                                    </xs:element>
-                                                                </xs:sequence>
-                                                            </xs:complexType>
-                                                        </xs:element>
-                                                        <xs:element minOccurs="0" name="RhodeIsland">
-                                                            <xs:complexType>
-                                                                <xs:sequence>
-                                                                    <xs:element minOccurs="0" name="HazardousSubstancesList">
+                                                                    <xs:element name="Listed" type="boolean"/>
+                                                                    <xs:element minOccurs="0" name="SourceAcgih" type="boolean">
                                                                         <xs:annotation>
-                                                                            <xs:documentation>see http://www.dlt.ri.gov/occusafe/pdfs/HazardousCAS.pdf</xs:documentation>
+                                                                            <xs:documentation>In the list, denoted by the letter T.</xs:documentation>
                                                                         </xs:annotation>
-                                                                        <xs:complexType>
-                                                                            <xs:sequence>
-                                                                                <xs:element name="Listed" type="boolean"/>
-                                                                                <xs:element minOccurs="0" name="SourceAcgih" type="boolean">
-                                                                                    <xs:annotation>
-                                                                                        <xs:documentation>In the list, denoted by the letter T.</xs:documentation>
-                                                                                    </xs:annotation>
-                                                                                </xs:element>
-                                                                                <xs:element minOccurs="0" name="SourceNfpa49" type="boolean">
-                                                                                    <xs:annotation>
-                                                                                        <xs:documentation>In the list, denoted by the letter F.</xs:documentation>
-                                                                                    </xs:annotation>
-                                                                                </xs:element>
-                                                                                <xs:element minOccurs="0" name="SourceIarc" type="boolean">
-                                                                                    <xs:annotation>
-                                                                                        <xs:documentation>In the list, denoted by the letter C.</xs:documentation>
-                                                                                    </xs:annotation>
-                                                                                </xs:element>
-                                                                            </xs:sequence>
-                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                                    <xs:element minOccurs="0" name="SourceNfpa49" type="boolean">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>In the list, denoted by the letter F.</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:element>
+                                                                    <xs:element minOccurs="0" name="SourceIarc" type="boolean">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>In the list, denoted by the letter C.</xs:documentation>
+                                                                        </xs:annotation>
                                                                     </xs:element>
                                                                 </xs:sequence>
                                                             </xs:complexType>
