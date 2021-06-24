@@ -1115,7 +1115,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 	<!-- Section 14 ========================================================= -->
 	<xs:complexType name="TransportInformation">
 		<xs:annotation>
-			<xs:documentation>SDS section 14</xs:documentation>
+			<xs:documentation>SDS section 14. No specific transport regulation data for Argentina.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<!-- (Not following EuphraC) -->
