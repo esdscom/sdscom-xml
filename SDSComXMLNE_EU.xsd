@@ -1185,6 +1185,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="CLP12-2019/521"/>
 			<xs:enumeration value="CLP14-2020/217"/>
 			<xs:enumeration value="CLP15-2020/1182"/>
+			<xs:enumeration value="CLP16-2021/643"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp12ClassCategoryEnum">
@@ -1989,6 +1990,30 @@ Transition period: until 9 September 2021.</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Specific national flavours -->
+	<xs:complexType name="SevesoEntryEU">
+		<xs:annotation>
+			<xs:documentation>according to Directive 2012/18/EC</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="string"/>
+			<xs:element name="LowerTierQuantity">
+				<xs:simpleType>
+					<xs:restriction base="integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UpperTierQuantity">
+				<xs:simpleType>
+					<xs:restriction base="integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="RegulationsEU">
 		<xs:annotation>
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentEU.</xs:documentation>
@@ -2076,6 +2101,16 @@ Transition period: until 9 September 2021.</xs:documentation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="Seveso">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" name="HealthHazards" type="SDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="PhysicalHazards" type="SDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="EnvironmentalHazards" type="SDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="OtherHazards" type="SDScom:SevesoEntryEU"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>

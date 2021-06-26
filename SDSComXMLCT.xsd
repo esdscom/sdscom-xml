@@ -1068,24 +1068,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<!-- ****************************************************************************** Stoerfallverordnung ***** -->
-	<xs:complexType name="Stoerfallverordnung">
-		<xs:annotation>
-			<xs:appinfo>SDScomChem</xs:appinfo>
-			<xs:documentation>used in National Extensions for the adaptation of European directive 96/82/EC.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="0" name="Text" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Remark" type="SDScom:Phrase">
-				<xs:annotation>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- ****************************************************************************** Transport Types ***** -->
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="Inventories">
