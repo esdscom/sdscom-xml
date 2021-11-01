@@ -1236,6 +1236,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="TscaHpvcListed" type="boolean"/>
+						<xs:element minOccurs="0" name="TscaPmnNumber">
+							<xs:annotation>
+								<xs:documentation>Pre-Manufacture Notice number. Disclosure is not an SDS requirement, but may help to convince the customer that a certain substance is marketable in the US.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="string">
+									<xs:pattern value="[A-Z]-\d\d-\d{4}"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
