@@ -371,6 +371,52 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="RegionUS" type="SDScom:ClassificationUS"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="AteValue">
+		<xs:annotation>
+			<xs:documentation>Acute Toxicity Estimates for mixture-in-mixture classification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" name="Value" type="float"/>
+			<xs:group ref="SDScom:Unit"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Restriction" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>e.g. "dust or mist"</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="ClassificationInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="UnknownToxicity">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Inhalation" type="SDScom:Percentage"/>
+						<xs:element minOccurs="0" name="Dermal" type="SDScom:Percentage"/>
+						<xs:element minOccurs="0" name="Oral" type="SDScom:Percentage"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="Ate">
+				<xs:annotation>
+					<xs:documentation>Acute Toxicity Estimate as provided by the supplier. Necessary according to UN GHS if the mixture is ingredient of another mixture, to derive this product's toxicity classification.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Inhalation" type="SDScom:AteValue"> </xs:element>
+						<xs:element minOccurs="0" name="Dermal" type="SDScom:AteValue"> </xs:element>
+						<xs:element minOccurs="0" name="Oral" type="SDScom:AteValue"> </xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInformation" type="SDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation> Additional information on classification: If the chemical do not meet the classification criteria etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
 	<xs:complexType name="OccupationalExposureLimit">
 		<xs:annotation>
 			<xs:documentation>see Github issue #116 regarding multiple limit values</xs:documentation>

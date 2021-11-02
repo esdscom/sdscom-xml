@@ -55,13 +55,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                 </xs:annotation>
                             </xs:element>
                         </xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInformation" type="SDScom:Phrase">
-                            <xs:annotation>
-                                <xs:appinfo>SDScomBau</xs:appinfo>
-                                <xs:appinfo>SDScomChem</xs:appinfo>
-                                <xs:documentation> Additional information on classification: If the chemical do not meet the classification criteria etc.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
+                        <xs:group ref="SDScom:ClassificationInfo"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
