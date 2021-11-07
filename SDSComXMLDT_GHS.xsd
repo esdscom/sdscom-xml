@@ -5,7 +5,7 @@ Basic type definitions, GHS related
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:simpleType name="Ghs02PrecautionGeneral">
         <xs:annotation>
@@ -66,7 +66,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionExpl">
         <xs:restriction base="string">
-<!--             <xs:enumeration value="201"/>
+            <!--             <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
@@ -90,7 +90,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="250"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="281"/>
-            <xs:enumeration value="370"/> 
+            <xs:enumeration value="370"/>
             <xs:enumeration value="372"/>
             <xs:enumeration value="373"/>
             <xs:enumeration value="374"/>
@@ -101,7 +101,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionExpl">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="234"/>
@@ -130,7 +130,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionExpl">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="234"/>
@@ -159,7 +159,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionExpl">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="203"/>
+            <!--            <xs:enumeration value="203"/>
             <xs:enumeration value="210"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="234"/>
@@ -309,7 +309,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionFlamAer">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="211"/>
             <xs:enumeration value="251"/>
             <xs:enumeration value="410+412"/> -->
@@ -342,7 +342,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionAerosol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="211"/>
             <xs:enumeration value="251"/>
             <xs:enumeration value="410+412"/> -->
@@ -383,7 +383,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>For Chemicals Under Pressure in transportable cylinders, P410 may be omitted. Thus P403 is added in this list.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="211"/>
             <xs:enumeration value="251"/>
             <xs:enumeration value="376"/>
@@ -419,7 +419,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOxGas">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="220"/>
+            <!--            <xs:enumeration value="220"/>
             <xs:enumeration value="244"/>
             <xs:enumeration value="370+376"/> -->
             <xs:enumeration value="220"/>
@@ -452,7 +452,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>For Gases Under Pressure in transportable cylinders, P410 may be omitted. Thus P403 is added in this list.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="string">
-<!--            <xs:enumeration value="282"/>
+            <!--            <xs:enumeration value="282"/>
             <xs:enumeration value="315"/>
             <xs:enumeration value="336"/>
             <xs:enumeration value="403"/>
@@ -469,7 +469,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>For Gases Under Pressure in transportable cylinders, P410 may be omitted. Thus P403 is added in this list.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="string">
-<!--            <xs:enumeration value="282"/>
+            <!--            <xs:enumeration value="282"/>
             <xs:enumeration value="336+315"/>
             <xs:enumeration value="403"/>
             <xs:enumeration value="410+403"/> -->
@@ -491,6 +491,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Flam. Liq. 4"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="Ghs00ClassFlamLiq_no4">
+        <xs:annotation>
+            <xs:documentation>Flammable Liquids categories according to the original UN GHS (2003), without category 4.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs00ClassFlamLiq">
+            <xs:enumeration value="Flam. Liq. 1"/>
+            <xs:enumeration value="Flam. Liq. 2"/>
+            <xs:enumeration value="Flam. Liq. 3"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="Ghs00HazardFlamLiq">
         <xs:restriction base="string">
             <xs:enumeration value="224"/>
@@ -500,7 +510,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionFlamLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="240"/>
             <xs:enumeration value="241"/>
@@ -530,7 +540,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionFlamLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="240"/>
             <xs:enumeration value="241"/>
@@ -575,7 +585,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionFlamSol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="240"/>
             <xs:enumeration value="241"/>
             <xs:enumeration value="280"/>
@@ -613,7 +623,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSelfReact">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="280"/>
@@ -640,7 +650,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionSelfReact">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="235"/>
             <xs:enumeration value="240"/>
@@ -685,7 +695,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionPyrLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+334"/>
@@ -703,7 +713,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionPyrLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="233"/>
@@ -724,7 +734,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionPyrLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
@@ -755,7 +765,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionPyrSol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="335+334"/>
@@ -773,7 +783,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionPyrSol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="233"/>
@@ -795,7 +805,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionPyrSol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="222"/>
             <xs:enumeration value="233"/>
             <xs:enumeration value="280"/>
@@ -829,7 +839,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSelfHeat">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="235+410"/>
+            <!--            <xs:enumeration value="235+410"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="407"/>
             <xs:enumeration value="413"/>
@@ -879,7 +889,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionWaterReact">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="223"/>
+            <!--            <xs:enumeration value="223"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="335+334"/>
@@ -901,7 +911,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionWaterReact">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="223"/>
+            <!--            <xs:enumeration value="223"/>
             <xs:enumeration value="231+232"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+335+334"/>
@@ -940,7 +950,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOxLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="221"/>
             <xs:enumeration value="280"/>
@@ -966,7 +976,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionOxLiq">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="283"/>
@@ -1008,7 +1018,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOxSol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="221"/>
             <xs:enumeration value="280"/>
@@ -1034,7 +1044,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionOxSol">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="283"/>
@@ -1083,7 +1093,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionOrgPerox">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="280"/>
@@ -1104,7 +1114,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionOrgPerox">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="220"/>
             <xs:enumeration value="234"/>
             <xs:enumeration value="235"/>
@@ -1178,7 +1188,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs06PrecautionDesensExpl">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="210"/>
+            <!--            <xs:enumeration value="210"/>
             <xs:enumeration value="212"/>
             <xs:enumeration value="230"/>
             <xs:enumeration value="233"/>
@@ -1214,6 +1224,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Acute Tox. 5 (oral)"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="Ghs00ClassAcuteToxOral_no5">
+        <xs:annotation>
+            <xs:documentation>Acute Toxicity by oral intake categories according to the original UN GHS (2003), without category 5.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs00ClassAcuteToxOral">
+            <xs:enumeration value="Acute Tox. 1 (oral)"/>
+            <xs:enumeration value="Acute Tox. 2 (oral)"/>
+            <xs:enumeration value="Acute Tox. 3 (oral)"/>
+            <xs:enumeration value="Acute Tox. 4 (oral)"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="Ghs00HazardAcuteToxOral">
         <xs:restriction base="string">
             <xs:enumeration value="300"/>
@@ -1223,7 +1244,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAcuteToxOral">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="264"/>
+            <!--            <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="301+310"/>
             <xs:enumeration value="301+312"/>
@@ -1241,12 +1262,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="321"/>
             <xs:enumeration value="330"/>
             <xs:enumeration value="405"/>
-            <xs:enumeration value="501"/>            
+            <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionAcuteToxOral">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="264"/>
+            <!--            <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="301+310"/>
             <xs:enumeration value="301+312"/>
@@ -1267,7 +1288,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAcuteToxOral">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="264"/>
+            <!--            <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="301+316"/>
             <xs:enumeration value="301+317"/>
@@ -1298,6 +1319,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Acute Tox. 5 (dermal)"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="Ghs00ClassAcuteToxDermal_no5">
+        <xs:annotation>
+            <xs:documentation>Acute Toxicity by dermal contact categories according to the original UN GHS (2003), without category 5.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs00ClassAcuteToxDermal">
+            <xs:enumeration value="Acute Tox. 1 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 2 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 3 (dermal)"/>
+            <xs:enumeration value="Acute Tox. 4 (dermal)"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="Ghs00HazardAcuteToxDermal">
         <xs:restriction base="string">
             <xs:enumeration value="310"/>
@@ -1307,7 +1339,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="262"/>
+            <!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -1338,7 +1370,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="262"/>
+            <!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -1368,7 +1400,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="262"/>
+            <!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -1395,12 +1427,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="362"/>
             <xs:enumeration value="364"/>
             <xs:enumeration value="405"/>
-            <xs:enumeration value="501"/>            
+            <xs:enumeration value="501"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAcuteToxDermal">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="262"/>
+            <!--            <xs:enumeration value="262"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="280"/>
@@ -1441,6 +1473,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Acute Tox. 5 (inhalation)"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="Ghs00ClassAcuteToxInhal_no5">
+        <xs:annotation>
+            <xs:documentation>Acute Toxicity by inhalation categories according to the original UN GHS (2003), without category 5.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs00ClassAcuteToxInhal">
+            <xs:enumeration value="Acute Tox. 1 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 2 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 3 (inhalation)"/>
+            <xs:enumeration value="Acute Tox. 4 (inhalation)"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="Ghs00HazardAcuteToxInhal">
         <xs:restriction base="string">
             <xs:enumeration value="330"/>
@@ -1450,7 +1493,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAcuteToxInhal">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="284"/>
@@ -1484,7 +1527,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAcuteToxInhal">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="284"/>
@@ -1515,7 +1558,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassSkinCorr">
-        <xs:annotation>        
+        <xs:annotation>
             <xs:documentation>Skin Corrosion/Irritiation categories according to the original UN GHS (2003).</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
@@ -1527,6 +1570,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Skin Irrit. 3"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="Ghs00ClassSkinCorr_no3">
+        <xs:annotation>
+            <xs:documentation>Skin Corrosion/Irritiation categories according to the original UN GHS (2003), without category 3.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs00ClassSkinCorr">
+            <xs:enumeration value="Skin Corr. 1"/>
+            <xs:enumeration value="Skin Corr. 1A"/>
+            <xs:enumeration value="Skin Corr. 1B"/>
+            <xs:enumeration value="Skin Corr. 1C"/>
+            <xs:enumeration value="Skin Irrit. 2"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="Ghs00HazardSkinCorr">
         <xs:restriction base="string">
             <xs:enumeration value="314"/>
@@ -1535,7 +1590,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSkinCorr">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="301+330+331"/>
@@ -1578,7 +1633,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionSkinCorr">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="301+330+331"/>
@@ -1622,7 +1677,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionSkinCorr">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="301+330+331"/>
@@ -1681,7 +1736,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionEyeDam">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="264"/>
+            <!--            <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="305+351+338"/>
             <xs:enumeration value="310"/>
@@ -1698,7 +1753,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionEyeDam">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="264"/>
+            <!--            <xs:enumeration value="264"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="305+351+338"/>
             <xs:enumeration value="305+354+338"/>
@@ -1742,7 +1797,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionRespSens">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="285"/>
             <xs:enumeration value="304+341"/>
             <xs:enumeration value="342+311"/>
@@ -1773,7 +1828,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionRespSens">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="284"/>
             <xs:enumeration value="304+341"/>
             <xs:enumeration value="342+311"/>
@@ -1789,7 +1844,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionRespSens">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="284"/>
             <xs:enumeration value="304+341"/>
             <xs:enumeration value="342+316"/>
@@ -1831,7 +1886,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionSkinSens">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="272"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+352"/>
@@ -1868,7 +1923,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionSkinSens">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="272"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+352"/>
@@ -1891,7 +1946,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionSkinSens">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="272"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="302+352"/>
@@ -1931,7 +1986,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionMuta">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="281"/>
             <xs:enumeration value="308+313"/>
@@ -1948,7 +2003,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionMuta">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="308+313"/>
@@ -1991,7 +2046,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionCarc">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="281"/>
             <xs:enumeration value="308+313"/>
@@ -2008,7 +2063,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionCarc">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="308+313"/>
@@ -2051,7 +2106,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionRepr">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="281"/>
             <xs:enumeration value="308+313"/>
@@ -2068,7 +2123,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionRepr">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="280"/>
             <xs:enumeration value="308+313"/>
@@ -2107,7 +2162,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionLact">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="260"/>
             <xs:enumeration value="263"/>
             <xs:enumeration value="264"/>
@@ -2124,7 +2179,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionLact">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="201"/>
+            <!--            <xs:enumeration value="201"/>
             <xs:enumeration value="202"/>
             <xs:enumeration value="260"/>
             <xs:enumeration value="263"/>
@@ -2168,7 +2223,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionStotSe">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="307+311"/>
@@ -2189,7 +2244,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionStotSe">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="308+311"/>
@@ -2208,7 +2263,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionStotSe">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="260"/>
+            <!--            <xs:enumeration value="260"/>
             <xs:enumeration value="264"/>
             <xs:enumeration value="270"/>
             <xs:enumeration value="308+316"/>
@@ -2243,7 +2298,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionStotSe3">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="304+340"/>
             <xs:enumeration value="312"/>
@@ -2263,7 +2318,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionStotSe3">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="261"/>
+            <!--            <xs:enumeration value="261"/>
             <xs:enumeration value="271"/>
             <xs:enumeration value="304+340"/>
             <xs:enumeration value="319"/>
@@ -2323,6 +2378,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Asp. Tox. 2"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="Ghs01ClassAspTox_no2">
+        <xs:annotation>
+            <xs:documentation>Aspiration hazard categories according to UN GHS revision 1 (2005), without category 2.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs01ClassAspTox">
+            <xs:enumeration value="Asp. Tox. 1"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="Ghs01HazardAspTox">
         <xs:restriction base="string">
             <xs:enumeration value="304"/>
@@ -2331,7 +2394,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionAspTox">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="301+310"/>
+            <!--            <xs:enumeration value="301+310"/>
             <xs:enumeration value="331"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/> -->
@@ -2344,7 +2407,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionAspTox">
         <xs:restriction base="string">
-<!--            <xs:enumeration value="301+316"/>
+            <!--            <xs:enumeration value="301+316"/>
             <xs:enumeration value="331"/>
             <xs:enumeration value="405"/>
             <xs:enumeration value="501"/> -->
@@ -2380,6 +2443,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:enumeration value="Aquatic Acute 1"/>
             <xs:enumeration value="Aquatic Acute 2"/>
             <xs:enumeration value="Aquatic Acute 3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Ghs01ClassAquaticAcute_no23">
+        <xs:annotation>
+            <xs:documentation>Acute Aquatic environmental hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="SDScom:Ghs01ClassAquaticAcute">
+            <xs:enumeration value="Aquatic Acute 1"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs01HazardAquaticAcute">
@@ -2481,7 +2552,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs00HazardFlamAer SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs02HazardRespSens SDScom:Ghs02HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs02PrecautionFlamAer SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs02PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs02PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs02PrecautionRespSens SDScom:Ghs02PrecautionSkinSens SDScom:Ghs02PrecautionMuta SDScom:Ghs02PrecautionCarc SDScom:Ghs02PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs02PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic"/>
+        <xs:union
+            memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs02PrecautionFlamAer SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs02PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs02PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs02PrecautionRespSens SDScom:Ghs02PrecautionSkinSens SDScom:Ghs02PrecautionMuta SDScom:Ghs02PrecautionCarc SDScom:Ghs02PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs02PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs03ClassCategoryEnum">
         <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
@@ -2490,7 +2563,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs00HazardFlamAer SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs03PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs02PrecautionFlamAer SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs02PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs02PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs02PrecautionRespSens SDScom:Ghs02PrecautionSkinSens SDScom:Ghs02PrecautionMuta SDScom:Ghs02PrecautionCarc SDScom:Ghs02PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs02PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs02PrecautionFlamAer SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs02PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs02PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs02PrecautionRespSens SDScom:Ghs02PrecautionSkinSens SDScom:Ghs02PrecautionMuta SDScom:Ghs02PrecautionCarc SDScom:Ghs02PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs02PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs04ClassCategoryEnum">
         <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
@@ -2499,7 +2574,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs05ClassCategoryEnum">
         <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
@@ -2508,7 +2585,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs05PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs05PrecautionPyrLiq SDScom:Ghs05PrecautionPyrSol SDScom:Ghs05PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs05PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs05PrecautionPyrLiq SDScom:Ghs05PrecautionPyrSol SDScom:Ghs05PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs06ClassCategoryEnum">
         <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs06ClassPyrGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
@@ -2517,10 +2596,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>List of Hazard Statement codes according to GHS revision 6, adding Desen. Expl. (H206, H207, H208).</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs06HazardPyrGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs06HazardPyrGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs06PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs05PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs06PrecautionPyrGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs05PrecautionPyrLiq SDScom:Ghs05PrecautionPyrSol SDScom:Ghs05PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs05PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs06PrecautionPyrGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs05PrecautionPyrLiq SDScom:Ghs05PrecautionPyrSol SDScom:Ghs05PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs07ClassCategoryEnum">
         <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs07ClassFlamGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
@@ -2532,7 +2615,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs07HazardFlamGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs07PrecautionExpl SDScom:Ghs07PrecautionFlamGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs07PrecautionPyrLiq SDScom:Ghs07PrecautionPyrSol SDScom:Ghs07PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs07PrecautionAcuteToxOral SDScom:Ghs07PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs07PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs07PrecautionExpl SDScom:Ghs07PrecautionFlamGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs07PrecautionPyrLiq SDScom:Ghs07PrecautionPyrSol SDScom:Ghs07PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs07PrecautionAcuteToxOral SDScom:Ghs07PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs07PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="Ghs08ClassCategoryEnum">
         <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs07ClassFlamGas SDScom:Ghs08ClassAerosolPressChem SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
@@ -2544,7 +2629,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs07HazardFlamGas SDScom:Ghs08HazardAerosolPressChem SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionEnum">
-        <xs:union memberTypes="SDScom:Ghs08PrecautionExpl SDScom:Ghs08PrecautionFlamGas SDScom:Ghs08PrecautionAerosolPressChem SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs07PrecautionPyrLiq SDScom:Ghs07PrecautionPyrSol SDScom:Ghs07PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs08PrecautionAcuteToxOral SDScom:Ghs08PrecautionAcuteToxDermal SDScom:Ghs08PrecautionAcuteToxInhal SDScom:Ghs08PrecautionSkinCorr SDScom:Ghs08PrecautionEyeDam SDScom:Ghs08PrecautionRespSens SDScom:Ghs08PrecautionSkinSens SDScom:Ghs08PrecautionMuta SDScom:Ghs08PrecautionCarc SDScom:Ghs08PrecautionRepr SDScom:Ghs08PrecautionLact SDScom:Ghs08PrecautionStotSe SDScom:Ghs08PrecautionStotSe3 SDScom:Ghs08PrecautionStotRe SDScom:Ghs08PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"/>
+        <xs:union
+            memberTypes="SDScom:Ghs08PrecautionExpl SDScom:Ghs08PrecautionFlamGas SDScom:Ghs08PrecautionAerosolPressChem SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs07PrecautionPyrLiq SDScom:Ghs07PrecautionPyrSol SDScom:Ghs07PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs08PrecautionAcuteToxOral SDScom:Ghs08PrecautionAcuteToxDermal SDScom:Ghs08PrecautionAcuteToxInhal SDScom:Ghs08PrecautionSkinCorr SDScom:Ghs08PrecautionEyeDam SDScom:Ghs08PrecautionRespSens SDScom:Ghs08PrecautionSkinSens SDScom:Ghs08PrecautionMuta SDScom:Ghs08PrecautionCarc SDScom:Ghs08PrecautionRepr SDScom:Ghs08PrecautionLact SDScom:Ghs08PrecautionStotSe SDScom:Ghs08PrecautionStotSe3 SDScom:Ghs08PrecautionStotRe SDScom:Ghs08PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+        />
     </xs:simpleType>
     <xs:simpleType name="GhsPictogramCodeEnum">
         <xs:annotation>
@@ -2575,7 +2662,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>List of all Hazard Statement codes across all revisions of GHS. Used in section 16 for the list of H phrases.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="SDScom:Ghs00HazardEnum SDScom:Ghs01HazardEnum SDScom:Ghs02HazardEnum SDScom:Ghs03HazardEnum SDScom:Ghs04HazardEnum SDScom:Ghs05HazardEnum SDScom:Ghs06HazardEnum SDScom:Ghs07HazardEnum SDScom:Ghs08HazardEnum"/> 
+        <xs:union memberTypes="SDScom:Ghs00HazardEnum SDScom:Ghs01HazardEnum SDScom:Ghs02HazardEnum SDScom:Ghs03HazardEnum SDScom:Ghs04HazardEnum SDScom:Ghs05HazardEnum SDScom:Ghs06HazardEnum SDScom:Ghs07HazardEnum SDScom:Ghs08HazardEnum"/>
     </xs:simpleType>
     <xs:complexType name="GhsSignalWord">
         <xs:annotation>

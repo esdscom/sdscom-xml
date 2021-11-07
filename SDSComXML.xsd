@@ -5,10 +5,10 @@ Main schema - root element is DatasheetFeed
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<!-- Section 1 ========================================================== -->
 	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
+	<!-- Section 1 ========================================================== -->
 	<xs:complexType name="IdentificationSubstPrep">
 		<xs:annotation>
 			<xs:documentation>SDS section 1</xs:documentation>
@@ -27,7 +27,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>At least one instance (with empty UserId) for the identification as delivered by the supplier. Use more instances for various package sizes, various products in a group SDS, or (with filled UserId) for reference to relabelled products of the SDS recipient.
+					<xs:documentation>At least one instance (with empty UserId) for the identification as delivered by the supplier. Use more instances for various package sizes, various products in a group SDS, or (with filled UserId) for reference to relabelled products of the SDS recipient. Also for group safety data sheets, each instance of TradeProductIdentity covers one substance or product.
 
 When importing, make sure that SDScom documents are not automatically replaced if the product identity is the same! GTINs are not necessarily unique (they should, but aren't in practice!), and product identities may refer to kits with multiple products and SDSs. Unique IDs that allow automatic overriding of data require a bilateral agreement between customer and supplier and should be placed in ProductNo.</xs:documentation>
 				</xs:annotation>
@@ -47,38 +47,36 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:documentation>The user's item number: The item number(s) used internally by the customer (user). Usually just 1 instance per TradeProductIdentity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:choice>
+						<xs:element minOccurs="0" name="SubstanceIdentifiers" type="SDScom:SubstanceIdentifiers">
 							<xs:annotation>
-								<xs:documentation>In case of an SDS for one single-constituent substance, there might be just one TradeProductIdentity with a SubstanceIdentity which is redundant with information in section 3. For group safety data sheets, each instance of TradeProductIdentity covers one substance or product.</xs:documentation>
+								<xs:documentation>for single-constituent (chemically pure) Substances.</xs:documentation>
 							</xs:annotation>
-							<xs:element minOccurs="0" name="SubstanceIdentifiers" type="SDScom:SubstanceIdentifiers">
-								<xs:annotation>
-									<xs:documentation>for single-constituent (chemically pure) Substances.</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element minOccurs="0" name="ProductIdentifiers">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="TradeName" type="SDScom:string1024" maxOccurs="unbounded" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>for Mixtures</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element minOccurs="0" name="RegionEU">
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
-														<xs:annotation>
-															<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-												</xs:sequence>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:choice>
+						</xs:element>
+						<xs:element minOccurs="0" name="ProductIdentifiers">
+							<xs:annotation>
+								<xs:documentation>Substances as well as mixtures can have trade names, thus the ProductIdentifiers should be applied to both.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TradeName" type="SDScom:string1024" maxOccurs="unbounded" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>for Mixtures</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="RegionEU">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="SDScom:Ufi">
+													<xs:annotation>
+														<xs:documentation>Companies are allowed to define multiple UFIs for the same composition, even for the same product. As group safety data sheets are allowed, it should be possible to transmit multiple UFIs although the main intention for multiple UFIs might be to hide the identity of differently named products.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductGtin" type="SDScom:ProductGtin">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -156,7 +154,48 @@ When importing, make sure that SDScom documents are not automatically replaced i
 			<xs:documentation>SDS section 2</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="RegionCA"/>
+			<xs:element minOccurs="0" name="RegionAR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationAR"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellingAR">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionBR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationBR"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellingBR">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionCA">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationCA"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellingCA">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element minOccurs="0" name="RegionEU">
 				<xs:complexType>
 					<xs:sequence>
@@ -220,6 +259,20 @@ When importing, make sure that SDScom documents are not automatically replaced i
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionMX">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationMX"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="SDScom:HazardLabellingMX">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -296,6 +349,100 @@ When importing, make sure that SDScom documents are not automatically replaced i
 				<xs:annotation>
 					<xs:documentation>was "DescriptionOfTheMixture" up to v4.2.3; see issue #95</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionAR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="SDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
+							</xs:annotation>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:ComponentAR">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:ComponentAR">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:ComponentAR">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:ComponentAR"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionBR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="SDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
+							</xs:annotation>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:ComponentBR">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:ComponentBR">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:ComponentBR">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:ComponentBR"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionCA">
 				<xs:complexType>
@@ -390,6 +537,53 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								</xs:annotation>
 							</xs:element>
 							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:ComponentEU"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionMX">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="SDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
+							</xs:annotation>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="SDScom:ComponentMX">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="SDScom:ComponentMX">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="SDScom:ComponentMX">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="SDScom:ComponentMX"/>
 						</xs:sequence>
 					</xs:sequence>
 				</xs:complexType>
@@ -919,7 +1113,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 	<!-- Section 14 ========================================================= -->
 	<xs:complexType name="TransportInformation">
 		<xs:annotation>
-			<xs:documentation>SDS section 14</xs:documentation>
+			<xs:documentation>SDS section 14. No specific transport regulation data for Argentina.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<!-- (Not following EuphraC) -->
@@ -941,7 +1135,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum">
+						<xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
 							<xs:annotation>
 								<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
@@ -991,7 +1185,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="1" name="Class" type="SDScom:TransportClassEnum"/>
+						<xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum"/>
 						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="SDScom:TransportClassEnum"/>
 						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelEnglish" type="SDScom:Phrase">
 							<xs:annotation>
@@ -1018,8 +1212,10 @@ When importing, make sure that SDScom documents are not automatically replaced i
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialPrecautionUser" type="SDScom:Phrase"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element minOccurs="0" name="RegionBR" type="SDScom:TransportBR"/>
 			<xs:element minOccurs="0" name="RegionCA" type="SDScom:TransportCA"/>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:TransportEU"> </xs:element>
+			<xs:element minOccurs="0" name="RegionMX" type="SDScom:TransportMX"/>
 			<xs:element minOccurs="0" name="RegionUS" type="SDScom:TransportUS"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1030,6 +1226,8 @@ When importing, make sure that SDScom documents are not automatically replaced i
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element minOccurs="0" name="RegionAR" type="SDScom:RegulationsAR"/>
+			<xs:element minOccurs="0" name="RegionBR" type="SDScom:RegulationsBR"/>
 			<xs:element minOccurs="0" name="RegionCA" type="SDScom:RegulationsCA"/>
 			<xs:element minOccurs="0" name="RegionEU" type="SDScom:RegulationsEU">
 				<xs:annotation>
@@ -1037,17 +1235,11 @@ When importing, make sure that SDScom documents are not automatically replaced i
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionJP" type="SDScom:RegulationsJP"/>
-			<xs:element name="RegionRU" minOccurs="0">
+			<xs:element minOccurs="0" name="RegionMX" type="SDScom:RegulationsMX"/>
+			<xs:element name="RegionRU" minOccurs="0" type="SDScom:RegulationsRU">
 				<xs:annotation>
 					<xs:documentation>This region is formed by countries having a customs union, as this gives the strongest indication of future alignment of (existing and new) legislation.</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelarus" type="SDScom:RegulationsBY"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationKazakhstan" type="SDScom:RegulationsKZ"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRussianFederation" type="SDScom:RegulationsRU"/>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="RegionTR" minOccurs="0" type="SDScom:RegulationsTR">
 				<xs:annotation>

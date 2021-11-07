@@ -5,7 +5,7 @@ Basic type definitions
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.0.1">
+<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
 	<!-- ******************************************************************** string2 ********  -->
 	<xs:simpleType name="string2">
 		<xs:annotation>
@@ -180,8 +180,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 It is used to reference the version number in the XML data file, as the schema name does not include the version number. So this complements the version attribute in the xs:schema tag of the XSD files, and one of the enum values here must match the version attribute in the schema.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="5.0.0"/>
-			<xs:enumeration value="5.0.1"/>
+			<xs:enumeration value="5.3.0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ******************************************************************** LanguageCodeEnum ******  -->
@@ -1254,6 +1253,21 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="In aqueous solution"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- ******************************************************************* PhNotRelevantEnum *************  -->
+	<xs:simpleType name="PhNotRelevantEnum">
+		<xs:annotation>
+			<xs:documentation>This type corresponds directly to Iuclid Picklist PH_1 nd is relevant e.g. for PCN notifications in Europe. Enumeration values are taken literally from this list to facilitate mapping.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="pH is below -3"/>
+			<xs:enumeration value="pH is above 15"/>
+			<xs:enumeration value="substance/mixture is a gas"/>
+			<xs:enumeration value="substance/mixture is non-polar/aprotic"/>
+			<xs:enumeration value="substance/mixture is non-soluble (in water)"/>
+			<xs:enumeration value="substance/mixture not stable"/>
+			<xs:enumeration value="substance/mixture reacts with water"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- ******************************************************************* ViscosityTypeEnum *************  -->
 	<xs:simpleType name="ViscosityTypeEnum">
 		<xs:annotation>
@@ -1609,12 +1623,12 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="Weight-%"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="Unit">
+	<xs:group name="Unit">
 		<xs:sequence>
 			<xs:element name="Unit" type="SDScom:UnitEnum"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="SDScom:Phrase"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:group>
 	<xs:complexType name="ExactValue">
 		<xs:sequence>
 			<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum"/>
@@ -1624,9 +1638,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 	<xs:complexType name="ExactUnitValue">
 		<xs:complexContent>
 			<xs:extension base="SDScom:ExactValue">
-				<xs:sequence>
-					<xs:element name="Unit" type="SDScom:Unit"/>
-				</xs:sequence>
+				<xs:group ref="SDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1654,9 +1666,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SDScom:Value">
-				<xs:sequence>
-					<xs:element name="Unit" type="SDScom:Unit" minOccurs="0"/>
-				</xs:sequence>
+				<xs:group ref="SDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
