@@ -509,7 +509,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
 							</xs:annotation>
 							<xs:choice>
-								<xs:element maxOccurs="1" name="Substance" type="SDScom:Substance">
+								<xs:element maxOccurs="1" name="Substance" type="SDScom:SubstanceEU">
 									<xs:annotation>
 										<xs:appinfo>SDScomBau</xs:appinfo>
 										<xs:appinfo>SDScomChem</xs:appinfo>

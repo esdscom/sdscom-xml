@@ -174,6 +174,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:pattern value="[0-9]{1,20}"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EmailAddress">
+		<xs:annotation>
+			<xs:documentation>Specifies a valid e-mail address.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="URL">
+		<xs:annotation>
+			<xs:documentation>Specifies a URL.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:simpleType name="UUID">
+		<xs:annotation>
+			<xs:documentation>Specifies an identification string in order to uniquely identify information. The length of the identification string is between 32 and 36 characters (32 alphanumeric characters and four hyphens in the form 8-4-4-4-12). The 32 alphanumeric characters based UUID specifies the internal presentation, the UUID with 36 alphanumeric characters is the external representation. Within ESComXML only the internal 32 alphanumeric characters long UUID is supported.
+				
+				For example:
+				550e8400e29b41d4a716446655440000 (external representation with four hypens:
+				550e8400-e29b-41d4-a716-446655440000). 
+				
+				See also the Wikipedia page for more details:
+				http://en.wikipedia.org/wiki/Universally_unique_identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="32"/>
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="SdscomVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation>The version of the XML standard which is applied in the transmission of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89.
@@ -1141,7 +1171,25 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="Mixture: Polymer"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SymbolEnum">
+	<xs:simpleType name="ExactQualifierEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="eq"/>
+			<xs:enumeration value="ca"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LowerQualifierEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="le"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UpperQualifierEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="gt"/>
+			<xs:enumeration value="ge"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QualifierEnum">
 		<xs:annotation>
 			<xs:documentation> Symbols like less than, greater than, equal, greater or equal,less or equal or circa. </xs:documentation>
 		</xs:annotation>
@@ -1629,49 +1677,78 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="SDScom:Phrase"/>
 		</xs:sequence>
 	</xs:group>
-	<xs:complexType name="ExactValue">
+	<xs:complexType name="NumericValue">
 		<xs:sequence>
-			<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum"/>
 			<xs:element name="ExactValue" type="xs:float"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ExactUnitValue">
+	<xs:complexType name="NumericValueWithQualifier">
+		<xs:sequence>
+			<xs:element name="ExactValueSymbol" type="SDScom:ExactQualifierEnum" minOccurs="0"/>
+			<xs:element name="ExactValue" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExactValue">
 		<xs:complexContent>
-			<xs:extension base="SDScom:ExactValue">
+			<xs:extension base="SDScom:NumericValueWithQualifier"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NumericValueWithUnit">
+		<xs:complexContent>
+			<xs:extension base="SDScom:NumericValue">
 				<xs:group ref="SDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="Value">
+	<xs:complexType name="NumericValueWithUnitAndQualifier">
+		<xs:complexContent>
+			<xs:extension base="SDScom:NumericValueWithQualifier">
+				<xs:group ref="SDScom:Unit"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExactUnitValue">
+		<xs:complexContent>
+			<xs:extension base="SDScom:NumericValueWithUnitAndQualifier"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NumericRangeWithQualifier">
 		<xs:annotation>
-			<xs:documentation> </xs:documentation>
+			<xs:documentation>Numeric ranges only make sense with qualifiers, thus no "NumericRange" or "NumericRangeWithUnit" types exist. </xs:documentation>
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
+				<xs:element name="ExactValueSymbol" type="SDScom:ExactQualifierEnum" minOccurs="0"/>
 				<xs:element name="ExactValue" type="xs:float" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:sequence>
-				<xs:element name="UpperValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
+				<xs:element name="UpperValueSymbol" type="SDScom:UpperQualifierEnum" minOccurs="0"/>
 				<xs:element name="UpperValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
-				<xs:element name="LowerValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
+				<xs:element name="LowerValueSymbol" type="SDScom:LowerQualifierEnum" minOccurs="0"/>
 				<xs:element name="LowerValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
 	<!-- ******************************************************************* UnitValue *************  -->
-	<xs:complexType name="UnitValue">
-		<xs:annotation>
-			<xs:documentation> UnitValue. The ExactValue should only be printed on the datasheet if both the LowerValue and UpperValue are missing. The main purpose of the LowerValue-UpperValue range is for printing while an additional ExactValue can be used for calculations. </xs:documentation>
-		</xs:annotation>
+	<xs:complexType name="Value">
 		<xs:complexContent>
-			<xs:extension base="SDScom:Value">
+			<xs:extension base="SDScom:NumericRangeWithQualifier"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NumericRangeWithUnitAndQualifier">
+		<xs:complexContent>
+			<xs:extension base="SDScom:NumericRangeWithQualifier">
 				<xs:group ref="SDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* UnitIdEnum ************************  -->
 	<!-- ******************************************************************** Percentage********  -->
+	<xs:complexType name="UnitValue">
+		<xs:complexContent>
+			<xs:extension base="SDScom:NumericRangeWithUnitAndQualifier"/>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:simpleType name="Percentage">
 		<xs:annotation>
 			<xs:documentation>Percentage value 0-100.</xs:documentation>
@@ -1698,7 +1775,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:documentation>Basically a UnitValue with a fixed unit "%"</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:Value"/>
+			<xs:extension base="SDScom:NumericRangeWithQualifier"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValue***********  -->
@@ -1709,7 +1786,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="Value" type="SDScom:Value" minOccurs="0"/>
+					<xs:element name="Value" type="SDScom:NumericRangeWithQualifier" minOccurs="0"/>
 					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
 					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
@@ -1726,7 +1803,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="UnitValue" type="SDScom:UnitValue" minOccurs="0"/>
+					<xs:element name="UnitValue" type="SDScom:NumericRangeWithUnitAndQualifier" minOccurs="0"/>
 					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
 					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
@@ -1736,24 +1813,27 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
+	<xs:group name="TemperaturePressureGroup">
+		<xs:sequence>
+			<xs:element name="Temperature" type="SDScom:NumericValueWithUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Pressure" type="SDScom:NumericValueWithUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
 	<xs:complexType name="PhysChemValueWithTemperature">
 		<xs:annotation>
 			<xs:documentation> PhysChemValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SDScom:PhysChemValue">
-				<xs:sequence minOccurs="0">
-					<xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
+				<xs:group ref="SDScom:TemperaturePressureGroup"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1764,18 +1844,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SDScom:PhysChemUnitValue">
-				<xs:sequence minOccurs="0">
-					<xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
+				<xs:group ref="SDScom:TemperaturePressureGroup"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
