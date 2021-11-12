@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5
+National Extension for Germany
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
 	<xs:complexType name="SevesoEntryDE">
 		<xs:complexContent>
-			<xs:extension base="SDScom:SevesoEntryEU">
+			<xs:extension base="eSDScom:SevesoEntryEU">
 				<xs:sequence>
 					<xs:element name="BimschNumber">
 						<xs:annotation>
@@ -27,39 +29,39 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, create type ComponentDE or refer to ComponentEU.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="RestrictionsOfOccupation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RestrictionsOfOccupation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element minOccurs="0" name="Stoerfallverordnung">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="HealthHazards" type="SDScom:SevesoEntryDE"/>
-						<xs:element minOccurs="0" name="PhysicalHazards" type="SDScom:SevesoEntryDE"/>
-						<xs:element minOccurs="0" name="EnvironmentalHazards" type="SDScom:SevesoEntryDE"/>
-						<xs:element minOccurs="0" name="OtherHazards" type="SDScom:SevesoEntryDE"/>
+						<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryDE"/>
+						<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryDE"/>
+						<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryDE"/>
+						<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryDE"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="TaLuft" type="SDScom:TaLuft" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="WaterHazardClass" type="SDScom:WaterHazardClass" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TaLuft" type="eSDScom:TaLuft" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WaterHazardClass" type="eSDScom:WaterHazardClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> Other German legislation: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AdditionalInformation" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalWasteLegislationDE" type="SDScom:NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AdditionalInformation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalWasteLegislationDE" type="eSDScom:NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> National legislation: National requirements related to waste that applies to the product or its packaging. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StorageClassDE" type="SDScom:StorageClassEnumDE" minOccurs="0" maxOccurs="1">
+			<xs:element name="StorageClassDE" type="eSDScom:StorageClassEnumDE" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> German storage class: Classification of the chemical in accordance with German regulation. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GisCode" type="SDScom:string16" minOccurs="0" maxOccurs="1">
+			<xs:element name="GisCode" type="eSDScom:string16" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -74,12 +76,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> NationalWasteLegislationDE </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="WasteCode" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="WasteCode" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> National waste code: National identification number for the chemical and or its packaging as waste, with a corresponding description of the waste covered by the actual number. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WasteRegulations" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="WasteRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> National waste regulations: National regulations related to waste that applies to the product or its packing. </xs:documentation>
 				</xs:annotation>
@@ -94,20 +96,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> WaterHazardClass </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Class" type="SDScom:WaterHazardClassEnum" maxOccurs="1">
+			<xs:element name="Class" type="eSDScom:WaterHazardClassEnum" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> Water hazard class (WGK): </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Source" type="SDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Source" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Remark" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -118,10 +120,10 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<!-- ******************************************************************** TaLuft ********************* -->
 	<xs:complexType name="TaLuft">
 		<xs:sequence>
-			<xs:element name="WeightFraction" type="SDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ClassOrClasses" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="No" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WeightFraction" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ClassOrClasses" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="No" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Remark" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ************************************************************** WaterHazardClassEnum ******  -->

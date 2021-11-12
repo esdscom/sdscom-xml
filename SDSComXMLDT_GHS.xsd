@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5
+eSDScom XML schema definition version 5
 Basic type definitions, GHS related
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:simpleType name="Ghs02PrecautionGeneral">
         <xs:annotation>
@@ -495,7 +496,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Flammable Liquids categories according to the original UN GHS (2003), without category 4.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs00ClassFlamLiq">
+        <xs:restriction base="eSDScom:Ghs00ClassFlamLiq">
             <xs:enumeration value="Flam. Liq. 1"/>
             <xs:enumeration value="Flam. Liq. 2"/>
             <xs:enumeration value="Flam. Liq. 3"/>
@@ -1228,7 +1229,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Acute Toxicity by oral intake categories according to the original UN GHS (2003), without category 5.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs00ClassAcuteToxOral">
+        <xs:restriction base="eSDScom:Ghs00ClassAcuteToxOral">
             <xs:enumeration value="Acute Tox. 1 (oral)"/>
             <xs:enumeration value="Acute Tox. 2 (oral)"/>
             <xs:enumeration value="Acute Tox. 3 (oral)"/>
@@ -1323,7 +1324,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Acute Toxicity by dermal contact categories according to the original UN GHS (2003), without category 5.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs00ClassAcuteToxDermal">
+        <xs:restriction base="eSDScom:Ghs00ClassAcuteToxDermal">
             <xs:enumeration value="Acute Tox. 1 (dermal)"/>
             <xs:enumeration value="Acute Tox. 2 (dermal)"/>
             <xs:enumeration value="Acute Tox. 3 (dermal)"/>
@@ -1477,7 +1478,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Acute Toxicity by inhalation categories according to the original UN GHS (2003), without category 5.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs00ClassAcuteToxInhal">
+        <xs:restriction base="eSDScom:Ghs00ClassAcuteToxInhal">
             <xs:enumeration value="Acute Tox. 1 (inhalation)"/>
             <xs:enumeration value="Acute Tox. 2 (inhalation)"/>
             <xs:enumeration value="Acute Tox. 3 (inhalation)"/>
@@ -1574,7 +1575,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Skin Corrosion/Irritiation categories according to the original UN GHS (2003), without category 3.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs00ClassSkinCorr">
+        <xs:restriction base="eSDScom:Ghs00ClassSkinCorr">
             <xs:enumeration value="Skin Corr. 1"/>
             <xs:enumeration value="Skin Corr. 1A"/>
             <xs:enumeration value="Skin Corr. 1B"/>
@@ -2382,7 +2383,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Aspiration hazard categories according to UN GHS revision 1 (2005), without category 2.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs01ClassAspTox">
+        <xs:restriction base="eSDScom:Ghs01ClassAspTox">
             <xs:enumeration value="Asp. Tox. 1"/>
         </xs:restriction>
     </xs:simpleType>
@@ -2449,7 +2450,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Acute Aquatic environmental hazard categories according to UN GHS revision 1 (2005).</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="SDScom:Ghs01ClassAquaticAcute">
+        <xs:restriction base="eSDScom:Ghs01ClassAquaticAcute">
             <xs:enumeration value="Aquatic Acute 1"/>
         </xs:restriction>
     </xs:simpleType>
@@ -2531,106 +2532,106 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Ghs00ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs00ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs00ClassRespSens SDScom:Ghs00ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs00ClassStotRe SDScom:Ghs00ClassAquaticAcute SDScom:Ghs00ClassAquaticChronic"/>
+        <xs:union memberTypes="eSDScom:Ghs00ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs00ClassFlamAer eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs00ClassRespSens eSDScom:Ghs00ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs00ClassStotRe eSDScom:Ghs00ClassAquaticAcute eSDScom:Ghs00ClassAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs00HazardEnum">
         <xs:annotation>
             <xs:documentation>Hazard statement code with a predefined set of legal values. Also called H-phrases. </xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="SDScom:Ghs00HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs00HazardFlamAer SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs00HazardRespSens SDScom:Ghs00HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs00HazardStotRe SDScom:Ghs00HazardAquaticAcute SDScom:Ghs00HazardAquaticChronic"/>
+        <xs:union memberTypes="eSDScom:Ghs00HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs00HazardFlamAer eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs00HazardRespSens eSDScom:Ghs00HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs00HazardStotRe eSDScom:Ghs00HazardAquaticAcute eSDScom:Ghs00HazardAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs01ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs00ClassRespSens SDScom:Ghs00ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs00ClassFlamAer eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs00ClassRespSens eSDScom:Ghs00ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs01HazardEnum">
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs00HazardFlamAer SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs00HazardRespSens SDScom:Ghs00HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs00HazardFlamAer eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs00HazardRespSens eSDScom:Ghs00HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs02ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs02ClassRespSens SDScom:Ghs02ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs00ClassFlamAer eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs02ClassRespSens eSDScom:Ghs02ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs02HazardEnum">
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs00HazardFlamAer SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs02HazardRespSens SDScom:Ghs02HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs00HazardFlamAer eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs02HazardRespSens eSDScom:Ghs02HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs02PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs02PrecautionFlamAer SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs02PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs02PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs02PrecautionRespSens SDScom:Ghs02PrecautionSkinSens SDScom:Ghs02PrecautionMuta SDScom:Ghs02PrecautionCarc SDScom:Ghs02PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs02PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic"
+            memberTypes="eSDScom:Ghs02PrecautionExpl eSDScom:Ghs02PrecautionFlamGas eSDScom:Ghs02PrecautionFlamAer eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs02PrecautionPressGas eSDScom:Ghs02PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs02PrecautionSelfReact eSDScom:Ghs02PrecautionPyrLiq eSDScom:Ghs02PrecautionPyrSol eSDScom:Ghs02PrecautionSelfHeat eSDScom:Ghs02PrecautionWaterReact eSDScom:Ghs02PrecautionOxLiq eSDScom:Ghs02PrecautionOxSol eSDScom:Ghs02PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs02PrecautionAcuteToxOral eSDScom:Ghs02PrecautionAcuteToxDermal eSDScom:Ghs02PrecautionAcuteToxInhal eSDScom:Ghs02PrecautionSkinCorr eSDScom:Ghs02PrecautionEyeDam eSDScom:Ghs02PrecautionRespSens eSDScom:Ghs02PrecautionSkinSens eSDScom:Ghs02PrecautionMuta eSDScom:Ghs02PrecautionCarc eSDScom:Ghs02PrecautionRepr eSDScom:Ghs02PrecautionLact eSDScom:Ghs02PrecautionStotSe eSDScom:Ghs02PrecautionStotSe3 eSDScom:Ghs02PrecautionStotRe eSDScom:Ghs02PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs03ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs00ClassFlamAer eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs03HazardEnum">
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs00HazardFlamAer SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs00HazardFlamAer eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs03HazardRespSens eSDScom:Ghs03HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic eSDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs03PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs02PrecautionFlamAer SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs02PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs02PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs02PrecautionRespSens SDScom:Ghs02PrecautionSkinSens SDScom:Ghs02PrecautionMuta SDScom:Ghs02PrecautionCarc SDScom:Ghs02PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs02PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+            memberTypes="eSDScom:Ghs02PrecautionExpl eSDScom:Ghs02PrecautionFlamGas eSDScom:Ghs02PrecautionFlamAer eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs02PrecautionPressGas eSDScom:Ghs02PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs02PrecautionSelfReact eSDScom:Ghs02PrecautionPyrLiq eSDScom:Ghs02PrecautionPyrSol eSDScom:Ghs02PrecautionSelfHeat eSDScom:Ghs02PrecautionWaterReact eSDScom:Ghs02PrecautionOxLiq eSDScom:Ghs02PrecautionOxSol eSDScom:Ghs02PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs02PrecautionAcuteToxOral eSDScom:Ghs02PrecautionAcuteToxDermal eSDScom:Ghs02PrecautionAcuteToxInhal eSDScom:Ghs02PrecautionSkinCorr eSDScom:Ghs02PrecautionEyeDam eSDScom:Ghs02PrecautionRespSens eSDScom:Ghs02PrecautionSkinSens eSDScom:Ghs02PrecautionMuta eSDScom:Ghs02PrecautionCarc eSDScom:Ghs02PrecautionRepr eSDScom:Ghs02PrecautionLact eSDScom:Ghs02PrecautionStotSe eSDScom:Ghs02PrecautionStotSe3 eSDScom:Ghs02PrecautionStotRe eSDScom:Ghs02PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic eSDScom:Ghs03PrecautionOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs04ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs04ClassChemUnstGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs04HazardEnum">
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs04HazardChemUnstGas eSDScom:Ghs04HazardAerosol eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs03HazardRespSens eSDScom:Ghs03HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic eSDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs04PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs02PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs02PrecautionPressGas SDScom:Ghs02PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs02PrecautionSelfReact SDScom:Ghs02PrecautionPyrLiq SDScom:Ghs02PrecautionPyrSol SDScom:Ghs02PrecautionSelfHeat SDScom:Ghs02PrecautionWaterReact SDScom:Ghs02PrecautionOxLiq SDScom:Ghs02PrecautionOxSol SDScom:Ghs02PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+            memberTypes="eSDScom:Ghs02PrecautionExpl eSDScom:Ghs02PrecautionFlamGas eSDScom:Ghs04PrecautionChemUnstGas eSDScom:Ghs04PrecautionAerosol eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs02PrecautionPressGas eSDScom:Ghs02PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs02PrecautionSelfReact eSDScom:Ghs02PrecautionPyrLiq eSDScom:Ghs02PrecautionPyrSol eSDScom:Ghs02PrecautionSelfHeat eSDScom:Ghs02PrecautionWaterReact eSDScom:Ghs02PrecautionOxLiq eSDScom:Ghs02PrecautionOxSol eSDScom:Ghs02PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs02PrecautionAcuteToxOral eSDScom:Ghs04PrecautionAcuteToxDermal eSDScom:Ghs02PrecautionAcuteToxInhal eSDScom:Ghs04PrecautionSkinCorr eSDScom:Ghs02PrecautionEyeDam eSDScom:Ghs04PrecautionRespSens eSDScom:Ghs04PrecautionSkinSens eSDScom:Ghs04PrecautionMuta eSDScom:Ghs04PrecautionCarc eSDScom:Ghs04PrecautionRepr eSDScom:Ghs02PrecautionLact eSDScom:Ghs04PrecautionStotSe eSDScom:Ghs02PrecautionStotSe3 eSDScom:Ghs02PrecautionStotRe eSDScom:Ghs02PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic eSDScom:Ghs03PrecautionOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs05ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs04ClassChemUnstGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs05HazardEnum">
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs04HazardChemUnstGas eSDScom:Ghs04HazardAerosol eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs03HazardRespSens eSDScom:Ghs03HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic eSDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs05PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs05PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs05PrecautionPyrLiq SDScom:Ghs05PrecautionPyrSol SDScom:Ghs05PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+            memberTypes="eSDScom:Ghs05PrecautionExpl eSDScom:Ghs02PrecautionFlamGas eSDScom:Ghs04PrecautionChemUnstGas eSDScom:Ghs04PrecautionAerosol eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs05PrecautionPressGas eSDScom:Ghs05PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs05PrecautionSelfReact eSDScom:Ghs05PrecautionPyrLiq eSDScom:Ghs05PrecautionPyrSol eSDScom:Ghs05PrecautionSelfHeat eSDScom:Ghs05PrecautionWaterReact eSDScom:Ghs05PrecautionOxLiq eSDScom:Ghs05PrecautionOxSol eSDScom:Ghs05PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs02PrecautionAcuteToxOral eSDScom:Ghs04PrecautionAcuteToxDermal eSDScom:Ghs02PrecautionAcuteToxInhal eSDScom:Ghs04PrecautionSkinCorr eSDScom:Ghs02PrecautionEyeDam eSDScom:Ghs04PrecautionRespSens eSDScom:Ghs04PrecautionSkinSens eSDScom:Ghs04PrecautionMuta eSDScom:Ghs04PrecautionCarc eSDScom:Ghs04PrecautionRepr eSDScom:Ghs02PrecautionLact eSDScom:Ghs04PrecautionStotSe eSDScom:Ghs02PrecautionStotSe3 eSDScom:Ghs02PrecautionStotRe eSDScom:Ghs02PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic eSDScom:Ghs03PrecautionOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs06ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs06ClassPyrGas SDScom:Ghs04ClassChemUnstGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs06ClassPyrGas eSDScom:Ghs04ClassChemUnstGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs06ClassDesensExpl eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs06HazardEnum">
         <xs:annotation>
             <xs:documentation>List of Hazard Statement codes according to GHS revision 6, adding Desen. Expl. (H206, H207, H208).</xs:documentation>
         </xs:annotation>
         <xs:union
-            memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs00HazardFlamGas SDScom:Ghs06HazardPyrGas SDScom:Ghs04HazardChemUnstGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"
+            memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs00HazardFlamGas eSDScom:Ghs06HazardPyrGas eSDScom:Ghs04HazardChemUnstGas eSDScom:Ghs04HazardAerosol eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs06HazardDesensExpl eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs03HazardRespSens eSDScom:Ghs03HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic eSDScom:Ghs03HazardOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs06PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs05PrecautionExpl SDScom:Ghs02PrecautionFlamGas SDScom:Ghs06PrecautionPyrGas SDScom:Ghs04PrecautionChemUnstGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs05PrecautionPyrLiq SDScom:Ghs05PrecautionPyrSol SDScom:Ghs05PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs02PrecautionAcuteToxOral SDScom:Ghs04PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs02PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+            memberTypes="eSDScom:Ghs05PrecautionExpl eSDScom:Ghs02PrecautionFlamGas eSDScom:Ghs06PrecautionPyrGas eSDScom:Ghs04PrecautionChemUnstGas eSDScom:Ghs04PrecautionAerosol eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs05PrecautionPressGas eSDScom:Ghs05PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs05PrecautionSelfReact eSDScom:Ghs05PrecautionPyrLiq eSDScom:Ghs05PrecautionPyrSol eSDScom:Ghs05PrecautionSelfHeat eSDScom:Ghs05PrecautionWaterReact eSDScom:Ghs05PrecautionOxLiq eSDScom:Ghs05PrecautionOxSol eSDScom:Ghs05PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs06PrecautionDesensExpl eSDScom:Ghs02PrecautionAcuteToxOral eSDScom:Ghs04PrecautionAcuteToxDermal eSDScom:Ghs02PrecautionAcuteToxInhal eSDScom:Ghs04PrecautionSkinCorr eSDScom:Ghs02PrecautionEyeDam eSDScom:Ghs04PrecautionRespSens eSDScom:Ghs04PrecautionSkinSens eSDScom:Ghs04PrecautionMuta eSDScom:Ghs04PrecautionCarc eSDScom:Ghs04PrecautionRepr eSDScom:Ghs02PrecautionLact eSDScom:Ghs04PrecautionStotSe eSDScom:Ghs02PrecautionStotSe3 eSDScom:Ghs02PrecautionStotRe eSDScom:Ghs02PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic eSDScom:Ghs03PrecautionOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs07ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs07ClassFlamGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs07ClassFlamGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs06ClassDesensExpl eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs07HazardEnum">
         <xs:annotation>
             <xs:documentation>List of Hazard Statement codes according to GHS revision 7, adding Pyr. Gas (H232)</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs07HazardFlamGas SDScom:Ghs04HazardAerosol SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs07HazardFlamGas eSDScom:Ghs04HazardAerosol eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs06HazardDesensExpl eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs03HazardRespSens eSDScom:Ghs03HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic eSDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs07PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs07PrecautionExpl SDScom:Ghs07PrecautionFlamGas SDScom:Ghs04PrecautionAerosol SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs07PrecautionPyrLiq SDScom:Ghs07PrecautionPyrSol SDScom:Ghs07PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs07PrecautionAcuteToxOral SDScom:Ghs07PrecautionAcuteToxDermal SDScom:Ghs02PrecautionAcuteToxInhal SDScom:Ghs04PrecautionSkinCorr SDScom:Ghs02PrecautionEyeDam SDScom:Ghs04PrecautionRespSens SDScom:Ghs04PrecautionSkinSens SDScom:Ghs04PrecautionMuta SDScom:Ghs04PrecautionCarc SDScom:Ghs04PrecautionRepr SDScom:Ghs07PrecautionLact SDScom:Ghs04PrecautionStotSe SDScom:Ghs02PrecautionStotSe3 SDScom:Ghs02PrecautionStotRe SDScom:Ghs02PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+            memberTypes="eSDScom:Ghs07PrecautionExpl eSDScom:Ghs07PrecautionFlamGas eSDScom:Ghs04PrecautionAerosol eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs05PrecautionPressGas eSDScom:Ghs05PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs05PrecautionSelfReact eSDScom:Ghs07PrecautionPyrLiq eSDScom:Ghs07PrecautionPyrSol eSDScom:Ghs07PrecautionSelfHeat eSDScom:Ghs05PrecautionWaterReact eSDScom:Ghs05PrecautionOxLiq eSDScom:Ghs05PrecautionOxSol eSDScom:Ghs05PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs06PrecautionDesensExpl eSDScom:Ghs07PrecautionAcuteToxOral eSDScom:Ghs07PrecautionAcuteToxDermal eSDScom:Ghs02PrecautionAcuteToxInhal eSDScom:Ghs04PrecautionSkinCorr eSDScom:Ghs02PrecautionEyeDam eSDScom:Ghs04PrecautionRespSens eSDScom:Ghs04PrecautionSkinSens eSDScom:Ghs04PrecautionMuta eSDScom:Ghs04PrecautionCarc eSDScom:Ghs04PrecautionRepr eSDScom:Ghs07PrecautionLact eSDScom:Ghs04PrecautionStotSe eSDScom:Ghs02PrecautionStotSe3 eSDScom:Ghs02PrecautionStotRe eSDScom:Ghs02PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic eSDScom:Ghs03PrecautionOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="Ghs08ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs07ClassFlamGas SDScom:Ghs08ClassAerosolPressChem SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral SDScom:Ghs00ClassAcuteToxDermal SDScom:Ghs00ClassAcuteToxInhal SDScom:Ghs00ClassSkinCorr SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs07ClassFlamGas eSDScom:Ghs08ClassAerosolPressChem eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs06ClassDesensExpl eSDScom:Ghs00ClassAcuteToxOral eSDScom:Ghs00ClassAcuteToxDermal eSDScom:Ghs00ClassAcuteToxInhal eSDScom:Ghs00ClassSkinCorr eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs08HazardEnum">
         <xs:annotation>
             <xs:documentation>List of Hazard Statement codes according to GHS revision 8, adding Press. Chem. (H282, H283)</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="SDScom:Ghs01HazardExpl SDScom:Ghs07HazardFlamGas SDScom:Ghs08HazardAerosolPressChem SDScom:Ghs00HazardOxGas SDScom:Ghs00HazardPressGas SDScom:Ghs00HazardFlamLiq SDScom:Ghs00HazardFlamSol SDScom:Ghs00HazardSelfReact SDScom:Ghs00HazardPyrLiq SDScom:Ghs00HazardPyrSol SDScom:Ghs00HazardSelfHeat SDScom:Ghs00HazardWaterReact SDScom:Ghs00HazardOxLiq SDScom:Ghs00HazardOxSol SDScom:Ghs00HazardOrgPerox SDScom:Ghs00HazardMetCorr SDScom:Ghs06HazardDesensExpl SDScom:Ghs00HazardAcuteToxOral SDScom:Ghs00HazardAcuteToxDermal SDScom:Ghs00HazardAcuteToxInhal SDScom:Ghs00HazardSkinCorr SDScom:Ghs00HazardEyeDam SDScom:Ghs03HazardRespSens SDScom:Ghs03HazardSkinSens SDScom:Ghs00HazardMuta SDScom:Ghs00HazardCarc SDScom:Ghs00HazardRepr SDScom:Ghs00HazardLact SDScom:Ghs00HazardStotSe SDScom:Ghs01HazardStotSe3 SDScom:Ghs00HazardStotRe SDScom:Ghs01HazardAspTox SDScom:Ghs01HazardAquaticAcute SDScom:Ghs01HazardAquaticChronic SDScom:Ghs03HazardOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01HazardExpl eSDScom:Ghs07HazardFlamGas eSDScom:Ghs08HazardAerosolPressChem eSDScom:Ghs00HazardOxGas eSDScom:Ghs00HazardPressGas eSDScom:Ghs00HazardFlamLiq eSDScom:Ghs00HazardFlamSol eSDScom:Ghs00HazardSelfReact eSDScom:Ghs00HazardPyrLiq eSDScom:Ghs00HazardPyrSol eSDScom:Ghs00HazardSelfHeat eSDScom:Ghs00HazardWaterReact eSDScom:Ghs00HazardOxLiq eSDScom:Ghs00HazardOxSol eSDScom:Ghs00HazardOrgPerox eSDScom:Ghs00HazardMetCorr eSDScom:Ghs06HazardDesensExpl eSDScom:Ghs00HazardAcuteToxOral eSDScom:Ghs00HazardAcuteToxDermal eSDScom:Ghs00HazardAcuteToxInhal eSDScom:Ghs00HazardSkinCorr eSDScom:Ghs00HazardEyeDam eSDScom:Ghs03HazardRespSens eSDScom:Ghs03HazardSkinSens eSDScom:Ghs00HazardMuta eSDScom:Ghs00HazardCarc eSDScom:Ghs00HazardRepr eSDScom:Ghs00HazardLact eSDScom:Ghs00HazardStotSe eSDScom:Ghs01HazardStotSe3 eSDScom:Ghs00HazardStotRe eSDScom:Ghs01HazardAspTox eSDScom:Ghs01HazardAquaticAcute eSDScom:Ghs01HazardAquaticChronic eSDScom:Ghs03HazardOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Ghs08PrecautionEnum">
         <xs:union
-            memberTypes="SDScom:Ghs08PrecautionExpl SDScom:Ghs08PrecautionFlamGas SDScom:Ghs08PrecautionAerosolPressChem SDScom:Ghs02PrecautionOxGas SDScom:Ghs05PrecautionPressGas SDScom:Ghs05PrecautionFlamLiq SDScom:Ghs02PrecautionFlamSol SDScom:Ghs05PrecautionSelfReact SDScom:Ghs07PrecautionPyrLiq SDScom:Ghs07PrecautionPyrSol SDScom:Ghs07PrecautionSelfHeat SDScom:Ghs05PrecautionWaterReact SDScom:Ghs05PrecautionOxLiq SDScom:Ghs05PrecautionOxSol SDScom:Ghs05PrecautionOrgPerox SDScom:Ghs02PrecautionMetCorr SDScom:Ghs06PrecautionDesensExpl SDScom:Ghs08PrecautionAcuteToxOral SDScom:Ghs08PrecautionAcuteToxDermal SDScom:Ghs08PrecautionAcuteToxInhal SDScom:Ghs08PrecautionSkinCorr SDScom:Ghs08PrecautionEyeDam SDScom:Ghs08PrecautionRespSens SDScom:Ghs08PrecautionSkinSens SDScom:Ghs08PrecautionMuta SDScom:Ghs08PrecautionCarc SDScom:Ghs08PrecautionRepr SDScom:Ghs08PrecautionLact SDScom:Ghs08PrecautionStotSe SDScom:Ghs08PrecautionStotSe3 SDScom:Ghs08PrecautionStotRe SDScom:Ghs08PrecautionAspTox SDScom:Ghs02PrecautionAquaticAcute SDScom:Ghs02PrecautionAquaticChronic SDScom:Ghs03PrecautionOzone"
+            memberTypes="eSDScom:Ghs08PrecautionExpl eSDScom:Ghs08PrecautionFlamGas eSDScom:Ghs08PrecautionAerosolPressChem eSDScom:Ghs02PrecautionOxGas eSDScom:Ghs05PrecautionPressGas eSDScom:Ghs05PrecautionFlamLiq eSDScom:Ghs02PrecautionFlamSol eSDScom:Ghs05PrecautionSelfReact eSDScom:Ghs07PrecautionPyrLiq eSDScom:Ghs07PrecautionPyrSol eSDScom:Ghs07PrecautionSelfHeat eSDScom:Ghs05PrecautionWaterReact eSDScom:Ghs05PrecautionOxLiq eSDScom:Ghs05PrecautionOxSol eSDScom:Ghs05PrecautionOrgPerox eSDScom:Ghs02PrecautionMetCorr eSDScom:Ghs06PrecautionDesensExpl eSDScom:Ghs08PrecautionAcuteToxOral eSDScom:Ghs08PrecautionAcuteToxDermal eSDScom:Ghs08PrecautionAcuteToxInhal eSDScom:Ghs08PrecautionSkinCorr eSDScom:Ghs08PrecautionEyeDam eSDScom:Ghs08PrecautionRespSens eSDScom:Ghs08PrecautionSkinSens eSDScom:Ghs08PrecautionMuta eSDScom:Ghs08PrecautionCarc eSDScom:Ghs08PrecautionRepr eSDScom:Ghs08PrecautionLact eSDScom:Ghs08PrecautionStotSe eSDScom:Ghs08PrecautionStotSe3 eSDScom:Ghs08PrecautionStotRe eSDScom:Ghs08PrecautionAspTox eSDScom:Ghs02PrecautionAquaticAcute eSDScom:Ghs02PrecautionAquaticChronic eSDScom:Ghs03PrecautionOzone"
         />
     </xs:simpleType>
     <xs:simpleType name="GhsPictogramCodeEnum">
@@ -2662,18 +2663,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>List of all Hazard Statement codes across all revisions of GHS. Used in section 16 for the list of H phrases.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="SDScom:Ghs00HazardEnum SDScom:Ghs01HazardEnum SDScom:Ghs02HazardEnum SDScom:Ghs03HazardEnum SDScom:Ghs04HazardEnum SDScom:Ghs05HazardEnum SDScom:Ghs06HazardEnum SDScom:Ghs07HazardEnum SDScom:Ghs08HazardEnum"/>
+        <xs:union memberTypes="eSDScom:Ghs00HazardEnum eSDScom:Ghs01HazardEnum eSDScom:Ghs02HazardEnum eSDScom:Ghs03HazardEnum eSDScom:Ghs04HazardEnum eSDScom:Ghs05HazardEnum eSDScom:Ghs06HazardEnum eSDScom:Ghs07HazardEnum eSDScom:Ghs08HazardEnum"/>
     </xs:simpleType>
     <xs:complexType name="GhsSignalWord">
         <xs:annotation>
             <xs:documentation>GHS Signal Word, ie. danger or warning.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:GhsSignalWordEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:GhsSignalWordEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs00HazardStatement">
@@ -2681,11 +2682,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs00HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs00HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs01HazardStatement">
@@ -2693,11 +2694,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs01HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs01HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs02HazardStatement">
@@ -2705,11 +2706,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs02HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs02HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs03HazardStatement">
@@ -2717,11 +2718,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs03HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs03HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs04HazardStatement">
@@ -2729,11 +2730,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs04HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs04HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs05HazardStatement">
@@ -2741,11 +2742,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs05HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs05HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs06HazardStatement">
@@ -2753,11 +2754,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs06HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs06HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs07HazardStatement">
@@ -2765,11 +2766,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs07HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs07HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs08HazardStatement">
@@ -2777,11 +2778,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs08HazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs08HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="GhsAllHazardStatement">
@@ -2789,11 +2790,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:GhsAllHazardEnum" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:GhsAllHazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs02PrecautionaryStatement">
@@ -2801,11 +2802,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs02PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs02PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs03PrecautionaryStatement">
@@ -2813,11 +2814,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs03PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs03PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs04PrecautionaryStatement">
@@ -2825,11 +2826,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs04PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs04PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs05PrecautionaryStatement">
@@ -2837,11 +2838,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs05PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs05PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs06PrecautionaryStatement">
@@ -2849,11 +2850,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs06PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs06PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs07PrecautionaryStatement">
@@ -2861,11 +2862,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs07PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs07PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs08PrecautionaryStatement">
@@ -2873,11 +2874,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="SDScom:Ghs08PrecautionEnum" minOccurs="1" maxOccurs="5"/>
-            <xs:element name="FullText" type="SDScom:string1024" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs08PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
 </xs:schema>

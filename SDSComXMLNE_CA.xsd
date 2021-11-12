@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5
+National Extension for Canada
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:include schemaLocation="SDSComXMLCT.xsd"/>
     <xs:simpleType name="Whmis2015ClassCategoryEnumRestr">
@@ -14,7 +16,7 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
         </xs:annotation>
         <xs:restriction>
             <xs:simpleType>
-                <xs:restriction base="SDScom:Ghs03ClassCategoryEnum">
+                <xs:restriction base="eSDScom:Ghs03ClassCategoryEnum">
                     <xs:enumeration value="Acute Tox. 5 (oral)"/>
                     <xs:enumeration value="Acute Tox. 5 (dermal)"/>
                     <xs:enumeration value="Acute Tox. 5 (inhalation)"/>
@@ -35,7 +37,7 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Whmis2015ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Whmis2015ClassCategoryEnumRestr SDScom:Whmis2015ClassCategoryEnumExt"/>
+        <xs:union memberTypes="eSDScom:Whmis2015ClassCategoryEnumRestr eSDScom:Whmis2015ClassCategoryEnumExt"/>
     </xs:simpleType>
     <xs:complexType name="ClassificationCA">
         <xs:sequence>
@@ -43,21 +45,21 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
                 <xs:complexType>
                     <xs:sequence>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">
-                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:Whmis2015ClassCategoryEnum"> </xs:element>
-                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:Whmis2015ClassCategoryEnum"> </xs:element>
+                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
                                 <xs:annotation>
                                     <xs:appinfo>SDScomBau</xs:appinfo>
                                     <xs:appinfo>SDScomChem</xs:appinfo>
                                     <xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
+                            <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
                                 <xs:annotation>
                                     <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                         </xs:sequence>
-                        <xs:group ref="SDScom:ClassificationInfo"/>
+                        <xs:group ref="eSDScom:ClassificationInfo"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -66,9 +68,9 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
     <xs:complexType name="HazardLabellingCA"/>
     <xs:complexType name="ComponentCA">
         <xs:complexContent>
-            <xs:extension base="SDScom:Component">
+            <xs:extension base="eSDScom:Component">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationCA"> </xs:element>
+                    <xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationCA"> </xs:element>
                     <xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
                         <xs:annotation>
                             <xs:appinfo>SDScomChem</xs:appinfo>
@@ -92,16 +94,16 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
     </xs:complexType>
     <xs:complexType name="TransportCA">
         <xs:sequence>
-            <xs:element minOccurs="0" name="UnNo" type="SDScom:int4"> </xs:element>
-            <xs:element minOccurs="0" name="ProperShippingName" type="SDScom:Phrase"> </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstance" type="SDScom:Phrase"> </xs:element>
-            <xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
+            <xs:element minOccurs="0" name="UnNo" type="eSDScom:int4"> </xs:element>
+            <xs:element minOccurs="0" name="ProperShippingName" type="eSDScom:Phrase"> </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstance" type="eSDScom:Phrase"> </xs:element>
+            <xs:element minOccurs="0" name="Class" type="eSDScom:TransportClassEnum">
                 <xs:annotation>
                     <xs:documentation>The chemical’s most important transport hazard class. </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element maxOccurs="2" minOccurs="0" name="Subrisk" type="SDScom:TransportClassEnum"/>
-            <xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
+            <xs:element maxOccurs="2" minOccurs="0" name="Subrisk" type="eSDScom:TransportClassEnum"/>
+            <xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
                 <xs:annotation>
                     <xs:appinfo>SDScomBau</xs:appinfo>
                     <xs:appinfo>SDScomChem</xs:appinfo>
@@ -110,10 +112,10 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
             <xs:element minOccurs="0" name="OtherInformation">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="SDScom:string20"> </xs:element>
-                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="SDScom:string20"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="eSDScom:string20"> </xs:element>
+                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="eSDScom:string20"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

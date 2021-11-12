@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5   	
 Basic type definitions
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
 	<xs:simpleType name="string2">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 2 characters.</xs:documentation>
@@ -1103,7 +1104,7 @@ It is used to reference the version number in the XML data file, as the schema n
 		<xs:annotation>
 			<xs:documentation>Name of a separate physical file. For a proper data exchange, the file name should contain no path information or a relative path which applies during information exchange, e.g. within a ZIP file containing SDScom XML and related documents.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="SDScom:string256"/>
+		<xs:restriction base="eSDScom:string256"/>
 	</xs:simpleType>
 	<xs:simpleType name="CasNo">
 		<xs:annotation>
@@ -1344,9 +1345,9 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="PhraseCode" type="SDScom:string64" minOccurs="0"/>
-				<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="PhraseCode" type="eSDScom:string64" minOccurs="0"/>
+				<xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:element name="NewLine">
 				<xs:annotation>
@@ -1354,7 +1355,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 	</xs:complexType>
 	<xs:complexType name="MergePhrase">
@@ -1362,10 +1363,10 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:documentation> Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present. Note the use of MergePhrase restricts the nesting depth to one level. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MergeText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Delimiter" type="SDScom:string3" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergeText" type="eSDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Delimiter" type="eSDScom:string3" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
 		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
 		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
 		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
@@ -1642,8 +1643,8 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 	</xs:simpleType>
 	<xs:group name="Unit">
 		<xs:sequence>
-			<xs:element name="Unit" type="SDScom:UnitEnum"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="SDScom:Phrase"/>
+			<xs:element name="Unit" type="eSDScom:UnitEnum"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:complexType name="NumericValue">
@@ -1653,21 +1654,21 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 	</xs:complexType>
 	<xs:complexType name="NumericValueWithQualifier">
 		<xs:sequence>
-			<xs:element name="ExactValueSymbol" type="SDScom:ExactQualifierEnum" minOccurs="0"/>
+			<xs:element name="ExactValueSymbol" type="eSDScom:ExactQualifierEnum" minOccurs="0"/>
 			<xs:element name="ExactValue" type="xs:float"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NumericValueWithUnit">
 		<xs:complexContent>
-			<xs:extension base="SDScom:NumericValue">
-				<xs:group ref="SDScom:Unit"/>
+			<xs:extension base="eSDScom:NumericValue">
+				<xs:group ref="eSDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="NumericValueWithUnitAndQualifier">
 		<xs:complexContent>
-			<xs:extension base="SDScom:NumericValueWithQualifier">
-				<xs:group ref="SDScom:Unit"/>
+			<xs:extension base="eSDScom:NumericValueWithQualifier">
+				<xs:group ref="eSDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1677,21 +1678,21 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="ExactValueSymbol" type="SDScom:ExactQualifierEnum" minOccurs="0"/>
+				<xs:element name="ExactValueSymbol" type="eSDScom:ExactQualifierEnum" minOccurs="0"/>
 				<xs:element name="ExactValue" type="xs:float" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:sequence>
-				<xs:element name="UpperValueSymbol" type="SDScom:UpperQualifierEnum" minOccurs="0"/>
+				<xs:element name="UpperValueSymbol" type="eSDScom:UpperQualifierEnum" minOccurs="0"/>
 				<xs:element name="UpperValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
-				<xs:element name="LowerValueSymbol" type="SDScom:LowerQualifierEnum" minOccurs="0"/>
+				<xs:element name="LowerValueSymbol" type="eSDScom:LowerQualifierEnum" minOccurs="0"/>
 				<xs:element name="LowerValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="NumericRangeWithUnitAndQualifier">
 		<xs:complexContent>
-			<xs:extension base="SDScom:NumericRangeWithQualifier">
-				<xs:group ref="SDScom:Unit"/>
+			<xs:extension base="eSDScom:NumericRangeWithQualifier">
+				<xs:group ref="eSDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1719,7 +1720,7 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:documentation>Basically a numeric range with a fixed unit "%"</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:NumericRangeWithQualifier"/>
+			<xs:extension base="eSDScom:NumericRangeWithQualifier"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="PhysChemValue">
@@ -1729,13 +1730,13 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="Value" type="SDScom:NumericRangeWithQualifier" minOccurs="0"/>
-					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
+					<xs:element name="Value" type="eSDScom:NumericRangeWithQualifier" minOccurs="0"/>
+					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="eSDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PhysChemUnitValue">
@@ -1745,23 +1746,23 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="UnitValue" type="SDScom:NumericRangeWithUnitAndQualifier" minOccurs="0"/>
-					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
+					<xs:element name="UnitValue" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0"/>
+					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="eSDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:group name="TemperaturePressureGroup">
 		<xs:sequence>
-			<xs:element name="Temperature" type="SDScom:NumericValueWithUnit" minOccurs="0">
+			<xs:element name="Temperature" type="eSDScom:NumericValueWithUnit" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Pressure" type="SDScom:NumericValueWithUnit" minOccurs="0">
+			<xs:element name="Pressure" type="eSDScom:NumericValueWithUnit" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
 				</xs:annotation>
@@ -1773,8 +1774,8 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:documentation> PhysChemValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:PhysChemValue">
-				<xs:group ref="SDScom:TemperaturePressureGroup"/>
+			<xs:extension base="eSDScom:PhysChemValue">
+				<xs:group ref="eSDScom:TemperaturePressureGroup"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1783,8 +1784,8 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:documentation> PhysChemUnitValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:PhysChemUnitValue">
-				<xs:group ref="SDScom:TemperaturePressureGroup"/>
+			<xs:extension base="eSDScom:PhysChemUnitValue">
+				<xs:group ref="eSDScom:TemperaturePressureGroup"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
