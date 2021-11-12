@@ -3109,18 +3109,6 @@ Expected value: Phrase</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="PositiveEcolabelling">
-				<xs:annotation>
-					<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="EcoLabelName" type="SDScom:string64"/>
-						<xs:element minOccurs="0" name="ExpirationDate" type="date"/>
-						<xs:element minOccurs="0" name="LicenceNo" type="SDScom:string64"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
