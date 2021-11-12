@@ -153,16 +153,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                             <xs:documentation> Product Subcategory: The type of paint or varnish </xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="VocLimitForSubcategory" type="SDScom:UnitValue">
+                                    <xs:element minOccurs="0" name="VocLimitForSubcategory" type="SDScom:NumericValueWithUnitAndQualifier">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
-                                            <xs:documentation> Maximum VOC content limit for the mixture: The maximum concentration of VOC in the actual product. To begiven i gram per litre. </xs:documentation>
+                                            <xs:documentation>Maximum VOC content limit for the mixture: The maximum concentration of VOC in the actual product. To be given in grams per litre. </xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="MaxVocConcInMixture" type="SDScom:UnitValue">
+                                    <xs:element minOccurs="0" name="MaxVocConcInMixture" type="SDScom:NumericValueWithUnitAndQualifier">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
-                                            <xs:documentation> Actual max. concentration in the mixture: The concentration of VOC in the mixture. To begiven i gram per litre. </xs:documentation>
+                                            <xs:documentation>Actual max. concentration in the mixture: The concentration of VOC in the mixture. To be given in grams per litre. </xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
                                 </xs:sequence>
@@ -222,14 +222,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 https://www.osha.gov/SLTC/hazardoustoxicsubstances/requirements.html</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
-                                            <xs:element minOccurs="0" name="Sara313Threshold" type="SDScom:Value">
+                                            <xs:element minOccurs="0" name="Sara313Threshold" type="SDScom:NumericValue">
                                                 <xs:annotation>
                                                     <xs:documentation>Superfund Amendments and Reauthorization Act</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
-                                            <xs:element minOccurs="0" name="Sara302HazardousRQ" type="SDScom:Value"/>
-                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="SDScom:Value"/>
-                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="SDScom:Value"/>
+                                            <xs:element minOccurs="0" name="Sara302HazardousRQ" type="SDScom:NumericValue"/>
+                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="SDScom:NumericValue"/>
+                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="SDScom:NumericValue"/>
                                             <xs:element minOccurs="0" name="CwaToxicPollutant" type="boolean">
                                                 <xs:annotation>
                                                     <xs:documentation>Clean Water Act</xs:documentation>

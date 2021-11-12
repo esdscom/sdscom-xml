@@ -850,7 +850,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 			<xs:element name="Value" type="SDScom:NumericValueWithQualifier" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A numerical value with unit and qualifier that quantifies (associates a value) the condition phrase.</xs:documentation>
+					<xs:documentation>A numerical value with qualifier that quantifies (associates a value) the condition phrase.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1172,7 +1172,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Specifies how the exposure level is calculated for the human exposure route associated to it. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RCR" type="SDScom:NumericValueWithQualifier" minOccurs="0" maxOccurs="1">
+			<xs:element name="RCR" type="SDScom:NumericValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the risk characterization ratio (RCR) of the value of the exposure level. It is obtained for every route by comparing the exposure level to the derived no-effect level (DNEL). Expected value: Numeric value</xs:documentation>
 				</xs:annotation>
@@ -1363,7 +1363,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Describes the method used to determine the exposure level value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RCR" type="SDScom:NumericValueWithQualifier" minOccurs="0" maxOccurs="1">
+			<xs:element name="RCR" type="SDScom:NumericValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the risk characterization ratio (RCR) for the value of the exposure level. It is obtained for every compartment by comparing the exposure level to the predicted no-effect concentration (PNEC).</xs:documentation>
 				</xs:annotation>
@@ -1877,13 +1877,13 @@ Expected value: Phrase</xs:documentation>
 						<xs:element name="Properties">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="MaxDuration" type="SDScom:ExactUnitValue">
+									<xs:element minOccurs="0" name="MaxDuration" type="SDScom:NumericValueWithUnit">
 										<xs:annotation>
 											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="SDScom:Phrase"/>
-									<xs:element minOccurs="0" name="AirExchangeRate" type="SDScom:ExactUnitValue">
+									<xs:element minOccurs="0" name="AirExchangeRate" type="SDScom:NumericValueWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
 										</xs:annotation>
@@ -2849,11 +2849,12 @@ Expected value: Phrase</xs:documentation>
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Restrictions related to the use of volatile organic compounds: Directive 2004/42/EC amending 1999/13/EC</xs:documentation>
+								<xs:documentation>Restrictions related to the use of volatile organic compounds: Directive 2004/42/EC amending 1999/13/EC.
+This should be an exact value, not a range. But for reasons of ingredient nondisclosure, some companies decide to provide a range here.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="VocInPercentByWeight" type="SDScom:PercentageValue">
+									<xs:element minOccurs="0" name="VocInPercentByWeight" type="SDScom:PercentageRange">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2887,11 +2888,12 @@ Expected value: Phrase</xs:documentation>
 						</xs:element>
 						<xs:element minOccurs="0" name="IndustrialEmissions">
 							<xs:annotation>
-								<xs:documentation>Directive 2010/75/EU</xs:documentation>
+								<xs:documentation>Directive 2010/75/EU
+This should be an exact value, not a range. But for reasons of ingredient nondisclosure, some companies decide to provide a range here.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="VocInPercentByWeight" type="SDScom:PercentageValue"/>
+									<xs:element minOccurs="0" name="VocInPercentByWeight" type="SDScom:PercentageRange"/>
 									<xs:element minOccurs="0" name="VocValue" type="SDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:documentation>Voc contents: To be usually measured in g/L</xs:documentation>

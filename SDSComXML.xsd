@@ -101,7 +101,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 											<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="PackagingSize" type="SDScom:UnitValue"/>
+									<xs:element minOccurs="0" name="PackagingSize" type="SDScom:NumericRangeWithUnitAndQualifier"/>
 									<xs:element minOccurs="0" name="PackagingMaterial" type="SDScom:PackagingMaterialEnum"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingMaterialDescription" type="SDScom:Phrase">
 										<xs:annotation>

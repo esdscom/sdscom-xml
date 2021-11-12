@@ -118,7 +118,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<!-- ******************************************************************** TaLuft ********************* -->
 	<xs:complexType name="TaLuft">
 		<xs:sequence>
-			<xs:element name="WeightFraction" type="SDScom:UnitValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="WeightFraction" type="SDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ClassOrClasses" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="No" type="SDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Remark" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
