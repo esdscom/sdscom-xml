@@ -1456,7 +1456,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
-									<xs:documentation>Version Number: The version of the eSDScom standard which is applied in the transmission of information. 
+									<xs:documentation>The version of the eSDScom standard which is applied in the transmission of information. This version number also denotes the minimum version number for eSDScom phrase IDs referenced in the XML file.
 For backward compatibility, the tag name is still SDScom, although the standard now includes ESCom exposure scenarios and is thus named eSDScom.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
@@ -1478,7 +1478,7 @@ For backward compatibility, the tag name is still SDScom, although the standard 
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
-									<xs:documentation>The language of the information, stated in a format according to ISO 639-1 (2 letters) followed by textual name </xs:documentation>
+									<xs:documentation>The default language of the information, stated in a format according to ISO 639-1 (2 letters) followed by textual name </xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>

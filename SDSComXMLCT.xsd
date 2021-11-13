@@ -1112,7 +1112,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+		<xs:attribute name="PhraseCatalogueId" type="eSDScom:EsdscomPhraseCatalogueId" default="0"/>
 	</xs:complexType>
 	<!-- ****************************************************************************** Stoerfallverordnung ***** -->
 	<!-- ****************************************************************************** Transport Types ***** -->

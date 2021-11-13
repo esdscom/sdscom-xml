@@ -833,7 +833,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Describes the maximum amount of a substance (or product) that can be used safely under the conditions communicated in the ES. It can be expressed by using different units of measure, such as kg/day, tonnes/year.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CriticalCompartmentForMsafe" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="CriticalCompartmentForMsafe" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the compartment that has triggered the Msafe.</xs:documentation>
 				</xs:annotation>
@@ -845,7 +845,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>An operational condition of a use specified as a phrase with a value. The value is a numeric value with qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type. Note that this data element does not provide details about the unit of measure to which the numeric value belongs. The operational condition, which the data element uses, defines the unit of measure.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ConditionPhrase" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ConditionPhrase" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
 				</xs:annotation>
@@ -862,7 +862,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>An operational condition of a use specified as a phrase with a value. The value is a numeric value with unit and qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ConditionPhrase" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ConditionPhrase" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
 				</xs:annotation>
@@ -879,7 +879,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>An operational condition of a use specified as a phrase with a value. The value is a numeric value with unit and qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ConditionPhrase" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ConditionPhrase" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
 				</xs:annotation>
@@ -924,7 +924,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>A risk management measure related to waste.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MeasurePhrase" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the risk management measure.</xs:documentation>
 				</xs:annotation>
@@ -941,12 +941,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that provides details about a scaling tool used in section 4 as additional advice to the downstream users, if appropriate.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ScalingTool" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ScalingTool" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Indicates the tool that can be used for scaling. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ScalingInstructions" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ScalingInstructions" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Indicates the boundaries that have to be considered and the scalable parameters for a specific scaling tool. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -963,7 +963,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes further operational conditions and risk management measures for the exposure of a substance to environment, worker or consumer.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="AdditionalGoodPracticeAdvice" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="AdditionalGoodPracticeAdvice" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes good practice information that the supplier chooses to include in addition to the obligatory measures, as advice to the downstream user. Expected value: Phrase or numeric value or both</xs:documentation>
 				</xs:annotation>
@@ -975,7 +975,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes for which characteristics a contributing scenario is relevant.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="PhysicalForm" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="PhysicalForm" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the physical form of the product (or article) assessed in the contributing scenario (CS); whether it is gaseous, liquid or solid. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -998,14 +998,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				Information Requirements and Chemical Safety Assessment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="LifeCycleStage" type="eSDScom:Phrase">
+			<xs:element name="LifeCycleStage" type="eSDScom:EsdscomPhrase">
 				<xs:annotation>
 					<xs:documentation>Defines the Life Cycle Stage (formulation, industrial use, professional use, consumer use, service life consumer, service life worker) as defined in rule 1.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
 				<xs:sequence minOccurs="0">
-					<xs:element name="SSTMarketInformationProductCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+					<xs:element name="SSTMarketInformationProductCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Phrase that constitutes the first part of the second identifier of the short title, in case Product Categories (PCs) are relevant, as defined in rule 1.</xs:documentation>
 						</xs:annotation>
@@ -1017,7 +1017,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:element>
 				</xs:sequence>
 				<xs:sequence minOccurs="0">
-					<xs:element name="SSTMarketInformationArticleCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+					<xs:element name="SSTMarketInformationArticleCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Phrase that constitutes the first part of the second identifier of the short title, in case Article Categories (ACs) are relevant, as defined in rule 1.</xs:documentation>
 						</xs:annotation>
@@ -1029,7 +1029,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:element>
 				</xs:sequence>
 			</xs:choice>
-			<xs:element name="SSTMarketInformationSectorOfUse" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="SSTMarketInformationSectorOfUse" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Describes the sector of use (SU) considered by the calculation of the structured short title for an exposure scenario as defined in rule 2.</xs:documentation>
 				</xs:annotation>
@@ -1039,7 +1039,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Values for printing SU codes, as intended by the author of the Structured Short Title.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SSTAdditionalInformation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SSTAdditionalInformation" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The field conveys the phrases that consitute the third identifier for the SST as defined in rules 3.1 and 3.2</xs:documentation>
 				</xs:annotation>
@@ -1083,7 +1083,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Specifies the water flow rate (receiving surface water) in m³/d into which the effluent is discharged; the default value is 18,000 m³/d. Expected value: Numeric value</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OutdoorIndoorActivity" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="OutdoorIndoorActivity" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies whether the process or the activity takes place indoor or outdoor. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1095,7 +1095,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>A risk management measure for a use relevant to workers or consumers (human health).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MeasurePhrase" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the risk management measure.</xs:documentation>
 				</xs:annotation>
@@ -1117,12 +1117,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes other conditions affecting the worker's exposure. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="OutdoorIndoorActivity" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="OutdoorIndoorActivity" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies whether the process or the activity takes place indoor or outdoor. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProfessionalIndustrialIndicator" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ProfessionalIndustrialIndicator" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies whether the assessment has been done assuming professional or industrial settings. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1149,17 +1149,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes the target route for a given human health exposure.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ExposureRoute" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ExposureRoute" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the exposure route for which the exposure level has been measured or calculated. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HealthEffect" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="HealthEffect" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the effect on the considered route caused by the exposure to the substance (or product). Expected value: Phrase</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ShortLongTermIndicator" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ShortLongTermIndicator" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the kind of exposure, for example short term or long term exposure. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1169,7 +1169,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Specifies the exposure level value measured or calculated for the human route associated to it. Expected value: Numeric value</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CalculationMethod" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="CalculationMethod" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies how the exposure level is calculated for the human exposure route associated to it. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1220,12 +1220,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>An enumeration that defines the heading within section 2 of the exposure scenario for communication to which the condition or measure is assigned.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Type" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Type" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the type of an operational condition or a risk management measure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ConditionMeasure" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ConditionMeasure" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the condition of use or the risk management measure.</xs:documentation>
 				</xs:annotation>
@@ -1264,7 +1264,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes the duration and the frequency of a process or an activity during which a substance is released to the environment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ExposureType" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ExposureType" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the exposure of the type of release to the environmental compartment, i.e. whether the releases are "continuous" or "intermittent".</xs:documentation>
 				</xs:annotation>
@@ -1286,12 +1286,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>An enumeration that defines the heading within section 2 of the exposure scenario for communication to which the condition or measure is assigned.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Type" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="Type" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the type of an operational condition or a risk management measure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ConditionMeasure" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ConditionMeasure" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the condition of use or the risk management measure.</xs:documentation>
 				</xs:annotation>
@@ -1328,7 +1328,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that provides the initial release of a substance to the environment from a process or during an activity together with the method that has been used to derive this information.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ReleaseRoute" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="ReleaseRoute" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Release route to which the release rate reported refers. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1338,7 +1338,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Release rate value for the release route specified. Expected value: Numeric value</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReleaseEstimationMethod" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="ReleaseEstimationMethod" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Describes the method used to determine the initial release of a substance to the environment from a process or during an activity. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1350,7 +1350,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes an estimated exposure level for a given environmental compartment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Compartment" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="Compartment" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the compartment, for example air, freshwater, freshwater sediment, or soil to which the exposure level reported refers to.</xs:documentation>
 				</xs:annotation>
@@ -1360,7 +1360,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Specifies the exposure level value measured or calculated for the environmental compartment associated to it.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CalculationMethod" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="CalculationMethod" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Describes the method used to determine the exposure level value.</xs:documentation>
 				</xs:annotation>
@@ -1377,7 +1377,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>A risk management measure related to the environment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MeasurePhrase" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the risk management measure.</xs:documentation>
 				</xs:annotation>
@@ -1404,7 +1404,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Specifies a generic risk management measure.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MeasurePhrase" type="eSDScom:Phrase" minOccurs="1" maxOccurs="1">
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
 				</xs:annotation>
@@ -1426,12 +1426,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Specifies the type of sewage treatment plant that is used to treat the waste water from the activities covered by the exposure scenario before their release to the environment. The value of effectiveness specifies the value in a percentage of a substance which is removed from waste water by the sewage treatment plant. Expected value: Phrase (+ effectiveness)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="STPTypeAdditionalInformation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="STPTypeAdditionalInformation" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Specifies additional technical details on the type of treatment applied in the plant.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SludgeTreatment" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SludgeTreatment" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Specifies the way in which the sludge coming from the sewage treatment is processed or cannot be used.</xs:documentation>
 				</xs:annotation>
@@ -1448,7 +1448,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes the risk management measures for consumer consideration.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ConsumerProtection" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="ConsumerProtection" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Indicates safety advice to be conveyed to consumers in order to reduce exposure. This may include instructions for use.</xs:documentation>
 				</xs:annotation>
@@ -1460,7 +1460,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Section that describes other conditions affecting the consumer's exposure. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="OutdoorIndoorActivity" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="OutdoorIndoorActivity" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies whether the activity takes place indoor or outdoor. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1489,7 +1489,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Describes the global unique identifier that is generated by the system and that identifies the contributing scenario for the worker. Expected value: UUID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ContributingScenarioName" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="ContributingScenarioName" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Name that describes the contributing scenario for workers. Expected value: Phrase</xs:documentation>
 				</xs:annotation>
@@ -1514,7 +1514,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="ExposureEstimationAdditionalDetails" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="AdditionalDetails" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="AdditionalDetails" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Includes additional information for the downstream users beyond the numerical estimates and releases, e.g. related to the scope and details of the exposure assessment.</xs:documentation>
 							</xs:annotation>
@@ -1528,12 +1528,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:complexContent>
 			<xs:extension base="eSDScom:ContributingScenario">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Sperc" type="eSDScom:Phrase">
+					<xs:element minOccurs="0" name="Sperc" type="eSDScom:EsdscomPhrase">
 						<xs:annotation>
 							<xs:documentation>SpERC = Specific Environmental Release Category. The phrase text is expected to hold the wording, the phrase OriginalCode is expected to hold the SpERC code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="EnvironmentalReleaseCategory" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="EnvironmentalReleaseCategory" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes the environmental release categories that are covered by the assessment described in the specific contributing scenario. This description is made via the Use Descriptor System defined in chapter R.12 of the ECHA guidance on information requirements.</xs:documentation>
 						</xs:annotation>
@@ -1610,7 +1610,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:element name="HumanFactors" minOccurs="0" maxOccurs="1">
 						<xs:complexType>
 							<xs:sequence>
-								<xs:element name="BodyPartsExposed" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+								<xs:element name="BodyPartsExposed" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 									<xs:annotation>
 										<xs:documentation>Body parts that have been considered in the assessment. Expected value: Phrase</xs:documentation>
 									</xs:annotation>
@@ -1630,12 +1630,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:annotation>
 			<xs:extension base="eSDScom:ContributingScenarioHH">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Swed" type="eSDScom:Phrase">
+					<xs:element minOccurs="0" name="Swed" type="eSDScom:EsdscomPhrase">
 						<xs:annotation>
 							<xs:documentation>SWED = Specific Worker Exposure Description. The phrase text is expected to hold the wording, the phrase OriginalCode is expected to hold the SWED code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="ProcessCategory" type="eSDScom:Phrase">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="ProcessCategory" type="eSDScom:EsdscomPhrase">
 						<xs:annotation>
 							<xs:documentation>Describes the process categories that are covered by the assessment described in the specific contributing scenario. This description is made via the Use Descriptor System defined in chapter R.12 of the ECHA guidance on information requirements.
 
@@ -1679,27 +1679,27 @@ Expected value: Phrase (+ effectiveness)</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="eSDScom:ContributingScenarioHH">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Sced" type="eSDScom:Phrase">
+					<xs:element minOccurs="0" name="Sced" type="eSDScom:EsdscomPhrase">
 						<xs:annotation>
 							<xs:documentation>SCED = Specific Consumer Exposure Description. The phrase text is expected to hold the wording, the phrase OriginalCode is expected to hold the SCED code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ArticleCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="ArticleCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes the article categories (AC) that are covered by the assessment described in the specific contributing scenario. The list of ACs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ArticleSubCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="ArticleSubCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes the article sub-categories that are covered by the assessment described in the specific contributing scenario, where additional details with respect to what is included in the field for ACs are needed.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ProductCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="ProductCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes the product categories (PC) that are covered by the assessment described in the specific contributing scenario. The list of PCs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ProductSubCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="ProductSubCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes the product sub-categories that are covered by the assessment described in the specific contributing scenario, where additional details with respect to what is included in the field for PCs are needed.</xs:documentation>
 						</xs:annotation>
@@ -1725,18 +1725,18 @@ Expected value: Phrase (+ effectiveness)</xs:documentation>
 					<xs:documentation>Describes the version date of an exposure scenario in XML date format; the version date and the IdentificationString indicate changes or updates to an exposure scenario.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExposureScenarioName" type="eSDScom:Phrase" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="ExposureScenarioName" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Title of the exposure scenario.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Scope" type="eSDScom:Phrase"/>
-			<xs:element name="LifeCycleStage" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Scope" type="eSDScom:EsdscomPhrase"/>
+			<xs:element name="LifeCycleStage" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Stage of the life cycle of the substance (or product) to which information communicated in the ES refer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MainUserGroup" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+			<xs:element name="MainUserGroup" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specifies the main user groups in the life cycle of a substance (or product) as key descriptor (SU 3, 21, 22).</xs:documentation>
 				</xs:annotation>
@@ -1746,17 +1746,17 @@ Expected value: Phrase (+ effectiveness)</xs:documentation>
 					<xs:documentation>Specifies the order of an exposure scenario within the annex of the extended safety data sheet.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SectorOfUse" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SectorOfUse" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the sectors of use (SU) that apply to an exposure scenario with the aim to give information on the scope, e.g. in which markets the product is used or in which the activity takes place. The list of SUs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MarketInformationProductCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="MarketInformationProductCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the product categories (PC) that apply to an exposure scenario to give information on the scope, e.g. in which product(s) the substance is used. The list of PCs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MarketInformationArticleCategory" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="MarketInformationArticleCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the article categories (AC) that apply to an exposure scenario to give information on the scope, e.g. in which articles(s) the substance is used or ends up in. The list of ACs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
 				</xs:annotation>
@@ -1769,7 +1769,7 @@ Expected value: Phrase (+ effectiveness)</xs:documentation>
 			<xs:element name="GuidanceToDU" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="GuidanceText" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="GuidanceText" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Provides information that helps downstream users to evaluate whether they are working within the boundaries set by the exposure scenario.</xs:documentation>
 							</xs:annotation>
@@ -1804,14 +1804,14 @@ Expected value: Phrase (+ effectiveness)</xs:documentation>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="LeadPrioritySubstance">
 						<xs:complexType>
 							<xs:sequence>
-								<xs:element maxOccurs="1" minOccurs="1" name="Type" type="eSDScom:Phrase">
+								<xs:element maxOccurs="1" minOccurs="1" name="Type" type="eSDScom:EsdscomPhrase">
 									<xs:annotation>
 										<xs:documentation>Specifies whether a component in a mixture is a priority or a lead substance.
 
 Expected value: Phrase</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="unbounded" minOccurs="0" name="Hazard" type="eSDScom:Phrase">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="Hazard" type="eSDScom:EsdscomPhrase">
 									<xs:annotation>
 										<xs:documentation>Provides the exposure pathway in case of a lead substance or the type of a priority substance.
 
@@ -2135,11 +2135,16 @@ Expected value: Phrase</xs:documentation>
 			<xs:documentation> Supplemental Hazard Information Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="PhraseId" type="eSDScom:EsdscomPhraseId">
+				<xs:annotation>
+					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:SupplementalHazardInformationEnum"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
 		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
 	</xs:complexType>
 	<xs:simpleType name="SpecialSupplementalLabelInfoEnum">
@@ -2167,11 +2172,16 @@ Expected value: Phrase</xs:documentation>
 			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="PhraseId" type="eSDScom:EsdscomPhraseId">
+				<xs:annotation>
+					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:SpecialSupplementalLabelInfoEnum"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
 		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
 	</xs:complexType>
 	<xs:simpleType name="Atp14SpecialSupplementalLabelInfoEnum">
@@ -2201,11 +2211,16 @@ Expected value: Phrase</xs:documentation>
 			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="PhraseId" type="eSDScom:EsdscomPhraseId">
+				<xs:annotation>
+					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:Atp14SpecialSupplementalLabelInfoEnum"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
 		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
 	</xs:complexType>
 	<xs:complexType name="HazardLabellingEU">
