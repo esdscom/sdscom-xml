@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5
+National Extension for Denmark
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:include schemaLocation="SDSComXMLCT.xsd"/>
     <xs:simpleType name="DkMalCode">
@@ -22,8 +24,8 @@ Possible representation in one pattern: (00|[0-5])-[0-6]</xs:documentation>
             <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element minOccurs="0" name="MalCodeDeliveryState" type="SDScom:DkMalCode"/>
-            <xs:element minOccurs="0" name="MalCodeReadyToUse" type="SDScom:DkMalCode">
+            <xs:element minOccurs="0" name="MalCodeDeliveryState" type="eSDScom:DkMalCode"/>
+            <xs:element minOccurs="0" name="MalCodeReadyToUse" type="eSDScom:DkMalCode">
                 <xs:annotation>
                     <xs:documentation>If the application requires mixing or thinning, Mal codes should be determined also for the ready to use product. Omit if this is not the case.</xs:documentation>
                 </xs:annotation>

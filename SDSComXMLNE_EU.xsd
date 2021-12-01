@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5
+National Extension for the European Union
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLDT_GHS.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
@@ -59,13 +61,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> SectorOfUse, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="SuCode" type="SDScom:SectorOfUseCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="SuCode" type="eSDScom:SectorOfUseCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="SuFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="SuFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -127,13 +129,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> ProductCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="PcCode" type="SDScom:ProductCategoryCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="PcCode" type="eSDScom:ProductCategoryCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="PcFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="PcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -184,13 +186,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> ProcessCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="ProcCode" type="SDScom:ProcessCategoryCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="ProcCode" type="eSDScom:ProcessCategoryCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="ProcFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="ProcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -232,13 +234,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> ArticleCategory, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="AcCode" type="SDScom:ArticleCategoryCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="AcCode" type="eSDScom:ArticleCategoryCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="AcFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="AcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -284,13 +286,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> Environmental Release Category, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="ErcCode" type="SDScom:EnvironmentalReleaseCategoryCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="ErcCode" type="eSDScom:EnvironmentalReleaseCategoryCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="ErcFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="ErcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -315,13 +317,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Specific Environmental Release Category, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="SpercCode" type="SDScom:SpecificEnvironmentalReleaseCategoryCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="SpercCode" type="eSDScom:SpecificEnvironmentalReleaseCategoryCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="SpercFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="SpercFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -331,216 +333,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	</xs:complexType>
 	<xs:simpleType name="EupcsCategoryCodeEnum">
 		<xs:annotation>
-			<xs:documentation>Use codes according to the European Product Categorisation System EuPCS, as covered by Iuclid6 picklist PG6-60567 V1.1:
-64945 F Mixtures for further formulation
-64877 PC-ADH-1 Adhesives and sealants - household, office or school use
-64878 PC-ADH-2 Adhesives and sealants - building and construction works (except cement based adhesives)
-64879 PC-ADH-3 Adhesives and sealants - footwear and leather goods
-64880 PC-ADH-4 Adhesives and sealants - paper and board related processes
-64881 PC-ADH-5 Adhesives and sealants - transportation industry
-64882 PC-ADH-6 Adhesives and sealants - woodworking and joinery (includes putty)
-64883 PC-ADH-7 Adhesives and sealants - assembly line processes
-64884 PC-ADH-8 Multi-component adhesives and sealants
-64886 PC-ADH-OTH Other adhesives and sealants
-64946 PC-AIR-1 Air care products for indoor rooms (continuous action)
-64947 PC-AIR-2 Air care products for indoor rooms (instant action)
-64948 PC-AIR-3 Air care products for shoes
-64949 PC-AIR-4 Air care products for vehicles
-64950 PC-AIR-5 Ambient deodorisers (excludes room deodorisers)
-64951 PC-AIR-6 Incense
-64952 PC-AIR-7 Candles - scented and unscented
-64953 PC-AIR-8 Matches
-64954 PC-AIR-OTH Other air care products
-64955 PC-ANI-1 Additives and premixtures for animal feed
-64956 PC-ANI-2 Animal shampoos and conditioners
-64957 PC-ANI-OTH Other products for animals (excluding biocidal products)
-64958 PC-ART-1 Artists’, craft and hobby paints
-64959 PC-ART-2 Finger paints
-64960 PC-ART-3 Crayons, chalks and pastels
-64961 PC-ART-4 Auxiliary materials for artists
-64962 PC-ART-5 Modelling compounds
-64963 PC-ART-6 Chemical products used for decorative purposes
-64964 PC-ART-OTH Other art materials (including chemical products used for decorative purposes)
-64965 PC-CLN-1 Abrasive cleaning products
-64966 PC-CLN-2 All-purpose (or multi-purpose) non-abrasive cleaners
-64967 PC-CLN-3 Bleaching products for cleaning or laundry use (excludes biocidal products)
-64968 PC-CLN-4 Descaling products
-64969 PC-CLN-5 Drain cleaning products
-64970 PC-CLN-6 Fireplace and smoke resin cleaners
-64971 PC-CLN-7 Glass/window/mirror cleaning products (excludes windscreens)
-64972 PC-CLN-8 Indoor furniture cleaning/care products (excludes leather and upholstery)
-64973 PC-CLN-9 Outdoor cleaners (excludes stone, concrete and similar surfaces)
-64974 PC-CLN-10.1 Cleaners for kitchen areas
-64975 PC-CLN-10.2 Cleaners for kitchen machinery and equipment
-64976 PC-CLN-10.3 Cooking hob cleaning/care products
-64977 PC-CLN-10.4 Oven, grill or barbecue cleaners
-64978 PC-CLN-10.OTH Other kitchen and related cleaning products
-64979 PC-CLN-11.1 Bathroom cleaners
-64980 PC-CLN-11.2 Toilet cleaners
-64981 PC-CLN-11.3 Multi-flush products for toilets
-64982 PC-CLN-11.OTH Other bathroom and toilet cleaning/care products (excludes biocidal products)
-64983 PC-CLN-12.1 Cleaning/care products for stone and tiles - regular use
-64984 PC-CLN-12.2 Heavy duty cleaning products for stone and similar surfaces
-64985 PC-CLN-12.3 Grout cleaners
-64986 PC-CLN-12.OTH Other stone, tile and grout cleaning/care products
-64987 PC-CLN-13.2 Floor cleaning products
-64988 PC-CLN-13.3 Floor care products e.g. waxes, emulsions
-64989 PC-CLN-13.4 Floor strippers
-64990 PC-CLN-13.OTH Other floor cleaning, care and maintenance products (excludes stone and tile)
-64991 PC-CLN-14.1 Cleaning products for carpet/upholstery
-64992 PC-CLN-14.2 Deodorisers or fresheners for carpet/upholstery
-64993 PC-CLN-14.OTH Other carpet and upholstery products
-64994 PC-CLN-15.1 Cleaners for eyewear
-64995 PC-CLN-15.2 Cleaners for home electronic screens
-64996 PC-CLN-15.3 Cleaners for musical instruments
-64997 PC-CLN-15.4 Metal polish/tarnish remover
-64998 PC-CLN-15.OTH Other cleaners for specific personal items
-64999 PC-CLN-16.1 Leather - cleaning and care productsPoison Centres Notification Format
-65000 PC-CLN-16.2 Textile footwear - cleaning products
-65001 PC-CLN-16.3 Textile fresheners/deodorisers
-65002 PC-CLN-16.4 Dry cleaning and associated products
-65003 PC-CLN-16.5 Impregnation products for finished textiles and leather goods
-65004 PC-CLN-16.6 Outdoor textiles - cleaning products
-65005 PC-CLN-16.OTH Other textile and leather cleaning and care products (including footwear)
-65006 PC-CLN-17.1 Exterior cleaning products - all vehicle types
-65007 PC-CLN-17.2 Exterior care products - all vehicle types
-65008 PC-CLN-17.3 Interior cleaning and care products (excludes air care products, and products for upholstery or leather)
-65009 PC-CLN-17.4 Engine cleaners
-65010 PC-CLN-17.5 Brake cleaners
-65011 PC-CLN-17.6 Chromium, rim and other metal cleaners - all vehicle types
-65012 PC-CLN-17.7 Windscreen/windshield cleaners
-65013 PC-CLN-17.8 Windscreen/windshield wash fluid
-65014 PC-CLN-17.OTH Other vehicle (all types) cleaning and care products
-65015 PC-CLN-OTH Other cleaning, care and maintenance products (excludes biocidal products)
-65016 PC-COL-1 Dyes
-65017 PC-COL-2 Pigments
-65018 PC-CON-1 Cement
-65019 PC-CON-2 Concrete
-65020 PC-CON-3 Gypsum
-65021 PC-CON-4 Mortars
-65022 PC-CON-5 Construction chemicals
-65023 PC-CON-OTH Other construction products
-65024 PC-DET-1.1 Laundry detergent for hand washing
-65025 PC-DET-1.2 Laundry detergents - household usePoison Centres Notification Format
-65026 PC-DET-1.3 Laundry detergents - professional or industrial use
-65027 PC-DET-1.OTH Other laundry detergents
-65028 PC-DET-2.1 Detergency boosters and in-wash stain removers
-65029 PC-DET-2.2 Fabric softeners
-65030 PC-DET-2.3 Ironing aid products
-65031 PC-DET-2.4 Laundry starch
-65032 PC-DET-2.5 Pre-treatment stain removers
-65033 PC-DET-2.6 Rinse agents for laundry (excludes biocidal products)
-65034 PC-DET-2.7 Washing machine care agents
-65035 PC-DET-2.8 Whitening agents or optical brighteners
-65036 PC-DET-2.OTH Other auxiliary laundry and care products (excludes biocidal products)
-65037 PC-DET-3.1 Automatic dishwashing detergents - household use
-65038 PC-DET-3.2 Automatic dishwashing detergents - professional or industrial use
-65039 PC-DET-3.3 Hand dishwashing detergents
-65040 PC-DET-3.OTH Other dishwashing detergents
-65041 PC-DET-4.1 Dishwasher salt
-65042 PC-DET-4.2 Dishwashing machine care agents
-65043 PC-DET-4.3 Glass protection products
-65044 PC-DET-4.4 Rinse agents for dishes
-65045 PC-DET-4.OTH Other auxiliary dishwashing and care products
-65046 PC-ELQ E-liquids and mixtures for electronic cigarettes
-65047 PC-FER-1 Fertilisers
-65048 PC-FER-2 Liming material
-65049 PC-FER-3 Soil improvers
-65050 PC-FER-4 Growing media
-65051 PC-FER-5 Agronomic additivesPoison Centres Notification Format
-65052 PC-FER-6 Plant biostimulants
-65053 PC-FER-7 Combination of fertilisers and fertilising products
-65054 PC-FUE-1 Fuels for vehicles and machinery
-65055 PC-FUE-2 Lamp oils
-65056 PC-FUE-3 Grill lighter fluids
-65057 PC-FUE-4 Camp fuels
-65058 PC-FUE-5 Fuel additives and fuel components
-65059 PC-FUE-OTH Other fuels
-65060 PC-INK-1 Writing and drawing inks
-65061 PC-INK-2 Inks and toners for home and office printers
-65062 PC-INK-3 Commercial printing inks, toners and related finishing products
-65063 PC-INK-4 Pressroom chemicals
-65064 PC-INK-5 Correction fluids
-65065 PC-INK-OTH Other inks, toners and related printing materials
-65066 PC-PNT-1 Aerosol paints and coatings
-65067 PC-PNT-2 Paints/coatings - Decorative
-65068 PC-PNT-3 Paints/coatings - Protective and functional
-65069 PC-PNT-4 Marine vessel coatings (excludes anti-fouling products)
-65070 PC-PNT-5 Automotive and aerospace coatings
-65071 PC-PNT-6 Factory-applied coatings (excludes categories already covered)
-65072 PC-PNT-7 Paint removers, thinners and related auxiliaries
-65073 PC-PNT-OTH Other paints and coating materials
-65074 PC-PYR-1 Fire works for indoor use
-65075 PC-PYR-2 Fire works for outdoor use
-65076 PC-PYR-3 Theatrical pyrotechnic products
-65077 PC-PYR-4 Signalling productsPoison Centres Notification Format
-65078 PC-PYR-OTH Other pyrotechnic products
-65079 PC-TAT Tattoo inks
-65080 PC-TEC-1 Adsorbents
-65081 PC-TEC-2 Antifreeze and de-icing products
-65082 PC-TEC-3 Desiccants
-65083 PC-TEC-4 Electrolytes for batteries
-65084 PC-TEC-5 Fire extinguishers
-65085 PC-TEC-6 Fragrances
-65086 PC-TEC-7 Heat transfer fluids
-65087 PC-TEC-8 Hydraulic fluids, including brake and transmission fluids
-65088 PC-TEC-9 Intermediates
-65089 PC-TEC-10 Leather treatment products (excludes dyes and pigments)
-65090 PC-TEC-11 Lubricants, greases, release agents
-65091 PC-TEC-12 Metal surface treatment products
-65092 PC-TEC-13 Metal working fluids
-65093 PC-TEC-14 Paper and board treatment products (excluding dyes)
-65094 PC-TEC-15 Photochemicals
-65095 PC-TEC-16 Polymer preparations and compounds
-65096 PC-TEC-17 Processing aids
-65097 PC-TEC-18 Products used in mining, oil or gas exploration processes
-65098 PC-TEC-19 Reagents and laboratory chemicals
-65099 PC-TEC-20 Soil remediation products
-65100 PC-TEC-21 Solvents and extraction agents
-65101 PC-TEC-22 Surfactants mixtures for industrial applications
-65102 PC-TEC-23 Textile treatment products (excludes dyes and pigments)
-65103 PC-TEC-24 Welding, soldering, and flux productsPoison Centres Notification Format
-65104 PC-TEC-OTH Other products for chemical or technical processes
-65105 PC-UNC Chemical products - uncategorised
-65106 PP-BIO-1 Biocidal products for human hygiene
-65107 PP-BIO-2 Disinfectants and algaecides not intended for direct application to humans or animals
-65108 PP-BIO-3 Biocidal products for veterinary hygiene
-65109 PP-BIO-4 Biocidal products for food and feed area
-65110 PP-BIO-5 Biocidal products for drinking water
-65111 PP-BIO-6 Biocidal products used as preservatives for products during storage
-65112 PP-BIO-7 Film preservatives
-65113 PP-BIO-8 Wood preservatives
-65114 PP-BIO-9 Fibre, leather, rubber and polymerised materials preservatives
-65115 PP-BIO-10 Construction material preservatives
-65116 PP-BIO-11 Preservatives for liquid-cooling and processing systems
-65117 PP-BIO-12 Slimicides
-65118 PP-BIO-13 Working or cutting fluid preservatives
-65119 PP-BIO-14 Rodenticides (excluding for plant protection)
-65120 PP-BIO-15 Avicides
-65121 PP-BIO-16 Molluscicides, vermicides and products to control other invertebrates (excluding plant protection products)
-65122 PP-BIO-17 Piscicides
-65123 PP-BIO-18 Insecticides, acaricides and products to control other arthropods (excluding equivalent products when used as pesticides)
-65124 PP-BIO-19 Repellents and attractants
-65125 PP-BIO-20 Control of other vertebrates
-65126 PP-BIO-21 Antifouling products
-65127 PP-BIO-22 Embalming and taxidermist fluids
-65128 PP-PRD-1 Acaricides for plant protectionPoison Centres Notification Format
-65129 PP-PRD-2 Attractants (excluding semio-chemicals)
-65130 PP-PRD-3 Bactericides for plant protection
-65131 PP-PRD-4 Biopesticides for plant protection
-65132 PP-PRD-5 Fungicides for plant protection
-65133 PP-PRD-6 Herbicides for plant protection, including haulm destructors and moss killers
-65134 PP-PRD-7 Insecticides for plant protection
-65135 PP-PRD-8 Molluscicides for plant protection
-65136 PP-PRD-9 Nematicides for plant protection
-65137 PP-PRD-10 Plant growth regulators
-65138 PP-PRD-11 Repellents for plant protection
-65139 PP-PRD-12 Rodenticides for plant protection
-65140 PP-PRD-13 Semio-chemicals
-65141 PP-PRD-14 Soil sterilants
-65142 PP-PRD-15 Talpicides for plant protection
-65143 PP-PRD-16 Viricides for plant protection
-65144 PP-PRD-OTH Other plant protection products</xs:documentation>
+			<xs:documentation>Use codes according to the European Product Categorisation System EuPCS, as covered by Iuclid6 picklist PG6-60567 V1.1: 64945 F Mixtures for further formulation 64877 PC-ADH-1 Adhesives and sealants - household, office or school use 64878 PC-ADH-2 Adhesives and sealants - building and construction works (except cement based adhesives) 64879 PC-ADH-3 Adhesives and sealants - footwear and leather goods 64880 PC-ADH-4 Adhesives and sealants - paper and board related processes 64881 PC-ADH-5 Adhesives and sealants - transportation industry 64882 PC-ADH-6 Adhesives and sealants - woodworking and joinery (includes putty) 64883 PC-ADH-7 Adhesives and sealants - assembly line processes 64884 PC-ADH-8 Multi-component adhesives and sealants 64886 PC-ADH-OTH Other adhesives and sealants 64946 PC-AIR-1 Air care products for indoor rooms (continuous action) 64947 PC-AIR-2 Air care products for indoor rooms (instant action) 64948 PC-AIR-3 Air care products for shoes
+				64949 PC-AIR-4 Air care products for vehicles 64950 PC-AIR-5 Ambient deodorisers (excludes room deodorisers) 64951 PC-AIR-6 Incense 64952 PC-AIR-7 Candles - scented and unscented 64953 PC-AIR-8 Matches 64954 PC-AIR-OTH Other air care products 64955 PC-ANI-1 Additives and premixtures for animal feed 64956 PC-ANI-2 Animal shampoos and conditioners 64957 PC-ANI-OTH Other products for animals (excluding biocidal products) 64958 PC-ART-1 Artists’, craft and hobby paints 64959 PC-ART-2 Finger paints 64960 PC-ART-3 Crayons, chalks and pastels 64961 PC-ART-4 Auxiliary materials for artists 64962 PC-ART-5 Modelling compounds 64963 PC-ART-6 Chemical products used for decorative purposes 64964 PC-ART-OTH Other art materials (including chemical products used for decorative purposes) 64965 PC-CLN-1 Abrasive cleaning products 64966 PC-CLN-2 All-purpose (or multi-purpose) non-abrasive cleaners 64967 PC-CLN-3 Bleaching products for cleaning or laundry use (excludes biocidal products)
+				64968 PC-CLN-4 Descaling products 64969 PC-CLN-5 Drain cleaning products 64970 PC-CLN-6 Fireplace and smoke resin cleaners 64971 PC-CLN-7 Glass/window/mirror cleaning products (excludes windscreens) 64972 PC-CLN-8 Indoor furniture cleaning/care products (excludes leather and upholstery) 64973 PC-CLN-9 Outdoor cleaners (excludes stone, concrete and similar surfaces) 64974 PC-CLN-10.1 Cleaners for kitchen areas 64975 PC-CLN-10.2 Cleaners for kitchen machinery and equipment 64976 PC-CLN-10.3 Cooking hob cleaning/care products 64977 PC-CLN-10.4 Oven, grill or barbecue cleaners 64978 PC-CLN-10.OTH Other kitchen and related cleaning products 64979 PC-CLN-11.1 Bathroom cleaners 64980 PC-CLN-11.2 Toilet cleaners 64981 PC-CLN-11.3 Multi-flush products for toilets 64982 PC-CLN-11.OTH Other bathroom and toilet cleaning/care products (excludes biocidal products) 64983 PC-CLN-12.1 Cleaning/care products for stone and tiles - regular use 64984 PC-CLN-12.2 Heavy duty cleaning products
+				for stone and similar surfaces 64985 PC-CLN-12.3 Grout cleaners 64986 PC-CLN-12.OTH Other stone, tile and grout cleaning/care products 64987 PC-CLN-13.2 Floor cleaning products 64988 PC-CLN-13.3 Floor care products e.g. waxes, emulsions 64989 PC-CLN-13.4 Floor strippers 64990 PC-CLN-13.OTH Other floor cleaning, care and maintenance products (excludes stone and tile) 64991 PC-CLN-14.1 Cleaning products for carpet/upholstery 64992 PC-CLN-14.2 Deodorisers or fresheners for carpet/upholstery 64993 PC-CLN-14.OTH Other carpet and upholstery products 64994 PC-CLN-15.1 Cleaners for eyewear 64995 PC-CLN-15.2 Cleaners for home electronic screens 64996 PC-CLN-15.3 Cleaners for musical instruments 64997 PC-CLN-15.4 Metal polish/tarnish remover 64998 PC-CLN-15.OTH Other cleaners for specific personal items 64999 PC-CLN-16.1 Leather - cleaning and care productsPoison Centres Notification Format 65000 PC-CLN-16.2 Textile footwear - cleaning products 65001 PC-CLN-16.3 Textile
+				fresheners/deodorisers 65002 PC-CLN-16.4 Dry cleaning and associated products 65003 PC-CLN-16.5 Impregnation products for finished textiles and leather goods 65004 PC-CLN-16.6 Outdoor textiles - cleaning products 65005 PC-CLN-16.OTH Other textile and leather cleaning and care products (including footwear) 65006 PC-CLN-17.1 Exterior cleaning products - all vehicle types 65007 PC-CLN-17.2 Exterior care products - all vehicle types 65008 PC-CLN-17.3 Interior cleaning and care products (excludes air care products, and products for upholstery or leather) 65009 PC-CLN-17.4 Engine cleaners 65010 PC-CLN-17.5 Brake cleaners 65011 PC-CLN-17.6 Chromium, rim and other metal cleaners - all vehicle types 65012 PC-CLN-17.7 Windscreen/windshield cleaners 65013 PC-CLN-17.8 Windscreen/windshield wash fluid 65014 PC-CLN-17.OTH Other vehicle (all types) cleaning and care products 65015 PC-CLN-OTH Other cleaning, care and maintenance products (excludes biocidal products) 65016 PC-COL-1 Dyes
+				65017 PC-COL-2 Pigments 65018 PC-CON-1 Cement 65019 PC-CON-2 Concrete 65020 PC-CON-3 Gypsum 65021 PC-CON-4 Mortars 65022 PC-CON-5 Construction chemicals 65023 PC-CON-OTH Other construction products 65024 PC-DET-1.1 Laundry detergent for hand washing 65025 PC-DET-1.2 Laundry detergents - household usePoison Centres Notification Format 65026 PC-DET-1.3 Laundry detergents - professional or industrial use 65027 PC-DET-1.OTH Other laundry detergents 65028 PC-DET-2.1 Detergency boosters and in-wash stain removers 65029 PC-DET-2.2 Fabric softeners 65030 PC-DET-2.3 Ironing aid products 65031 PC-DET-2.4 Laundry starch 65032 PC-DET-2.5 Pre-treatment stain removers 65033 PC-DET-2.6 Rinse agents for laundry (excludes biocidal products) 65034 PC-DET-2.7 Washing machine care agents 65035 PC-DET-2.8 Whitening agents or optical brighteners 65036 PC-DET-2.OTH Other auxiliary laundry and care products (excludes biocidal products) 65037 PC-DET-3.1 Automatic dishwashing detergents -
+				household use 65038 PC-DET-3.2 Automatic dishwashing detergents - professional or industrial use 65039 PC-DET-3.3 Hand dishwashing detergents 65040 PC-DET-3.OTH Other dishwashing detergents 65041 PC-DET-4.1 Dishwasher salt 65042 PC-DET-4.2 Dishwashing machine care agents 65043 PC-DET-4.3 Glass protection products 65044 PC-DET-4.4 Rinse agents for dishes 65045 PC-DET-4.OTH Other auxiliary dishwashing and care products 65046 PC-ELQ E-liquids and mixtures for electronic cigarettes 65047 PC-FER-1 Fertilisers 65048 PC-FER-2 Liming material 65049 PC-FER-3 Soil improvers 65050 PC-FER-4 Growing media 65051 PC-FER-5 Agronomic additivesPoison Centres Notification Format 65052 PC-FER-6 Plant biostimulants 65053 PC-FER-7 Combination of fertilisers and fertilising products 65054 PC-FUE-1 Fuels for vehicles and machinery 65055 PC-FUE-2 Lamp oils 65056 PC-FUE-3 Grill lighter fluids 65057 PC-FUE-4 Camp fuels 65058 PC-FUE-5 Fuel additives and fuel components 65059 PC-FUE-OTH Other fuels
+				65060 PC-INK-1 Writing and drawing inks 65061 PC-INK-2 Inks and toners for home and office printers 65062 PC-INK-3 Commercial printing inks, toners and related finishing products 65063 PC-INK-4 Pressroom chemicals 65064 PC-INK-5 Correction fluids 65065 PC-INK-OTH Other inks, toners and related printing materials 65066 PC-PNT-1 Aerosol paints and coatings 65067 PC-PNT-2 Paints/coatings - Decorative 65068 PC-PNT-3 Paints/coatings - Protective and functional 65069 PC-PNT-4 Marine vessel coatings (excludes anti-fouling products) 65070 PC-PNT-5 Automotive and aerospace coatings 65071 PC-PNT-6 Factory-applied coatings (excludes categories already covered) 65072 PC-PNT-7 Paint removers, thinners and related auxiliaries 65073 PC-PNT-OTH Other paints and coating materials 65074 PC-PYR-1 Fire works for indoor use 65075 PC-PYR-2 Fire works for outdoor use 65076 PC-PYR-3 Theatrical pyrotechnic products 65077 PC-PYR-4 Signalling productsPoison Centres Notification Format 65078
+				PC-PYR-OTH Other pyrotechnic products 65079 PC-TAT Tattoo inks 65080 PC-TEC-1 Adsorbents 65081 PC-TEC-2 Antifreeze and de-icing products 65082 PC-TEC-3 Desiccants 65083 PC-TEC-4 Electrolytes for batteries 65084 PC-TEC-5 Fire extinguishers 65085 PC-TEC-6 Fragrances 65086 PC-TEC-7 Heat transfer fluids 65087 PC-TEC-8 Hydraulic fluids, including brake and transmission fluids 65088 PC-TEC-9 Intermediates 65089 PC-TEC-10 Leather treatment products (excludes dyes and pigments) 65090 PC-TEC-11 Lubricants, greases, release agents 65091 PC-TEC-12 Metal surface treatment products 65092 PC-TEC-13 Metal working fluids 65093 PC-TEC-14 Paper and board treatment products (excluding dyes) 65094 PC-TEC-15 Photochemicals 65095 PC-TEC-16 Polymer preparations and compounds 65096 PC-TEC-17 Processing aids 65097 PC-TEC-18 Products used in mining, oil or gas exploration processes 65098 PC-TEC-19 Reagents and laboratory chemicals 65099 PC-TEC-20 Soil remediation products 65100 PC-TEC-21
+				Solvents and extraction agents 65101 PC-TEC-22 Surfactants mixtures for industrial applications 65102 PC-TEC-23 Textile treatment products (excludes dyes and pigments) 65103 PC-TEC-24 Welding, soldering, and flux productsPoison Centres Notification Format 65104 PC-TEC-OTH Other products for chemical or technical processes 65105 PC-UNC Chemical products - uncategorised 65106 PP-BIO-1 Biocidal products for human hygiene 65107 PP-BIO-2 Disinfectants and algaecides not intended for direct application to humans or animals 65108 PP-BIO-3 Biocidal products for veterinary hygiene 65109 PP-BIO-4 Biocidal products for food and feed area 65110 PP-BIO-5 Biocidal products for drinking water 65111 PP-BIO-6 Biocidal products used as preservatives for products during storage 65112 PP-BIO-7 Film preservatives 65113 PP-BIO-8 Wood preservatives 65114 PP-BIO-9 Fibre, leather, rubber and polymerised materials preservatives 65115 PP-BIO-10 Construction material preservatives 65116 PP-BIO-11
+				Preservatives for liquid-cooling and processing systems 65117 PP-BIO-12 Slimicides 65118 PP-BIO-13 Working or cutting fluid preservatives 65119 PP-BIO-14 Rodenticides (excluding for plant protection) 65120 PP-BIO-15 Avicides 65121 PP-BIO-16 Molluscicides, vermicides and products to control other invertebrates (excluding plant protection products) 65122 PP-BIO-17 Piscicides 65123 PP-BIO-18 Insecticides, acaricides and products to control other arthropods (excluding equivalent products when used as pesticides) 65124 PP-BIO-19 Repellents and attractants 65125 PP-BIO-20 Control of other vertebrates 65126 PP-BIO-21 Antifouling products 65127 PP-BIO-22 Embalming and taxidermist fluids 65128 PP-PRD-1 Acaricides for plant protectionPoison Centres Notification Format 65129 PP-PRD-2 Attractants (excluding semio-chemicals) 65130 PP-PRD-3 Bactericides for plant protection 65131 PP-PRD-4 Biopesticides for plant protection 65132 PP-PRD-5 Fungicides for plant protection 65133 PP-PRD-6
+				Herbicides for plant protection, including haulm destructors and moss killers 65134 PP-PRD-7 Insecticides for plant protection 65135 PP-PRD-8 Molluscicides for plant protection 65136 PP-PRD-9 Nematicides for plant protection 65137 PP-PRD-10 Plant growth regulators 65138 PP-PRD-11 Repellents for plant protection 65139 PP-PRD-12 Rodenticides for plant protection 65140 PP-PRD-13 Semio-chemicals 65141 PP-PRD-14 Soil sterilants 65142 PP-PRD-15 Talpicides for plant protection 65143 PP-PRD-16 Viricides for plant protection 65144 PP-PRD-OTH Other plant protection products</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="string">
 			<xs:enumeration value="F"/>
@@ -759,13 +563,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>EuPCS Category, source: Chapter 1, used by: CT "IdentifiedUse" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="EupcsCode" type="SDScom:EupcsCategoryCodeEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="EupcsCode" type="eSDScom:EupcsCategoryCodeEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="EupcsFulltext" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" minOccurs="0" name="EupcsFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -775,7 +579,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	</xs:complexType>
 	<xs:complexType name="SdsSupplierInfoEU">
 		<xs:complexContent>
-			<xs:extension base="SDScom:SdsSupplierInfo">
+			<xs:extension base="eSDScom:SdsSupplierInfo">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="CompleteSdsWithEsIncorporated">
 						<xs:annotation>
@@ -788,7 +592,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										<xs:documentation> Exposure scenarios incorporated in the SDS: To state if the SDS is complete (eSDS) - meaning that the user has to adapt to the information in the SDS within 12 months. </xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
 									<xs:annotation>
 										<xs:documentation>Info on the eSDS with information from ES incorporated in the text: Information on expossure scenarioes (ESs) incorporated into the safety data sheet (SDS). </xs:documentation>
 									</xs:annotation>
@@ -796,8 +600,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element minOccurs="0" name="MainIntendedUse" type="SDScom:EupcsCategory"/>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="SecondaryUses" type="SDScom:EupcsCategory"/>
+					<xs:element minOccurs="0" name="MainIntendedUse" type="eSDScom:EupcsCategory"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="SecondaryUses" type="eSDScom:EupcsCategory"/>
 					<xs:element maxOccurs="1" minOccurs="0" name="RelevantIdentifiedUse">
 						<xs:annotation>
 							<xs:appinfo>SDScomBau</xs:appinfo>
@@ -813,46 +617,46 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									</xs:annotation>
 									<xs:complexType>
 										<xs:sequence>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="SectorOfUse" type="SDScom:SectorOfUse">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="SectorOfUse" type="eSDScom:SectorOfUse">
 												<xs:annotation>
 													<xs:appinfo>SDScomBau</xs:appinfo>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 													<xs:documentation> Sector of use (SU): </xs:documentation>
 												</xs:annotation>
 											</xs:element>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductCategory" type="SDScom:ProductCategory">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductCategory" type="eSDScom:ProductCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomBau</xs:appinfo>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 													<xs:documentation> Product category (PC): </xs:documentation>
 												</xs:annotation>
 											</xs:element>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="ProcessCategory" type="SDScom:ProcessCategory">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="ProcessCategory" type="eSDScom:ProcessCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomBau</xs:appinfo>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 													<xs:documentation> Process category: PROC </xs:documentation>
 												</xs:annotation>
 											</xs:element>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalReleaseCategory" type="SDScom:EnvironmentalReleaseCategory">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalReleaseCategory" type="eSDScom:EnvironmentalReleaseCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomBau</xs:appinfo>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 													<xs:documentation> Environment release category: ERC </xs:documentation>
 												</xs:annotation>
 											</xs:element>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificEnvironmentalReleaseCategory" type="SDScom:SpecificEnvironmentalReleaseCategory">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificEnvironmentalReleaseCategory" type="eSDScom:SpecificEnvironmentalReleaseCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomBau</xs:appinfo>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 												</xs:annotation>
 											</xs:element>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryNoIntendedRelease" type="SDScom:ArticleCategory">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryNoIntendedRelease" type="eSDScom:ArticleCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 												</xs:annotation>
 											</xs:element>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryWithIntendedRelease" type="SDScom:ArticleCategory">
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryWithIntendedRelease" type="eSDScom:ArticleCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomChem</xs:appinfo>
 												</xs:annotation>
@@ -860,8 +664,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:element maxOccurs="unbounded" minOccurs="0" name="CorrespondingExposureScenario">
 												<xs:complexType>
 													<xs:sequence>
-														<xs:element maxOccurs="1" minOccurs="0" name="ExposureScenarioName" type="SDScom:string128"/>
-														<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentFileName" type="SDScom:FileName">
+														<xs:element maxOccurs="1" minOccurs="0" name="ExposureScenarioName" type="eSDScom:string128"/>
+														<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentFileName" type="eSDScom:FileName">
 															<xs:annotation>
 																<xs:documentation> File name: For example, a locked PDF document. Static URL possible. </xs:documentation>
 															</xs:annotation>
@@ -871,12 +675,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 																<xs:documentation> Print date: </xs:documentation>
 															</xs:annotation>
 														</xs:element>
-														<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentSignature" type="SDScom:string64">
+														<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentSignature" type="eSDScom:string64">
 															<xs:annotation>
 																<xs:documentation> Digital signature: Digital signature to verify the document </xs:documentation>
 															</xs:annotation>
 														</xs:element>
-														<xs:element maxOccurs="1" minOccurs="0" name="EscomFileName" type="SDScom:FileName">
+														<xs:element maxOccurs="1" minOccurs="0" name="EscomFileName" type="eSDScom:FileName">
 															<xs:annotation>
 																<xs:documentation>File name if the exposure scenarios is available in EScom XML format.</xs:documentation>
 															</xs:annotation>
@@ -889,14 +693,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										<xs:attribute default="true" name="PrintAsAttachment" type="boolean"/>
 									</xs:complexType>
 								</xs:element>
-								<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductType" type="SDScom:Phrase">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductType" type="eSDScom:Phrase">
 									<xs:annotation>
 										<xs:appinfo>SDScomBau</xs:appinfo>
 										<xs:appinfo>SDScomChem</xs:appinfo>
 										<xs:documentation> Product type: For trade product, e.g. detergent, paint, lubricant, glue </xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionDescription" type="SDScom:Phrase">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionDescription" type="eSDScom:Phrase">
 									<xs:annotation>
 										<xs:appinfo>SDScomBau</xs:appinfo>
 										<xs:appinfo>SDScomChem</xs:appinfo>
@@ -944,8 +748,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="1" name="ExposureGroup">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Group" type="SDScom:EffectLevelGroupEnum"/>
-						<xs:element minOccurs="0" name="GroupFulltext" type="SDScom:Phrase"/>
+						<xs:element name="Group" type="eSDScom:EffectLevelGroupEnum"/>
+						<xs:element minOccurs="0" name="GroupFulltext" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -955,19 +759,19 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Type" type="SDScom:EffectLevelTypeEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TypeFulltext" type="SDScom:Phrase"/>
+						<xs:element name="Type" type="eSDScom:EffectLevelTypeEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TypeFulltext" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="1" name="DnelValue" type="SDScom:UnitValue"/>
-			<xs:element minOccurs="0" name="AssessmentFactor" type="SDScom:Value">
+			<xs:element maxOccurs="1" minOccurs="1" name="DnelValue" type="eSDScom:NumericValueWithUnit"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="eSDScom:NumericValue">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the DNEL is very low and where more than 1 DNEL existing to show how high the influence on the deviation was.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DMEL">
@@ -975,15 +779,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> DNEL source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="ExposureRouteFrequencyAndEffect" type="SDScom:EffectLevelTypeEnum"/>
-			<xs:element maxOccurs="1" minOccurs="1" name="DmelValue" type="SDScom:UnitValue"/>
-			<xs:element minOccurs="0" name="AssessmentFactor" type="SDScom:Value">
+			<xs:element maxOccurs="1" minOccurs="1" name="ExposureRouteFrequencyAndEffect" type="eSDScom:EffectLevelTypeEnum"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="DmelValue" type="eSDScom:NumericValueWithUnit"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="eSDScom:NumericValue">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the DMEL is very low and where more than 1 DMEL existing to show how high the influence on the deviation was.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PNEC">
@@ -991,15 +795,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> PNEC source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="Type" type="SDScom:PNECTypeEnum"/>
-			<xs:element maxOccurs="1" minOccurs="1" name="PnecValue" type="SDScom:UnitValue"/>
-			<xs:element minOccurs="0" name="AssessmentFactor" type="SDScom:Value">
+			<xs:element maxOccurs="1" minOccurs="1" name="Type" type="eSDScom:PNECTypeEnum"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="PnecValue" type="eSDScom:NumericValueWithUnit"/>
+			<xs:element minOccurs="0" name="AssessmentFactor" type="eSDScom:NumericValue">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the PNEC is very low and where more than 1 PNEC existing to show how high the influence on the deviation was.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Reference" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="PNECTypeEnum">
@@ -1018,6 +822,1015 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="Air"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- START former ESCOM content -->
+	<xs:complexType name="MsafeEnvironment">
+		<xs:annotation>
+			<xs:documentation>Section that describes the maximum amount of a substance or product which can be used safely under the conditions.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Msafe" type="eSDScom:NumericValueWithUnitAndQualifier" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the maximum amount of a substance (or product) that can be used safely under the conditions communicated in the ES. It can be expressed by using different units of measure, such as kg/day, tonnes/year.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CriticalCompartmentForMsafe" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the compartment that has triggered the Msafe.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UseCondQuantitative">
+		<xs:annotation>
+			<xs:documentation>An operational condition of a use specified as a phrase with a value. The value is a numeric value with qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type. Note that this data element does not provide details about the unit of measure to which the numeric value belongs. The operational condition, which the data element uses, defines the unit of measure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConditionPhrase" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="eSDScom:NumericValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A numerical value with qualifier that quantifies (associates a value) the condition phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UseCondQuantitativeWithUnit">
+		<xs:annotation>
+			<xs:documentation>An operational condition of a use specified as a phrase with a value. The value is a numeric value with unit and qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConditionPhrase" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="eSDScom:NumericValueWithUnit" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A numerical value with unit and qualifier that quantifies (associates a value) the condition phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UseCondQuantitativeWithUnitAndQual">
+		<xs:annotation>
+			<xs:documentation>An operational condition of a use specified as a phrase with a value. The value is a numeric value with unit and qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConditionPhrase" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="eSDScom:NumericValueWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A numerical value with unit and qualifier that quantifies (associates a value to) the condition phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="EffectivenessValue">
+		<xs:annotation>
+			<xs:documentation>Specifies a decimal-based effectiveness value with a given range between 0.001 and 100. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="3"/>
+			<xs:maxInclusive value="100"/>
+			<xs:minInclusive value="0"/>
+			<xs:totalDigits value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EffectivenessValueWithQualifier">
+		<xs:annotation>
+			<xs:documentation>Specifies a numeric value with qualifier. The numeric value is patterned according to the IEEE single-precision 64-bit floating point type.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Value" type="eSDScom:EffectivenessValue" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the effectiveness value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Qualifier" type="eSDScom:QualifierEnum" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the qualifier of the value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskManagementMeasureWaste">
+		<xs:annotation>
+			<xs:documentation>A risk management measure related to waste.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessWasteInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the method or measures to reduce the release of waste to the environment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ScalingToolDetails">
+		<xs:annotation>
+			<xs:documentation>Section that provides details about a scaling tool used in section 4 as additional advice to the downstream users, if appropriate.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ScalingTool" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Indicates the tool that can be used for scaling. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScalingInstructions" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates the boundaries that have to be considered and the scalable parameters for a specific scaling tool. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScalingToolWebLink" type="eSDScom:URL" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Indicates the link where additional information on scaling can be found, if available. Expected value: Web address</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalGoodPracticeAdvice">
+		<xs:annotation>
+			<xs:documentation>Section that describes further operational conditions and risk management measures for the exposure of a substance to environment, worker or consumer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AdditionalGoodPracticeAdvice" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Describes good practice information that the supplier chooses to include in addition to the obligatory measures, as advice to the downstream user. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductArticleCharacteristics">
+		<xs:annotation>
+			<xs:documentation>Section that describes for which characteristics a contributing scenario is relevant.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhysicalForm" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Describes the physical form of the product (or article) assessed in the contributing scenario (CS); whether it is gaseous, liquid or solid. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VaporPressure" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the value of the substance vapor pressure. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreparationConcentrationUpperLimit" type="eSDScom:UseCondQuantitativeWithUnit" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the maximum concentration of a substance in a product which is covered by the assessment. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExposureScenarioStructuredShortTitle">
+		<xs:annotation>
+			<xs:documentation>Section that provides the structured short title (SST) of an exposure scenario for communication, as defined in http://www.ducc.eu/documents/StructuredShortTitles%20for%20publication%20041114%20final.pdf . Please consult this document for further details on proper field values, especially regarding application of AC/PC/SU codes. An exposure scenario structured short title is a sequence of identifiers which are taken from the data contained in the exposure scenario itself. Its main purpose is provide a comprehensible description of the ES content that makes it possible to distinguish between the different ESs within one safety data sheet, so the SST result for one ES may vary if the algorithm is applied to different sets of exposure scenarios. It helps downstream users identify ESs relevant to their sector or activity in the SDS annex. The SST makes use of PCs, ACs and SUs from EChA's Use Descriptor System, defined in chapter R.12 of the ECHA Guidance on
+				Information Requirements and Chemical Safety Assessment.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LifeCycleStage" type="eSDScom:EsdscomPhrase">
+				<xs:annotation>
+					<xs:documentation>Defines the Life Cycle Stage (formulation, industrial use, professional use, consumer use, service life consumer, service life worker) as defined in rule 1.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice minOccurs="0">
+				<xs:sequence minOccurs="0">
+					<xs:element name="SSTMarketInformationProductCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Phrase that constitutes the first part of the second identifier of the short title, in case Product Categories (PCs) are relevant, as defined in rule 1.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="SSTMarketInformationProductCategoryCodes" type="eSDScom:ProductCategoryCodeEnum">
+						<xs:annotation>
+							<xs:documentation>Values for printing PC codes, as intended by the author of the Structured Short Title.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:sequence minOccurs="0">
+					<xs:element name="SSTMarketInformationArticleCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Phrase that constitutes the first part of the second identifier of the short title, in case Article Categories (ACs) are relevant, as defined in rule 1.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="SSTMarketInformationArticleCategoryCodes" type="eSDScom:ArticleCategoryCodeEnum">
+						<xs:annotation>
+							<xs:documentation>Values for printing AC codes, as intended by the author of the Structured Short Title.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="SSTMarketInformationSectorOfUse" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the sector of use (SU) considered by the calculation of the structured short title for an exposure scenario as defined in rule 2.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SSTMarketInformationSectorOfUseCodes" type="eSDScom:SectorOfUseCodeEnum">
+				<xs:annotation>
+					<xs:documentation>Values for printing SU codes, as intended by the author of the Structured Short Title.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SSTAdditionalInformation" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The field conveys the phrases that consitute the third identifier for the SST as defined in rules 3.1 and 3.2</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FrequencyDurationHH">
+		<xs:annotation>
+			<xs:documentation>Section that describes the duration and the frequency of a process, or an activity during which a substance is released to the worker or consumer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Duration" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the duration of the activity/exposure. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Frequency" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the frequency of the activity/exposure. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherConditionsEnvironment">
+		<xs:annotation>
+			<xs:documentation>Section that describes environmental factors and other conditions affecting environmental release within an exposure scenario.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DilutionFactorCoastal" type="xs:float" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the factor by which the effluent from a sewage treatment plant is diluted by sea water. Expected value: Numeric value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DilutionFactorRiver" type="xs:float" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the factor by which the effluent from a sewage treatment plant is diluted by river water. Expected value: Numeric value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FlowRateRcvSurfWater" type="eSDScom:NumericValueWithUnit" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the water flow rate (receiving surface water) in m³/d into which the effluent is discharged; the default value is 18,000 m³/d. Expected value: Numeric value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OutdoorIndoorActivity" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies whether the process or the activity takes place indoor or outdoor. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskManagementMeasureHH">
+		<xs:annotation>
+			<xs:documentation>A risk management measure for a use relevant to workers or consumers (human health).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessDermalInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the degree in % to which the measure to prevent skin exposure is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessInhalationInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the degree in % to which the measure to prevent inhalation-related exposure is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherConditionsWorker">
+		<xs:annotation>
+			<xs:documentation>Section that describes other conditions affecting the worker's exposure. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OutdoorIndoorActivity" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies whether the process or the activity takes place indoor or outdoor. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProfessionalIndustrialIndicator" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies whether the assessment has been done assuming professional or industrial settings. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoomSize" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the size of the room in which a process or an activity takes place. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TemperatureInCelsius" type="eSDScom:UseCondQuantitative" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the temperature in °C at which a process or an activity takes place. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VentilationRate" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the ventilation rate of the room in which a process or an activity takes place. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExposureEstimationHH">
+		<xs:annotation>
+			<xs:documentation>Section that describes the target route for a given human health exposure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ExposureRoute" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the exposure route for which the exposure level has been measured or calculated. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HealthEffect" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the effect on the considered route caused by the exposure to the substance (or product). Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShortLongTermIndicator" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the kind of exposure, for example short term or long term exposure. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExposureLevel" type="eSDScom:NumericValueWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the exposure level value measured or calculated for the human route associated to it. Expected value: Numeric value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CalculationMethod" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies how the exposure level is calculated for the human exposure route associated to it. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RCR" type="eSDScom:NumericValue" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the risk characterization ratio (RCR) of the value of the exposure level. It is obtained for every route by comparing the exposure level to the derived no-effect level (DNEL). Expected value: Numeric value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ESSection2Head">
+		<xs:annotation>
+			<xs:documentation>Specifies the sub headers of section 2 for exposure scenarios: AFD: Amount used (or contained in articles), frequency and duration of use/exposure AGPA: Additional good practice advice OOC: Other conditions PC: Product (article) characteristics PPE: Conditions and measures related to personal protection, hygiene and health evaluation STP: Conditions and measures related to sewage treatment plant TOM: Technical and organizational conditions and measures WASTE: Conditions and measures related to treatment of waste (incl. article waste)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AFD"/>
+			<xs:enumeration value="AGPA"/>
+			<xs:enumeration value="OOC"/>
+			<xs:enumeration value="PC"/>
+			<xs:enumeration value="PPE"/>
+			<xs:enumeration value="STP"/>
+			<xs:enumeration value="TOM"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ESSectionSubHeader">
+		<xs:annotation>
+			<xs:documentation>Defines the abbreviations of headings of section 2 for the exposure scenario for communication.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AFD"/>
+			<xs:enumeration value="AGPA"/>
+			<xs:enumeration value="OOC"/>
+			<xs:enumeration value="PC"/>
+			<xs:enumeration value="PPE"/>
+			<xs:enumeration value="STP"/>
+			<xs:enumeration value="TOM"/>
+			<xs:enumeration value="WASTE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="UseCondMeasureHH">
+		<xs:annotation>
+			<xs:documentation>A use condition with effectiveness (risk management measure) for a use relevant to human health.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ESSectionSubHeader" type="eSDScom:ESSectionSubHeader" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>An enumeration that defines the heading within section 2 of the exposure scenario for communication to which the condition or measure is assigned.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the type of an operational condition or a risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConditionMeasure" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the condition of use or the risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumericValue" type="eSDScom:NumericValueWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A numerical value with unit and qualifier that quantifies (associates a value) the condition phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessDermalInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the degree in % to which the measure against risk through skin exposure is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessInhalationInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the degree in % to which the measure against risk through inhalation is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalConditionsMeasuresHH">
+		<xs:annotation>
+			<xs:documentation>Section that describes environmental factors affecting environmental release within an exposure scenario.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConditionMeasure" type="eSDScom:UseCondMeasureHH" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Additional conditions related to human health that do not fall under any other attribute, but which are relevant for the overall characterization of the use of the substance (or product) and therefore have to be communicated in the supply chain. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FrequencyDurationEnvironment">
+		<xs:annotation>
+			<xs:documentation>Section that describes the duration and the frequency of a process or an activity during which a substance is released to the environment.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ExposureType" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the exposure of the type of release to the environmental compartment, i.e. whether the releases are "continuous" or "intermittent".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmissionDaysPerYear" type="eSDScom:NumericValue" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the number of days in a year during which the emission occurs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UseCondMeasureEnv">
+		<xs:annotation>
+			<xs:documentation>A use condition with effectiveness (risk management measure) for a use relevant to the environment and waste.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ESSectionSubHeader" type="eSDScom:ESSectionSubHeader" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>An enumeration that defines the heading within section 2 of the exposure scenario for communication to which the condition or measure is assigned.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the type of an operational condition or a risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConditionMeasure" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the condition of use or the risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumericValue" type="eSDScom:NumericValueWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A numerical value with unit and qualifier that quantifies (associates a value) the condition phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessAirInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the degree in % to which the measure to reduce the release to air is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessSoilInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the degree in % to which the measure to reduce the release to soil is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessWaterInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the degree in % to which the measure to reduce the release to water is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessWasteInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the degree in % to which the measure to reduce the release to waste is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReleaseEstimationEnvironment">
+		<xs:annotation>
+			<xs:documentation>Section that provides the initial release of a substance to the environment from a process or during an activity together with the method that has been used to derive this information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ReleaseRoute" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Release route to which the release rate reported refers. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReleaseRate" type="eSDScom:NumericValueWithUnit" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Release rate value for the release route specified. Expected value: Numeric value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReleaseEstimationMethod" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the method used to determine the initial release of a substance to the environment from a process or during an activity. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExposureEstimationEnvironment">
+		<xs:annotation>
+			<xs:documentation>Section that describes an estimated exposure level for a given environmental compartment.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Compartment" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the compartment, for example air, freshwater, freshwater sediment, or soil to which the exposure level reported refers to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExposureLevel" type="eSDScom:NumericValueWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the exposure level value measured or calculated for the environmental compartment associated to it.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CalculationMethod" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the method used to determine the exposure level value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RCR" type="eSDScom:NumericValue" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the risk characterization ratio (RCR) for the value of the exposure level. It is obtained for every compartment by comparing the exposure level to the predicted no-effect concentration (PNEC).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskManagementMeasureEnv">
+		<xs:annotation>
+			<xs:documentation>A risk management measure related to the environment.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the risk management measure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessAirInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the measure and the degree in % to which the measure to reduce the release to air is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessSoilInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the measure and the degree in % to which the measure to reduce the release to soil is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessWaterInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the measure and the degree in % to which the measure to reduce the release to water is effective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskManagementMeasureGeneric">
+		<xs:annotation>
+			<xs:documentation>Specifies a generic risk management measure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MeasurePhrase" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A phrase that describes the operational condition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EffectivenessInPercent" type="eSDScom:EffectivenessValueWithQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the effectiveness of sewage treatment conditions. Specifies the value in a percentage of a substance which is removed from waste water by the sewage treatment plant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="STPConditions">
+		<xs:annotation>
+			<xs:documentation>Section that describes the conditions pertaining to a sewage treatment plant.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="STPType" type="eSDScom:RiskManagementMeasureGeneric" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the type of sewage treatment plant that is used to treat the waste water from the activities covered by the exposure scenario before their release to the environment. The value of effectiveness specifies the value in a percentage of a substance which is removed from waste water by the sewage treatment plant. Expected value: Phrase (+ effectiveness)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STPTypeAdditionalInformation" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specifies additional technical details on the type of treatment applied in the plant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SludgeTreatment" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specifies the way in which the sludge coming from the sewage treatment is processed or cannot be used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STPEffluentInM3perDay" type="eSDScom:NumericValue" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the flow rate of the sewage treatment plant in m³/d. The default value used for a standard town is 2000 m³/d.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsumerProtection">
+		<xs:annotation>
+			<xs:documentation>Section that describes the risk management measures for consumer consideration.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConsumerProtection" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates safety advice to be conveyed to consumers in order to reduce exposure. This may include instructions for use.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherConditionsConsumer">
+		<xs:annotation>
+			<xs:documentation>Section that describes other conditions affecting the consumer's exposure. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OutdoorIndoorActivity" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies whether the activity takes place indoor or outdoor. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoomSize" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the size of the room in which an activity takes place. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TemperatureInCelsius" type="eSDScom:UseCondQuantitative" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the temperature in °C at which an activity takes place. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VentilationCondition" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the ventilation conditions of the room in which an activity takes place. Expected value: Phrase or numeric value or both</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenario">
+		<xs:sequence>
+			<xs:element name="IdentificationString" type="eSDScom:UUID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the global unique identifier that is generated by the system and that identifies the contributing scenario for the worker. Expected value: UUID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContributingScenarioName" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Name that describes the contributing scenario for workers. Expected value: Phrase</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContributingScenarioOrder" type="eSDScom:int20" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the order of a contributing scenario within the annex of the extended safety data sheet. Expected value: Order number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProductArticleCharacteristics" type="eSDScom:ProductArticleCharacteristics" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AmountsOfUse" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UseAmount" type="eSDScom:UseCondQuantitativeWithUnitAndQual" minOccurs="1" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Describes the amount(s) of a substance used during a process or task. Specifies the period for the input amount used during a process or an activity. Expected value: Phrase or numeric value or both</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExposureEstimationAdditionalDetails" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AdditionalDetails" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Includes additional information for the downstream users beyond the numerical estimates and releases, e.g. related to the scope and details of the exposure assessment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenarioEnvironment">
+		<xs:complexContent>
+			<xs:extension base="eSDScom:ContributingScenario">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Sperc" type="eSDScom:EsdscomPhrase">
+						<xs:annotation>
+							<xs:documentation>SpERC = Specific Environmental Release Category. The phrase text is expected to hold the wording, the phrase OriginalCode is expected to hold the SpERC code.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="EnvironmentalReleaseCategory" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the environmental release categories that are covered by the assessment described in the specific contributing scenario. This description is made via the Use Descriptor System defined in chapter R.12 of the ECHA guidance on information requirements.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AdditionalGoodPracticeAdvice" type="eSDScom:AdditionalGoodPracticeAdvice" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="WasteRelatedMeasures" minOccurs="0" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="WasteTreatment" type="eSDScom:RiskManagementMeasureWaste" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>Indicates how waste produced during a process or an activity should be treated, including, for instance, prescribed disposal methods or advised against treatment methods. Value expected: Phrase (+ effectiveness)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="MsafeEnvironment" type="eSDScom:MsafeEnvironment" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="FrequencyDurationEnvironment" type="eSDScom:FrequencyDurationEnvironment" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="OtherConditionsEnvironment" type="eSDScom:OtherConditionsEnvironment" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="AdditionalConditionsMeasuresEnvironment" minOccurs="0" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ConditionMeasure" type="eSDScom:UseCondMeasureEnv" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>Specifies additional waste related measures for a use relevant to environment.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ReleaseEstimationEnvironment" type="eSDScom:ReleaseEstimationEnvironment" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ExposureEstimationEnvironment" type="eSDScom:ExposureEstimationEnvironment" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenarioEnvironmentForConsumerUse">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>Section that describes the contributing scenario that controls exposure to the environment for consumers within a compartment, for example air, freshwater, freshwater sediment, or, soil.</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="eSDScom:ContributingScenarioEnvironment"> </xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenarioEnvironmentForWorkerUse">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>Section that describes the contributing scenario that controls exposure to the environment for workers within a compartment, for example air, freshwater, freshwater sediment, or, soil.</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="eSDScom:ContributingScenarioEnvironment">
+				<xs:sequence>
+					<xs:element name="ReleaseDischargePrevention" minOccurs="0" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Measure" type="eSDScom:RiskManagementMeasureEnv" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>Specifies different measures that aim to prevent losses from processes and/or clean up the streams (water or air) leaving the processes on site. The measures could be compartment-specific and could be associated with the specific effectiveness for air, soil or water. The effectiveness describes the degree in % to which the measure to reduce the release is effective. Expected value: Phrase (+ effectiveness)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="STPConditions" type="eSDScom:STPConditions" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenarioHH">
+		<xs:complexContent>
+			<xs:extension base="eSDScom:ContributingScenario">
+				<xs:sequence>
+					<xs:element name="FrequencyDurationHH" type="eSDScom:FrequencyDurationHH" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ExposureEstimationHH" type="eSDScom:ExposureEstimationHH" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="HumanFactors" minOccurs="0" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="BodyPartsExposed" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>Body parts that have been considered in the assessment. Expected value: Phrase</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="AdditionalConditionsMeasuresHH" type="eSDScom:AdditionalConditionsMeasuresHH" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenarioWorker">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>Section that describes the contributing scenario that controls exposure to the worker. </xs:documentation>
+			</xs:annotation>
+			<xs:extension base="eSDScom:ContributingScenarioHH">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Swed" type="eSDScom:EsdscomPhrase">
+						<xs:annotation>
+							<xs:documentation>SWED = Specific Worker Exposure Description. The phrase text is expected to hold the wording, the phrase OriginalCode is expected to hold the SWED code.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="ProcessCategory" type="eSDScom:EsdscomPhrase">
+						<xs:annotation>
+							<xs:documentation>Describes the process categories that are covered by the assessment described in the specific contributing scenario. This description is made via the Use Descriptor System defined in chapter R.12 of the ECHA guidance on information requirements.
+
+Expected value: Phrase</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="AdditionalGoodPracticeAdvice" type="eSDScom:AdditionalGoodPracticeAdvice"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="TechnicalOrganizationalMeasuresWorkers">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Measure" type="eSDScom:RiskManagementMeasureHH" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>The equipment-related implemented to prevent the exposure of workers are indicated here. Organizational measures are also included in this field. The measures could be route-specific and could be associated with the specific effectiveness for dermal or inhalation. The effectiveness describes the degree in % to which the measure to reduce the exposure is effective. Expected value: Phrase (+ effectiveness)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="OtherConditionsWorker" type="eSDScom:OtherConditionsWorker"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="PersonalProtectionEquipmentAndMeasuresWorkers">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Measure" type="eSDScom:RiskManagementMeasureHH">
+									<xs:annotation>
+										<xs:documentation>Indicates elements related to personal protective equipment (PPE) for workers. The measures could be route-specific and could be associated with the specific effectiveness for dermal or inhalation. The effectiveness describes the degree in % to which the measure to reduce the exposure is effective.
+
+Expected value: Phrase (+ effectiveness)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContributingScenarioConsumer">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>Section that describes the contributing scenario that controls exposure to the consumer.</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="eSDScom:ContributingScenarioHH">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Sced" type="eSDScom:EsdscomPhrase">
+						<xs:annotation>
+							<xs:documentation>SCED = Specific Consumer Exposure Description. The phrase text is expected to hold the wording, the phrase OriginalCode is expected to hold the SCED code.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ArticleCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the article categories (AC) that are covered by the assessment described in the specific contributing scenario. The list of ACs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ArticleSubCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the article sub-categories that are covered by the assessment described in the specific contributing scenario, where additional details with respect to what is included in the field for ACs are needed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ProductCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the product categories (PC) that are covered by the assessment described in the specific contributing scenario. The list of PCs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ProductSubCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the product sub-categories that are covered by the assessment described in the specific contributing scenario, where additional details with respect to what is included in the field for PCs are needed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ConsumerProtection" type="eSDScom:ConsumerProtection" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="OtherConditionsConsumer" type="eSDScom:OtherConditionsConsumer" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExposureScenario">
+		<xs:annotation>
+			<xs:documentation>Section that describes the conditions and sectors for the safe use of a substance together with risk and waste management measures within contributing scenarios for the worker or consumer and environment. Product characteristics describe the use of a substance by the type of end-use in which the substance is known to be used. Guidance to downstream users helps to evaluate whether conditions set within a contributing scenario are met.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IdentificationString" type="eSDScom:UUID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the global unique identifier that is generated by the system when generating an exposure scenario.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VersionDate" type="dateTime" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Describes the version date of an exposure scenario in XML date format; the version date and the IdentificationString indicate changes or updates to an exposure scenario.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExposureScenarioName" type="eSDScom:EsdscomPhrase" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Title of the exposure scenario.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Scope" type="eSDScom:EsdscomPhrase"/>
+			<xs:element name="LifeCycleStage" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Stage of the life cycle of the substance (or product) to which information communicated in the ES refer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MainUserGroup" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the main user groups in the life cycle of a substance (or product) as key descriptor (SU 3, 21, 22).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExposureScenarioOrder" type="eSDScom:int20" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Specifies the order of an exposure scenario within the annex of the extended safety data sheet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SectorOfUse" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Describes the sectors of use (SU) that apply to an exposure scenario with the aim to give information on the scope, e.g. in which markets the product is used or in which the activity takes place. The list of SUs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarketInformationProductCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Describes the product categories (PC) that apply to an exposure scenario to give information on the scope, e.g. in which product(s) the substance is used. The list of PCs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarketInformationArticleCategory" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Describes the article categories (AC) that apply to an exposure scenario to give information on the scope, e.g. in which articles(s) the substance is used or ends up in. The list of ACs is available in the Use Descriptor System defined in chapter R.12 of the ECHA Guidance on Information Requirements and Chemical Safety Assessment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="UseMapUseCode" type="eSDScom:string256">
+				<xs:annotation>
+					<xs:documentation>see https://echa.europa.eu/documents/10162/15669641/use_maps_guidance_en.pdf/dade8654-e7e7-4e50-9721-1ddfe003179e , page 7. The code required here is to specify the unique identifier for each use in the use map, not a code for the whole use map. For example, a use in AISE’s use map has the identifier AISE_IS_001_v1, which follows the rules contained in the guidance mentioned.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GuidanceToDU" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GuidanceText" type="eSDScom:EsdscomPhrase" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Provides information that helps downstream users to evaluate whether they are working within the boundaries set by the exposure scenario.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WorkerUse" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ContributingScenarioEnvironmentForWorkerUse" type="eSDScom:ContributingScenarioEnvironmentForWorkerUse" minOccurs="1" maxOccurs="unbounded"/>
+						<xs:element name="ContributingScenarioWorker" type="eSDScom:ContributingScenarioWorker" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ConsumerUse" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ContributingScenarioEnvironmentForConsumerUse" type="eSDScom:ContributingScenarioEnvironmentForConsumerUse" minOccurs="1" maxOccurs="unbounded"/>
+						<xs:element name="ContributingScenarioConsumer" type="eSDScom:ContributingScenarioConsumer" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ScalingToolDetails" type="eSDScom:ScalingToolDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ExposureScenarioStructuredShortTitle" type="eSDScom:ExposureScenarioStructuredShortTitle" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubstanceEU">
+		<xs:complexContent>
+			<xs:extension base="eSDScom:Substance">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="LeadPrioritySubstance">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="1" minOccurs="1" name="Type" type="eSDScom:EsdscomPhrase">
+									<xs:annotation>
+										<xs:documentation>Specifies whether a component in a mixture is a priority or a lead substance.
+
+Expected value: Phrase</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="Hazard" type="eSDScom:EsdscomPhrase">
+									<xs:annotation>
+										<xs:documentation>Provides the exposure pathway in case of a lead substance or the type of a priority substance.
+
+Expected value: Phrase</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenario" type="eSDScom:ExposureScenario">
+						<xs:annotation>
+							<xs:documentation>Exposure Scenario information, originally based on Cefic's ESCom project</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- END former ESCOM content -->
 	<xs:complexType name="SUMI">
 		<xs:annotation>
 			<xs:documentation>Safe Use Information for Mixtures. Based on a draft prepared by Qualisys GmbH, Langenfeld, Germany, and published under CC license BY-SA 4.0 during the BDI workshop in Berlin, 26 October 2016. Includes information from the presentation of Martin Kops at ENES 8 and other documents.</xs:documentation>
@@ -1031,7 +1844,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Leave empty if the Sumi is not published by a chemical sector association and part of Use Map activities (no company specific SUMI codes here!). First word should be the sector name, e.g. AISE or FEICA, followed by the sector's SUMI code. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="VersionNumber" type="SDScom:string16">
+						<xs:element minOccurs="0" name="VersionNumber" type="eSDScom:string16">
 							<xs:annotation>
 								<xs:documentation>Version number is optional here because SUMI info is part of the eSDS which is versioned, so the version date is expected to be the same and is sufficient to determine a sector SUMI version.</xs:documentation>
 							</xs:annotation>
@@ -1039,24 +1852,24 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" name="Title" type="SDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" name="Title" type="eSDScom:Phrase"/>
 			<xs:element name="GeneralDescription">
 				<xs:complexType>
 					<xs:choice>
 						<xs:element minOccurs="0" name="UseDescriptors">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="SectorOfUse" type="SDScom:SectorOfUse"/>
-									<xs:element minOccurs="0" name="ProcessCategory" type="SDScom:ProcessCategory"/>
+									<xs:element minOccurs="0" name="SectorOfUse" type="eSDScom:SectorOfUse"/>
+									<xs:element minOccurs="0" name="ProcessCategory" type="eSDScom:ProcessCategory"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SwedReference" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SwedReference" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation>Reference to the Sector-specific Worker Exposure Description as named in the sector's Use Map.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" name="Text" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" name="Text" type="eSDScom:Phrase"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -1066,31 +1879,31 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element name="Properties">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="MaxDuration" type="SDScom:ExactUnitValue">
+									<xs:element minOccurs="0" name="MaxDuration" type="eSDScom:NumericValueWithUnit">
 										<xs:annotation>
 											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="SDScom:Phrase"/>
-									<xs:element minOccurs="0" name="AirExchangeRate" type="SDScom:ExactUnitValue">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="eSDScom:Phrase"/>
+									<xs:element minOccurs="0" name="AirExchangeRate" type="eSDScom:NumericValueWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" name="Text" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" name="Text" type="eSDScom:Phrase"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="RiskManagementMeasures">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" name="RmmWorker" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmPictogram" type="SDScom:RmmPictogramEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" name="RmmWorker" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmPictogram" type="eSDScom:RmmPictogramEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1100,13 +1913,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Text" type="SDScom:Phrase"/>
-						<xs:element minOccurs="0" name="AgpaPictogram" type="SDScom:AgpaPictogramEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Text" type="eSDScom:Phrase"/>
+						<xs:element minOccurs="0" name="AgpaPictogram" type="eSDScom:AgpaPictogramEnum"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="DisclaimerBoundaries" type="SDScom:Phrase">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DisclaimerBoundaries" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation>Describes the boundaries of the SUMI. Mandatory according to some sources, optional according to others.</xs:documentation>
 				</xs:annotation>
@@ -1146,14 +1959,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:pattern value="([A-Z0-9]{4}-){3}[A-Z0-9]{4}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ESVersion">
-		<xs:annotation>
-			<xs:documentation> Data type describe an exposure scenario version. </xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="string">
-			<xs:pattern value="[0-9]{1,2}.[0-9]{1,2}"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="ReachRoleDescriptionEnum">
 		<xs:annotation>
 			<xs:documentation>The role values of a contact as defined under REACH. Used in field Role. See issue #18. </xs:documentation>
@@ -1186,24 +1991,25 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="CLP14-2020/217"/>
 			<xs:enumeration value="CLP15-2020/1182"/>
 			<xs:enumeration value="CLP16-2021/643"/>
+			<xs:enumeration value="CLP17-2021/849"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp12ClassCategoryEnum">
 		<xs:annotation>
 			<xs:documentation>ATP 12 = Regulation (EU) 2019/521 is based on GHS revision 7. Mandatory from 17 October 2020, optionally applicable before.</xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs07ClassFlamGas SDScom:Ghs04ClassAerosol SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq_no4 SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs06ClassDesensExpl SDScom:Ghs00ClassAcuteToxOral_no5 SDScom:Ghs00ClassAcuteToxDermal_no5 SDScom:Ghs00ClassAcuteToxInhal_no5 SDScom:Ghs00ClassSkinCorr_no3 SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox_no2 SDScom:Ghs01ClassAquaticAcute_no23 SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+		<xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs07ClassFlamGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq_no4 eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs06ClassDesensExpl eSDScom:Ghs00ClassAcuteToxOral_no5 eSDScom:Ghs00ClassAcuteToxDermal_no5 eSDScom:Ghs00ClassAcuteToxInhal_no5 eSDScom:Ghs00ClassSkinCorr_no3 eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox_no2 eSDScom:Ghs01ClassAquaticAcute_no23 eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
 	</xs:simpleType>
 	<xs:group name="ClpAtp12Classification">
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:EuClpAtp12ClassCategoryEnum">
+			<xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:EuClpAtp12ClassCategoryEnum">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 					<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1225,8 +2031,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Classification">
 							<xs:complexType>
 								<xs:sequence minOccurs="0">
-									<xs:group ref="SDScom:ClpAtp12Classification"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
+									<xs:group ref="eSDScom:ClpAtp12Classification"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1242,12 +2048,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="Acute" type="SDScom:MultiplyingFactorInt">
+									<xs:element maxOccurs="1" minOccurs="0" name="Acute" type="eSDScom:MultiplyingFactorInt">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="1" minOccurs="0" name="Chronic" type="SDScom:MultiplyingFactorInt">
+									<xs:element maxOccurs="1" minOccurs="0" name="Chronic" type="eSDScom:MultiplyingFactorInt">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -1257,14 +2063,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificConcLimit">
 							<xs:annotation>
-								<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product.
-There is not just one SCL per hazard class, so this cannot be bound to such classes.</xs:documentation>
+								<xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product. There is not just one SCL per hazard class, so this cannot be bound to such classes.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:choice>
-										<xs:group ref="SDScom:ClpAtp12Classification"/>
-										<xs:element name="SupplementalHazard" type="SDScom:SupplementalHazardInformationEnum"/>
+										<xs:group ref="eSDScom:ClpAtp12Classification"/>
+										<xs:element name="SupplementalHazard" type="eSDScom:SupplementalHazardInformationEnum"/>
 									</xs:choice>
 									<xs:element name="MinPercentage" type="float">
 										<xs:annotation>
@@ -1279,18 +2084,18 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ClpSupplementalHazardInformation" type="SDScom:SupplementalHazardInformation">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ClpSupplementalHazardInformation" type="eSDScom:SupplementalHazardInformation">
 							<xs:annotation>
 								<xs:documentation>Supplemental Hazards are treated in CLP as labelling elements, but in fact are assessed like other classifications. For mixtures, supplemental hazards of ingredients need to be known to determine supplemental hazards of the mixture. Thus, systems can duplicate the information available as labelling here. See also https://github.com/esdscom/sdscom-xml/issues/229</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="SDScom:Phrase">
+						<xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Classification notes: To identify classification notes (letters and/or figures) in the case that the trade product is a substance. This information shall be stated in the SDS together with the classifications of the substance.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:group ref="SDScom:ClassificationInfo">
+						<xs:group ref="eSDScom:ClassificationInfo">
 							<xs:annotation>
 								<xs:documentation>In CLP, ATE values may also be specified in harmonized classifications (CLP Annex VI)</xs:documentation>
 							</xs:annotation>
@@ -1298,7 +2103,7 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="ClpAtp" type="SDScom:AtpEnum">
+			<xs:element minOccurs="0" name="ClpAtp" type="eSDScom:AtpEnum">
 				<xs:annotation>
 					<xs:documentation>Describes which amendment of CLP the ClpHazardClassification (and the labelling) is compliant with. Especially useful if the SDS revision date allows to classify according to different ATPs. This is not rudundant with the classification or labelling nodes, which are only referring to the ATPs that adapt CLP to new GHS revisions, while other ATPs may still change harmonized classifications.</xs:documentation>
 				</xs:annotation>
@@ -1330,11 +2135,16 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 			<xs:documentation> Supplemental Hazard Information Statement CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="1" name="PhraseCode" type="SDScom:SupplementalHazardInformationEnum"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+			<xs:element minOccurs="0" name="PhraseId" type="eSDScom:EsdscomPhraseId">
+				<xs:annotation>
+					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:SupplementalHazardInformationEnum"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
 		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
 	</xs:complexType>
 	<xs:simpleType name="SpecialSupplementalLabelInfoEnum">
@@ -1362,11 +2172,16 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="1" name="PhraseCode" type="SDScom:SpecialSupplementalLabelInfoEnum"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+			<xs:element minOccurs="0" name="PhraseId" type="eSDScom:EsdscomPhraseId">
+				<xs:annotation>
+					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:SpecialSupplementalLabelInfoEnum"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
 		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
 	</xs:complexType>
 	<xs:simpleType name="Atp14SpecialSupplementalLabelInfoEnum">
@@ -1396,11 +2211,16 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 			<xs:documentation> Special Supplemental Label Info for Mixtures CLP </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="1" name="PhraseCode" type="SDScom:Atp14SpecialSupplementalLabelInfoEnum"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+			<xs:element minOccurs="0" name="PhraseId" type="eSDScom:EsdscomPhraseId">
+				<xs:annotation>
+					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:Atp14SpecialSupplementalLabelInfoEnum"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
 		<xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
 	</xs:complexType>
 	<xs:complexType name="HazardLabellingEU">
@@ -1413,60 +2233,59 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation>Labelling according to EU regulation 1272/2008, revised until and including EU regulation 2019/521, based on GHS revision 7.
-</xs:documentation>
+						<xs:documentation>Labelling according to EU regulation 1272/2008, revised until and including EU regulation 2019/521, based on GHS revision 7. </xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsPictogramCodeEnum">
+							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="eSDScom:GhsPictogramCodeEnum">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Pictogram: A graphical presentation that includes a symbol plus other graphic elements, such as a border, background pattern or colour that is intended to convey specific information on the hazard concerned. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="SDScom:GhsSignalWord">
+							<xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="eSDScom:GhsSignalWord">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Signal word: A word that indicates the relative level of severity of hazards to alert the reader to a potential hazard. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="SDScom:Ghs05HazardStatement">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="eSDScom:Ghs05HazardStatement">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Hazard statement: A phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="SDScom:Ghs07PrecautionaryStatement">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="eSDScom:Ghs07PrecautionaryStatement">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Precautionary statement: A phrase that describes recommended measure(s) to minimise or prevent adverse effects resulting from exposure to a hazardous substance or mixture due to its use or disposal. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="SupplementalHazardInformation" type="SDScom:SupplementalHazardInformation">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SupplementalHazardInformation" type="eSDScom:SupplementalHazardInformation">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Supplemental information on the label: Statements shall be included in the section for supplemental information on the label where a substance or mixture classified as hazardous has the physical properties or health properties referred to in sections 1.1 and 1.2 of Annex II of CLP. E.g. EUH001, EUH203, EUH401, etc. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialSupplementalLabelInfoMixtures" type="SDScom:SpecialSupplementalLabelInfo">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialSupplementalLabelInfoMixtures" type="eSDScom:SpecialSupplementalLabelInfo">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Special supplemental labelling information: Labelling requirements according to REACH Annex XVII. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="SDScom:Phrase">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="eSDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Additional information, CLP labelling: Information for instance on labelling of combined user and transport packing (with reference.to Section 14 of the SDS). </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialRulesOnPackaging" type="SDScom:Phrase">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialRulesOnPackaging" type="eSDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 								</xs:annotation>
@@ -1488,60 +2307,59 @@ There is not just one SCL per hazard class, so this cannot be bound to such clas
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
-						<xs:documentation>Labelling according to EU regulation 1272/2008, revised until and including EU regulation 2020/217, based on GHS revision 7.
-Transition period: until 9 September 2021.</xs:documentation>
+						<xs:documentation>Labelling according to EU regulation 1272/2008, revised until and including EU regulation 2020/217, based on GHS revision 7. Transition period: until 9 September 2021.</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsPictogramCodeEnum">
+							<xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="eSDScom:GhsPictogramCodeEnum">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Pictogram: A graphical presentation that includes a symbol plus other graphic elements, such as a border, background pattern or colour that is intended to convey specific information on the hazard concerned. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="SDScom:GhsSignalWord">
+							<xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="eSDScom:GhsSignalWord">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Signal word: A word that indicates the relative level of severity of hazards to alert the reader to a potential hazard. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="SDScom:Ghs05HazardStatement">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="eSDScom:Ghs05HazardStatement">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Hazard statement: A phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="SDScom:Ghs07PrecautionaryStatement">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="eSDScom:Ghs07PrecautionaryStatement">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Precautionary statement: A phrase that describes recommended measure(s) to minimise or prevent adverse effects resulting from exposure to a hazardous substance or mixture due to its use or disposal. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="SupplementalHazardInformation" type="SDScom:SupplementalHazardInformation">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SupplementalHazardInformation" type="eSDScom:SupplementalHazardInformation">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Supplemental information on the label: Statements shall be included in the section for supplemental information on the label where a substance or mixture classified as hazardous has the physical properties or health properties referred to in sections 1.1 and 1.2 of Annex II of CLP. E.g. EUH001, EUH203, EUH401, etc. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialSupplementalLabelInfoMixtures" type="SDScom:Atp14SpecialSupplementalLabelInfo">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialSupplementalLabelInfoMixtures" type="eSDScom:Atp14SpecialSupplementalLabelInfo">
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Special supplemental labelling information: Labelling requirements according to REACH Annex XVII. </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="SDScom:Phrase">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="eSDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 									<xs:documentation> Additional information, CLP labelling: Information for instance on labelling of combined user and transport packing (with reference.to Section 14 of the SDS). </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialRulesOnPackaging" type="SDScom:Phrase">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialRulesOnPackaging" type="eSDScom:Phrase">
 								<xs:annotation>
 									<xs:appinfo>SDScomChem</xs:appinfo>
 								</xs:annotation>
@@ -1574,19 +2392,19 @@ Transition period: until 9 September 2021.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="ProductSubcategory" type="SDScom:Phrase">
+									<xs:element minOccurs="0" name="ProductSubcategory" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> Product Subcategory: The type of paint or varnish </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="VocLimitForSubcategory" type="SDScom:UnitValue">
+									<xs:element minOccurs="0" name="VocLimitForSubcategory" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> Maximum VOC content limit for the mixture: The maximum concentration of VOC in the actual product. To begiven i gram per litre. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="MaxVocConcInMixture" type="SDScom:UnitValue">
+									<xs:element minOccurs="0" name="MaxVocConcInMixture" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation> Actual max. concentration in the mixture: The concentration of VOC in the mixture. To begiven i gram per litre. </xs:documentation>
@@ -1595,17 +2413,17 @@ Transition period: until 9 September 2021.</xs:documentation>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentLabelling" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentLabelling" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation> Detergent labelling: Labelling requirements according to detergents regulation (648/2004/EC with later amanedments). Includes dosing recommendations. Concentration groups: _lt 5 weight%, 5 - _lt 15 vekt%, 15 - _lt 30 weight%, og _ge 30 weight%. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AerosolLabelling" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AerosolLabelling" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation> Aerosol labelling: Labelling of aerosol dispensers in accordance with EU directive (75/324/EEC with later amendments) </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuLabellingRequirements" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuLabellingRequirements" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation> Other labelling requirenments in accordance with EU legislation: Labelling requirements imposed to the chemical in accordance with EU legislation not stated above. </xs:documentation>
 							</xs:annotation>
@@ -1627,15 +2445,15 @@ Transition period: until 9 September 2021.</xs:documentation>
 	</xs:simpleType>
 	<xs:complexType name="Assessment">
 		<xs:sequence>
-			<xs:element name="Assessment" type="SDScom:AssessmentEnum"/>
-			<xs:element minOccurs="0" name="AssessmentFulltext" type="SDScom:Phrase"/>
+			<xs:element name="Assessment" type="eSDScom:AssessmentEnum"/>
+			<xs:element minOccurs="0" name="AssessmentFulltext" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ComponentEU">
 		<xs:complexContent>
-			<xs:extension base="SDScom:Component">
+			<xs:extension base="eSDScom:Component">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationEU"> </xs:element>
+					<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationEU"> </xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
 						<xs:annotation>
 							<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1651,17 +2469,17 @@ Transition period: until 9 September 2021.</xs:documentation>
 								<xs:element maxOccurs="1" minOccurs="0" name="EuRestrictions">
 									<xs:complexType>
 										<xs:sequence>
-											<xs:element maxOccurs="1" minOccurs="0" name="AssessedEuRestrictions" type="SDScom:Assessment"/>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="RestrictionAccordingReach" type="SDScom:Phrase"/>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuRestrictions" type="SDScom:Phrase"/>
+											<xs:element maxOccurs="1" minOccurs="0" name="AssessedEuRestrictions" type="eSDScom:Assessment"/>
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="RestrictionAccordingReach" type="eSDScom:Phrase"/>
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuRestrictions" type="eSDScom:Phrase"/>
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
 								<xs:element maxOccurs="1" minOccurs="0" name="NationalRestrictions">
 									<xs:complexType>
 										<xs:sequence>
-											<xs:element maxOccurs="1" minOccurs="0" name="AssessedNationalRestrictions" type="SDScom:Assessment"/>
-											<xs:element maxOccurs="unbounded" minOccurs="0" name="NationalRestrictions" type="SDScom:Phrase"/>
+											<xs:element maxOccurs="1" minOccurs="0" name="AssessedNationalRestrictions" type="eSDScom:Assessment"/>
+											<xs:element maxOccurs="unbounded" minOccurs="0" name="NationalRestrictions" type="eSDScom:Phrase"/>
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
@@ -1682,30 +2500,30 @@ Transition period: until 9 September 2021.</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="SubstanceIdentityEU">
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="SDScom:IndexNo">
+			<xs:element maxOccurs="1" minOccurs="0" name="IndexNo" type="eSDScom:IndexNo">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="SDScom:EcNo">
+			<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="eSDScom:EcNo">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReachRegNo" type="SDScom:ReachRegNo" minOccurs="0"/>
+			<xs:element name="ReachRegNo" type="eSDScom:ReachRegNo" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ControlParametersEU">
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedNoEffectLevel" type="SDScom:DNEL">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedNoEffectLevel" type="eSDScom:DNEL">
 				<xs:annotation>
 					<xs:documentation> Derived no effect level (DNEL): Where a Chemical Safety Report is required, the relevant DNELs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed in the safety data sheet. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedMinimalEffectLevel" type="SDScom:DMEL"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="PredictedNoEffectConcentration" type="SDScom:PNEC">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedMinimalEffectLevel" type="eSDScom:DMEL"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="PredictedNoEffectConcentration" type="eSDScom:PNEC">
 				<xs:annotation>
 					<xs:documentation> Predicted no effect concentration (PNEC): Where a Chemical Safety Report is required, the relevant PNECs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed. </xs:documentation>
 				</xs:annotation>
@@ -1722,14 +2540,14 @@ Transition period: until 9 September 2021.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EWLProduct" type="SDScom:WasteListEntry">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EWLProduct" type="eSDScom:WasteListEntry">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> European waste list for the product: Identification number (EWL No.) and description of the waste under the actual EWL No. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EWLPacking" type="SDScom:WasteListEntry">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EWLPacking" type="eSDScom:WasteListEntry">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1739,7 +2557,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="EuWasteRegulations" type="SDScom:Phrase">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EuWasteRegulations" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1759,7 +2577,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TransportHazardLabelAdrAdnEnum">
-		<xs:union memberTypes="SDScom:TransportHazardLabelEnum SDScom:TransportHazardLabelAdrAdnOnlyEnum"/>
+		<xs:union memberTypes="eSDScom:TransportHazardLabelEnum eSDScom:TransportHazardLabelAdrAdnOnlyEnum"/>
 	</xs:simpleType>
 	<xs:simpleType name="TransportHazardLabelRidOnlyEnum">
 		<xs:annotation>
@@ -1774,62 +2592,62 @@ Transition period: until 9 September 2021.</xs:documentation>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TransportHazardLabelRidEnum">
-		<xs:union memberTypes="SDScom:TransportHazardLabelEnum SDScom:TransportHazardLabelRidOnlyEnum"/>
+		<xs:union memberTypes="eSDScom:TransportHazardLabelEnum eSDScom:TransportHazardLabelRidOnlyEnum"/>
 	</xs:simpleType>
 	<xs:complexType name="TransportEU">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="AdrRid">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="UnNo" type="SDScom:int4">
+						<xs:element minOccurs="0" name="UnNo" type="eSDScom:int4">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> UN number ADR and RID: </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ProperShippingNameNational" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="ProperShippingNameNational" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNational" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNational" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
+						<xs:element minOccurs="0" name="Class" type="eSDScom:TransportClassEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> ADR and RID hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ClassCode" type="SDScom:string4">
+						<xs:element minOccurs="0" name="ClassCode" type="eSDScom:string4">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdr" type="SDScom:TransportHazardLabelAdrAdnEnum"/>
-						<xs:element maxOccurs="4" minOccurs="0" name="HazardLabelRid" type="SDScom:TransportHazardLabelRidEnum"/>
-						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdr" type="eSDScom:TransportHazardLabelAdrAdnEnum"/>
+						<xs:element maxOccurs="4" minOccurs="0" name="HazardLabelRid" type="eSDScom:TransportHazardLabelRidEnum"/>
+						<xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1841,14 +2659,14 @@ Transition period: until 9 September 2021.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="AdrRidLimitedQty" type="SDScom:string20">
+									<xs:element maxOccurs="1" minOccurs="0" name="AdrRidLimitedQty" type="eSDScom:string20">
 										<xs:annotation>
 											<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="AdrRidExceptedQty" type="SDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="SDScom:string4"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="AdrTunnelRestrictionCode" type="SDScom:string10">
+									<xs:element minOccurs="0" name="AdrRidExceptedQty" type="eSDScom:TransportEq"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="eSDScom:string4"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="AdrTunnelRestrictionCode" type="eSDScom:string10">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -1863,12 +2681,12 @@ Transition period: until 9 September 2021.</xs:documentation>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element minOccurs="0" name="AdrHazardIdentificationNo" type="SDScom:string10">
+									<xs:element minOccurs="0" name="AdrHazardIdentificationNo" type="eSDScom:string10">
 										<xs:annotation>
 											<xs:documentation>also known as Kemler code</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1878,54 +2696,54 @@ Transition period: until 9 September 2021.</xs:documentation>
 			<xs:element minOccurs="0" name="Adn">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="UnNo" type="SDScom:int4">
+						<xs:element minOccurs="0" name="UnNo" type="eSDScom:int4">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> UN number ADN: </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ProperShippingNameNational" type="SDScom:Phrase">
+						<xs:element minOccurs="0" name="ProperShippingNameNational" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNational" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceNational" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
+						<xs:element minOccurs="0" name="Class" type="eSDScom:TransportClassEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ClassCode" type="SDScom:string4">
+						<xs:element minOccurs="0" name="ClassCode" type="eSDScom:string4">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation>There are a few cases in class 9 without a code. Leave empty then.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportHazardLabelAdrAdnEnum"/>
-						<xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="eSDScom:TransportHazardLabelAdrAdnEnum"/>
+						<xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1934,14 +2752,14 @@ Transition period: until 9 September 2021.</xs:documentation>
 						<xs:element minOccurs="0" name="OtherInformation">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="SDScom:string20">
+									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="eSDScom:string20">
 										<xs:annotation>
 											<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="ExceptedQty" type="SDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+									<xs:element minOccurs="0" name="ExceptedQty" type="eSDScom:TransportEq"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1951,9 +2769,9 @@ Transition period: until 9 September 2021.</xs:documentation>
 			<xs:element minOccurs="0" name="TransportInBulk">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ProductName" type="SDScom:string128"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ShipType" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PollutionCategory" type="SDScom:Phrase"/>
+						<xs:element minOccurs="0" name="ProductName" type="eSDScom:string128"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ShipType" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PollutionCategory" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1997,32 +2815,32 @@ Transition period: until 9 September 2021.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="AssessedLegislation" type="SDScom:Assessment"> </xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="SDScom:string32">
+						<xs:element minOccurs="0" name="AssessedLegislation" type="eSDScom:Assessment"> </xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="eSDScom:string32">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> Authorisation number: For chemicals subject to authorisation according to REACH Annex XIV, which have been granted authorisation for the actual use. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuAuthorisation" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuAuthorisation" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOnUse" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOnUse" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOfOccupation" type="SDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RestrictionsAccordingReach" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOfOccupation" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RestrictionsAccordingReach" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> Restricted in use according REACH: Restrictions on the chemical according to Annex XVII of REACH </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="InciName" type="SDScom:string1024">
+						<xs:element minOccurs="0" name="InciName" type="eSDScom:string1024">
 							<xs:annotation>
 								<xs:documentation>according to EU cosmetics regulation</xs:documentation>
 							</xs:annotation>
@@ -2035,12 +2853,12 @@ Transition period: until 9 September 2021.</xs:documentation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="1" minOccurs="0" name="IsDetergent" type="boolean"> </xs:element>
-									<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="SDScom:string1024">
+									<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="eSDScom:string1024">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentInformation" type="SDScom:Phrase"> </xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentInformation" type="eSDScom:Phrase"> </xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2048,24 +2866,25 @@ Transition period: until 9 September 2021.</xs:documentation>
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Restrictions related to the use of volatile organic compounds: Directive 2004/42/EC amending 1999/13/EC</xs:documentation>
+								<xs:documentation>Restrictions related to the use of volatile organic compounds: Directive 2004/42/EC amending 1999/13/EC.
+This should be an exact value, not a range. But for reasons of ingredient nondisclosure, some companies decide to provide a range here.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="VocInPercentByWeight" type="SDScom:PercentageValue">
+									<xs:element minOccurs="0" name="VocInPercentByWeight" type="eSDScom:PercentageRange">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="VocValue" type="SDScom:UnitValue">
+									<xs:element minOccurs="0" name="VocValue" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 											<xs:documentation>Voc contents: To be usually measured in g/L</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2077,43 +2896,44 @@ Transition period: until 9 September 2021.</xs:documentation>
 						<xs:element minOccurs="0" name="Seveso">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="HealthHazards" type="SDScom:SevesoEntryEU"/>
-									<xs:element minOccurs="0" name="PhysicalHazards" type="SDScom:SevesoEntryEU"/>
-									<xs:element minOccurs="0" name="EnvironmentalHazards" type="SDScom:SevesoEntryEU"/>
-									<xs:element minOccurs="0" name="OtherHazards" type="SDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryEU"/>
+									<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryEU"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element minOccurs="0" name="IndustrialEmissions">
 							<xs:annotation>
-								<xs:documentation>Directive 2010/75/EU</xs:documentation>
+								<xs:documentation>Directive 2010/75/EU
+This should be an exact value, not a range. But for reasons of ingredient nondisclosure, some companies decide to provide a range here.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="VocInPercentByWeight" type="SDScom:PercentageValue"/>
-									<xs:element minOccurs="0" name="VocValue" type="SDScom:UnitValue">
+									<xs:element minOccurs="0" name="VocInPercentByWeight" type="eSDScom:PercentageRange"/>
+									<xs:element minOccurs="0" name="VocValue" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:documentation>Voc contents: To be usually measured in g/L</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+									<xs:element minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element minOccurs="0" name="CertainFluorinatedGreenhouseGases">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="FluorinatedGreenhouseGasesMethod" type="SDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+									<xs:element minOccurs="0" name="FluorinatedGreenhouseGasesMethod" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuLegislation" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuLegislation" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation> Other EU legislations: Miscellaneous restrictions etc. that apply to the chemical based on EU legislations – e.g. regulation on construction products. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="SDScom:Uuid">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureScenarioIdentificationString" type="eSDScom:Uuid">
 							<xs:annotation>
 								<xs:documentation>Link to ESCom exposure scenario. The referenced exposure scenario(s) must be delivered in one or more separate file(s) in ESCom format. In its element ExposureScenario/IdentificationString, ESCom provides the UUID which is referenced here.</xs:documentation>
 							</xs:annotation>
@@ -2138,7 +2958,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAustria" type="SDScom:RegulationsAT"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAustria" type="eSDScom:RegulationsAT"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBosniaAndHerzegovina">
 							<xs:annotation>
 								<xs:documentation>not a EU member and witout chemicals law - except for the Srpska province, which aligns its safety data sheet to the EU.</xs:documentation>
@@ -2146,20 +2966,20 @@ Transition period: until 9 September 2021.</xs:documentation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelgium"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBulgaria"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSwitzerland" type="SDScom:RegulationsCH">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSwitzerland" type="eSDScom:RegulationsCH">
 							<xs:annotation>
 								<xs:documentation>no EU member, but has its legislation widely aligned to EU law, thus accepts safety data sheets in EU format.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="NationalLegislationCyprus"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCzechRepublic"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGermany" type="SDScom:RegulationsDE">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGermany" type="eSDScom:RegulationsDE">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationDenmark" type="SDScom:RegulationsDK"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationDenmark" type="eSDScom:RegulationsDK"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSpain">
 							<xs:annotation>
@@ -2212,7 +3032,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMalta"/>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNetherlands"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorway" type="SDScom:RegulationsNO">
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorway" type="eSDScom:RegulationsNO">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
 							</xs:annotation>
@@ -2258,7 +3078,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 								<xs:documentation> Chemical safety assessment (CSA) carried out: To state if CSA has been performed on the substance or the individual substances of a mixture. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalSafetyAssessment" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalSafetyAssessment" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2266,7 +3086,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="CsrRequired" type="boolean"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CsrLocation" type="SDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="CsrLocation" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2278,7 +3098,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 								<xs:documentation> Exposure scenarios for the mixture: To state if information on the actual use of the mixture, similar to information in an exposure scenario for a substance, is enclosed the SDS. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation>To provide information on status of ES, ES not required etc. </xs:documentation>
 							</xs:annotation>
@@ -2298,29 +3118,17 @@ Transition period: until 9 September 2021.</xs:documentation>
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Acronym" type="string"/>
-							<xs:element name="Meaning" type="SDScom:Phrase"/>
+							<xs:element name="Meaning" type="eSDScom:Phrase"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationsAndAcronymsUsed" type="SDScom:Phrase">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="AbbreviationsAndAcronymsUsed" type="eSDScom:Phrase">
 					<xs:annotation>
 						<xs:documentation>Abbreviations and acronyms: Explanation of terms used in the SDS must be part of the SDS. This field should cover (additional) links to external sources for such lists, e.g. EChA Guidance or industry specific glossaries.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="PositiveEcolabelling">
-				<xs:annotation>
-					<xs:documentation> Positive ecolabel: For example the flower used in the EU. </xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="EcoLabelName" type="SDScom:string64"/>
-						<xs:element minOccurs="0" name="ExpirationDate" type="date"/>
-						<xs:element minOccurs="0" name="LicenceNo" type="SDScom:string64"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentsOrIndexOfAnnexedEs" type="SDScom:Phrase">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentsOrIndexOfAnnexedEs" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:documentation> Contents or index of exposure scenarioes (ES) in annex: To provide information on ES for components or corresponding information on the mixture supplied in annex(es) to the SDS. </xs:documentation>
 				</xs:annotation>
@@ -2332,7 +3140,7 @@ Transition period: until 9 September 2021.</xs:documentation>
 			<xs:annotation>
 				<xs:documentation>The most typical type of annexes are Exposure Scenarios. As those correspond to the identified uses, they are referred to in section 1.</xs:documentation>
 			</xs:annotation>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="SafeUseInfoForMixtures" type="SDScom:SUMI">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SafeUseInfoForMixtures" type="eSDScom:SUMI">
 				<xs:annotation>
 					<xs:documentation> Safe Use Information for Mixture (SUMI) </xs:documentation>
 				</xs:annotation>

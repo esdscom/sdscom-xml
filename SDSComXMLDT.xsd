@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5   	
 Basic type definitions
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
-	<!-- ******************************************************************** string2 ********  -->
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
 	<xs:simpleType name="string2">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 2 characters.</xs:documentation>
@@ -15,7 +15,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="2"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string3 ********  -->
 	<xs:simpleType name="string3">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 3 characters.</xs:documentation>
@@ -24,13 +23,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string4 ********  -->
 	<xs:simpleType name="string4">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="4"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string10 ********  -->
 	<xs:simpleType name="string10">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 10 characters.</xs:documentation>
@@ -39,7 +36,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="10"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string16 ********  -->
 	<xs:simpleType name="string16">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 16 characters.</xs:documentation>
@@ -48,7 +44,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="16"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string20 ********  -->
 	<xs:simpleType name="string20">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 20 characters.</xs:documentation>
@@ -57,7 +52,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="20"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string24 ********  -->
 	<xs:simpleType name="string24">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 24 characters.</xs:documentation>
@@ -66,7 +60,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="24"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string32 ********  -->
 	<xs:simpleType name="string32">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 32 characters.</xs:documentation>
@@ -75,7 +68,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="32"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string40 ********  -->
 	<xs:simpleType name="string40">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 40 characters.</xs:documentation>
@@ -84,7 +76,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="40"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string50 ********  -->
 	<xs:simpleType name="string50">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 50 characters.</xs:documentation>
@@ -93,7 +84,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string64 ********  -->
 	<xs:simpleType name="string64">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 64 characters.</xs:documentation>
@@ -102,7 +92,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="64"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string80 ********  -->
 	<xs:simpleType name="string80">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 80 characters.</xs:documentation>
@@ -111,7 +100,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="80"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string128 ********  -->
 	<xs:simpleType name="string128">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 128 characters.</xs:documentation>
@@ -120,7 +108,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="128"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string256 ********  -->
 	<xs:simpleType name="string256">
 		<xs:annotation>
 			<xs:documentation>A string of maximum length 256 characters.</xs:documentation>
@@ -129,7 +116,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="256"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string512 ********  -->
 	<xs:simpleType name="string512">
 		<xs:annotation>
 			<xs:documentation>A string of maximum length 512 characters.</xs:documentation>
@@ -138,7 +124,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="512"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string1024 ********  -->
 	<xs:simpleType name="string1024">
 		<xs:annotation>
 			<xs:documentation>A string of maximum length 1024 characters.</xs:documentation>
@@ -147,7 +132,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="1024"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** string4096 ********  -->
 	<xs:simpleType name="string4096">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 4096 characters.</xs:documentation>
@@ -156,7 +140,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:maxLength value="4096"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ********************************************************************** int4 ***********  -->
 	<xs:simpleType name="int4">
 		<xs:annotation>
 			<xs:documentation>A positive integer number with exactly 4 digits.</xs:documentation>
@@ -165,7 +148,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:pattern value="[0-9]{4}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ********************************************************************** int20 ***********  -->
 	<xs:simpleType name="int20">
 		<xs:annotation>
 			<xs:documentation>A positive integer number with 1 to 20 digits.</xs:documentation>
@@ -174,16 +156,45 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:pattern value="[0-9]{1,20}"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EmailAddress">
+		<xs:annotation>
+			<xs:documentation>Specifies a valid e-mail address.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="URL">
+		<xs:annotation>
+			<xs:documentation>Specifies a URL.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:simpleType name="UUID">
+		<xs:annotation>
+			<xs:documentation>Specifies an identification string in order to uniquely identify information. The length of the identification string is between 32 and 36 characters (32 alphanumeric characters and four hyphens in the form 8-4-4-4-12). The 32 alphanumeric characters based UUID specifies the internal presentation, the UUID with 36 alphanumeric characters is the external representation. Within ESComXML only the internal 32 alphanumeric characters long UUID is supported.
+				
+				For example:
+				550e8400e29b41d4a716446655440000 (external representation with four hypens:
+				550e8400-e29b-41d4-a716-446655440000). 
+				
+				See also the Wikipedia page for more details:
+				http://en.wikipedia.org/wiki/Universally_unique_identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="32"/>
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="SdscomVersionEnum">
 		<xs:annotation id="F0.1">
 			<xs:documentation>The version of the XML standard which is applied in the transmission of datasheet information. This enum must list all compatible versions, but not any older ones! See issue #89.
 It is used to reference the version number in the XML data file, as the schema name does not include the version number. So this complements the version attribute in the xs:schema tag of the XSD files, and one of the enum values here must match the version attribute in the schema.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="5.3.0"/>
+			<xs:enumeration value="5.4.0"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** LanguageCodeEnum ******  -->
 	<xs:simpleType name="LanguageCodeEnum">
 		<xs:annotation>
 			<xs:documentation> Language according to ISO standard ISO 639-1 (2 letters).</xs:documentation>
@@ -560,7 +571,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<!-- Zulu -->
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** CountryCodeEnum ********** -->
 	<xs:simpleType name="CountryCodeEnum">
 		<xs:annotation>
 			<xs:documentation> Country according to ISO standard ISO 3166 (2 letters).</xs:documentation>
@@ -1094,7 +1104,7 @@ It is used to reference the version number in the XML data file, as the schema n
 		<xs:annotation>
 			<xs:documentation>Name of a separate physical file. For a proper data exchange, the file name should contain no path information or a relative path which applies during information exchange, e.g. within a ZIP file containing SDScom XML and related documents.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="SDScom:string256"/>
+		<xs:restriction base="eSDScom:string256"/>
 	</xs:simpleType>
 	<xs:simpleType name="CasNo">
 		<xs:annotation>
@@ -1141,7 +1151,25 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="Mixture: Polymer"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SymbolEnum">
+	<xs:simpleType name="ExactQualifierEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="eq"/>
+			<xs:enumeration value="ca"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LowerQualifierEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="le"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UpperQualifierEnum">
+		<xs:restriction base="string">
+			<xs:enumeration value="gt"/>
+			<xs:enumeration value="ge"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QualifierEnum">
 		<xs:annotation>
 			<xs:documentation> Symbols like less than, greater than, equal, greater or equal,less or equal or circa. </xs:documentation>
 		</xs:annotation>
@@ -1191,7 +1219,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* ExposureRouteEnum *********************  -->
 	<xs:simpleType name="ExposureRouteEnum">
 		<xs:annotation>
 			<xs:documentation> The legal values for the ExposureRouteEnum. </xs:documentation>
@@ -1210,7 +1237,6 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:enumeration value="Unreported"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* ExposureLimitValueTypeEnum *************  -->
 	<xs:simpleType name="ExposureLimitValueTypeEnum">
 		<xs:annotation>
 			<xs:documentation> The legal codes for the ExposureLimitValueTypeEnum. Source: Chapter 8.
@@ -1243,7 +1269,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="HTP"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* PhValueStateEnum *************  -->
 	<xs:simpleType name="PhValueStateEnum">
 		<xs:annotation>
 			<xs:documentation> The legal codes for the PhValueStateEnum. Source: Chapter 9. </xs:documentation>
@@ -1253,7 +1278,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="In aqueous solution"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* PhNotRelevantEnum *************  -->
 	<xs:simpleType name="PhNotRelevantEnum">
 		<xs:annotation>
 			<xs:documentation>This type corresponds directly to Iuclid Picklist PH_1 nd is relevant e.g. for PCN notifications in Europe. Enumeration values are taken literally from this list to facilitate mapping.</xs:documentation>
@@ -1268,7 +1292,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="substance/mixture reacts with water"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* ViscosityTypeEnum *************  -->
 	<xs:simpleType name="ViscosityTypeEnum">
 		<xs:annotation>
 			<xs:documentation> The legal codes for the ViscosityTypeEnum. Source: Chapter 9. </xs:documentation>
@@ -1281,7 +1304,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* SolubilityMediumEnum *************  -->
 	<xs:simpleType name="SolubilityMediumEnum">
 		<xs:annotation>
 			<xs:documentation> The legal codes for the SolubilityMediumEnum. Source: Chapter 9. </xs:documentation>
@@ -1309,8 +1331,22 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="respirable"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************** PhraseId ********  -->
-	<xs:simpleType name="PhraseId">
+	<xs:simpleType name="EsdscomPhraseCatalogueId">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EsdscomPhraseId">
+		<xs:annotation>
+			<xs:documentation>eSDScom (= EuPhraC + ESCom, until 2021) phrase IDs are persistent and unique numbers generated by the eSDScom phrase environment at https://phrases.esdscom.eu . The first two digits represent the two-digit year of phrase creation, starting with 09. This type represents the future up to 2029.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="9000000000"/>
+			<xs:maxInclusive value="29000000000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnyPhraseId">
 		<xs:annotation>
 			<xs:documentation>A phrase identifier which is unique within a given phrase catalogue, represented by a string of maximum 128 characters.</xs:documentation>
 		</xs:annotation>
@@ -1318,16 +1354,50 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:maxLength value="128"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************************* Phrase ******************  -->
-	<xs:complexType name="Phrase">
+	<xs:attributeGroup name="PhraseAttributes">
+		<xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId">
+			<xs:annotation>
+				<xs:documentation>Phrase ID in the catalogue referenced by PhraseCatalogueId - which is not eSDScom, because eSDScom phrase IDs are represented as a field in the phrase types.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="PhraseCatalogueId" type="eSDScom:EsdscomPhraseCatalogueId" default="0">
+			<xs:annotation>
+				<xs:documentation>ID of the phrase catalogue that is listed in the XML file.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:group name="PhraseText">
+		<xs:sequence>
+			<xs:element name="PhraseCode" type="eSDScom:string64" minOccurs="0"/>
+			<xs:element name="FullText" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>If the Language and Country attributes are missing, Language and Country default to the FreetextLanguage and FreetextLanguageCountry named at the top of the XML file. 
+If there is only one instance of FullText, the Language and Country attributes should be omitted. If there is more than one instance, all but one should have those attributes.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="eSDScom:string1024">
+							<xs:attribute name="Languange" type="eSDScom:LanguageCodeEnum"/>
+							<xs:attribute name="Country" type="eSDScom:CountryCodeEnum"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="EsdscomPhrase">
 		<xs:annotation>
-			<xs:documentation> Phrase, using optional references to a coordination body assigning ids to all phrases. PhraseId is a unique identifier (primary key) that must exist in each phrase catalogue. PhraseId has precedence over textual phrase values if both are present. PhraseCode is any official or system-internal phrase identifier which may be unique or not (and is often empty). Example: In EuPhraC, PhraseIds 9278174452 to 9278174455 all refer to PhraseCode = H341, however EuPhraC decided to name the other codes as H341.1, H341.2 and H341.3. Note the use of MergePhrase restricts the nesting depth to one level. </xs:documentation>
+			<xs:documentation>A Phrase that must be part of the eSDScom phrase catalogue and cannot have parameter inserts. This is used for European Exposure Scenarios as the industry standard defines that there cannot be custom phrases. 
+Caveat: It is the duty of the author (or the authoring system, respectively) to check that phrases are exposure scenario phrases, and not main body or user phrases from the eSDScom catalogue.</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="PhraseCode" type="SDScom:string64" minOccurs="0"/>
-				<xs:element name="FullText" type="SDScom:string1024" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="MergePhrase" type="SDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="PhraseId" type="eSDScom:EsdscomPhraseId">
+					<xs:annotation>
+						<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Mandatory since there are no user phrases allowed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:group minOccurs="0" ref="eSDScom:PhraseText"/>
 			</xs:sequence>
 			<xs:element name="NewLine">
 				<xs:annotation>
@@ -1335,21 +1405,39 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
-		<!-- Phase catalogues used are defined and assigned a PhraseCatalogueId in section 0 -->
+		<xs:attributeGroup ref="eSDScom:PhraseAttributes"/>
 	</xs:complexType>
-	<!-- ************************************************************* MergePhrase ********************  -->
+	<xs:complexType name="Phrase">
+		<xs:annotation>
+			<xs:documentation> Phrase, using optional references to a coordination body assigning ids to all phrases. PhraseId is a unique identifier (primary key) that must exist in each phrase catalogue. PhraseId has precedence over textual phrase values if both are present. PhraseCode is any official or system-internal phrase identifier which may be unique or not (and is often empty). Example: In EuPhraC, PhraseIds 9278174452 to 9278174455 all refer to PhraseCode = H341, however EuPhraC decided to name the other codes as H341.1, H341.2 and H341.3. Note the use of MergePhrase restricts the nesting depth to one level. </xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PhraseId" type="eSDScom:EsdscomPhraseId" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:group minOccurs="0" ref="eSDScom:PhraseText"/>
+				<xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="NewLine">
+				<xs:annotation>
+					<xs:documentation>specify this empty tag to indicate a line break</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="eSDScom:PhraseAttributes"/>
+	</xs:complexType>
 	<xs:complexType name="MergePhrase">
 		<xs:annotation>
 			<xs:documentation> Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present. Note the use of MergePhrase restricts the nesting depth to one level. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MergeText" type="SDScom:string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Delimiter" type="SDScom:string3" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergeText" type="eSDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Delimiter" type="eSDScom:string3" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-		<xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
-		<xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
+		<xs:attributeGroup ref="eSDScom:PhraseAttributes"/>
 		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
 		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
 	</xs:complexType>
@@ -1625,53 +1713,59 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 	</xs:simpleType>
 	<xs:group name="Unit">
 		<xs:sequence>
-			<xs:element name="Unit" type="SDScom:UnitEnum"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="SDScom:Phrase"/>
+			<xs:element name="Unit" type="eSDScom:UnitEnum"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:group>
-	<xs:complexType name="ExactValue">
+	<xs:complexType name="NumericValue">
 		<xs:sequence>
-			<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum"/>
 			<xs:element name="ExactValue" type="xs:float"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ExactUnitValue">
+	<xs:complexType name="NumericValueWithQualifier">
+		<xs:sequence>
+			<xs:element name="ExactValueSymbol" type="eSDScom:ExactQualifierEnum" minOccurs="0"/>
+			<xs:element name="ExactValue" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NumericValueWithUnit">
 		<xs:complexContent>
-			<xs:extension base="SDScom:ExactValue">
-				<xs:group ref="SDScom:Unit"/>
+			<xs:extension base="eSDScom:NumericValue">
+				<xs:group ref="eSDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="Value">
+	<xs:complexType name="NumericValueWithUnitAndQualifier">
+		<xs:complexContent>
+			<xs:extension base="eSDScom:NumericValueWithQualifier">
+				<xs:group ref="eSDScom:Unit"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NumericRangeWithQualifier">
 		<xs:annotation>
-			<xs:documentation> </xs:documentation>
+			<xs:documentation>Numeric ranges only make sense with qualifiers, thus no "NumericRange" or "NumericRangeWithUnit" types exist. </xs:documentation>
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="ExactValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
+				<xs:element name="ExactValueSymbol" type="eSDScom:ExactQualifierEnum" minOccurs="0"/>
 				<xs:element name="ExactValue" type="xs:float" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:sequence>
-				<xs:element name="UpperValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
+				<xs:element name="UpperValueSymbol" type="eSDScom:UpperQualifierEnum" minOccurs="0"/>
 				<xs:element name="UpperValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
-				<xs:element name="LowerValueSymbol" type="SDScom:SymbolEnum" minOccurs="0"/>
+				<xs:element name="LowerValueSymbol" type="eSDScom:LowerQualifierEnum" minOccurs="0"/>
 				<xs:element name="LowerValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
-	<!-- ******************************************************************* UnitValue *************  -->
-	<xs:complexType name="UnitValue">
-		<xs:annotation>
-			<xs:documentation> UnitValue. The ExactValue should only be printed on the datasheet if both the LowerValue and UpperValue are missing. The main purpose of the LowerValue-UpperValue range is for printing while an additional ExactValue can be used for calculations. </xs:documentation>
-		</xs:annotation>
+	<xs:complexType name="NumericRangeWithUnitAndQualifier">
 		<xs:complexContent>
-			<xs:extension base="SDScom:Value">
-				<xs:group ref="SDScom:Unit"/>
+			<xs:extension base="eSDScom:NumericRangeWithQualifier">
+				<xs:group ref="eSDScom:Unit"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!-- ******************************************************************* UnitIdEnum ************************  -->
-	<!-- ******************************************************************** Percentage********  -->
 	<xs:simpleType name="Percentage">
 		<xs:annotation>
 			<xs:documentation>Percentage value 0-100.</xs:documentation>
@@ -1681,7 +1775,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:maxInclusive value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* ReasonForWaiving *************  -->
 	<xs:simpleType name="ReasonForWaiving">
 		<xs:annotation>
 			<xs:documentation>For physical or chemical properties, reasons for waiving are: 1. cannot be determined = technically impossible to obtain (pH value for solids, arguably) 2. not applicable = irrelevant (because no hazard assessment requires such info) 3. no data = unknown (not tested so far) Implemented for https://github.com/esdscom/sdscom-xml/issues/33</xs:documentation>
@@ -1692,16 +1785,14 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="no data"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* PercentageValue *************  -->
-	<xs:complexType name="PercentageValue">
+	<xs:complexType name="PercentageRange">
 		<xs:annotation>
-			<xs:documentation>Basically a UnitValue with a fixed unit "%"</xs:documentation>
+			<xs:documentation>Basically a numeric range with a fixed unit "%"</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:Value"/>
+			<xs:extension base="eSDScom:NumericRangeWithQualifier"/>
 		</xs:complexContent>
 	</xs:complexType>
-	<!-- ******************************************************************* PhysChemValue***********  -->
 	<xs:complexType name="PhysChemValue">
 		<xs:annotation>
 			<xs:documentation> PhysChemValue, used to specify a value derived from a duration-independent measurement. </xs:documentation>
@@ -1709,16 +1800,15 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="Value" type="SDScom:Value" minOccurs="0"/>
-					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
+					<xs:element name="Value" type="eSDScom:NumericRangeWithQualifier" minOccurs="0"/>
+					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="eSDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* PhysChemUnitValue *************************  -->
 	<xs:complexType name="PhysChemUnitValue">
 		<xs:annotation>
 			<xs:documentation> PhysChemUnitValue, used to specify a value with unit derived from a duration-independent measurement. </xs:documentation>
@@ -1726,60 +1816,49 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="UnitValue" type="SDScom:UnitValue" minOccurs="0"/>
-					<xs:element name="Method" type="SDScom:Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="SDScom:Phrase" minOccurs="0"/>
+					<xs:element name="UnitValue" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0"/>
+					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
+					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="SDScom:ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="eSDScom:ReasonForWaiving" minOccurs="0"/>
 			</xs:choice>
-			<xs:element name="AdditionalInfo" type="SDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- ******************************************************************* PhysChemValueWithTemperature **************  -->
+	<xs:group name="TemperaturePressureGroup">
+		<xs:sequence>
+			<xs:element name="Temperature" type="eSDScom:NumericValueWithUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Pressure" type="eSDScom:NumericValueWithUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
 	<xs:complexType name="PhysChemValueWithTemperature">
 		<xs:annotation>
 			<xs:documentation> PhysChemValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:PhysChemValue">
-				<xs:sequence minOccurs="0">
-					<xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
+			<xs:extension base="eSDScom:PhysChemValue">
+				<xs:group ref="eSDScom:TemperaturePressureGroup"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!-- ******************************************************************* PhysChemUnitValueWithTemperature ***********  -->
 	<xs:complexType name="PhysChemUnitValueWithTemperature">
 		<xs:annotation>
 			<xs:documentation> PhysChemUnitValueWithTemperature. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="SDScom:PhysChemUnitValue">
-				<xs:sequence minOccurs="0">
-					<xs:element name="Temperature" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 20°C if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Pressure" type="SDScom:UnitValue" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>defaults to 1013 hPa if not specified, unless the context determines a different value</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
+			<xs:extension base="eSDScom:PhysChemUnitValue">
+				<xs:group ref="eSDScom:TemperaturePressureGroup"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!-- ******************************************************************* TemperatureClassEnum ************************  -->
 	<xs:simpleType name="TemperatureClassEnum">
 		<xs:annotation>
 			<xs:documentation> Legal values for the TemperatureClassEnum. Source: Chapter 9. </xs:documentation>
@@ -1793,7 +1872,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="T 6"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* GasGroupEnum ******************************  -->
 	<xs:simpleType name="GasGroupEnum">
 		<xs:annotation>
 			<xs:documentation> Legal values for the GasGroupEnum. Source: Chapter 9. </xs:documentation>
@@ -1804,7 +1882,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="IIC"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ********************************************************************  WasteCode ***************  -->
 	<xs:simpleType name="WasteCode">
 		<xs:annotation>
 			<xs:documentation> The European waste code, eg, "20 01 01". </xs:documentation>
@@ -1813,7 +1890,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:pattern value="[0-9]{2} [0-9]{2} [0-9]{2}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* XMLStandardSubsetEnum *************  -->
 	<xs:simpleType name="SdscomSubsetEnum">
 		<xs:annotation>
 			<xs:documentation> Legal values for the XMLStandardSubsetEnum. It should specify the minimum requirements matched, i.e. any subset with full coverage of SDScomChem should pick SDScomChem. SdscomXml light is a Norwegian specification, SDScomBau and SDScomChem are German, full means complete SDS information, other means any non-standard subset.</xs:documentation>
@@ -1826,7 +1902,6 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ******************************************************************* PackingGroupEnum *************  -->
 	<xs:simpleType name="TransportClass">
 		<xs:annotation>
 			<xs:documentation>The word "class" is used differently for different carriers. This type denote a class with subclass, but without any categories (specified with letters after the subclass), i.e. it can represent "1" as well as "1.3", but not "1.3G" as used in ADR and ADN. This type can be used for transportation calsses and subrisks.</xs:documentation>

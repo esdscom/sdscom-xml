@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
-SDScom XML schema definition version 5   	
+eSDScom XML schema definition version 5
+National Extension for the United States of America
+
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/SDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SDScom="http://www.esdscom.eu/SDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.3.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:include schemaLocation="SDSComXMLCT.xsd"/>
     <xs:simpleType name="Hazcom2012ClassCategoryEnumGhs">
-        <xs:union memberTypes="SDScom:Ghs01ClassExpl SDScom:Ghs00ClassFlamGas SDScom:Ghs00ClassFlamAer SDScom:Ghs00ClassOxGas SDScom:Ghs00ClassPressGas SDScom:Ghs00ClassFlamLiq SDScom:Ghs00ClassFlamSol SDScom:Ghs00ClassSelfReact SDScom:Ghs00ClassPyrLiq SDScom:Ghs00ClassPyrSol SDScom:Ghs00ClassSelfHeat SDScom:Ghs00ClassWaterReact SDScom:Ghs00ClassOxLiq SDScom:Ghs00ClassOxSol SDScom:Ghs00ClassOrgPerox SDScom:Ghs00ClassMetCorr SDScom:Ghs00ClassAcuteToxOral_no5 SDScom:Ghs00ClassAcuteToxDermal_no5 SDScom:Ghs00ClassAcuteToxInhal_no5 SDScom:Ghs00ClassSkinCorr_no3 SDScom:Ghs00ClassEyeDam SDScom:Ghs03ClassRespSens SDScom:Ghs03ClassSkinSens SDScom:Ghs00ClassMuta SDScom:Ghs00ClassCarc SDScom:Ghs00ClassRepr SDScom:Ghs00ClassLact SDScom:Ghs00ClassStotSe SDScom:Ghs01ClassStotSe3 SDScom:Ghs00ClassStotRe SDScom:Ghs01ClassAspTox_no2 SDScom:Ghs01ClassAquaticAcute SDScom:Ghs01ClassAquaticChronic SDScom:Ghs03ClassOzone"/>
+        <xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs00ClassFlamGas eSDScom:Ghs00ClassFlamAer eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs00ClassAcuteToxOral_no5 eSDScom:Ghs00ClassAcuteToxDermal_no5 eSDScom:Ghs00ClassAcuteToxInhal_no5 eSDScom:Ghs00ClassSkinCorr_no3 eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox_no2 eSDScom:Ghs01ClassAquaticAcute eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
     </xs:simpleType>
     <xs:simpleType name="Hazcom2012ClassCategoryEnumExt">
         <xs:annotation>
@@ -21,7 +23,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="Hazcom2012ClassCategoryEnum">
-        <xs:union memberTypes="SDScom:Hazcom2012ClassCategoryEnumGhs SDScom:Hazcom2012ClassCategoryEnumExt"/>
+        <xs:union memberTypes="eSDScom:Hazcom2012ClassCategoryEnumGhs eSDScom:Hazcom2012ClassCategoryEnumExt"/>
     </xs:simpleType>
     <xs:simpleType name="UnIdNo">
         <xs:restriction base="string">
@@ -37,25 +39,25 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 <xs:complexType>
                     <xs:sequence>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">
-                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="SDScom:Hazcom2012ClassCategoryEnum">
+                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:Hazcom2012ClassCategoryEnum">
                                 <xs:annotation>
                                     <xs:documentation>The hazard class and a corresponding category / differentiation according to Hazcom 2012. </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="SDScom:Phrase">
+                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
                                 <xs:annotation>
                                     <xs:appinfo>SDScomBau</xs:appinfo>
                                     <xs:appinfo>SDScomChem</xs:appinfo>
                                     <xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="SDScom:Phrase">
+                            <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
                                 <xs:annotation>
                                     <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                         </xs:sequence>
-                        <xs:group ref="SDScom:ClassificationInfo"/>
+                        <xs:group ref="eSDScom:ClassificationInfo"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -66,15 +68,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Contrary to the type Ghs03HazardStatement used in other regions, the phrase code is optional here because additional US hazard statements come without a code.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element maxOccurs="1" minOccurs="0" name="PhraseCode" type="SDScom:Ghs03HazardEnum">
+            <xs:element maxOccurs="1" minOccurs="0" name="PhraseCode" type="eSDScom:Ghs03HazardEnum">
                 <xs:annotation>
                     <xs:documentation>Should be present for GHS hazard statements, and omitted only for additional US hazard statements.</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element maxOccurs="1" minOccurs="0" name="FullText" type="SDScom:string1024"/>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="SDScom:MergePhrase"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="SDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
         <xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
     </xs:complexType>
     <xs:complexType name="HazardLabellingUS">
@@ -87,35 +89,35 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="SDScom:GhsPictogramCodeEnum">
+                        <xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="eSDScom:GhsPictogramCodeEnum">
                             <xs:annotation>
                                 <xs:appinfo>SDScomBau</xs:appinfo>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
                                 <xs:documentation> Pictogram: A graphical presentation that includes a symbol plus other graphic elements, such as a border, background pattern or colour that is intended to convey specific information on the hazard concerned. </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="SDScom:GhsSignalWord">
+                        <xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="eSDScom:GhsSignalWord">
                             <xs:annotation>
                                 <xs:appinfo>SDScomBau</xs:appinfo>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
                                 <xs:documentation> Signal word: A word that indicates the relative level of severity of hazards to alert the reader to a potential hazard. </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="SDScom:Ghs03HazardStatementUS">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="eSDScom:Ghs03HazardStatementUS">
                             <xs:annotation>
                                 <xs:appinfo>SDScomBau</xs:appinfo>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
                                 <xs:documentation> Hazard statement: A phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard. </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="SDScom:Ghs03PrecautionaryStatement">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="eSDScom:Ghs03PrecautionaryStatement">
                             <xs:annotation>
                                 <xs:appinfo>SDScomBau</xs:appinfo>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
                                 <xs:documentation> Precautionary statement: A phrase that describes recommended measure(s) to minimise or prevent adverse effects resulting from exposure to a hazardous substance or mixture due to its use or disposal. </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="SDScom:Phrase">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="eSDScom:Phrase">
                             <xs:annotation>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
                             </xs:annotation>
@@ -147,38 +149,38 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                             </xs:annotation>
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="ProductSubcategory" type="SDScom:Phrase">
+                                    <xs:element minOccurs="0" name="ProductSubcategory" type="eSDScom:Phrase">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
                                             <xs:documentation> Product Subcategory: The type of paint or varnish </xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="VocLimitForSubcategory" type="SDScom:UnitValue">
+                                    <xs:element minOccurs="0" name="VocLimitForSubcategory" type="eSDScom:NumericValueWithUnitAndQualifier">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
-                                            <xs:documentation> Maximum VOC content limit for the mixture: The maximum concentration of VOC in the actual product. To begiven i gram per litre. </xs:documentation>
+                                            <xs:documentation>Maximum VOC content limit for the mixture: The maximum concentration of VOC in the actual product. To be given in grams per litre. </xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="MaxVocConcInMixture" type="SDScom:UnitValue">
+                                    <xs:element minOccurs="0" name="MaxVocConcInMixture" type="eSDScom:NumericValueWithUnitAndQualifier">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
-                                            <xs:documentation> Actual max. concentration in the mixture: The concentration of VOC in the mixture. To begiven i gram per litre. </xs:documentation>
+                                            <xs:documentation>Actual max. concentration in the mixture: The concentration of VOC in the mixture. To be given in grams per litre. </xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentLabelling" type="SDScom:Phrase">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentLabelling" type="eSDScom:Phrase">
                             <xs:annotation>
                                 <xs:documentation> Detergent labelling: Labelling requirements according to detergents regulation (648/2004/EC with later amanedments). Includes dosing recommendations. Concentration groups: _lt 5 weight%, 5 - _lt 15 vekt%, 15 - _lt 30 weight%, og _ge 30 weight%. </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AerosolLabelling" type="SDScom:Phrase">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AerosolLabelling" type="eSDScom:Phrase">
                             <xs:annotation>
                                 <xs:documentation> Aerosol labelling: Labelling of aerosol dispensers in accordance with EU directive (75/324/EEC with later amendments) </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuLabellingRequirements" type="SDScom:Phrase">
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherEuLabellingRequirements" type="eSDScom:Phrase">
                             <xs:annotation>
                                 <xs:documentation> Other labelling requirenments in accordance with EU legislation: Labelling requirements imposed to the chemical in accordance with EU legislation not stated above. </xs:documentation>
                             </xs:annotation>
@@ -190,9 +192,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     </xs:complexType>
     <xs:complexType name="ComponentUS">
         <xs:complexContent>
-            <xs:extension base="SDScom:Component">
+            <xs:extension base="eSDScom:Component">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="Classification" type="SDScom:ClassificationUS"> </xs:element>
+                    <xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationUS"> </xs:element>
                     <xs:element maxOccurs="1" minOccurs="0" name="OnLabel" type="boolean">
                         <xs:annotation>
                             <xs:appinfo>SDScomChem</xs:appinfo>
@@ -216,33 +218,33 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                 <xs:element minOccurs="0" name="Federal">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element minOccurs="0" name="OshaStandards" type="SDScom:Phrase">
+                                            <xs:element minOccurs="0" name="OshaStandards" type="eSDScom:Phrase">
                                                 <xs:annotation>
                                                     <xs:documentation>Chemical hazards and toxic substances are addressed in specific OSHA standards for general industry, shipyard employment, marine terminals, longshoring and construction. This highlights OSHA standards and documents related to chemical hazards and toxic substances, i.e. provides links to relevant literature.
 https://www.osha.gov/SLTC/hazardoustoxicsubstances/requirements.html</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
-                                            <xs:element minOccurs="0" name="Sara313Threshold" type="SDScom:Value">
+                                            <xs:element minOccurs="0" name="Sara313Threshold" type="eSDScom:NumericValue">
                                                 <xs:annotation>
                                                     <xs:documentation>Superfund Amendments and Reauthorization Act</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
-                                            <xs:element minOccurs="0" name="Sara302HazardousRQ" type="SDScom:Value"/>
-                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="SDScom:Value"/>
-                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="SDScom:Value"/>
+                                            <xs:element minOccurs="0" name="Sara302HazardousRQ" type="eSDScom:NumericValue"/>
+                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousRQ" type="eSDScom:NumericValue"/>
+                                            <xs:element minOccurs="0" name="Sara302ExtremelyHazardousTPQ" type="eSDScom:NumericValue"/>
                                             <xs:element minOccurs="0" name="CwaToxicPollutant" type="boolean">
                                                 <xs:annotation>
                                                     <xs:documentation>Clean Water Act</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
                                             <xs:element minOccurs="0" name="CwaPriorityPollutant" type="boolean"/>
-                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="DrugPrecursors" type="SDScom:Phrase">
+                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="DrugPrecursors" type="eSDScom:Phrase">
                                                 <xs:annotation>
                                                     <xs:documentation>Controlled Substances Act (CSA)
 Chemical Diversion and Trafficking Act</xs:documentation>
                                                 </xs:annotation>
                                             </xs:element>
-                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="WeaponsPrecursors" type="SDScom:Phrase">
+                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="WeaponsPrecursors" type="eSDScom:Phrase">
                                                 <xs:annotation>
                                                     <xs:documentation>Chemical Weapon Convention (CWC)</xs:documentation>
                                                 </xs:annotation>
@@ -322,8 +324,8 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraWasteCode" type="string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCharacteristics" type="SDScom:Phrase"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraBasisForListing" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCharacteristics" type="eSDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraBasisForListing" type="eSDScom:Phrase"> </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -334,7 +336,7 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCode" type="string"/>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteStatus" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteStatus" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
@@ -386,25 +388,25 @@ Chemical Diversion and Trafficking Act</xs:documentation>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TransportHazardLabelUsaEnum">
-        <xs:union memberTypes="SDScom:TransportHazardLabelEnum SDScom:TransportHazardLabelUsaOnlyEnum"/>
+        <xs:union memberTypes="eSDScom:TransportHazardLabelEnum eSDScom:TransportHazardLabelUsaOnlyEnum"/>
     </xs:simpleType>
     <xs:complexType name="TransportUS">
         <xs:sequence>
-            <xs:element minOccurs="0" name="IdNoUsaDot" type="SDScom:UnIdNo">
+            <xs:element minOccurs="0" name="IdNoUsaDot" type="eSDScom:UnIdNo">
                 <xs:annotation>
                     <xs:documentation>U.S. transportation numbers are either preceded with "UN" or with "NA"</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" name="ProperShippingName" type="SDScom:Phrase"> </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstance" type="SDScom:Phrase"> </xs:element>
-            <xs:element minOccurs="0" name="Class" type="SDScom:TransportClassEnum">
+            <xs:element minOccurs="0" name="ProperShippingName" type="eSDScom:Phrase"> </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstance" type="eSDScom:Phrase"> </xs:element>
+            <xs:element minOccurs="0" name="Class" type="eSDScom:TransportClassEnum">
                 <xs:annotation>
                     <xs:documentation>The chemical’s most important transport hazard class. </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element maxOccurs="2" minOccurs="0" name="Subrisk" type="SDScom:TransportClassEnum"/>
-            <xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="SDScom:TransportHazardLabelUsaEnum"/>
-            <xs:element minOccurs="0" name="PackingGroup" type="SDScom:PackingGroupEnum">
+            <xs:element maxOccurs="2" minOccurs="0" name="Subrisk" type="eSDScom:TransportClassEnum"/>
+            <xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="eSDScom:TransportHazardLabelUsaEnum"/>
+            <xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
                 <xs:annotation>
                     <xs:appinfo>SDScomBau</xs:appinfo>
                     <xs:appinfo>SDScomChem</xs:appinfo>
@@ -413,10 +415,10 @@ Chemical Diversion and Trafficking Act</xs:documentation>
             <xs:element minOccurs="0" name="OtherInformation">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="SDScom:string20"> </xs:element>
-                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="SDScom:string20"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="SDScom:string4"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="SDScom:Phrase"/>
+                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="eSDScom:string20"> </xs:element>
+                        <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="eSDScom:string20"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -437,13 +439,13 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element name="listed" type="xs:boolean"/>
-                                    <xs:element minOccurs="0" name="CategoryName" type="SDScom:string10"/>
+                                    <xs:element minOccurs="0" name="CategoryName" type="eSDScom:string10"/>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="EpaPesticideRegNo" type="string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideStatement" type="SDScom:Phrase"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideLabel" type="SDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideStatement" type="eSDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="EpaPesticideLabel" type="eSDScom:Phrase"> </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -453,56 +455,56 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                         <xs:element minOccurs="0" name="California">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="Illinois">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="Louisiana">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="Massachusetts">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="Minnesota">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="NewJersey">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="Pennsylvania">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="RhodeIsland">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="SDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
@@ -541,7 +543,7 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:element>
-                        <xs:element name="PhysChemProperties" type="SDScom:string2"/>
+                        <xs:element name="PhysChemProperties" type="eSDScom:string2"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -576,7 +578,7 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:element>
-                        <xs:element name="Protection" type="SDScom:string2"/>
+                        <xs:element name="Protection" type="eSDScom:string2"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
