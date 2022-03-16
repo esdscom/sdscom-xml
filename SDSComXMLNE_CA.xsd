@@ -16,7 +16,7 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
         </xs:annotation>
         <xs:restriction>
             <xs:simpleType>
-                <xs:restriction base="eSDScom:Ghs03ClassCategoryEnum">
+                <xs:restriction base="string">
                     <xs:enumeration value="Acute Tox. 5 (oral)"/>
                     <xs:enumeration value="Acute Tox. 5 (dermal)"/>
                     <xs:enumeration value="Acute Tox. 5 (inhalation)"/>
