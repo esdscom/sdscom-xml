@@ -2674,7 +2674,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs00HazardStatement">
@@ -2686,7 +2686,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs01HazardStatement">
@@ -2698,7 +2698,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs02HazardStatement">
@@ -2710,7 +2710,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs03HazardStatement">
@@ -2722,7 +2722,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs04HazardStatement">
@@ -2734,7 +2734,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs05HazardStatement">
@@ -2746,7 +2746,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs06HazardStatement">
@@ -2758,7 +2758,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs07HazardStatement">
@@ -2770,7 +2770,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs08HazardStatement">
@@ -2782,7 +2782,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="GhsAllHazardStatement">
@@ -2794,7 +2794,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs02PrecautionaryStatement">
@@ -2806,7 +2806,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs03PrecautionaryStatement">
@@ -2818,7 +2818,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs04PrecautionaryStatement">
@@ -2830,7 +2830,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs05PrecautionaryStatement">
@@ -2842,7 +2842,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs06PrecautionaryStatement">
@@ -2854,7 +2854,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs07PrecautionaryStatement">
@@ -2866,7 +2866,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
     <xs:complexType name="Ghs08PrecautionaryStatement">
@@ -2878,7 +2878,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute name="PhraseCatalogueId" type="xs:integer" default="0"/>
     </xs:complexType>
 </xs:schema>

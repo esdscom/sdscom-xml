@@ -76,7 +76,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
     </xs:complexType>
     <xs:complexType name="HazardLabellingUS">

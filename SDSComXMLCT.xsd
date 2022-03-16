@@ -1115,6 +1115,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:attribute name="PhraseCatalogueId" type="eSDScom:EsdscomPhraseCatalogueId" default="0"/>
 	</xs:complexType>
 	<!-- ****************************************************************************** Stoerfallverordnung ***** -->
+	<xs:complexType name="Stoerfallverordnung">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryDE"/>
+		</xs:sequence>
+	</xs:complexType>
 	<!-- ****************************************************************************** Transport Types ***** -->
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="Inventories">
