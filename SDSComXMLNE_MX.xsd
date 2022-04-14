@@ -130,7 +130,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element minOccurs="0" name="OtherInformation">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="eSDScom:string20"> </xs:element>
                         <xs:element maxOccurs="1" minOccurs="0" name="ExceptedQty" type="eSDScom:string2"> </xs:element>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>

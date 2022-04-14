@@ -76,7 +76,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
         </xs:sequence>
-        <xs:attribute name="PhraseId" type="eSDScom:PhraseId"/>
+        <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
         <xs:attribute default="0" name="PhraseCatalogueId" type="integer"/>
     </xs:complexType>
     <xs:complexType name="HazardLabellingUS">
@@ -417,7 +417,7 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                     <xs:sequence>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="eSDScom:string20"> </xs:element>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="eSDScom:string20"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
                     </xs:sequence>
                 </xs:complexType>

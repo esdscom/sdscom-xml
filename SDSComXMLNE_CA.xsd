@@ -114,7 +114,7 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
                     <xs:sequence>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyPassengerRail" type="eSDScom:string20"> </xs:element>
                         <xs:element maxOccurs="1" minOccurs="0" name="LimitedQtyCargo" type="eSDScom:string20"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
                     </xs:sequence>
                 </xs:complexType>
