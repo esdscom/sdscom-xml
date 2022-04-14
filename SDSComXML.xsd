@@ -1153,7 +1153,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:sequence>
 									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="eSDScom:string20"/>
 									<xs:element minOccurs="0" name="ExceptedQty" type="eSDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="EmsCode">
 										<xs:simpleType>
 											<xs:restriction base="string">
@@ -1203,7 +1203,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="ExemptedQty" type="eSDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>

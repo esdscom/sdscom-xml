@@ -2665,7 +2665,7 @@ Expected value: Phrase</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="AdrRidExceptedQty" type="eSDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="eSDScom:string4"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdrRidSpecialProvisions" type="eSDScom:string80"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="AdrTunnelRestrictionCode" type="eSDScom:string10">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
@@ -2758,7 +2758,7 @@ Expected value: Phrase</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="ExceptedQty" type="eSDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string4"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>

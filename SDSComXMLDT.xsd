@@ -1159,14 +1159,14 @@ It is used to reference the version number in the XML data file, as the schema n
 	</xs:simpleType>
 	<xs:simpleType name="LowerQualifierEnum">
 		<xs:restriction base="string">
-			<xs:enumeration value="lt"/>
-			<xs:enumeration value="le"/>
+			<xs:enumeration value="gt"/>
+			<xs:enumeration value="ge"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="UpperQualifierEnum">
 		<xs:restriction base="string">
-			<xs:enumeration value="gt"/>
-			<xs:enumeration value="ge"/>
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="le"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="QualifierEnum">
