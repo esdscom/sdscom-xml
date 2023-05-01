@@ -28,9 +28,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>At least one instance (with empty UserId) for the identification as delivered by the supplier. Use more instances for various package sizes, various products in a group SDS, or (with filled UserId) for reference to relabelled products of the SDS recipient. Also for group safety data sheets, each instance of TradeProductIdentity covers one substance or product.
-
-When importing, make sure that SDScom documents are not automatically replaced if the product identity is the same! GTINs are not necessarily unique (they should, but aren't in practice!), and product identities may refer to kits with multiple products and SDSs. Unique IDs that allow automatic overriding of data require a bilateral agreement between customer and supplier and should be placed in ProductNo.</xs:documentation>
+					<xs:documentation>At least one instance (with empty UserId) for the identification as delivered by the supplier. Use more instances for various package sizes, various products in a group SDS, or (with filled UserId) for reference to relabelled products of the SDS recipient. Also for group safety data sheets, each instance of TradeProductIdentity covers one substance or product. When importing, make sure that SDScom documents are not automatically replaced if the product identity is the same! GTINs are not necessarily unique (they should, but aren't in practice!), and product identities may refer to kits with multiple products and SDSs. Unique IDs that allow automatic overriding of data require a bilateral agreement between customer and supplier and should be placed in ProductNo.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1197,13 +1195,27 @@ When importing, make sure that SDScom documents are not automatically replaced i
 						<xs:element minOccurs="0" name="OtherInformation">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="eSDScom:string20">
+									<xs:element minOccurs="0" name="PassengerLQPackingInstr" type="eSDScom:string4"/>
+									<xs:element minOccurs="0" name="PassengerLQMaxQty" type="eSDScom:string20">
+										<xs:annotation>
+											<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PassengerPackingInstr" type="eSDScom:string3"/>
+									<xs:element minOccurs="0" name="PassengerMaxQty" type="eSDScom:string20">
+										<xs:annotation>
+											<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="CargoPackingInstr" type="eSDScom:string3"/>
+									<xs:element minOccurs="0" name="CargoMaxQty" type="eSDScom:string20">
 										<xs:annotation>
 											<xs:documentation>may have a value like "500 mL or 500 g"</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="ExemptedQty" type="eSDScom:TransportEq"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Erg" type="eSDScom:string4"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
@@ -1456,8 +1468,7 @@ When importing, make sure that SDScom documents are not automatically replaced i
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
-									<xs:documentation>The version of the eSDScom standard which is applied in the transmission of information. This version number also denotes the minimum version number for eSDScom phrase IDs referenced in the XML file.
-For backward compatibility, the tag name is still SDScom, although the standard now includes ESCom exposure scenarios and is thus named eSDScom.</xs:documentation>
+									<xs:documentation>The version of the eSDScom standard which is applied in the transmission of information. This version number also denotes the minimum version number for eSDScom phrase IDs referenced in the XML file. For backward compatibility, the tag name is still SDScom, although the standard now includes ESCom exposure scenarios and is thus named eSDScom.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="SdscomSubset" type="eSDScom:SdscomSubsetEnum" minOccurs="0">
