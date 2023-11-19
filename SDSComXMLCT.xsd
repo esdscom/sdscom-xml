@@ -14,6 +14,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:include schemaLocation="SDSComXMLNE_CA.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_DK.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_EU.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_GB.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_JP.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_MX.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>

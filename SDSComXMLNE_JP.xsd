@@ -9,7 +9,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 <xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.5">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLCT.xsd"/>
-	<xs:complexType name="ComponentJP"/>
+	<xs:complexType name="ComponentJP">
+		<xs:complexContent>
+			<xs:extension base="eSDScom:Component"/>
+		</xs:complexContent>		
+	</xs:complexType>
 	<xs:simpleType name="Pdscl">
 		<xs:restriction base="string">
 			<xs:enumeration value="deleterious"/>

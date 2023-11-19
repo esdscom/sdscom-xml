@@ -262,11 +262,39 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionGB">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationGB"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingGB">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element minOccurs="0" name="RegionMX">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationMX"/>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingMX">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionTR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationTR"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingTR">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -332,20 +360,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegionTR">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationTR"/>
-						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingTR">
-							<xs:annotation>
-								<xs:appinfo>SDScomBau</xs:appinfo>
-								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
-							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -554,6 +568,53 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionGB">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="eSDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
+							</xs:annotation>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="eSDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="eSDScom:ComponentGB">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="eSDScom:ComponentGB">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="eSDScom:ComponentGB">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="eSDScom:ComponentGB"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element minOccurs="0" name="RegionMX">
 				<xs:complexType>
 					<xs:sequence>
@@ -597,6 +658,53 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:annotation>
 							</xs:element>
 							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="eSDScom:ComponentMX"/>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionTR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompositionType" type="eSDScom:CompositionTypeEnum">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> CompositionType: Enum of SingleConstituent, MultiConstituent, UVCB, Mixture. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>As every region has different classifications (and legal classification lists), every region needs its own composition.</xs:documentation>
+							</xs:annotation>
+							<xs:choice>
+								<xs:element maxOccurs="1" name="Substance" type="eSDScom:Substance">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes a single constituent substance</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="Component" type="eSDScom:ComponentTR">
+									<xs:annotation>
+										<xs:appinfo>SDScomBau</xs:appinfo>
+										<xs:appinfo>SDScomChem</xs:appinfo>
+										<xs:documentation>describes functional components of a multi-constituent, UVCB or mixture. The optional attribute ComponentId can be used for referal from the national extensions. The other optional attribute ComponentInternalSdsId can be used to store references to safety datasheets for pure substances or identify identical substances in other mixtures. The value in field ItemNo InternalSdsId for a pure substance should then match the value of this attribute. A randomly generated global unique string (GUID) can be used for identification. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Impurity" type="eSDScom:ComponentTR">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes components which are unpurposely part of the substance or mixture</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="Additive" type="eSDScom:ComponentTR">
+								<xs:annotation>
+									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:documentation>describes additives which e.g. support the application stability</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionProduct" type="eSDScom:ComponentTR"/>
 						</xs:sequence>
 					</xs:sequence>
 				</xs:complexType>
@@ -1261,6 +1369,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>This element refers to all countries an regulations that will be covered by a safety data sheet in EU REACH format. Including a country here is no political statement, i.e. it does not mean the country is, will be or should be(come) part of the European Union.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionGB" type="eSDScom:RegulationsGB"/>
 			<xs:element minOccurs="0" name="RegionJP" type="eSDScom:RegulationsJP"/>
 			<xs:element minOccurs="0" name="RegionMX" type="eSDScom:RegulationsMX"/>
 			<xs:element name="RegionRU" minOccurs="0" type="eSDScom:RegulationsRU">

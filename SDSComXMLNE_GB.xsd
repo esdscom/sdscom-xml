@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ****************************************************************************
+eSDScom XML schema definition version 5
+National Extension for Great Britain
+
+Source: https://github.com/esdscom/sdscom-xml
+License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
+***************************************************************************** -->
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.5">
+    <xs:include schemaLocation="SDSComXMLDT.xsd"/>
+    <xs:include schemaLocation="SDSComXMLCT.xsd"/>
+    <xs:include schemaLocation="SDSComXMLNE_EU.xsd"/>
+    <xs:complexType name="ComponentGB">
+        <xs:complexContent>
+            <xs:extension base="eSDScom:Component"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:group name="GbClpClassification_2020">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:EuClpAtp12ClassCategoryEnum">
+                <xs:annotation>
+                    <xs:appinfo>SDScomBau</xs:appinfo>
+                    <xs:appinfo>SDScomChem</xs:appinfo>
+                    <xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
+                <xs:annotation>
+                    <xs:appinfo>SDScomBau</xs:appinfo>
+                    <xs:appinfo>SDScomChem</xs:appinfo>
+                    <xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="ClassificationGB">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="GbClpHazardClassification_2020">
+                <xs:annotation>
+                    <xs:appinfo>SDScomBau</xs:appinfo>
+                    <xs:appinfo>SDScomChem</xs:appinfo>
+                    <xs:documentation>The chemical’s individual hazard classifications according to GB-CLP (2020), which adopted EU regulation 1272/2008 as modified by ATP 12.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Classification">
+                            <xs:complexType>
+                                <xs:sequence minOccurs="0">
+                                    <xs:group ref="eSDScom:GbClpClassification_2020"/>
+                                    <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
+                                        <xs:annotation>
+                                            <xs:appinfo>SDScomBau</xs:appinfo>
+                                            <xs:appinfo>SDScomChem</xs:appinfo>
+                                            <xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="MultiplyingFactor">
+                            <xs:annotation>
+                                <xs:documentation>Multiplying factor for substances highly toxic to the environment. Part of the classification of pure substances. The M factors are used in application of summation method for classification of mixtures containing substances that are classified as very toxic. The concept of M factors has been established to give an increased weight to very toxic substances when classifying mixtures. </xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="1" minOccurs="0" name="Acute" type="eSDScom:MultiplyingFactorInt">
+                                        <xs:annotation>
+                                            <xs:appinfo>SDScomChem</xs:appinfo>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element maxOccurs="1" minOccurs="0" name="Chronic" type="eSDScom:MultiplyingFactorInt">
+                                        <xs:annotation>
+                                            <xs:appinfo>SDScomChem</xs:appinfo>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificConcLimit">
+                            <xs:annotation>
+                                <xs:documentation>As provided by a harmonized classification or the supplier for dilutions of the substance/product. There is not just one SCL per hazard class, so this cannot be bound to such classes.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:choice>
+                                        <xs:group ref="eSDScom:ClpAtp14Classification"/>
+                                        <xs:element name="SupplementalHazard" type="eSDScom:Atp12SupplementalHazardInformationEnum"/>
+                                    </xs:choice>
+                                    <xs:element name="MinPercentage" type="float">
+                                        <xs:annotation>
+                                            <xs:documentation>always interpreted as greater than or equal to the value</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="MaxPercentage" type="float">
+                                        <xs:annotation>
+                                            <xs:documentation>always interpreted as less than (not equal) to the value. If omitted, max percentage is 100.</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:group minOccurs="0" ref="eSDScom:ClassificationInfo">
+                            <xs:annotation>
+                                <xs:documentation>In CLP, ATE values may also be specified in harmonized classifications (CLP Annex VI)</xs:documentation>
+                            </xs:annotation>
+                        </xs:group>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SupplementalHazardInformation" type="eSDScom:SupplementalHazardInformation">
+                            <xs:annotation>
+                                <xs:documentation>Supplemental Hazards are treated in CLP as labelling elements, but in fact are assessed like other classifications. For mixtures, supplemental hazards of ingredients need to be known to determine supplemental hazards of the mixture. Thus, systems can duplicate the information available as labelling here. See also https://github.com/esdscom/sdscom-xml/issues/229</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element maxOccurs="4" minOccurs="0" name="ClassificationNotes" type="eSDScom:Phrase">
+                            <xs:annotation>
+                                <xs:appinfo>SDScomChem</xs:appinfo>
+                                <xs:documentation>Classification notes: To identify classification notes (letters and/or figures) in the case that the trade product is a substance. This information shall be stated in the SDS together with the classifications of the substance.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="HazardLabellingGB">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element minOccurs="0" name="GbClpHazardLabelling_2020">
+                    <xs:annotation>
+                        <xs:appinfo>SDScomBau</xs:appinfo>
+                        <xs:appinfo>SDScomChem</xs:appinfo>
+                        <xs:documentation>Labelling according to GB-CLP, which is based on EU regulation 1272/2008, revised until and including EU regulation 2019/521, based on GHS revision 7..</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="6" minOccurs="0" name="HazardPictogram" type="eSDScom:GhsPictogramCodeEnum">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Pictogram: A graphical presentation that includes a symbol plus other graphic elements, such as a border, background pattern or colour that is intended to convey specific information on the hazard concerned. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="1" minOccurs="0" name="SignalWord" type="eSDScom:GhsSignalWord">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Signal word: A word that indicates the relative level of severity of hazards to alert the reader to a potential hazard. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardStatement" type="eSDScom:Ghs07HazardStatement">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Hazard statement: A phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="PrecautionaryStatement" type="eSDScom:Ghs07PrecautionaryStatement">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Precautionary statement: A phrase that describes recommended measure(s) to minimise or prevent adverse effects resulting from exposure to a hazardous substance or mixture due to its use or disposal. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="SupplementalHazardInformation" type="eSDScom:SupplementalHazardInformation">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Supplemental information on the label: Statements shall be included in the section for supplemental information on the label where a substance or mixture classified as hazardous has the physical properties or health properties referred to in sections 1.1 and 1.2 of Annex II of CLP. E.g. EUH001, EUH203, EUH401, etc. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialSupplementalLabelInfoMixtures" type="eSDScom:Atp12SpecialSupplementalLabelInfo">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomBau</xs:appinfo>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Special supplemental labelling information: Labelling requirements according to REACH Annex XVII. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="eSDScom:Phrase">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation> Additional information, CLP labelling: Information for instance on labelling of combined user and transport packing (with reference.to Section 14 of the SDS). </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialRulesOnPackaging" type="eSDScom:Phrase">
+                                <xs:annotation>
+                                    <xs:appinfo>SDScomChem</xs:appinfo>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element minOccurs="0" name="TactileWarning" type="boolean">
+                                <xs:annotation>
+                                    <xs:documentation> Tactile Warning: To inform if packaging must be supplied with tactile warning if the chemical is supplied to the gerneral public </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element minOccurs="0" name="ChildResistantOpening" type="boolean">
+                                <xs:annotation>
+                                    <xs:documentation> Child Resistant Fastening: To inform if the packaging must be supplied with such fastening if the chemical is supplied to the general public. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegulationsGB">
+        <xs:annotation>
+            <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentGB.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence> </xs:sequence>
+    </xs:complexType>
+</xs:schema>
