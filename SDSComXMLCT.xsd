@@ -394,12 +394,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="Inhalation" type="eSDScom:Percentage"/>
 						<xs:element minOccurs="0" name="Dermal" type="eSDScom:Percentage"/>
 						<xs:element minOccurs="0" name="Oral" type="eSDScom:Percentage"/>
+						<xs:element minOccurs="0" name="Aquatic" type="eSDScom:Percentage"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="Ate">
 				<xs:annotation>
-					<xs:documentation>Acute Toxicity Estimate as provided by the supplier. Necessary according to UN GHS if the mixture is ingredient of another mixture, to derive this product's toxicity classification.</xs:documentation>
+					<xs:documentation>Acute Toxicity Estimate as provided by the supplier. Necessary according to UN GHS if the mixture is ingredient of another mixture, to derive this product's toxicity classification. In CLP, ATE values may also be specified in harmonized classifications (CLP Annex VI)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
