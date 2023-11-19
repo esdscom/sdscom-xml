@@ -336,6 +336,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="RegionTR">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationTR"/>
+						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingTR">
+							<xs:annotation>
+								<xs:appinfo>SDScomBau</xs:appinfo>
+								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation> Hazard labelling: To collect all information on the trade product’s hazard labelling in one group. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 3 ========================================================== -->
