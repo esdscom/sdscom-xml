@@ -6,7 +6,7 @@ Complex type definitions
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.4.0">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.5">
 	<xs:include schemaLocation="SDSComXMLDT.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_AR.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_AT.xsd"/>
@@ -14,6 +14,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<xs:include schemaLocation="SDSComXMLNE_CA.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_DK.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_EU.xsd"/>
+	<xs:include schemaLocation="SDSComXMLNE_GB.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_JP.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_MX.xsd"/>
 	<xs:include schemaLocation="SDSComXMLNE_NO.xsd"/>
@@ -394,12 +395,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="Inhalation" type="eSDScom:Percentage"/>
 						<xs:element minOccurs="0" name="Dermal" type="eSDScom:Percentage"/>
 						<xs:element minOccurs="0" name="Oral" type="eSDScom:Percentage"/>
+						<xs:element minOccurs="0" name="Aquatic" type="eSDScom:Percentage"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="Ate">
 				<xs:annotation>
-					<xs:documentation>Acute Toxicity Estimate as provided by the supplier. Necessary according to UN GHS if the mixture is ingredient of another mixture, to derive this product's toxicity classification.</xs:documentation>
+					<xs:documentation>Acute Toxicity Estimate as provided by the supplier. Necessary according to UN GHS if the mixture is ingredient of another mixture, to derive this product's toxicity classification. In CLP, ATE values may also be specified in harmonized classifications (CLP Annex VI)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1114,16 +1116,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:sequence>
 		<xs:attribute name="PhraseCatalogueId" type="eSDScom:EsdscomPhraseCatalogueId" default="0"/>
 	</xs:complexType>
-	<!-- ****************************************************************************** Stoerfallverordnung ***** -->
-	<xs:complexType name="Stoerfallverordnung">
-		<xs:sequence>
-			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryDE"/>
-			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryDE"/>
-			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryDE"/>
-			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryDE"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- ****************************************************************************** Transport Types ***** -->
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="Inventories">
 		<xs:sequence>

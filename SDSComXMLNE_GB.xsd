@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ****************************************************************************
 eSDScom XML schema definition version 5
-National Extension for Turkey
+National Extension for Great Britain
 
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
@@ -10,12 +10,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     <xs:include schemaLocation="SDSComXMLDT.xsd"/>
     <xs:include schemaLocation="SDSComXMLCT.xsd"/>
     <xs:include schemaLocation="SDSComXMLNE_EU.xsd"/>
-    <xs:complexType name="ComponentTR">
+    <xs:complexType name="ComponentGB">
         <xs:complexContent>
             <xs:extension base="eSDScom:Component"/>
         </xs:complexContent>
     </xs:complexType>
-    <xs:group name="SeaClassification_2021">
+    <xs:group name="GbClpClassification_2020">
         <xs:sequence>
             <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:EuClpAtp12ClassCategoryEnum">
                 <xs:annotation>
@@ -33,20 +33,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:complexType name="ClassificationTR">
+    <xs:complexType name="ClassificationGB">
         <xs:sequence>
-            <xs:element minOccurs="0" name="SeaHazardClassification_2021">
+            <xs:element minOccurs="0" name="GbClpHazardClassification_2020">
                 <xs:annotation>
                     <xs:appinfo>SDScomBau</xs:appinfo>
                     <xs:appinfo>SDScomChem</xs:appinfo>
-                    <xs:documentation>The chemical’s individual hazard classifications according to SEA (2021), which adopted EU regulation 1272/2008 as modified by ATP 12.</xs:documentation>
+                    <xs:documentation>The chemical’s individual hazard classifications according to GB-CLP (2020), which adopted EU regulation 1272/2008 as modified by ATP 12.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="Classification">
                             <xs:complexType>
                                 <xs:sequence minOccurs="0">
-                                    <xs:group ref="eSDScom:SeaClassification_2021"/>
+                                    <xs:group ref="eSDScom:GbClpClassification_2020"/>
                                     <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomBau</xs:appinfo>
@@ -120,14 +120,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="HazardLabellingTR">
+    <xs:complexType name="HazardLabellingGB">
         <xs:sequence>
             <xs:choice>
-                <xs:element minOccurs="0" name="SeaHazardLabelling_2021">
+                <xs:element minOccurs="0" name="GbClpHazardLabelling_2020">
                     <xs:annotation>
                         <xs:appinfo>SDScomBau</xs:appinfo>
                         <xs:appinfo>SDScomChem</xs:appinfo>
-                        <xs:documentation>Labelling according to EU regulation 1272/2008, revised until and including EU regulation 2019/521, based on GHS revision 7. THE TRANSITION PERIOD OF ATP 14 ENDED 09 SEPTEMBER 2021, SO ATP 12 IS NO LONGER APPLICABLE. ALL PRODUCTS MUST NOW BE CLASSIFIED (OR THEIR CLASSIFICATION CONFIRMED) ACCORDING TO THIS OR A NEWER REGULATION.</xs:documentation>
+                        <xs:documentation>Labelling according to GB-CLP, which is based on EU regulation 1272/2008, revised until and including EU regulation 2019/521, based on GHS revision 7..</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
@@ -200,9 +200,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="RegulationsTR">
+    <xs:complexType name="RegulationsGB">
         <xs:annotation>
-            <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
+            <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentGB.</xs:documentation>
         </xs:annotation>
         <xs:sequence> </xs:sequence>
     </xs:complexType>
