@@ -2888,14 +2888,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+								<xs:documentation>Content should be in English language - see issue #13. For additions to this name, see issue #76.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="ProperShippingNameNational" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+								<xs:documentation>Content should be in the language of the SDS - see issue #13. For additions to this name, see issue #76.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="eSDScom:Phrase">
@@ -2985,14 +2985,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="ProperShippingNameEnglish" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Content should be in English language - see issue #13</xs:documentation>
+								<xs:documentation>Content should be in English language - see issue #13. For additions to this name, see issue #76.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="ProperShippingNameNational" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
-								<xs:documentation>Content should be in the language of the SDS - see issue #13</xs:documentation>
+								<xs:documentation>Content should be in the language of the SDS - see issue #13. For additions to this name, see issue #76.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstanceEnglish" type="eSDScom:Phrase">
