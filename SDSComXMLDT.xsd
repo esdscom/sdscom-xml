@@ -1892,12 +1892,17 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 	</xs:simpleType>
 	<xs:simpleType name="SdscomSubsetEnum">
 		<xs:annotation>
-			<xs:documentation> Legal values for the XMLStandardSubsetEnum. It should specify the minimum requirements matched, i.e. any subset with full coverage of SDScomChem should pick SDScomChem. SdscomXml light is a Norwegian specification, SDScomBau and SDScomChem are German, full means complete SDS information, other means any non-standard subset.</xs:documentation>
+			<xs:documentation> Legal values for the XMLStandardSubsetEnum. It should specify the minimum requirements matched, i.e. any subset with full coverage of SDScomChem should pick SDScomChem. 
+- SDScomBau and SDScomChem are German government-funded projects
+- Cefic's Minimum Requirements project comes in two flavors (Cefic-MinReq for the short version and Cefic-MinReq-Long for the extended subset)
+- full means complete SDS information
+- other means any non-standard subset.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="SdsComXml Light"/>
 			<xs:enumeration value="SDScomBau"/>
 			<xs:enumeration value="SDScomChem"/>
+			<xs:enumeration value="Cefic-MinReq"/>
+			<xs:enumeration value="Cefic-MinReq-Long"/>
 			<xs:enumeration value="full"/>
 			<xs:enumeration value="other"/>
 		</xs:restriction>

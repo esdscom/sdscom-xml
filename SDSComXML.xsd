@@ -21,6 +21,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="SpecificationNo" type="eSDScom:string128">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation>Sender-defined identification of a specification the chemical is in accordance with, e.g. a formulation number. This is not meant for compliance statements like international or vendor-internal standards!</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -59,6 +61,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:sequence>
 									<xs:element name="TradeName" type="eSDScom:string1024" maxOccurs="unbounded" minOccurs="0">
 										<xs:annotation>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation>for Mixtures</xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -134,12 +138,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="UseAdvisedAgainst" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionCA" type="eSDScom:SdsSupplierInfo"/>
@@ -203,6 +211,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 								<xs:documentation> Additional information on classification: If the chemical do not meet the classification criteria etc.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -216,6 +226,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="OtherHazardsInfo">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 								<xs:documentation> Other hazards: Hazards which do not result in classification but which may contribute to the overall hazards of the substance or mixture, such as formation of air contaminants during hardening or processing, dustiness, dust explosion hazards, cross-sensitisation, suffocation, freezing, high potency for odour or taste, or environmental effects like hazards to soil-dwelling organisms, or photochemical ozone creation potential. </xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
@@ -229,18 +241,24 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="PhysicochemicalEffect" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation> Physicochemical effects: The most important adverse physicochemical effects and symptoms. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="HealthEffect" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation> Health effects: The most important adverse health effects and symptoms. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalEffect" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation> Environmental effects: The most important adverse environmental effects and symptoms. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -253,6 +271,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherHazards" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation> Ohter hazards: Other hazards necessary to mention which do not result in classification, but which contribute to overall hazards. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -1591,6 +1611,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 									<xs:documentation>The version of the eSDScom standard which is applied in the transmission of information. This version number also denotes the minimum version number for eSDScom phrase IDs referenced in the XML file. For backward compatibility, the tag name is still SDScom, although the standard now includes ESCom exposure scenarios and is thus named eSDScom.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
@@ -1598,6 +1620,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 									<xs:documentation> Reference to the SDScomXML subsets SDScomBau and SDScomChem containing SDSComXML fields. More informaion to SDScomBau and SDScomChem are available at www.sdbtransfer.de </xs:documentation>
 								</xs:annotation>
 							</xs:element>
@@ -1612,6 +1636,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 									<xs:documentation>The default language of the information, stated in a format according to ISO 639-1 (2 letters) followed by textual name </xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
@@ -1620,6 +1646,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:annotation>
 												<xs:appinfo>SDScomBau</xs:appinfo>
 												<xs:appinfo>SDScomChem</xs:appinfo>
+												<xs:appinfo>Cefic-MinReq</xs:appinfo>
+												<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 												<xs:documentation> Enumeration with defined code set. Language independent. ISO 639-1 (2 letters) </xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -1727,6 +1755,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:annotation>
 									<xs:appinfo>SDScomBau</xs:appinfo>
 									<xs:appinfo>SDScomChem</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq</xs:appinfo>
+									<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 									<xs:documentation>Date of generation of this export file</xs:documentation>
 								</xs:annotation>
 							</xs:element>

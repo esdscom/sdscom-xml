@@ -40,6 +40,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation>Version No: The current version of the SDS document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -54,6 +56,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation>Date of revision: The date of the last revision of the SDS document. See also EditingDate.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -109,6 +113,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 								<xs:documentation> Name: Name of the company </xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -116,6 +122,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -202,6 +210,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element minOccurs="0" name="Name" type="eSDScom:string512">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation> Name: Name of the company contact </xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -226,6 +236,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element minOccurs="0" name="Email" type="eSDScom:EmailAddress">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq</xs:appinfo>
+											<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 											<xs:documentation> e-mail address: e-mail address of the company contact </xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -244,6 +256,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						</xs:element>
 						<xs:element minOccurs="0" name="Duns" type="eSDScom:DunsNo">
 							<xs:annotation>
+								<xs:appinfo>Cefic-MinReq</xs:appinfo>
+								<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 								<xs:documentation> The D-U-N-S Number references a legal entity and allows access to what could be considered a self-maintaining address book, created for the automotive and chemical industry. It should be added to any address in SDScom to help data integration. See also https://www.upik.de/ </xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -254,6 +268,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation> Emergency phone: Contacts that can be used in case of an accident or trouble, e.g. the supplier’s own emergency phone or the phone number to an official advisory body. A Poison Information Center gives advice and instruction regarding treatment of acute poisoning caused by chemicals etc. </xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
@@ -283,11 +299,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation>IUPAC or chemical name</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="CasInventoryName" type="eSDScom:string1024">
 				<xs:annotation>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation>a.k.a CAIN, Name in the CAS Online Inventory</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -295,6 +315,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq</xs:appinfo>
+					<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 					<xs:documentation>Alternative chemical name to protect Confidential Business Information (in Europe, according to CLP article 24)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -315,6 +337,8 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:annotation>
 							<xs:appinfo>SDScomBau</xs:appinfo>
 							<xs:appinfo>SDScomChem</xs:appinfo>
+							<xs:appinfo>Cefic-MinReq</xs:appinfo>
+							<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
 							<xs:documentation>CAS RN: Registration Number for chemical substances, including some groups and more complex cases like polymers and reaction products, issued by Chemical Abstract Service. For a discussion why there is just one CAS RN per substance, see issue #111.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -342,8 +366,18 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:documentation>If SubstanceType is other (or not used), specify the details here.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="MolecularWeight" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0"/>
-					<xs:element name="ChemicalPurity" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="MolecularWeight" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>Cefic-MinReq</xs:appinfo>
+							<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ChemicalPurity" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:appinfo>Cefic-MinReq</xs:appinfo>
+							<xs:appinfo>Cefic-MinReq-Long</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
 					<xs:element minOccurs="0" name="Inventories" type="eSDScom:Inventories">
 						<xs:annotation>
 							<xs:documentation>Inventories are not part of the regional regulatory information and bundled under this element because product recipients may want to distribute to other markets, in which case the inventory information is helpful even if the SDS does not cover the target market.</xs:documentation>
