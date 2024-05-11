@@ -1992,12 +1992,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="CLP18a_2023/707"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="EuClpAtp12ClassCategoryEnum">
-		<xs:annotation>
-			<xs:documentation>ATP 12 = Regulation (EU) 2019/521 is based on GHS revision 7. Although outdated in the EU, this is still the basis for classifications in Great Britain and Turkey and thus retaines here for consistency.</xs:documentation>
-		</xs:annotation>
-		<xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs07ClassFlamGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq_no4 eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs06ClassDesensExpl eSDScom:Ghs00ClassAcuteToxOral_no5 eSDScom:Ghs00ClassAcuteToxDermal_no5 eSDScom:Ghs00ClassAcuteToxInhal_no5 eSDScom:Ghs00ClassSkinCorr_no3 eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox_no2 eSDScom:Ghs01ClassAquaticAcute_no23 eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
-	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp14ClassCategoryEnum">
 		<xs:annotation>
 			<xs:documentation>ATP 14 = Regulation (EU) 2020/217 is based on GHS revision 7. Mandatory from 09 September 2021, optionally applicable before.</xs:documentation>
@@ -2316,11 +2310,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="451"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EuClpHazardRepr">
+		<xs:annotation>
+			<xs:documentation>Additional codes for H360 and H361 which represent different wordings, used in the EU and e.g. Australia</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="string">
+			<xs:enumeration value="360D"/>
+			<xs:enumeration value="360Df"/>
+			<xs:enumeration value="360F"/>
+			<xs:enumeration value="360FD"/>
+			<xs:enumeration value="360Fd"/>
+			<xs:enumeration value="361d"/>
+			<xs:enumeration value="361f"/>
+			<xs:enumeration value="361fd"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="ClpHazardEnum_2023_707">
 		<xs:annotation>
 			<xs:documentation>List of Hazard Statement codes according to GHS revision 7 as adopted in the EU, extended with the new EU hazard class info </xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="eSDScom:Ghs07HazardEnum eSDScom:EuClpHazardEdEnv eSDScom:EuClpHazardEdHh eSDScom:EuClpHazardPbt eSDScom:EuClpHazardPmt"/>
+		<xs:union memberTypes="eSDScom:Ghs07HazardEnum eSDScom:EuClpHazardRepr eSDScom:EuClpHazardEdEnv eSDScom:EuClpHazardEdHh eSDScom:EuClpHazardPbt eSDScom:EuClpHazardPmt"/>
 	</xs:simpleType>
 	<xs:complexType name="ClpHazardStatement_2023_707">
 		<xs:annotation>
