@@ -6,7 +6,7 @@ Basic type definitions
 Source: https://github.com/esdscom/sdscom-xml
 License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 ***************************************************************************** -->
-<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.5">
+<xs:schema targetNamespace="http://www.esdscom.eu/eSDScom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:eSDScom="http://www.esdscom.eu/eSDScom" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.6">
 	<xs:simpleType name="string2">
 		<xs:annotation>
 			<xs:documentation>A string of maximum 2 characters.</xs:documentation>
@@ -192,7 +192,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 It is used to reference the version number in the XML data file, as the schema name does not include the version number. So this complements the version attribute in the xs:schema tag of the XSD files, and one of the enum values here must match the version attribute in the schema.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="5.5"/>
+			<xs:enumeration value="5.6"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="LanguageCodeEnum">
