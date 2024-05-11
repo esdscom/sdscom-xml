@@ -3180,6 +3180,32 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element minOccurs="0" name="Biocides">
+							<xs:annotation>
+								<xs:documentation>Biocidal Products according to to Regulation (EU) No 528/2012 can be either a biocide or a treated article, and if treadted articles should be covered here remains an extert decision (see issue #265).</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:choice minOccurs="0">
+										<xs:element minOccurs="0" name="IsBiocide" type="boolean"/>
+										<xs:element minOccurs="0" name="IsTreatedArticle" type="boolean"/>
+									</xs:choice>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="CompositionInformation" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Composition according to Biocidal Products Regulation (EU) No 528/2012. This can differ from the composition in section 3 of the SDS and is for labelling purposes only.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="InstructionsForUse" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Specific for labels according to to Biocidal Products Regulation (EU) No 528/2012.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="AuthorizationNo" type="eSDScom:string20"/>
+									<xs:element minOccurs="0" name="MainGroup" type="eSDScom:Phrase"/>
+									<xs:element minOccurs="0" name="ProductType" type="eSDScom:Phrase"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 						<xs:element minOccurs="0" name="Seveso">
 							<xs:complexType>
 								<xs:sequence>
@@ -3202,7 +3228,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:documentation>Voc contents: To be usually measured in g/L</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
+									<xs:element minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
