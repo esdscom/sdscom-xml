@@ -22,6 +22,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="SevesoDE">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryDE"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="RegulationsDE">
 		<xs:annotation>
 			<xs:appinfo>SDScomBau</xs:appinfo>
@@ -30,7 +38,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="RestrictionsOfOccupation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stoerfallverordnung" type="eSDScom:Stoerfallverordnung" minOccurs="0"/>
+			<xs:element name="Stoerfallverordnung" type="eSDScom:SevesoDE" minOccurs="0"/>
 			<xs:element name="TaLuft" type="eSDScom:TaLuft" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="WaterHazardClass" type="eSDScom:WaterHazardClass" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">

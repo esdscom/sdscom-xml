@@ -88,7 +88,35 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentCH.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Stoerfallverordnung" type="eSDScom:Stoerfallverordnung" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MajorAccidentsOrdinance" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Störfallverordnung of Switzerland</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="HealthHazardThreshold" type="integer">
+							<xs:annotation>
+								<xs:documentation>in kg</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="PhysicalHazardThreshold" type="integer">
+							<xs:annotation>
+								<xs:documentation>in kg</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="EnvironmantalHazardThreshold" type="integer">
+							<xs:annotation>
+								<xs:documentation>in kg</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="OtherHazardThreshold" type="integer">
+							<xs:annotation>
+								<xs:documentation>in kg. Includes results from tables 4 and 5</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="NationalWasteLegislationCH" type="eSDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="StorageClassCH" type="eSDScom:StorageClassEnumCH" minOccurs="0" maxOccurs="1">
 				<xs:annotation>

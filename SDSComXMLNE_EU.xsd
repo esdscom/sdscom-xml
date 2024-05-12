@@ -3072,6 +3072,14 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="SevesoEU">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryEU"/>
+			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryEU"/>
+			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryEU"/>
+			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryEU"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="RegulationsEU">
 		<xs:annotation>
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentEU.</xs:documentation>
@@ -3188,16 +3196,7 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element minOccurs="0" name="Seveso">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryEU"/>
-									<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryEU"/>
-									<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryEU"/>
-									<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryEU"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element minOccurs="0" name="Seveso" type="eSDScom:SevesoEU"> </xs:element>
 						<xs:element minOccurs="0" name="IndustrialEmissions">
 							<xs:annotation>
 								<xs:documentation>Directive 2010/75/EU This should be an exact value, not a range. But for reasons of ingredient nondisclosure, some companies decide to provide a range here.</xs:documentation>
