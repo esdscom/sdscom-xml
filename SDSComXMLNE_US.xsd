@@ -455,6 +455,40 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                         <xs:element minOccurs="0" name="California">
                             <xs:complexType>
                                 <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Proposition65">
+                                        <xs:annotation>
+                                            <xs:documentation>A simple implementation could use just one instance, setting only "listed" to true. Complete coverage of Prop65 could have up to two entries with different (sets of) ToxType. See also https://oehha.ca.gov/proposition-65/proposition-65-list/</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="listed" type="boolean"/>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="CausingToxType">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="string">
+                                                            <xs:enumeration value="cancer"/>
+                                                            <xs:enumeration value="developmental"/>
+                                                            <xs:enumeration value="male reproductive"/>
+                                                            <xs:enumeration value="female reproductive"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BasisForListing">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="string">
+                                                            <xs:enumeration value="Formally Required"/>
+                                                            <xs:enumeration value="State's Qualified Experts"/>
+                                                            <xs:enumeration value="Authoritative Bodies"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="SafeHarbourLevels" type="eSDScom:Phrase">
+                                                    <xs:annotation>
+                                                        <xs:documentation>Safe Harbour Levels cover either No Significant Risk Level (NSRL) or Maximum Allowable Dose Level (MADL), depending on the CausingToxType</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
                                     <xs:element maxOccurs="unbounded" minOccurs="0" name="RightToKnow" type="eSDScom:Phrase"> </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
