@@ -204,6 +204,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
         <xs:annotation>
             <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
         </xs:annotation>
-        <xs:sequence> </xs:sequence>
+        <xs:sequence>
+            <xs:element name="Certification" type="eSDScom:Phrase">
+                <xs:annotation>
+                    <xs:documentation>Safety Data Sheets according to KKDIK require certification by an approved person who will provide a specific wording containing their approval/listing number.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>
