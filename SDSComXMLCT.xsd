@@ -2373,7 +2373,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SolventSeparationTest" type="eSDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentOfVoc" type="eSDScom:PhysChemValue">
 							<xs:annotation>
-								<xs:documentation> Content of VOC: Content of solvents </xs:documentation>
+								<xs:documentation>Content of volatile organic compounts (often solvents), measured in g/L and/or weight percent (% w/w).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SolidContent" type="eSDScom:PhysChemUnitValue">
