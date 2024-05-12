@@ -387,7 +387,39 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:group name="ClassCategoryInfo">
+		<xs:annotation>
+			<xs:documentation>Group for additional info per class/category entry, see #272</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:appinfo>SDScomBau</xs:appinfo>
+					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Organ" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>For Sepcific Target Organ Toxicity (STOT), one or more affected organs should be listed if known.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureRoute" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>For Specific Target Organ Toxicity (STOT), the entry can be limited to a way of exposure (e.g. inhalation). Although there is currently no known case with more than one route of exposure, we cannot exclude this biologically and thus technically.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
 	<xs:group name="ClassificationInfo">
+		<xs:annotation>
+			<xs:documentation>Group for additional info per classification (set of classes/category for one product)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="UnknownToxicity">
 				<xs:complexType>

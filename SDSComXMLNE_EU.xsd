@@ -1992,6 +1992,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:enumeration value="CLP18a_2023/707"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EuClpAtp12ClassCategoryEnum">
+		<xs:annotation>
+			<xs:documentation>ATP 12 = Regulation (EU) 2019/521 is based on GHS revision 7. 
+
+CAUTION! Although outdated in the EU, this is still the basis for classifications in Great Britain and Turkey and thus retaines here for consistency.</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="eSDScom:Ghs01ClassExpl eSDScom:Ghs07ClassFlamGas eSDScom:Ghs04ClassAerosol eSDScom:Ghs00ClassOxGas eSDScom:Ghs00ClassPressGas eSDScom:Ghs00ClassFlamLiq_no4 eSDScom:Ghs00ClassFlamSol eSDScom:Ghs00ClassSelfReact eSDScom:Ghs00ClassPyrLiq eSDScom:Ghs00ClassPyrSol eSDScom:Ghs00ClassSelfHeat eSDScom:Ghs00ClassWaterReact eSDScom:Ghs00ClassOxLiq eSDScom:Ghs00ClassOxSol eSDScom:Ghs00ClassOrgPerox eSDScom:Ghs00ClassMetCorr eSDScom:Ghs06ClassDesensExpl eSDScom:Ghs00ClassAcuteToxOral_no5 eSDScom:Ghs00ClassAcuteToxDermal_no5 eSDScom:Ghs00ClassAcuteToxInhal_no5 eSDScom:Ghs00ClassSkinCorr_no3 eSDScom:Ghs00ClassEyeDam eSDScom:Ghs03ClassRespSens eSDScom:Ghs03ClassSkinSens eSDScom:Ghs00ClassMuta eSDScom:Ghs00ClassCarc eSDScom:Ghs00ClassRepr eSDScom:Ghs00ClassLact eSDScom:Ghs00ClassStotSe eSDScom:Ghs01ClassStotSe3 eSDScom:Ghs00ClassStotRe eSDScom:Ghs01ClassAspTox_no2 eSDScom:Ghs01ClassAquaticAcute_no23 eSDScom:Ghs01ClassAquaticChronic eSDScom:Ghs03ClassOzone"/>
+	</xs:simpleType>
 	<xs:simpleType name="EuClpAtp14ClassCategoryEnum">
 		<xs:annotation>
 			<xs:documentation>ATP 14 = Regulation (EU) 2020/217 is based on GHS revision 7. Mandatory from 09 September 2021, optionally applicable before.</xs:documentation>
@@ -2007,13 +2015,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:group ref="eSDScom:ClassCategoryInfo"/>
 		</xs:sequence>
 	</xs:group>
 
@@ -2085,13 +2087,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> CLP hazard category: The hazard class and a corresponding category / differentiation according to CLP. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
-				<xs:annotation>
-					<xs:appinfo>SDScomBau</xs:appinfo>
-					<xs:appinfo>SDScomChem</xs:appinfo>
-					<xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:group ref="eSDScom:ClassCategoryInfo"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:complexType name="ClassificationEU">
@@ -2108,13 +2104,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:complexType>
 								<xs:sequence minOccurs="0">
 									<xs:group ref="eSDScom:ClpAtp14Classification"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2196,13 +2185,6 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:complexType>
 								<xs:sequence minOccurs="0">
 									<xs:group ref="eSDScom:ClpClassification_2023_707"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
-										<xs:annotation>
-											<xs:appinfo>SDScomBau</xs:appinfo>
-											<xs:appinfo>SDScomChem</xs:appinfo>
-											<xs:documentation>CLP classification procedure: To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>

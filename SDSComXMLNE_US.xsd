@@ -44,18 +44,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                     <xs:documentation>The hazard class and a corresponding category / differentiation according to Hazcom 2012. </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element maxOccurs="1" name="HazardClassCategoryPrintable" type="eSDScom:Phrase">
-                                <xs:annotation>
-                                    <xs:appinfo>SDScomBau</xs:appinfo>
-                                    <xs:appinfo>SDScomChem</xs:appinfo>
-                                    <xs:documentation>Printable, phrase based representation of HazardClassCategory. While this may be identical to HazardClassCatgory in its string representation, it provides a translated version linked to a phrase library for applications where this is useful.</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-                            <xs:element maxOccurs="1" minOccurs="0" name="ClassificationProcedure" type="eSDScom:Phrase">
-                                <xs:annotation>
-                                    <xs:documentation>To state how the individual classification is prepared. (This information should be shown in section 16). Only relevant for instances of type Classification in section 2. For components in section 3, this info should not be part of the SDS.</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
+                            <xs:group ref="eSDScom:ClassCategoryInfo"/>
                         </xs:sequence>
                         <xs:group ref="eSDScom:ClassificationInfo"/>
                     </xs:sequence>
