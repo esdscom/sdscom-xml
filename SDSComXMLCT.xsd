@@ -832,7 +832,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> RelativeVapourDensity source: Chapter 9 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="eSDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="eSDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ReferenceGas" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
