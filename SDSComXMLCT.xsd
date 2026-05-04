@@ -1829,7 +1829,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Indicate the form (solid, liquid, gas or other descriptive terms) of the substance or mixture as supplied. May be omitted if specified in field Form. If Form is "other", put more details in this field.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="StateUnderStandardConditions">
+						<xs:element minOccurs="0" name="StateUnderStandardConditions" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="State" type="eSDScom:StateUnderStandardConditionsEnum">
@@ -1853,15 +1853,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Product colour: Indicate the colour of the substance or preparation as supplied. May be omitted if Colour is used. This field is also used if none of ColourEnum matches.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ColourIntensity" type="eSDScom:ColourIntensityEnum"/>
+						<xs:element minOccurs="0" name="ColourIntensity" type="eSDScom:ColourIntensityEnum" maxOccurs="unbounded"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ColourIntensityDescription" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Odour" type="eSDScom:Phrase">
+						<xs:element minOccurs="0" name="Odour" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 								<xs:documentation> Product odour: Description of the smell of the product. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OdourThreshold" type="eSDScom:PhysChemUnitValueWithTemperature">
+						<xs:element minOccurs="0" name="OdourThreshold" type="eSDScom:PhysChemUnitValueWithTemperature">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
@@ -1951,7 +1951,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="FlashPoint" type="eSDScom:FlashPoint">
+						<xs:element minOccurs="0" name="FlashPoint" type="eSDScom:FlashPoint">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1970,12 +1970,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="LowerExplosionLimit" type="eSDScom:PhysChemUnitValue">
+									<xs:element minOccurs="0" name="LowerExplosionLimit" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="UpperExplosionLimit" type="eSDScom:PhysChemUnitValue">
+									<xs:element minOccurs="0" name="UpperExplosionLimit" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
 										</xs:annotation>
@@ -2020,12 +2020,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AutoignitionTemperature" type="eSDScom:PhysChemUnitValue">
+						<xs:element minOccurs="0" name="AutoignitionTemperature" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DecompositionTemperature" type="eSDScom:PhysChemUnitValue">
+						<xs:element minOccurs="0" name="DecompositionTemperature" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
@@ -2422,33 +2422,33 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AnilinePoint" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ElectricConductivity" type="eSDScom:PhysChemUnitValueWithTemperature"/>
+						<xs:element minOccurs="0" name="ElectricConductivity" type="eSDScom:PhysChemUnitValueWithTemperature"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="GasGroup" type="eSDScom:GasGroup"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SolventSeparationTest" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element minOccurs="0" name="SolventSeparationTest" type="eSDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentOfVoc" type="eSDScom:PhysChemValue">
 							<xs:annotation>
 								<xs:documentation>Content of volatile organic compounts (often solvents), measured in g/L and/or weight percent (% w/w).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SolidContent" type="eSDScom:PhysChemUnitValue">
+						<xs:element minOccurs="0" name="SolidContent" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PropellantContent" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element minOccurs="0" name="PropellantContent" type="eSDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SinterTemperature" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AcidNo" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element minOccurs="0" name="AcidNo" type="eSDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="DissociationConstant" type="eSDScom:DissociationConstant"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="HydrolysisRate" type="eSDScom:HydrolysisRate"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="WaterReactive" type="eSDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AirReactive" type="eSDScom:Phrase"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PenetrationNo" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ParticleSize" type="eSDScom:PhysChemUnitValueWithTemperature"/>
+						<xs:element minOccurs="0" name="ParticleSize" type="eSDScom:PhysChemUnitValueWithTemperature"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="CriticalPressure" type="eSDScom:PhysChemUnitValueWithTemperature"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExpansionCoefficient" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RedoxPotential" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RadicalFormationPotential" type="eSDScom:PhysChemValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhotocatalyticProperties" type="eSDScom:PhysChemUnitValueWithTemperature"/>
+						<xs:element minOccurs="0" name="RedoxPotential" type="eSDScom:PhysChemUnitValueWithTemperature"/>
+						<xs:element minOccurs="0" name="RadicalFormationPotential" type="eSDScom:PhysChemValueWithTemperature"/>
+						<xs:element minOccurs="0" name="PhotocatalyticProperties" type="eSDScom:PhysChemUnitValueWithTemperature"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="NumberAverageMolecularWeight" type="eSDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="WeightAverageMolecularWeight" type="eSDScom:PhysChemUnitValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="MolecularWeightDistribution" type="eSDScom:PhysChemUnitValue"/>
@@ -2605,12 +2605,12 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="SkinCorrosionAcidicOrAlkalineReserve">
 							<xs:complexType>
 								<xs:choice>
-									<xs:element maxOccurs="unbounded" minOccurs="1" name="SkinCorrosionAcidicReserve" type="eSDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionAcidicReserve" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:documentation> Acidic reserve: Buffer capacity for mixtures with extreme pH values - expressed for instance as g NaOH/100 g product </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="1" name="SkinCorrosionAlkalineReserve" type="eSDScom:Phrase">
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionAlkalineReserve" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:documentation> Alkaline reserve: Buffer capacity for mixtures with extreme pH values - expressed for instance as g H2SO4/100 g product </xs:documentation>
 										</xs:annotation>
