@@ -1114,6 +1114,14 @@ It is used to reference the version number in the XML data file, as the schema n
 			<xs:pattern value="\d{2,7}-\d{2}-\d{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="InchiKey">
+		<xs:annotation>
+			<xs:documentation>describes a structure formula in InChi notation as its hash key, according to https://pubchem.ncbi.nlm.nih.gov/docs/rdf-inchikey . Final Checksum character (SHA-256) is optional.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="^[A-Z]{14}-[A-Z]{10}-[A-Z](-[A-Z])?$"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="DunsNo">
 		<xs:annotation>
 			<xs:documentation>The D-U-N-S® Number of a legal entity. See https://www.upik.de/</xs:documentation>
