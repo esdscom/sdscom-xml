@@ -24,10 +24,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	</xs:complexType>
 	<xs:complexType name="SevesoDE">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryDE"/>
-			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryDE"/>
-			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryDE"/>
-			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryDE"/>
+			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryDE">
+				<xs:annotation>
+					<xs:documentation>German major accident entry for health hazards; category or quantity thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryDE">
+				<xs:annotation>
+					<xs:documentation>German major accident entry for physical hazards; category or quantity thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryDE">
+				<xs:annotation>
+					<xs:documentation>German major accident entry for environmental hazards; category or quantity thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryDE">
+				<xs:annotation>
+					<xs:documentation>German major accident entry for other hazards; category or quantity thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RegulationsDE">
@@ -37,16 +53,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, create type ComponentDE or refer to ComponentEU.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="RestrictionsOfOccupation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Stoerfallverordnung" type="eSDScom:SevesoDE" minOccurs="0"/>
-			<xs:element name="TaLuft" type="eSDScom:TaLuft" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="WaterHazardClass" type="eSDScom:WaterHazardClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RestrictionsOfOccupation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Employment restrictions, e.g. for young people, pregnant workers or specific activities.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Stoerfallverordnung" type="eSDScom:SevesoDE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information on the German Major Accident Ordinance and relevant hazard categories.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaLuft" type="eSDScom:TaLuft" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Information on TA Luft, e.g. substance class, number or mass fraction.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WaterHazardClass" type="eSDScom:WaterHazardClass" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Water hazard class (WGK) under German law; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="OtherRestrictionsAndProhibitionRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation> Other German legislation: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RegistrationNoAccordingToBiozidMeldeverordnung" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Registration number under the German Biocide Notification Ordinance; alphanumeric value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="AdditionalInformation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="NationalWasteLegislationDE" type="eSDScom:NationalWasteLegislationDE" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -119,9 +155,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<!-- ******************************************************************** TaLuft ********************* -->
 	<xs:complexType name="TaLuft">
 		<xs:sequence>
-			<xs:element name="WeightFraction" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ClassOrClasses" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="No" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="WeightFraction" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Mass fraction; typically expressed in %.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClassOrClasses" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Class or classes under national regulation, e.g. TA Luft.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="No" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Number or textual reference within a regulation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Remark" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>

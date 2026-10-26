@@ -2299,7 +2299,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Signal Word, ie. danger or warning.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="eSDScom:GhsSignalWordEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="PhraseCode" type="eSDScom:GhsSignalWordEnum" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>GHS signal word code, e.g. Danger or Warning.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="0" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -2382,7 +2386,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="eSDScom:Ghs05HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs05HazardEnum" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>code of a hazard statement according to GHS-Revision 5, e.g. H-Satz.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:group ref="eSDScom:HazardStatementInfo"/>
         </xs:sequence>
         <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
@@ -2404,7 +2412,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Hazard Statement. Note that Systems may export PhraseCode only, without FullText or PhraseId, if used for applications like workplace safety lists. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="eSDScom:Ghs07HazardEnum" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs07HazardEnum" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>code of a hazard statement according to GHS-Revision 7, e.g. H-Satz.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:group ref="eSDScom:HazardStatementInfo"/>
         </xs:sequence>
         <xs:attribute name="PhraseId" type="eSDScom:AnyPhraseId"/>
@@ -2471,7 +2483,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="eSDScom:Ghs03PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs03PrecautionEnum" minOccurs="1" maxOccurs="5">
+                <xs:annotation>
+                    <xs:documentation>code of a precautionary statement according to GHS-Revision 3, e.g. P-Satz.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -2495,7 +2511,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="eSDScom:Ghs05PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs05PrecautionEnum" minOccurs="1" maxOccurs="5">
+                <xs:annotation>
+                    <xs:documentation>code of a precautionary statement according to GHS-Revision 5, e.g. P-Satz.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -2519,7 +2539,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>GHS Precautionary Statement</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="PhraseCode" type="eSDScom:Ghs07PrecautionEnum" minOccurs="1" maxOccurs="5"/>
+            <xs:element name="PhraseCode" type="eSDScom:Ghs07PrecautionEnum" minOccurs="1" maxOccurs="5">
+                <xs:annotation>
+                    <xs:documentation>code of a precautionary statement according to GHS-Revision 7, e.g. P-Satz.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="FullText" type="eSDScom:string1024" minOccurs="1" maxOccurs="1"/>
             <xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>

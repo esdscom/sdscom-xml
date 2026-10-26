@@ -310,11 +310,26 @@ Chemical Diversion and Trafficking Act</xs:documentation>
     <xs:complexType name="DisposalConsiderationsUS">
         <xs:sequence>
             <xs:element minOccurs="0" name="Federal">
+                <xs:annotation>
+                    <xs:documentation>US federal disposal-related information; coded or textual value.</xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraWasteCode" type="string"/>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCharacteristics" type="eSDScom:Phrase"> </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraBasisForListing" type="eSDScom:Phrase"> </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraWasteCode" type="string">
+                            <xs:annotation>
+                                <xs:documentation>US RCRA hazardous waste code; coded value.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCharacteristics" type="eSDScom:Phrase">
+                            <xs:annotation>
+                                <xs:documentation>Hazardous waste characteristics, e.g. flammability, toxicity or environmental hazard; coded or textual.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="RcraBasisForListing" type="eSDScom:Phrase">
+                            <xs:annotation>
+                                <xs:documentation>US RCRA basis for listing as hazardous waste, e.g. F-, K-, P- or U-listing.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -322,10 +337,21 @@ Chemical Diversion and Trafficking Act</xs:documentation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element minOccurs="0" name="California">
+                            <xs:annotation>
+                                <xs:documentation>US state of California disposal-related information; heading or text field.</xs:documentation>
+                            </xs:annotation>
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCode" type="string"/>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteStatus" type="eSDScom:Phrase"> </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteCode" type="string">
+                                        <xs:annotation>
+                                            <xs:documentation>US state of California: Regional hazardous waste code; coded value.</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="HazardousWasteStatus" type="eSDScom:Phrase">
+                                        <xs:annotation>
+                                            <xs:documentation>US state of California: Status indicating whether waste is classified as hazardous; yes/no or classification.</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>

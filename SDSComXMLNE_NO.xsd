@@ -17,26 +17,66 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 	<!-- ******************************************************************** PrProductRegistrationNo ********************* -->
 	<xs:complexType name="PrProductRegistrationNO">
 		<xs:sequence>
-			<xs:element name="PrProductNo" type="eSDScom:string128" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NotApplicableReason" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PrProductCode" type="eSDScom:string20" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="UcnCode" type="eSDScom:string20" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="SicCode" type="eSDScom:string20" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NorwegianPrFunctionCode" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrProductNo" type="eSDScom:string128" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: Product number in PR register or national notification system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotApplicableReason" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: Reason why information is not applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrProductCode" type="eSDScom:string20" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: Product code in PR register or national notification system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UcnCode" type="eSDScom:string20" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: UCN code in national product register; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SicCode" type="eSDScom:string20" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: SIC code for industry sector or activity; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NorwegianPrFunctionCode" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norwegian PR function code; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** OccupationalAirRequirement ********************* -->
 	<xs:complexType name="OccupationalAirRequirementNO">
 		<xs:sequence>
-			<xs:element name="OarGroup" type="eSDScom:string2" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OarValue" type="eSDScom:string32" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OarGroup" type="eSDScom:string2" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Norway: Group or category of occupational air requirement.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OarValue" type="eSDScom:string32" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Norway: numerical value for occupational air requirement.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************** NationalWasteLegislation ********************* -->
 	<xs:complexType name="NationalWasteLegislationNO">
 		<xs:sequence>
-			<xs:element name="NationalWasteCode" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="NationalRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="NationalWasteCode" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: National waste code or waste key; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NationalRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: National provisions relevant for the product or disposal.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RegulationsNO">
@@ -44,12 +84,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentNO.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionCode" type="eSDScom:Phrase"/>
-			<xs:element name="AssessedRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalLegislationsDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PrProductRegistration" type="eSDScom:PrProductRegistrationNO" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OccupationalAirRequirement" type="eSDScom:OccupationalAirRequirementNO" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="NationalWasteLegislation" type="eSDScom:NationalWasteLegislationNO" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductFunctionCode" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Norway: Product function code in national register or notification system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssessedRegulations" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Norway: Assessed national or regional regulations.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NationalLegislationsDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: Description of national legal requirements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrProductRegistration" type="eSDScom:PrProductRegistrationNO" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: Product registration information in national register.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OccupationalAirRequirement" type="eSDScom:OccupationalAirRequirementNO" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Norway: Occupational air requirement or limit value under national law.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NationalWasteLegislation" type="eSDScom:NationalWasteLegislationNO" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Norway: National waste legislation or waste-law context.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

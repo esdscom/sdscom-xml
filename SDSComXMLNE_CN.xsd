@@ -15,6 +15,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
     <xs:complexType name="ClassificationCN">
         <xs:sequence>
             <xs:element minOccurs="0" name="Gbt2009HazardClassification">
+                <xs:annotation>
+                    <xs:documentation>Hazard classification according to the Chinese GB 30000 standards</xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">
@@ -43,9 +46,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:element minOccurs="0" name="ProperShippingName" type="eSDScom:Phrase"> </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="DangerReleasingSubstance" type="eSDScom:Phrase"> </xs:element>
             <xs:element minOccurs="0" name="Class" type="eSDScom:TransportClassEnum"> </xs:element>
-            <xs:element name="ClassCode" minOccurs="0" type="eSDScom:string4"/>
+            <xs:element name="ClassCode" minOccurs="0" type="eSDScom:string4">
+                <xs:annotation>
+                    <xs:documentation>Transport hazard class or classification code; coded value.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum"/>
-            <xs:element maxOccurs="3" minOccurs="0" name="Placard" type="eSDScom:TransportClassEnum"/>
+            <xs:element maxOccurs="3" minOccurs="0" name="Placard" type="eSDScom:TransportClassEnum">
+                <xs:annotation>
+                    <xs:documentation>Danger label/placard for transport labelling; code or description.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element minOccurs="0" name="OtherInformation">
                 <xs:complexType>
                     <xs:sequence>

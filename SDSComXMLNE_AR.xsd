@@ -18,7 +18,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 <xs:complexType>
                     <xs:sequence>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">
-                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:Ghs05ClassCategoryEnum"> </xs:element>
+                            <xs:element maxOccurs="1" minOccurs="1" name="HazardClassCategory" type="eSDScom:Ghs05ClassCategoryEnum">
+                                <xs:annotation>
+                                    <xs:documentation>Hazard class and category according to GHS/CLP-System; coded value.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
                             <xs:group ref="eSDScom:ClassCategoryInfo"/>
                         </xs:sequence>
                         <xs:group ref="eSDScom:ClassificationInfo"/>
@@ -66,6 +70,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalLabellingInfo" type="eSDScom:Phrase">
                             <xs:annotation>
                                 <xs:appinfo>SDScomChem</xs:appinfo>
+                                <xs:documentation>Additional labelling information, e.g. special advice or supplemental information.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
                     </xs:sequence>
@@ -104,7 +109,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherLegislation" type="eSDScom:Phrase"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherLegislation" type="eSDScom:Phrase">
+                <xs:annotation>
+                    <xs:documentation>Other relevant legislation for the region or product.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

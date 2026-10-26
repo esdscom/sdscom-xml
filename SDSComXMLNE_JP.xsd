@@ -26,7 +26,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentJP.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Pdscl" type="eSDScom:Pdscl"/>
+			<xs:element name="Pdscl" type="eSDScom:Pdscl">
+				<xs:annotation>
+					<xs:documentation>Information according to Japanese Poisonous and Deleterious Substances Control Law (in Japanese), where applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

@@ -19,9 +19,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelarus"/>
-            <xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationKazakhstan"/>
-            <xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRussianFederation"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelarus">
+                <xs:annotation>
+                    <xs:documentation>National legislation for Belarus.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationKazakhstan">
+                <xs:annotation>
+                    <xs:documentation>National legislation for Kazakhstan.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRussianFederation">
+                <xs:annotation>
+                    <xs:documentation>National legislation for Russian Federation.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

@@ -38,6 +38,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="Classification">
+                            <xs:annotation>
+                                <xs:documentation>Hazard classification according to the applicable classification system; coded value or phrase.</xs:documentation>
+                            </xs:annotation>
                             <xs:complexType>
                                 <xs:sequence minOccurs="0">
                                     <xs:group ref="eSDScom:GbClpClassification_2020"/>
@@ -53,11 +56,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                     <xs:element maxOccurs="1" minOccurs="0" name="Acute" type="eSDScom:MultiplyingFactorInt">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
+                                            <xs:documentation>Acute M-factor or acute assessment value; dimensionless, if M-factor.</xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
                                     <xs:element maxOccurs="1" minOccurs="0" name="Chronic" type="eSDScom:MultiplyingFactorInt">
                                         <xs:annotation>
                                             <xs:appinfo>SDScomChem</xs:appinfo>
+                                            <xs:documentation>Chronic M-factor or chronic assessment value; dimensionless, if M-factor.</xs:documentation>
                                         </xs:annotation>
                                     </xs:element>
                                 </xs:sequence>
@@ -71,7 +76,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                                 <xs:sequence>
                                     <xs:choice>
                                         <xs:group ref="eSDScom:ClpAtp14Classification"/>
-                                        <xs:element name="SupplementalHazard" type="eSDScom:Atp12SupplementalHazardInformationEnum"/>
+                                        <xs:element name="SupplementalHazard" type="eSDScom:Atp12SupplementalHazardInformationEnum">
+                                            <xs:annotation>
+                                                <xs:documentation>Supplemental hazard information or EUH/additional statement.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
                                     </xs:choice>
                                     <xs:element name="MinPercentage" type="float">
                                         <xs:annotation>
@@ -169,6 +178,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
                             <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialRulesOnPackaging" type="eSDScom:Phrase">
                                 <xs:annotation>
                                     <xs:appinfo>SDScomChem</xs:appinfo>
+                                    <xs:documentation>Special packaging rules under CLP/GHS, e.g. child-resistant fastening.</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                             <xs:element minOccurs="0" name="TactileWarning" type="boolean">

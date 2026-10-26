@@ -1376,7 +1376,11 @@ DE: AGW / ES: VLA / NL: MAC / UK: WEL / EC: OEL, TWA, STEL / FR: VLE / HU: AK, P
 	</xs:attributeGroup>
 	<xs:group name="PhraseText">
 		<xs:sequence>
-			<xs:element name="PhraseCode" type="eSDScom:string64" minOccurs="0"/>
+			<xs:element name="PhraseCode" type="eSDScom:string64" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phrase code with a maximum of 64 characters; technical identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="FullText" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>If the Language and Country attributes are missing, Language and Country default to the FreetextLanguage and FreetextLanguageCountry named at the top of the XML file. 
@@ -1385,8 +1389,16 @@ If there is only one instance of FullText, the Language and Country attributes s
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="eSDScom:string1024">
-							<xs:attribute name="Languange" type="eSDScom:LanguageCodeEnum"/>
-							<xs:attribute name="Country" type="eSDScom:CountryCodeEnum"/>
+							<xs:attribute name="Languange" type="eSDScom:LanguageCodeEnum">
+								<xs:annotation>
+									<xs:documentation>Language identifier of the phrase; code or name.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="Country" type="eSDScom:CountryCodeEnum">
+								<xs:annotation>
+									<xs:documentation>Country code or country of the language/text context; code or name.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
@@ -1427,7 +1439,11 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 					</xs:annotation>
 				</xs:element>
 				<xs:group minOccurs="0" ref="eSDScom:PhraseText"/>
-				<xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="MergePhrase" type="eSDScom:MergePhrase" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Composite text phrase from the phrase catalogue.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 			</xs:sequence>
 			<xs:element name="NewLine">
 				<xs:annotation>
@@ -1442,12 +1458,28 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 			<xs:documentation> Phrase, using references to a coordination body assigning ids to all phrases. Ids have precedence over textual phrase values if both are present. Note the use of MergePhrase restricts the nesting depth to one level. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MergeText" type="eSDScom:string512" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Delimiter" type="eSDScom:string3" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MergeText" type="eSDScom:string512" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Merged text from phrase components.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Delimiter" type="eSDScom:string3" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Delimiter for composite phrases.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attributeGroup ref="eSDScom:PhraseAttributes"/>
-		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0"/>
-		<xs:attribute name="ListItemNo" type="xs:integer" default="0"/>
+		<xs:attribute name="MergePhraseNo" type="xs:integer" default="0">
+			<xs:annotation>
+				<xs:documentation>Number of the composite phrase in the phrase catalogue; technical identifier.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ListItemNo" type="xs:integer" default="0">
+			<xs:annotation>
+				<xs:documentation>list item number in the phrase catalogue; technical identifier.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:simpleType name="UnitEnum">
 		<xs:annotation>
@@ -1721,8 +1753,16 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 	</xs:simpleType>
 	<xs:group name="Unit">
 		<xs:sequence>
-			<xs:element name="Unit" type="eSDScom:UnitEnum"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="eSDScom:Phrase"/>
+			<xs:element name="Unit" type="eSDScom:UnitEnum">
+				<xs:annotation>
+					<xs:documentation>Unit of measure for the stated value; coded or written out.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UnitFulltext" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Written-out unit of measure for the stated value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:group>
 	<xs:complexType name="NumericValue">
@@ -1756,14 +1796,38 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="ExactValueSymbol" type="eSDScom:ExactQualifierEnum" minOccurs="0"/>
-				<xs:element name="ExactValue" type="xs:float" maxOccurs="1"/>
+				<xs:element name="ExactValueSymbol" type="eSDScom:ExactQualifierEnum" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Comparison sign or symbol for the exact value, e.g. =, ca., &lt; or &gt;.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExactValue" type="xs:float" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Exact numeric value of the package size or quantity; unit in the associated field.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 			</xs:sequence>
 			<xs:sequence>
-				<xs:element name="UpperValueSymbol" type="eSDScom:UpperQualifierEnum" minOccurs="0"/>
-				<xs:element name="UpperValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
-				<xs:element name="LowerValueSymbol" type="eSDScom:LowerQualifierEnum" minOccurs="0"/>
-				<xs:element name="LowerValue" type="xs:float" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="UpperValueSymbol" type="eSDScom:UpperQualifierEnum" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Comparison sign for the upper value, e.g. ≤ or &lt;.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UpperValue" type="xs:float" maxOccurs="1" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Upper limit of a quantity or size range; unit in context.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="LowerValueSymbol" type="eSDScom:LowerQualifierEnum" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Comparison sign for the lower value, e.g. ≥ or &gt;.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="LowerValue" type="xs:float" maxOccurs="1" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Lower limit of a quantity or size range; unit in context.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
@@ -1808,7 +1872,11 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="Value" type="eSDScom:NumericRangeWithQualifier" minOccurs="0"/>
+					<xs:element name="Value" type="eSDScom:NumericRangeWithQualifier" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Numeric value or range with qualifier, e.g. &lt;, &gt;, approx. or interval.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
 					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0"/>
 				</xs:sequence>
@@ -1824,11 +1892,27 @@ Caveat: It is the duty of the author (or the authoring system, respectively) to 
 		<xs:sequence>
 			<xs:choice>
 				<xs:sequence>
-					<xs:element name="UnitValue" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0"/>
-					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
-					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0"/>
+					<xs:element name="UnitValue" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Value with unit, e.g. numeric measured value and unit of measure.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Method or procedure used to determine the stated property.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to test report, method, standard or literature source.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:element name="ReasonForWaiving" type="eSDScom:ReasonForWaiving" minOccurs="0"/>
+				<xs:element name="ReasonForWaiving" type="eSDScom:ReasonForWaiving" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Reason why testing or information is not required or not available.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 			</xs:choice>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>

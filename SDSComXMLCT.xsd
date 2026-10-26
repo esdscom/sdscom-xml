@@ -117,18 +117,35 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Address of the supplier, importer or contact person.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="VisitingAddressLine1" type="eSDScom:string256"/>
-									<xs:element minOccurs="0" name="VisitingAddressLine2" type="eSDScom:string256"/>
-									<xs:element minOccurs="0" name="VisitingAddressLine3" type="eSDScom:string256"/>
+									<xs:element minOccurs="0" name="VisitingAddressLine1" type="eSDScom:string256">
+										<xs:annotation>
+											<xs:documentation>First line of the visiting address.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="VisitingAddressLine2" type="eSDScom:string256">
+										<xs:annotation>
+											<xs:documentation>Second line of the visiting address.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="VisitingAddressLine3" type="eSDScom:string256">
+										<xs:annotation>
+											<xs:documentation>Third line of the visiting address.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element minOccurs="0" name="VisitingAddressPostCode" type="eSDScom:string16">
 										<xs:annotation>
 											<xs:documentation> Postal code: Two-letter ISO3166 country code followed by a hyphen and the national postal code. </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="VisitingAddressCity" type="eSDScom:string80"/>
+									<xs:element minOccurs="0" name="VisitingAddressCity" type="eSDScom:string80">
+										<xs:annotation>
+											<xs:documentation>city of the visiting address.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element minOccurs="0" name="PostAddressLine1" type="eSDScom:string256">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
@@ -140,12 +157,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Second line of the postal address.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="PostAddressLine3" type="eSDScom:string256">
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Third line of the postal address.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="PostCode" type="eSDScom:string16">
@@ -233,11 +252,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element minOccurs="0" name="NationalContact" type="eSDScom:string256">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>National contact person or contact point for regional requirements.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="EmailCompetentPerson" type="eSDScom:EmailAddress">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Email address of the competent person responsible for the safety data sheet.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -319,7 +340,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:documentation>CAS RN: Registration Number for chemical substances, including some groups and more complex cases like polymers and reaction products, issued by Chemical Abstract Service. For a discussion why there is just one CAS RN per substance, see issue #111.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="RegionEU" type="eSDScom:SubstanceIdentityEU"> </xs:element>
+					<xs:element minOccurs="0" name="RegionEU" type="eSDScom:SubstanceIdentityEU">
+						<xs:annotation>
+							<xs:documentation>Region-specific information in the area of substance/mixture and supplier identification; jurisdiction follows from the field name.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -380,7 +405,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:sequence>
 			<xs:element name="HumanExperience" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Source" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="AssessmentOrClassification" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AssessmentOrClassification" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Assessment or classification eines Effekts or endpoints.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>E.g. how the evaluation took place or why data is lacking. See EuPhraC for content examples.</xs:documentation>
@@ -400,7 +429,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Acute Toxicity Estimates for mixture-in-mixture classification.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" name="Value" type="float"/>
+			<xs:element maxOccurs="1" name="Value" type="float">
+				<xs:annotation>
+					<xs:documentation>Numeric value as floating-point number; unit follows from context or associated unit field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:group ref="eSDScom:Unit"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Restriction" type="eSDScom:Phrase">
 				<xs:annotation>
@@ -444,12 +477,31 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="UnknownToxicity">
+				<xs:annotation>
+					<xs:documentation>Fraction or indication of unknown toxicity; typically expressed as % with explanatory text.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Inhalation" type="eSDScom:Percentage"/>
-						<xs:element minOccurs="0" name="Dermal" type="eSDScom:Percentage"/>
-						<xs:element minOccurs="0" name="Oral" type="eSDScom:Percentage"/>
-						<xs:element minOccurs="0" name="Aquatic" type="eSDScom:Percentage"/>
+						<xs:element minOccurs="0" name="Inhalation" type="eSDScom:Percentage">
+							<xs:annotation>
+								<xs:documentation>Information on inhalation exposure or toxicity; typically expressed as % with explanatory text where applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="Dermal" type="eSDScom:Percentage">
+							<xs:annotation>
+								<xs:documentation>Information on dermal exposure or toxicity; typically expressed as % with explanatory text where applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="Oral" type="eSDScom:Percentage">
+							<xs:annotation>
+								<xs:documentation>Information on oral exposure or toxicity; typically expressed as % with explanatory text where applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="Aquatic" type="eSDScom:Percentage">
+							<xs:annotation>
+								<xs:documentation>Information on unknown aquatic toxicity; typically expressed as % with explanatory text.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -479,7 +531,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>see Github issue #116 regarding multiple limit values</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="eSDScom:ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="eSDScom:ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>type of limit value with country or organisation, e.g. AGW (DE), IOELV (EU) or MAK.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Limit8H" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>If two occurences, one must be ppm and the other a matching mg/m3 value.</xs:documentation>
@@ -497,20 +553,40 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="PeakLimitationOverflowFactor" type="eSDScom:NumericRangeWithQualifier" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="PeakLimitationOverflowFactor" type="eSDScom:NumericRangeWithQualifier" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Peak limitation overflow factor for short-term exposure limits; dimensionless factor.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="RecommendedMonitoringProcedure" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RecommendedMonitoringProcedure" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Recommended measurement or monitoring procedure for relevant exposures.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="ParticleFraction">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ParticleFraction" type="eSDScom:ExposureLimitFractionEnum"/>
-						<xs:element minOccurs="0" name="ParticleFractionFulltext" type="eSDScom:Phrase"> </xs:element>
+						<xs:element name="ParticleFraction" type="eSDScom:ExposureLimitFractionEnum">
+							<xs:annotation>
+								<xs:documentation>Particle fraction for occupational exposure limits, e.g. inhalable or respirable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="ParticleFractionFulltext" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>full text designation of the particle fraction, e.g. inhalable dust fraction.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Reference" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Reference" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Source or reference for limit values, tests or data; bibliographic or URL.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A remark that applies to all of the abovementioned OELs. Can cover specific info like code letters (H, Sh, Sa, Y, Z in Germany's TRGS 900) either as the letter or as the respective explanatory text. If there are multiple limit values depending on conditions described in remarks (e.g. dust and spray values), use multiple instances of OccupationalExposueLimit - ofr example, two instances for inhalable and respirable fraction OEL's.</xs:documentation>
@@ -525,10 +601,22 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="LimitValueTypeWithCountryOrOrganisation" type="eSDScom:ExposureLimitValueTypeEnum" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="InvestigationParameter" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InvestigationParameter" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Investigation parameter in biological monitoring, e.g. metabolite or marker parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestMaterial" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="TestDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TestMaterial" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Tested matrix or sample, e.g. blood, urine, air, water, soil or test material.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TestDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>date of test or analysis.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Reference" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -539,8 +627,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> Short Term Exposure Limit </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="AppraisalPeriod" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Numeric value or range with unit and qualifier, e.g. &gt;, &lt;, approx. or interval.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AppraisalPeriod" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Assessment period for short-term exposure limits; unit typically min or h.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* RespiratoryProtectionArticle *****  -->
@@ -553,22 +649,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Type" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>type or category of the named element; coded or described by phrase.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="EquipmentForSelfRescue" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>self-rescue equipment for emergencies, e.g. escape filter or respiratory hood.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MaskType" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Respiratory mask type, e.g. half mask, full face mask or particulate filtering mask.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="FilterApparatusType" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Filter device type for respiratory protection, e.g. half mask, full face mask or powered air-purifying respirator.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -582,11 +682,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Manufacturer" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Manufacturer of the product, equipment or protective article.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SourcesOfSupply" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Source of supply or supplier for equipment, product or protective article.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReferenceRelevantStandard" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
@@ -637,11 +739,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="ScreeningType" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>type of screening procedure used.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ScreeningResult" type="eSDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Result of a screening procedure; qualitative or quantitative information.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -656,11 +760,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="SafetyParameter" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Safety parameter tested or reported.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SafetyResult" type="eSDScom:PhysChemUnitValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Result for the safety parameter; unit depends on the parameter.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -685,6 +791,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
+						<xs:documentation>Physical and chemical value with associated temperature; unit depends on the parameter.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Concentration" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
@@ -695,7 +802,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
-			<xs:element name="PhNotRelevant" type="eSDScom:PhNotRelevantEnum"/>
+			<xs:element name="PhNotRelevant" type="eSDScom:PhNotRelevantEnum">
+				<xs:annotation>
+					<xs:documentation>Indicates that pH value is not relevant or not applicable; justification recommended.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:choice>
 	</xs:complexType>
 	<!-- ******************************************************************** FlashPoint ******************** -->
@@ -710,12 +821,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Physical and chemical value with unit, e.g. temperature, pressure or concentration.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Evaluation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Assessment or interpretation of a test result in textform.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
@@ -736,6 +849,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="SolubilityDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Description of solubility or miscibility, e.g. soluble, partially soluble or insoluble.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Solubility" minOccurs="0" maxOccurs="unbounded">
@@ -748,6 +862,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element name="Medium" type="eSDScom:SolubilityMediumEnum" minOccurs="1" maxOccurs="1">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Medium or solvent, in which a property was determined.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MediumDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
@@ -793,6 +908,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Ph" type="eSDScom:NumericRangeWithQualifier" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>pH value; dimensionless.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -812,6 +928,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Type" type="eSDScom:ViscosityTypeEnum" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Type of viscosity, e.g. kinematic or dynamic; coded value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TypeDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
@@ -854,13 +971,25 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="eSDScom:PhysChemValueWithTemperature" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ReferenceGas" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ReferenceGas" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Reference gas for relative gas or vapour density, e.g. Luft.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="InvestigationMethod">
 		<xs:sequence>
-			<xs:element name="Method" type="eSDScom:InvestigationMethodEnum"/>
-			<xs:element minOccurs="0" name="MethodFulltext" type="eSDScom:Phrase"/>
+			<xs:element name="Method" type="eSDScom:InvestigationMethodEnum">
+				<xs:annotation>
+					<xs:documentation>Coded test method or investigation method.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="MethodFulltext" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>full text test method or investigation method.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* CorrosionIrritationData ******************  -->
@@ -869,21 +998,41 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> CorrosionIrritationData, source: Chapter 11 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="InvestigationMethod" type="eSDScom:InvestigationMethod"/>
+			<xs:element minOccurs="0" name="InvestigationMethod" type="eSDScom:InvestigationMethod">
+				<xs:annotation>
+					<xs:documentation>Investigation or test method for the toxicological endpoint.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Species" type="eSDScom:Species" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ResultEvaluation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ResultEvaluationScore" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ResultEvaluation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Assessment or interpretation of the test result.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResultEvaluationScore" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Assessment score of a test result; scale depends on method.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ExposureRoute">
 		<xs:sequence>
-			<xs:element name="Route" type="eSDScom:ExposureRouteEnum"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="RouteFulltext" type="eSDScom:Phrase"/>
+			<xs:element name="Route" type="eSDScom:ExposureRouteEnum">
+				<xs:annotation>
+					<xs:documentation>Short designation of the exposure route.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="RouteFulltext" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>full text exposure route.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CMRData">
@@ -895,7 +1044,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element name="Dose" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureRoute" type="eSDScom:ExposureRoute" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ExposureTime" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectValue" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectValue" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Effect value of a toxicological test; unit depends on the endpoint.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TestDuration" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Species" type="eSDScom:Species" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Result" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
@@ -928,14 +1081,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 			<xs:element name="ExposureTime" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestDuration" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ExposureFrequency" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ExposureFrequency" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Frequency of exposure; unit or category depends on the test.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Species" type="eSDScom:Species" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation> Species = Organism or cell line </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SpecificEffect" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OrganAffected" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SpecificEffect" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specific observed effect or toxicological effect.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrganAffected" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Affected target organ or organ system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Result" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ResultEvaluation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
@@ -970,7 +1135,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> BiologicalDegradation, source: Chapter 12 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Inoculum" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Inoculum" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Inokulum or microbial test population in degradation tests; type/origin and where applicable concentration.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="DegradationRate" type="eSDScom:PhysChemUnitValue">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
@@ -996,7 +1165,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Time unit, e.g. d or h. Test type should go into HalfLifeTime/TestReference</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="pH" type="eSDScom:NumericRangeWithQualifier"/>
+			<xs:element minOccurs="0" name="pH" type="eSDScom:NumericRangeWithQualifier">
+				<xs:annotation>
+					<xs:documentation>pH value; dimensionless (0-14).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Source" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1010,12 +1183,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Waste code according to the applicable waste catalogue, e.g. EWC/AVV-code; coded value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="WasteDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Description of the disposal or disposal type, aligned with the waste code and disposal route.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="HazardousWaste" type="xs:boolean" minOccurs="0" maxOccurs="1">
@@ -1038,21 +1213,37 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> GTIN No: </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Name" type="eSDScom:string512" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Name" type="eSDScom:string512" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>name or designation of the product, GTIN entry or element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* StorageStability *************  -->
 	<xs:complexType name="StorageStability">
 		<xs:sequence>
 			<xs:element name="StorageTemperature" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Pressure" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MaximumStoragePeriod" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Pressure" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Pressure value; typically expressed in Pa, kPa, hPa or bar.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaximumStoragePeriod" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Maximum storage period under specified conditions; unit e.g. Tage, Monate or Jahre.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ******************************************************************* Ecotoxicity *************  -->
 	<xs:complexType name="Dose">
 		<xs:sequence>
-			<xs:element name="Type" type="eSDScom:DoseEnum"/>
+			<xs:element name="Type" type="eSDScom:DoseEnum">
+				<xs:annotation>
+					<xs:documentation>type of dose information, e.g. LD50, NOAEL or LOAEL.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="TypeFulltext" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1062,9 +1253,17 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EffectDoseConcentration" type="eSDScom:Dose" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EffectDoseConcentration" type="eSDScom:Dose" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Effect dose or effect concentration of a test; unit depends on the endpoint, e.g. mg/L or mg/kg.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TestDuration" type="eSDScom:NumericRangeWithUnitAndQualifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Species" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Species" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Species tested in toxicity or ecotoxicity test; taxonomic or common name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="TestReference" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Evaluation" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
@@ -1093,9 +1292,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Method" type="eSDScom:Phrase" minOccurs="0"/>
-			<xs:element name="Source" type="eSDScom:Phrase" minOccurs="0"/>
-			<xs:element name="TestResults" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Evaluation" type="eSDScom:GasGroupEnum" minOccurs="0"/>
+			<xs:element name="Source" type="eSDScom:Phrase" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Source of the information, test or assessment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TestResults" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>test results or result summary; unit depends on the test.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Evaluation" type="eSDScom:GasGroupEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Assessment or classification of the gas group; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="AdditionalInfo" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1105,8 +1316,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> Species used in tests </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Value" type="eSDScom:Phrase"/>
-			<xs:element name="Gender" type="eSDScom:Phrase" minOccurs="0"/>
+			<xs:element name="Value" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Textual value or characteristic of a property.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gender" type="eSDScom:Phrase" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>sex of the tested species; male, female or both.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- *******************************************************************  TemperatureClass **************************  -->
@@ -1128,9 +1347,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> PhysicalHazardsGeneralInformation. Source: Chapter 9. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="JustificationForDataWaiving" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Assessment" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Classification" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="JustificationForDataWaiving" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Justification for data waiving or test waiving.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assessment" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Assessment result in text form.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Classification" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Classification in text form according to applicable classification system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ****************************************************************************** PhraseCatalogue *****  -->
@@ -1168,7 +1399,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="PhraseCatalogueId" type="eSDScom:EsdscomPhraseCatalogueId" default="0"/>
+		<xs:attribute name="PhraseCatalogueId" type="eSDScom:EsdscomPhraseCatalogueId" default="0">
+			<xs:annotation>
+				<xs:documentation>Identifier of the phrase catalogue used.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<!-- ****************************************************************************** SUMI = Safe Use Information for Mixtures ***** -->
 	<xs:complexType name="Inventories">
@@ -1515,7 +1750,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
-			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:ControlParametersEU"> </xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:ControlParametersEU">
+				<xs:annotation>
+					<xs:documentation>Region-specific information in the area of exposure controls and personal protection; jurisdiction follows from the field name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BaseExposureControlPersonalProtection">
@@ -1523,21 +1762,63 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation>Used in SDS section 8. Also used in "Component" </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="PreventiveIndustrialMedicalExaminationRequired" type="eSDScom:Phrase"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="ControlParameters" type="eSDScom:ControlParameters"> </xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="PreventiveIndustrialMedicalExaminationRequired" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Indicates whether occupational medical surveillance is required; yes/no or justification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="ControlParameters" type="eSDScom:ControlParameters">
+				<xs:annotation>
+					<xs:documentation>Exposure limits and control parameters, e.g. occupational exposure limits, DNEL, DMEL or PNEC.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SummaryRMMeasures">
+				<xs:annotation>
+					<xs:documentation>Summary of risk management measures for safe use.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SummaryRMMeasuresMan" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SummaryRMMeasuresEnvironm" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SummaryRMMeasuresMan" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Summary of worker-related risk management measures.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SummaryRMMeasuresEnvironm" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Summary of environmental risk management measures.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="RMMControlBandingApproach">
+							<xs:annotation>
+								<xs:documentation>Control-banding approach to derive risk management measures; model or category.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="Task" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="HazardBand" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ScaleOfUse" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="AbilityToBecomeAirborne" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="ControlApproach" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="Task" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Description of the task or use activity in the risk management context.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="HazardBand" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Hazard band in the control-banding system; coded or categorised information.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="ScaleOfUse" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Scale of use or amount used; qualitative information or Menge with unit.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="AbilityToBecomeAirborne" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Potential for release into air, e.g. dustiness or volatility; qualitative information.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="ControlApproach" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Intended control approach, e.g. general ventilation, local exhaust or closed installation.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
@@ -1547,58 +1828,97 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			</xs:element>
 			<!-- Exposure controls  -->
 			<xs:element maxOccurs="1" minOccurs="0" name="ExposureControlAppropriateMeasures">
+				<xs:annotation>
+					<xs:documentation>Suitable engineering, organisational and personal measures to reduce exposure.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AppropriateEngineeringControls" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductRelatedMeasures" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InstructionalMeasures" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OrganisationalMeasures" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="OrganisationalSigns" type="eSDScom:AgpaPictogramEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalMeasures" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalSigns" type="eSDScom:EquipmentPictogramEnum"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AppropriateEngineeringControls" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Engineering controls, e.g. closed systems, local exhaust ventilation or process ventilation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductRelatedMeasures" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Product-related risk reduction measures, e.g. formulation, packaging or dosing.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InstructionalMeasures" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Instructional or behavioural measures for safe use and exposure control.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OrganisationalMeasures" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Organisational protection measures, e.g. work procedures, access restrictions or training.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="OrganisationalSigns" type="eSDScom:AgpaPictogramEnum">
+							<xs:annotation>
+								<xs:documentation>Organisational signs or notices, e.g. warning, prohibition or mandatory signs.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalMeasures" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Technical risk reduction measures, e.g. enclosure, ventilation or containment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalSigns" type="eSDScom:EquipmentPictogramEnum">
+							<xs:annotation>
+								<xs:documentation>Technical labels or signs on installations or work equipment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="PersonalProtectionEquipment">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Personal protective equipment, required or recommended for safe use.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="RespiratoryProtection">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Respiratory protection measures for exposure to gases, vapours, mists or dusts.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratoryProtectionGeneral" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>General information on respiratory protection and its conditions of use.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratoryProtectionNecessaryAt" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Conditions, tasks or exposures, where respiratory protection is required.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="TasksNeedingRespiratoryProtection" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Tasks where respiratory protection is required or recommended.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SuitableRespiratoryProtectionEquipment" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Suitable respiratory protective equipment including filter class or device type.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="RecommendedRespiratoryProtectionArticles" type="eSDScom:RespiratoryProtectionArticle">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Recommended respiratory protective devices or filter types according to the exposure situation.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalRespiratoryProtectionMeasures" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Additional respiratory protection measures, e.g. ventilation, wear-time limitation or emergency equipment.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceRelevantStandard" type="eSDScom:Phrase">
@@ -1613,73 +1933,115 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="EyeProtection">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>eye/face protection measures to prevent contact with eyes or face.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RequiredProperties" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SuitableEyeProtection" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="UnsuitableEyeProtection" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeProtectionEquipment" type="eSDScom:ProtectionArticle"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalEyeProtectionMeasures" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="RequiredProperties" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Required protective properties of the equipment, e.g. chemical resistance or standard compliance.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SuitableEyeProtection" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Suitable eye protection equipment according to hazard and exposure potential.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="UnsuitableEyeProtection" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Unsuitable eye protection equipment or materials for the specified application.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeProtectionEquipment" type="eSDScom:ProtectionArticle">
+										<xs:annotation>
+											<xs:documentation>Specific eye protection equipment, e.g. safety glasses, goggles or face shield.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalEyeProtectionMeasures" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Additional eye protection measures, e.g. eye shower, face shield or splash protection.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceRelevantStandard" type="eSDScom:Phrase"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="HandProtection">
+							<xs:annotation>
+								<xs:documentation>hand protection measures including glove type, material, thickness and breakthrough time.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinHandProtectionShortTermContact" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinHandProtectionLongTermContact" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinHandProtectionShortTermContact" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>hand protection requirements for short-term or occasional contact.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinHandProtectionLongTermContact" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>hand protection requirements for long-term or permanent contact.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="UnsuitableMaterials" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Unsuitable materials, that do not provide sufficient protection or resistance.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="HandProtectionNecessaryProperties" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Required properties of hand protection, e.g. chemical resistance and breakthrough time.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="Equipment">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Equipment or protective article for the described protection or application purpose.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element minOccurs="0" name="SuitableGlovesType" type="eSDScom:Phrase">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Suitable glove type according to contact type and exposure duration.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element minOccurs="0" name="SuitableMaterial" type="eSDScom:Phrase">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Suitable material, e.g. nitrile, butyl rubber or Viton, depending on resistance.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element minOccurs="0" name="GloveBreakthroughTime" type="eSDScom:NumericRangeWithUnitAndQualifier">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Glove material breakthrough time; typically expressed in min.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element minOccurs="0" name="ThicknessOfGloveMaterial" type="eSDScom:NumericRangeWithUnitAndQualifier">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Glove material thickness; typically expressed in mm.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element minOccurs="0" name="MaxWearDurationOccasionalContact" type="eSDScom:NumericRangeWithUnitAndQualifier">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Maximum wear duration for occasional contact; typically expressed in min or h.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element minOccurs="0" name="MaxWearDurationPermanentContact" type="eSDScom:NumericRangeWithUnitAndQualifier">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Maximum wear duration for permanent contact; typically expressed in min or h.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element maxOccurs="unbounded" minOccurs="0" name="Article" type="eSDScom:ProtectionArticle">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Specific protective article or equipment item; text or product designation.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -1688,6 +2050,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalHandProtectionMeasures" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Additional hand protection measures, e.g. skin protection plan, change intervals or cleaning.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceRelevantStandard" type="eSDScom:Phrase">
@@ -1707,38 +2070,49 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="SkinProtection">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>body protection measures to prevent skin contact or contamination.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SuitableProtectiveClothing" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Suitable protective clothing according to substance properties and exposure.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="UnsuitableProtectiveClothing" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Unsuitable protective clothing or materials for the described exposure.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProtectiveClothingNecessaryProperties" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Required properties of protective clothing, e.g. chemical resistance or flame protection.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProtectiveClothingRecommendedMaterial" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Recommended protective clothing material according to hazard and contact type.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="RecommendedProtectiveClothingArticles" type="eSDScom:ProtectionArticle">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Recommended protective clothing articles, e.g. coverall, apron, boots or arm protection.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalSkinProtectionMeasures" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalSkinProtectionMeasures" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Additional skin protection measures, e.g. protective clothing, cleaning or skin protection products.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinBodyOtherProtection" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Other skin or body protection other than hand protection.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceRelevantStandard" type="eSDScom:Phrase">
@@ -1758,6 +2132,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ThermalHazardsProtection" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Protective measures against thermal hazards, e.g. heat, cold or burns.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
@@ -1768,6 +2143,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificHygieneMeasures" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Specific hygiene measures, e.g. wash hands, remove contaminated clothing.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SafetySigns" type="eSDScom:RmmPictogramEnum">
@@ -1781,8 +2157,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="0" name="EnvironmentalExposureControls">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalExposureControls" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EnvironmentalExposureControls" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Environmental exposure controls and risk management measures for emissions to air, water or soil.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="AppropriateEnvionmentalExposureControl">
+							<xs:annotation>
+								<xs:documentation>Suitable measures to limit environmental exposure, e.g. containment, wastewater treatment or emission reduction.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductRelatedMeasures" type="eSDScom:Phrase"/>
@@ -1797,14 +2180,29 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="ConsumerExposureControl">
+				<xs:annotation>
+					<xs:documentation>Measures to limit consumer exposure during use or service life of articles.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresOnConsumerUseOfTheChemical" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresOnServiceLifeInArticles" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresOnConsumerUseOfTheChemical" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>risk management measures for consumers during use of the substance or mixture.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresOnServiceLifeInArticles" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Measures to limit exposure during the service life of articles.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureControlsPersonalProtectionAdditionalInfo" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ExposureControlsPersonalProtectionAdditionalInfo" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Additional information on exposure controls and personal protective equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1822,7 +2220,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Form" type="eSDScom:FormEnum"/>
+						<xs:element minOccurs="0" name="Form" type="eSDScom:FormEnum">
+							<xs:annotation>
+								<xs:documentation>form or appearance of the product, e.g. powder, granulate, liquid or paste.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="FormDescription" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1830,6 +2232,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="StateUnderStandardConditions" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Physical state under standard conditions; gas, liquid or solid.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="State" type="eSDScom:StateUnderStandardConditionsEnum">
@@ -1838,7 +2243,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:documentation>Physical state (only solid/liquid/gaseous) under standard conditions (20°C, 1013 hpa) </xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="StateFulltext" type="eSDScom:Phrase"> </xs:element>
+									<xs:element minOccurs="0" name="StateFulltext" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Physical state under standard conditions.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1853,8 +2262,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Product colour: Indicate the colour of the substance or preparation as supplied. May be omitted if Colour is used. This field is also used if none of ColourEnum matches.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="ColourIntensity" type="eSDScom:ColourIntensityEnum" maxOccurs="unbounded"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ColourIntensityDescription" type="eSDScom:Phrase"/>
+						<xs:element minOccurs="0" name="ColourIntensity" type="eSDScom:ColourIntensityEnum" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Colour intensity of the product; qualitative information.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ColourIntensityDescription" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Description of colour intensity or colour characteristic.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="Odour" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1864,6 +2281,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="OdourThreshold" type="eSDScom:PhysChemUnitValueWithTemperature">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Odour threshold; unit typically mg/m³, ppm or qualitative information.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1873,6 +2291,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Safety-relevant physical and chemical information according to SDS section 9.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1880,11 +2299,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>PH value of the product or an aqueous solution; dimensionless, at applicable concentration/temperature</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="MeltingPointRelated">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Information on melting, freezing, softening, dropping or solidification point.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1897,36 +2318,43 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="FreezingPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Freezing point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SofteningPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Softening point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SolidificationPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Solidification point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="CloudPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Cloud point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="CrystallisationPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Crystallisation point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="DroppingPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Dropping point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="PourPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>pour point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1935,17 +2363,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="BoilingPointRelated">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Information on boiling point, boiling range or sublimation.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="BoilingPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Boiling point or boiling range; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SublimationPoint" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Sublimation point; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1955,9 +2386,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Flash point determined by the relevant method; typically expressed in °C.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EvaporationRate" type="eSDScom:PhysChemValueWithTemperature"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EvaporationRate" type="eSDScom:PhysChemValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Evaporation rate; dimensionless relativ zu Referenz or unit according to method.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Flammability" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1967,17 +2403,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="ExplosionLimit">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Explosion/flammability limits; unit typically vol.-%.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element minOccurs="0" name="LowerExplosionLimit" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Lower explosion limit; unit typically vol.-%.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="UpperExplosionLimit" type="eSDScom:PhysChemUnitValue">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Upper explosion limit; unit typically vol.-%.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1986,24 +2425,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="VapourPressure" type="eSDScom:PhysChemUnitValueWithTemperature">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Vapour pressure; unit typically hPa, kPa or Pa.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RelativeVapourDensity" type="eSDScom:RelativeVapourDensity"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RelativeVapourDensity" type="eSDScom:RelativeVapourDensity">
+							<xs:annotation>
+								<xs:documentation>Relative vapour density relative to air; dimensionless.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="Densities">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Density data, e.g. density, relative density or bulk density.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RelativeDensity" type="eSDScom:PhysChemValueWithTemperature"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="RelativeDensity" type="eSDScom:PhysChemValueWithTemperature">
+										<xs:annotation>
+											<xs:documentation>Relative density relative to a reference substance; dimensionless.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="Density" type="eSDScom:PhysChemUnitValueWithTemperature">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>density; unit typically g/cm³ or kg/m³.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="BulkDensity" type="eSDScom:PhysChemUnitValueWithTemperature">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>bulk density; unit typically kg/m³ or g/cm³.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -2012,37 +2463,44 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Solubilities" type="eSDScom:Solubilities">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Solubilities in water or other media; unit typically g/L, mg/L or qualitative information.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<!-- xs:element name="SolubilityDescription" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/ -->
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PartitionCoefficient" type="eSDScom:PartitionCoefficient">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>n-octanol/water partition coefficient (log Kow) or comparable value; dimensionless.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="AutoignitionTemperature" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>auto-ignition temperature; unit typically °C.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="DecompositionTemperature" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Decomposition temperature or SADT; unit typically °C.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Viscosity" type="eSDScom:Viscosity">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Viscosity; unit typically mm²/s or mPa·s.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExplosiveProperties" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Explosive properties; qualitative assessment or test result.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="OxidisingProperties" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Oxidising properties; classification, assessment or test result.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2051,12 +2509,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="0" name="PhysicalHazards">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Physical hazards according to CLP/GHS, e.g. flammability, oxidation or reactivity.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="Explosives">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Assessment of explosive properties or classification as explosive substance/mixture.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2068,22 +2528,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ScreeningProcedures" type="eSDScom:PhysicalHazardsScreeningProcedures">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Screening procedure for assessing a property or hazard.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="TestPerformed">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Indicates whether a test was performed; yes/no or test description.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element maxOccurs="1" minOccurs="0" name="ParameterTested" type="eSDScom:Phrase">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Tested parameter or endpoint of a test.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element maxOccurs="1" minOccurs="0" name="TestResult" type="eSDScom:PhysChemUnitValue">
 													<xs:annotation>
 														<xs:appinfo>SDScomChem</xs:appinfo>
+														<xs:documentation>Result of a test; unit depends on the endpoint.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -2095,6 +2559,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="FlammableGases">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of flammable gases under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2106,6 +2571,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SafetyCharacteristics" type="eSDScom:PhysicalHazardsSafetyCharacteristics">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Safety characteristics, e.g. explosion limits, burning velocity or ignition temperature.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -2114,6 +2580,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="FlammableAerosols">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of flammable aerosols under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2133,6 +2600,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="OxidisingGases">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of oxidising gases under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2152,6 +2620,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="GasesUnderPressure">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification of of gases under pressure; e.g. compressed, liquefied or refrigerated liquefied.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2171,6 +2640,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="FlammableLiquids">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of flammable liquids; including flash point and boiling point.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2190,6 +2660,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="FlammableSolids">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of flammable solids under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2209,6 +2680,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="SelfreactiveSubstancesAndMixtures">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of self-reactive substances and mixtures.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2233,6 +2705,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="PyrophoricLiquids">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of pyrophoric liquids under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2252,6 +2725,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="PyrophoricSolids">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of pyrophoric solids under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2271,6 +2745,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="SelfheatingSubstancesAndMixtures">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of self-heating substances and mixtures.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2287,11 +2762,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="1" minOccurs="0" name="MaxTemperatureReached" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Maximum temperature reached in the test; unit typically °C.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="InductionTime" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Induction time until reaction or self-heating; unit typically min or h.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -2300,6 +2777,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="SubstancesWhichInContactWithWaterEmitFlammableGases">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Assessment of substances/mixtures, which emit flammable gases in contact with water.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2319,6 +2797,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="OxidisingLiquids">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of oxidising liquids under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2338,6 +2817,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="OxidisingSolids">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of oxidising solids under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2357,6 +2837,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="OrganicPeroxides">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Classification or assessment of organic peroxides under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2376,6 +2857,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="1" minOccurs="0" name="CorrosiveToMetals">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Assessment of corrosivity to metals according to CLP/GHS; category or test result.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -2392,16 +2874,19 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="1" minOccurs="0" name="ExposureTime" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Exposure duration in the test or scenario; unit typically min, h or d.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="IntrusionDepth" type="eSDScom:NumericRangeWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Penetration or corrosion depth; unit typically mm or mm/Jahr.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="MaterialType" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Material type of the test material or protection material.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -2413,18 +2898,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="0" name="OtherSafetyInformation">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Additional safety-relevant physical and chemical information.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Miscibility" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Miscibility with water or other media; qualitative information or Anteil in %.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AnilinePoint" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element minOccurs="0" name="ElectricConductivity" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="GasGroup" type="eSDScom:GasGroup"/>
-						<xs:element minOccurs="0" name="SolventSeparationTest" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AnilinePoint" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Aniline point; unit typically °C.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="ElectricConductivity" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Electrical conductivity; unit typically S/m, mS/cm or µS/cm.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="GasGroup" type="eSDScom:GasGroup">
+							<xs:annotation>
+								<xs:documentation>gas group for explosion protection or transport context; coded value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="SolventSeparationTest" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Result of the solvent separation test; qualitative or quantitative information.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="ContentOfVoc" type="eSDScom:PhysChemValue">
 							<xs:annotation>
 								<xs:documentation>Content of volatile organic compounts (often solvents), measured in g/L and/or weight percent (% w/w).</xs:documentation>
@@ -2433,33 +2936,122 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element minOccurs="0" name="SolidContent" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Solid content; unit typically % w/w.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="PropellantContent" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SinterTemperature" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element minOccurs="0" name="AcidNo" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="DissociationConstant" type="eSDScom:DissociationConstant"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HydrolysisRate" type="eSDScom:HydrolysisRate"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="WaterReactive" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AirReactive" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PenetrationNo" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element minOccurs="0" name="ParticleSize" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CriticalPressure" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExpansionCoefficient" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element minOccurs="0" name="RedoxPotential" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element minOccurs="0" name="RadicalFormationPotential" type="eSDScom:PhysChemValueWithTemperature"/>
-						<xs:element minOccurs="0" name="PhotocatalyticProperties" type="eSDScom:PhysChemUnitValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="NumberAverageMolecularWeight" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="WeightAverageMolecularWeight" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="MolecularWeightDistribution" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="LowMolecularWeightContentOfPolymers" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SolutionExtractionBehaviourOfPolymersInWater" type="eSDScom:SolutionExtractionBehaviourOfPolymersInWater"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RefractionIndex" type="eSDScom:PhysChemValueWithTemperature"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SurfaceTension" type="eSDScom:SurfaceTension"/>
+						<xs:element minOccurs="0" name="PropellantContent" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Propellant content; unit typically % w/w or % v/v.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SinterTemperature" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Sintering temperature; unit typically °C.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="AcidNo" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>acid number; unit typically mg KOH/g.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="DissociationConstant" type="eSDScom:DissociationConstant">
+							<xs:annotation>
+								<xs:documentation>Dissociation constant pKa or Ka; dimensionless or dependent on representation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="HydrolysisRate" type="eSDScom:HydrolysisRate">
+							<xs:annotation>
+								<xs:documentation>Hydrolysis rate or half-life; unit e.g. 1/s, 1/d or Tage.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="WaterReactive" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Indicates whether the substance or mixture reacts with water; yes/no or assessment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AirReactive" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Indicates whether the substance or mixture reacts with air; yes/no or assessment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PenetrationNo" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Penetration number, e.g. for semi-solid substances; unit depends on method.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="ParticleSize" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Particle size; typically expressed in nm or µm.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="CriticalPressure" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Critical pressure; unit typically MPa, kPa or bar.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ExpansionCoefficient" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Expansion coefficient; unit depending on the material, e.g. 1/K.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="RedoxPotential" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Redox potential; unit typically mV.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="RadicalFormationPotential" type="eSDScom:PhysChemValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Radical formation potential; qualitative assessment or measured result.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="PhotocatalyticProperties" type="eSDScom:PhysChemUnitValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Photocatalytic properties or activity; qualitative or method-related information.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="NumberAverageMolecularWeight" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Number-average molecular weight Mn; unit typically g/mol.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="WeightAverageMolecularWeight" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Weight-average molecular weight Mw; unit typically g/mol.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="MolecularWeightDistribution" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Molecular weight distribution, e.g. Mn/Mw or dispersity; dimensionless or g/mol.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="LowMolecularWeightContentOfPolymers" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Fraction of low molecular weight polymer constituents; unit typically % w/w.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SolutionExtractionBehaviourOfPolymersInWater" type="eSDScom:SolutionExtractionBehaviourOfPolymersInWater">
+							<xs:annotation>
+								<xs:documentation>Extraction behaviour of polymers in water; qualitative information or Masse/concentration.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RefractionIndex" type="eSDScom:PhysChemValueWithTemperature">
+							<xs:annotation>
+								<xs:documentation>Refractive index; dimensionless, usually at a defined temperature.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SurfaceTension" type="eSDScom:SurfaceTension">
+							<xs:annotation>
+								<xs:documentation>Surface tension; typically expressed in mN/m.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherPhysicalChemicalProperty" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="OtherPhysicalChemicalProperty" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Other physical and chemical property, relevant for safe use.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 			<!-- MISSING						
 						<xs:element name="SolventContent" type="eSDScom:PhysChemUnitValueWithTemperature" minOccurs="0" maxOccurs="unbounded"/>
@@ -2489,9 +3081,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="ToxicokineticInfo">
+				<xs:annotation>
+					<xs:documentation>Information on absorption, distribution, metabolism and excretion.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="NonHumanToxicologicalData">
+							<xs:annotation>
+								<xs:documentation>Toxicological data from animal studies, in vitro or other non-human sources.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="1" minOccurs="0" name="Method" type="eSDScom:Phrase">
@@ -2502,23 +3100,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="1" minOccurs="0" name="Species" type="eSDScom:Species">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>test organism or species in the toxicological/ecotoxicological test.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="1" name="Dose" type="eSDScom:Dose">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>dose in the toxicological test; unit e.g. mg/kg KG or mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="ExposureRoute" type="eSDScom:ExposureRoute">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Route of exposure in the toxicological test, e.g. oral, dermal or inhalation.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Results" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Results" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Results of a test or assessment; unit depends on context.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HumanToxicologicalData" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="HumanToxicologicalData" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human toxicological data or experience reports.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -2526,6 +3135,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="0" name="AcuteToxicity">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Acute toxicity by oral, dermal or inhalation route; unit e.g. mg/kg or mg/L/4h.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2539,6 +3149,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 									<xs:element maxOccurs="1" minOccurs="1" name="EffectTested" type="eSDScom:Dose">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Tested toxicological effect or endpoint.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="eSDScom:ExposureRoute">
@@ -2582,11 +3193,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteToxicityHumanExperience" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Human experience on acute toxicity; qualitative or case-based information.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentAcuteToxicityClassification" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Assessment of classification for acute toxicity under CLP/GHS.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
@@ -2599,10 +3212,20 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SkinCorrosionIrritation">
+				<xs:annotation>
+					<xs:documentation>Information on skin corrosion or skin irritation.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationTestResults" type="eSDScom:CorrosionIrritationData"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationTestResults" type="eSDScom:CorrosionIrritationData">
+							<xs:annotation>
+								<xs:documentation>Test results on skin corrosion or skin irritation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="SkinCorrosionAcidicOrAlkalineReserve">
+							<xs:annotation>
+								<xs:documentation>acid/alkaline reserve for assessing skin corrosion; method-dependent unit.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:choice>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionAcidicReserve" type="eSDScom:Phrase">
@@ -2618,40 +3241,93 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:choice>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Irritation" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Corrosivity" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentCorrosionIrritationClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Irritation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Information on irritation; category, assessment or Testergebnis.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Corrosivity" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Information on corrosivity; category, assessment or Testergebnis.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinCorrosionIrritationHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience on skin corrosion or skin irritation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentCorrosionIrritationClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Assessment of classification for skin corrosion/skin irritation under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="EyeDamageOrIrritation">
+				<xs:annotation>
+					<xs:documentation>Information on serious eye damage or eye irritation.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationTestResults" type="eSDScom:CorrosionIrritationData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeIrritation" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeCorrosivity" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentEyeDamageOrIrritationClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationTestResults" type="eSDScom:CorrosionIrritationData">
+							<xs:annotation>
+								<xs:documentation>test results on eye damage or eye irritation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeIrritation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Information on eye irritation, e.g. category, test or result.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeCorrosivity" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Information on corrosive effects on the eye or serious eye damage.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EyeDamageOrIrritationHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience on eye damage or irritation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentEyeDamageOrIrritationClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Assessment of classification for eye damage/eye irritation under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="RespiratoryOrSkinSensitisation">
+				<xs:annotation>
+					<xs:documentation>Information on respiratory or skin sensitisation.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratoryOrSkinSensitisationTestResults">
+							<xs:annotation>
+								<xs:documentation>test results on respiratory or skin sensitisation.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="1" minOccurs="0" name="Method" type="eSDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="Dose" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
 									<!-- Was Phrase -->
 									<xs:element maxOccurs="1" minOccurs="0" name="ExposureTime" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="TestDuration" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="TestDuration" type="eSDScom:NumericRangeWithUnitAndQualifier">
+										<xs:annotation>
+											<xs:documentation>Duration of a test or exposure; unit typically min, h or d.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="Species" type="eSDScom:Species"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="Result" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="Result" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Result or assessment of a test; unit or category depends on context.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ResultEvaluation" type="eSDScom:Phrase"/>
 									<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="eSDScom:Phrase"/>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
@@ -2659,18 +3335,40 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="HumanExperience">
+							<xs:annotation>
+								<xs:documentation>Human experience for the relevant toxicological endpoint.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratorySensitisationHumanExperience" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinSensitisationHumanExperience" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="RespiratorySensitisationHumanExperience" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Human experience on respiratory sensitisation.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SkinSensitisationHumanExperience" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Human experience on skin sensitisation.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="ClassificationAssessment">
+							<xs:annotation>
+								<xs:documentation>Classification assessment for the relevant toxicological endpoint.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentRespiratorySensitisationClassification" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSkinSensitisationClassification" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentRespiratorySensitisationClassification" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Assessment of classification for respiratory sensitisation under CLP/GHS.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSkinSensitisationClassification" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Assessment of classification for skin sensitisation under CLP/GHS.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2679,6 +3377,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="GermCellMutagenicity">
+				<xs:annotation>
+					<xs:documentation>Information on germ cell mutagenicity, including classification and test results.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="TestResults">
@@ -2705,18 +3406,41 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="GermCellMutagenicityHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentGermCellMutagenicityClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="GermCellMutagenicityHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience on germ cell mutagenicity; qualitative informationn.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentGermCellMutagenicityClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Assessment of classification on germ cell mutagenicity under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Carcinogenicity">
+				<xs:annotation>
+					<xs:documentation>Information on carcinogenicity, including classification, tests or human data.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityTestResults" type="eSDScom:CMRData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentCarcinogenicityClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityTestResults" type="eSDScom:CMRData">
+							<xs:annotation>
+								<xs:documentation>Test results on carcinogenicity; study, species and endpoint.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="CarcinogenicityHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience on carcinogenicity; qualitative or epidemiological information.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentCarcinogenicityClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Classification assessment for carcinogenicity under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -2728,34 +3452,67 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="ReproductiveToxicityType">
+							<xs:annotation>
+								<xs:documentation>type of reproductive toxicity, e.g. fertility, development or lactation.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Type" type="eSDScom:ReproductiveToxicityTypeEnum"/>
+									<xs:element name="Type" type="eSDScom:ReproductiveToxicityTypeEnum">
+										<xs:annotation>
+											<xs:documentation>Coded type of reproductive toxicity.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element minOccurs="0" name="TypeFulltext" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityTestResults" type="eSDScom:CMRData"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentReproductiveToxicityClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityTestResults" type="eSDScom:CMRData">
+							<xs:annotation>
+								<xs:documentation>Test results for reproductive toxicity.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ReproductiveToxicityHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience for reproductive toxicity.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentReproductiveToxicityClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Assessment of classification for reproductive toxicity under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="OverallAssessmentOnCMRProperties" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="OverallAssessmentOnCMRProperties" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Overall assessment of CMR properties: carcinogenicity, mutagenicity, reproductive toxicity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganSE">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Specific target organ toxicity following single exposure (STOT SE).</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSETestResults" type="eSDScom:STOTData">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Test results on STOT SE (specific target organ toxicity following single exposure).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganSEHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganSEClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganSEHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience for STOT SE (specific target organ toxicity following single exposure).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganSEClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Classification assessment for STOT SE (specific target organ toxicity following single exposure) under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -2770,11 +3527,13 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element name="IrritationToRespiratoryTract" type="eSDScom:ToxInfoStotSE3" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Respiratory tract irritation in the STOT SE 3 (specific target organ toxicity following single exposure) context.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="NarcoticEffects" type="eSDScom:ToxInfoStotSE3" minOccurs="0">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Narcotic effects in the STOT SE 3 (specific target organ toxicity following single exposure) context.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganSETestResults" type="eSDScom:STOTData">
@@ -2790,21 +3549,34 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganRE">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Specific target organ toxicity following repeated exposure (STOT RE).</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificTargetOrganRETestResults" type="eSDScom:STOTData">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Test results on STOT RE (specific target organ toxicity repeated exposure).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganREHumanExperience" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganREClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="SpecificTargetOrganREHumanExperience" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Human experience for STOT RE (specific target organ toxicity repeated exposure).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentSpecificTargetOrganREClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Classification assessment for STOT RE (specific target organ toxicity repeated exposure) under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="AspirationHazard">
+				<xs:annotation>
+					<xs:documentation>Assessment of aspiration hazard under CLP/GHS.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="1" minOccurs="0" name="TestReference" type="eSDScom:Phrase">
@@ -2822,29 +3594,62 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>Kinematic viscosity value at 40°C</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentAspirationHazardClassification" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AssessmentAspirationHazardClassification" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Classification assessment for aspiration hazard under CLP/GHS.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SymptomsOfExposure">
+				<xs:annotation>
+					<xs:documentation>Symptoms after exposure, structured by route of exposure or effect.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfIngestion" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfSkinContact" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfInhalation" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfEyeContact" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfIngestion" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Symptoms or advice in case of ingestion.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfSkinContact" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Symptoms or advice in case of skin contact.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfInhalation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Symptoms or advice in case of inhalation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="InCaseOfEyeContact" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Symptoms or advice in case of eye contact.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Phototoxicity">
+				<xs:annotation>
+					<xs:documentation>Information on phototoxicity or phototoxic reaction.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PhototoxicityTestResults">
+							<xs:annotation>
+								<xs:documentation>test results on phototoxicity.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="1" minOccurs="1" name="InvestigationMethod" type="eSDScom:InvestigationMethod"/>
-									<xs:element maxOccurs="1" minOccurs="0" name="TestMethod" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="TestMethod" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>test method or test guideline, e.g. OECD or internal method.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<!-- xs:element name="Dose" type="DoseEnum" minOccurs="0" maxOccurs="1"/ -->
 									<xs:element maxOccurs="1" minOccurs="0" name="Dose" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
 									<xs:element maxOccurs="1" minOccurs="1" name="ExposureRoute" type="eSDScom:ExposureRoute"/>
@@ -2854,8 +3659,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element maxOccurs="1" minOccurs="0" name="Value" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
-												<xs:element maxOccurs="1" minOccurs="0" name="PhotoIrritationFactor" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
-												<xs:element maxOccurs="1" minOccurs="0" name="MeanPhotoEffect" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
+												<xs:element maxOccurs="1" minOccurs="0" name="PhotoIrritationFactor" type="eSDScom:NumericRangeWithUnitAndQualifier">
+													<xs:annotation>
+														<xs:documentation>Photo irritation factor (PIF); dimensionless.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element maxOccurs="1" minOccurs="0" name="MeanPhotoEffect" type="eSDScom:NumericRangeWithUnitAndQualifier">
+													<xs:annotation>
+														<xs:documentation>Mean photo effect in phototoxicity test; dimensionless or method-dependent.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
 												<xs:element maxOccurs="unbounded" minOccurs="0" name="Evaluation" type="eSDScom:Phrase"/>
 											</xs:sequence>
 										</xs:complexType>
@@ -2870,7 +3683,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruption" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruption" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Information on endocrine-disrupting properties for humans or the environment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -2883,95 +3700,165 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element maxOccurs="1" minOccurs="0" name="EcotoxicologicalInformation">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Information on environmental toxicity to aquatic, sediment or soil organisms.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="AquaticToxicity">
+							<xs:annotation>
+								<xs:documentation>Information on acute or chronic aquatic toxicity; unit typically mg/L.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteFishToxicity" type="eSDScom:EcotoxicityAquatic">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Acute toxicity to fish; endpoint e.g. LC50, unit mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicFishToxicity" type="eSDScom:EcotoxicityAquatic">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Chronic toxicity to fish; endpoint e.g. NOEC/EC10, unit mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteInvertebrateToxicity" type="eSDScom:EcotoxicityAquatic">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Acute toxicity to aquatic invertebrates; endpoint e.g. EC50, unit mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicInvertebrateToxicity" type="eSDScom:EcotoxicityAquatic">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Chronic toxicity to aquatic invertebrates; endpoint e.g. NOEC/EC10, unit mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteAlgaeToxicity" type="eSDScom:EcotoxicityAquatic">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Acute toxicity to algae or aquatic plants; endpoint e.g. EC50, unit mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicAlgaeToxicity" type="eSDScom:EcotoxicityAquatic">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Chronic toxicity to algae or aquatic plants; endpoint e.g. NOEC/EC10, unit mg/L.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="PlantToxicity" type="eSDScom:EcotoxicityAquatic"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="MicroorganismToxicity" type="eSDScom:EcotoxicityAquatic"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="PlantToxicity" type="eSDScom:EcotoxicityAquatic">
+										<xs:annotation>
+											<xs:documentation>Toxicity to plants; endpoint and unit depend on the test, e.g. mg/kg soil or mg/L.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="MicroorganismToxicity" type="eSDScom:EcotoxicityAquatic">
+										<xs:annotation>
+											<xs:documentation>Toxicity to microorganisms, e.g. sewage treatment organisms; unit typically mg/L.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SedimentToxicity" type="eSDScom:Ecotoxicity">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Toxicity to sediment organisms; unit typically mg/kg Sediment or mg/L.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="TerrestrialToxicity">
+							<xs:annotation>
+								<xs:documentation>Toxicity to terrestrial organisms; unit typically mg/kg soil.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SoilMicroorganismsToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteEarthwormToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicEarthwormToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="InsectToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcutePlantToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicPlantToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteSubchronicBirdToxicity" type="eSDScom:Ecotoxicity"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="BirdReproductionToxicity" type="eSDScom:Ecotoxicity"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SoilMicroorganismsToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Toxicity to soil microorganisms; unit depends on the test, e.g. mg/kg soil.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteEarthwormToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Acute toxicity to earthworms; endpoint e.g. LC50, unit mg/kg soil.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicEarthwormToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Chronic toxicity to earthworms; endpoint e.g. NOEC, unit mg/kg soil.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="InsectToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Toxicity to insects; endpoint and unit depend on the test method.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcutePlantToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Acute toxicity to terrestrial plants; unit typically mg/kg soil.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ChronicPlantToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Chronic toxicity to terrestrial plants; endpoint e.g. NOEC/EC10, unit mg/kg soil.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteSubchronicBirdToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Acute/subchronic toxicity to birds; endpoint and unit depend on the test method.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="BirdReproductionToxicity" type="eSDScom:Ecotoxicity">
+										<xs:annotation>
+											<xs:documentation>Bird reproduction toxicity; endpoint and unit depend on the test method.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EcotoxicologyOverallEvaluation" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EcotoxicologyOverallEvaluation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Overall assessment of ecotoxicological properties and relevance for environmental hazards.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="PersistenceDegradability">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Information on persistence and degradability; includes biological and abiotic degradation processes.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="BiologicalDegradability" type="eSDScom:BiologicalDegradation">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Biodegradability by microorganisms; unit e.g. % degradation after a defined period (d).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbioticDegradation" type="eSDScom:DegradationElimination"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityEvaluation" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AbioticDegradation" type="eSDScom:DegradationElimination">
+							<xs:annotation>
+								<xs:documentation>Abiotic degradation by non-biological processes, e.g. hydrolysis, photolysis or oxidation; where applicable half-life time</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersistenceDegradabilityEvaluation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Assessment of persistence and degradability based on available biological and abiotic data.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Bioaccumulation">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Information on accumulation in organisms, e.g. BCF, log Kow or bioaccumulation assessment.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="BioconcentrationFactor">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Bioconcentration factor (BCF); dimensionless or L/kg, depending on method and data.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -3006,6 +3893,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="BioaccumulationEvaluation" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Assessment of bioaccumulation potential based on available data, e.g. BCF or log Kow.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
@@ -3017,17 +3905,35 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Mobility">
+				<xs:annotation>
+					<xs:documentation>Information on mobility in environmental compartments, e.g. soil/water distribution or adsorption.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Distribution" type="eSDScom:Phrase"/>
-						<xs:element minOccurs="0" name="TransportType" type="eSDScom:Phrase"/>
+						<xs:element minOccurs="0" name="Distribution" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Distribution in environmental compartments or media; information e.g. soil, water, air, sediment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="TransportType" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>type of environmental transport or pathway, e.g. water, soil, air or sediment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Result" type="eSDScom:PhysChemValue"/>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Source" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="MobilityEvaluation" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="MobilityEvaluation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Assessment of environmental mobility, e.g. based on sorption, solubility or partition coefficients.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="OtherAdverseEffects">
+				<xs:annotation>
+					<xs:documentation>Other adverse environmental effects, not already covered by standard endpoints.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="OzoneDepletionPotential" type="eSDScom:PhysChemUnitValue">
@@ -3045,12 +3951,23 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>a.k.a. GWP</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AtmosphericLifetime" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruptingPotential" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AtmosphericLifetime" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Atmospheric lifetime of a substance; unit typically hours (h), days (d) or years (a).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EndocrineDisruptingPotential" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Assessment of potential endocrine-disrupting properties for humans or the environment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="AdditionalEcotoxInformation">
+				<xs:annotation>
+					<xs:documentation>Additional ecotoxicological parameters or assessments, beyond standard information.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="DissolvedOrganicCarbon" type="eSDScom:FurtherEcologicalData">
@@ -3078,7 +3995,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>a.k.a. BOD</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Bod5CodRatio" type="eSDScom:PhysChemValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Bod5CodRatio" type="eSDScom:PhysChemValue">
+							<xs:annotation>
+								<xs:documentation>BOD5/COD ratio as an indicator of biodegradability; dimensionless.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="TotalOrganicCarbon" type="eSDScom:FurtherEcologicalData">
 							<xs:annotation>
 								<xs:documentation>a.k.a. TOC</xs:documentation>
@@ -3089,9 +4010,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation>a.k.a. IC</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="AOXAdsorbableOrganohalogens" type="eSDScom:PhysChemUnitValue"> </xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="POXPurgeableOrganohalogens" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EOXExtractableOrganohalogens" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="AOXAdsorbableOrganohalogens" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>AOX, adsorbable organically bound halogens; unit typically mg/L or mg/kg.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="POXPurgeableOrganohalogens" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>POX, purgeable organically bound halogens; unit typically µg/L or mg/L.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EOXExtractableOrganohalogens" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>EOX, extractable organically bound halogens; unit typically mg/kg.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInformation" type="eSDScom:Phrase"/>
 					</xs:sequence>
 				</xs:complexType>

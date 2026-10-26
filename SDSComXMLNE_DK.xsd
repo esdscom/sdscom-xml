@@ -24,7 +24,11 @@ Possible representation in one pattern: (00|[0-5])-[0-6]</xs:documentation>
             <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element minOccurs="0" name="MalCodeDeliveryState" type="eSDScom:DkMalCode"/>
+            <xs:element minOccurs="0" name="MalCodeDeliveryState" type="eSDScom:DkMalCode">
+                <xs:annotation>
+                    <xs:documentation>MAL code in the delivery state under Danish requirements; code usually formatted as two numbers separated by a hyphen (example: 00-1)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element minOccurs="0" name="MalCodeReadyToUse" type="eSDScom:DkMalCode">
                 <xs:annotation>
                     <xs:documentation>If the application requires mixing or thinning, Mal codes should be determined also for the ready to use product. Omit if this is not the case.</xs:documentation>

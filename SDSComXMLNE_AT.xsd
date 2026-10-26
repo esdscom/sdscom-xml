@@ -26,7 +26,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
             <xs:documentation>Regulations valid for the product of mixture as a whole. For ingredient information, refer to type ComponentTR.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="VbfClass" type="eSDScom:VbfClass"/>
+            <xs:element name="VbfClass" type="eSDScom:VbfClass">
+                <xs:annotation>
+                    <xs:documentation>Vbf Class: Flammable liquid class Austia, content as structured value or code.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

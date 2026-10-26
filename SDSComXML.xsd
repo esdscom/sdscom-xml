@@ -63,6 +63,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="RegionEU">
+										<xs:annotation>
+											<xs:documentation>Region-specific information in the area of substance/mixture and supplier identification; jurisdiction follows from the field name.</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element maxOccurs="unbounded" minOccurs="0" name="Ufi" type="eSDScom:Ufi">
@@ -94,14 +97,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="PackagingType" type="eSDScom:PackagingTypeEnum"/>
+									<xs:element minOccurs="0" name="PackagingType" type="eSDScom:PackagingTypeEnum">
+										<xs:annotation>
+											<xs:documentation>Packaging type, e.g. bottle, canister, drum, IBC or box.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingTypeDescription" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="PackagingSize" type="eSDScom:NumericRangeWithUnitAndQualifier"/>
-									<xs:element minOccurs="0" name="PackagingMaterial" type="eSDScom:PackagingMaterialEnum"/>
+									<xs:element minOccurs="0" name="PackagingSize" type="eSDScom:NumericRangeWithUnitAndQualifier">
+										<xs:annotation>
+											<xs:documentation>Package size or filling quantity; unit e.g. L, mL, kg or g.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="PackagingMaterial" type="eSDScom:PackagingMaterialEnum">
+										<xs:annotation>
+											<xs:documentation>Packaging material, e.g. Kunststoff, Metall, Glas or Papier.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingMaterialDescription" type="eSDScom:Phrase">
 										<xs:annotation>
 											<xs:documentation>Further specifies the material and type of packaging.</xs:documentation>
@@ -113,6 +128,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Additional identification or product information.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -124,9 +140,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="IndustrialUse" type="boolean"/>
-						<xs:element name="ProfessionalUse" type="boolean"/>
-						<xs:element name="ConsumerUse" type="boolean"/>
+						<xs:element name="IndustrialUse" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Indicates whether industrial use is intended; yes/no or description.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ProfessionalUse" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Indicates whether professional use is intended; yes/no or description.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ConsumerUse" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Indicates whether consumer use is intended; yes/no or description.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -134,18 +162,36 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>General use or purpose of the product.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="UseAdvisedAgainst" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Uses advised against, including justification where applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionCA" type="eSDScom:SdsSupplierInfo"/>
-			<xs:element minOccurs="0" name="RegionCN" type="eSDScom:SdsSupplierInfo"/>
-			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:SdsSupplierInfoEU"/>
-			<xs:element minOccurs="0" name="RegionUS" type="eSDScom:SdsSupplierInfo"/>
+			<xs:element minOccurs="0" name="RegionCA" type="eSDScom:SdsSupplierInfo">
+				<xs:annotation>
+					<xs:documentation>Region-specific information in the area of substance/mixture and supplier identification; jurisdiction follows from the field name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionCN" type="eSDScom:SdsSupplierInfo">
+				<xs:annotation>
+					<xs:documentation>Region-specific information in the area of substance/mixture and supplier identification; jurisdiction follows from the field name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:SdsSupplierInfoEU">
+				<xs:annotation>
+					<xs:documentation>Region-specific information in the area of substance/mixture and supplier identification; jurisdiction follows from the field name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionUS" type="eSDScom:SdsSupplierInfo">
+				<xs:annotation>
+					<xs:documentation>Region-specific information in the area of substance/mixture and supplier identification; jurisdiction follows from the field name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 2 ========================================================== -->
@@ -155,9 +201,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="RegionAR">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for Argentina.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationAR"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationAR">
+							<xs:annotation>
+								<xs:documentation>Classification according to the rules specified for Argentina GHS/SDS rules.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingAR">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -169,9 +222,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionBR">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for Brazil.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationBR"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationBR">
+							<xs:annotation>
+								<xs:documentation>Classification according to the rules specified for Brazil GHS/SDS rules.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingBR">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -183,9 +243,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionCA">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for Canada.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationCA"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationCA">
+							<xs:annotation>
+								<xs:documentation>Classification in the Canadian WHMIS/GHS context.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingCA">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -197,9 +264,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionCN">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for China.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationCN"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationCN">
+							<xs:annotation>
+								<xs:documentation>Classification according to the rules specified for China GHS/SDS rules.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingCN">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -278,9 +352,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionGB">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for Great Britain.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationGB"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationGB">
+							<xs:annotation>
+								<xs:documentation>Classification according to UK CLP or the British CLP regulation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingGB">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -292,9 +373,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionMX">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for Mexico.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationMX"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationMX">
+							<xs:annotation>
+								<xs:documentation>Classification according to the rules specified for Mexico GHS/SDS rules.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingMX">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -306,9 +394,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionTR">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for Turkey.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationTR"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationTR">
+							<xs:annotation>
+								<xs:documentation>Classification according to the GHS/SDS rules specified for Turkey.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingTR">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -320,9 +415,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionUS">
+				<xs:annotation>
+					<xs:documentation>Region-specific information for USA.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationUS"/>
+						<xs:element minOccurs="0" name="Classification" type="eSDScom:ClassificationUS">
+							<xs:annotation>
+								<xs:documentation>Classification according to US-HazCom/GHS-Kontext.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="HazardLabelling" type="eSDScom:HazardLabellingUS">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -824,6 +926,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="DescriptionOfFirstAidMeasures">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Description of first aid measures, understandable also for untrained first responders.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -876,6 +979,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="SymptomsAndEffectsGeneral" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>most important acute and delayed symptoms and effects after exposure.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="AcuteSymptomsAndEffects" type="eSDScom:Phrase">
@@ -956,6 +1060,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:element minOccurs="0" name="ExtinguishingMedia">
 				<xs:annotation>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Suitable and unsuitable extinguishing media for fires involving or near the product.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -996,7 +1101,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation> Fire fighting procedures: Information on how to handle a fire in the chemical. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProtectiveEquipmentForFirefighters" type="eSDScom:Phrase"> </xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProtectiveEquipmentForFirefighters" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Special protective equipment for emergency responders, e.g. respiratory protection, protective clothing or cooling.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1007,6 +1116,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="ForNonEmergencyPersonnel">
+				<xs:annotation>
+					<xs:documentation>Advice for non-emergency personnel during accidental release, e.g. distance, ventilation, personal protection equipment (PPE) and evacuation.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="PersonalPrecautions" type="eSDScom:Phrase">
@@ -1014,8 +1126,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Personal precautions for non-emergency personnel: Advice on protective equipment etc. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProtectiveEquipment" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EmergencyProcedures" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProtectiveEquipment" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Required personal protective equipment to prevent skin, eye or clothing contact.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EmergencyProcedures" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Emergency procedures for release, e.g. evacuate the hazard area, remove ignition sources, consult experts.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1030,6 +1150,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="ContainmentAndCleaningUp">
+				<xs:annotation>
+					<xs:documentation>Methods and materials for containment and cleaning up for leaks or releases; where applicable different measures depending on release quantity.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Containment" type="eSDScom:Phrase">
@@ -1070,6 +1193,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:sequence>
 			<!-- Precautions for safe handling -->
 			<xs:element minOccurs="0" name="SafeHandling">
+				<xs:annotation>
+					<xs:documentation>Advice on safe handling including protective, hygiene and environmental measures.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="HandlingPrecautions" type="eSDScom:Phrase">
@@ -1083,12 +1209,31 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="PrecautionaryMeasures">
+							<xs:annotation>
+								<xs:documentation>Precautions for safe use, e.g. fire, dust or environmental protection.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProtectiveMeasures" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresToPreventFire" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresToPreventAerosolAndDust" type="eSDScom:Phrase"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresToProtectEnvironment" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="ProtectiveMeasures" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Protective measures for safe handling and exposure prevention.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresToPreventFire" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Measures to prevent fire and ignition hazards.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresToPreventAerosolAndDust" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Measures to prevent aerosol or dust formation.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="MeasuresToProtectEnvironment" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Measures to prevent release to the environment, drains or surface water.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1134,14 +1279,27 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> Requirements for storage rooms and vessels: Specific design for storage rooms or vessels (including retention walls and ventilation), incompatible materials, conditions of storage (temperature and humidity limit/range, light, inert gas, etc.) special electrical equipment and prevention of static electricity. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="HintsOnStorageAssembly" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="HintsOnStorageAssembly" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Advice on storage compatibility with other substances or mixtures.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="StorageTemperature" type="eSDScom:PhysChemUnitValue">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>Permitted or recommended storage temperature; unit typically °C.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="StoragePressure" type="eSDScom:PhysChemUnitValue"/>
-						<xs:element minOccurs="0" name="StorageAirHumidity" type="eSDScom:PhysChemUnitValue"/>
+						<xs:element minOccurs="0" name="StoragePressure" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Permitted or recommended storage pressure; unit typically Pa, kPa, hPa or bar.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="StorageAirHumidity" type="eSDScom:PhysChemUnitValue">
+							<xs:annotation>
+								<xs:documentation>Permitted or recommended storage humidity; typically expressed in % relative humidity.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="StorageStability" type="eSDScom:StorageStability">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -1158,7 +1316,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="Recommendations" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Recommendations" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Recommendations for specific end uses or safe application.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="IndustrialSectorSpecificSolutions" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:documentation> Industrial sector specific solutions: Information on industrial sector specific solutions. </xs:documentation>
@@ -1270,8 +1432,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductWaste" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingWaste" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductWaste" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Information on disposal of product residues including hazardous properties and treatment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PackagingWaste" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Information on disposal of packaging waste including contamination and suitable treatment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1280,12 +1450,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Region-specific information in the area of disposal considerations; jurisdiction follows from the field name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="RegionUS" type="eSDScom:DisposalConsiderationsUS">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Region-specific information in the area of disposal considerations; jurisdiction follows from the field name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1298,6 +1470,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:sequence>
 			<!-- (Not following EuphraC) -->
 			<xs:element minOccurs="0" name="Imdg">
+				<xs:annotation>
+					<xs:documentation>Transport information according to the IMDG code for sea transport of dangerous goods.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="UnNo" type="eSDScom:int4">
@@ -1320,20 +1495,46 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 								<xs:documentation> IMDG hazard class: The chemical’s most important transport hazard class. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="eSDScom:TransportClassEnum"/>
-						<xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum"/>
+						<xs:element maxOccurs="2" minOccurs="0" name="SubsidiaryRisk" type="eSDScom:TransportClassEnum">
+							<xs:annotation>
+								<xs:documentation>Subsidiary risk(s) in dangerous goods transport; danger label/class information.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
+							<xs:annotation>
+								<xs:documentation>Packing group under dangerous goods regulations; value I, II or III.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="MarinePollutant" type="boolean">
 							<xs:annotation>
 								<xs:documentation> Marine pollutant: To state if the chemical is classified as a marine pollutant.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element minOccurs="0" name="OtherInformation">
+							<xs:annotation>
+								<xs:documentation>Additional transport- or safety-relevant information.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="eSDScom:string20"/>
-									<xs:element minOccurs="0" name="ExceptedQty" type="eSDScom:TransportEq"/>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80"/>
+									<xs:element maxOccurs="1" minOccurs="0" name="LimitedQty" type="eSDScom:string20">
+										<xs:annotation>
+											<xs:documentation>Limited quantity under dangerous goods regulations; unit depends on the entry, e.g. L or kg.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="ExceptedQty" type="eSDScom:TransportEq">
+										<xs:annotation>
+											<xs:documentation>Excepted quantity under dangerous goods regulations; coded or quantity value.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialProvisions" type="eSDScom:string80">
+										<xs:annotation>
+											<xs:documentation>Special provisions under dangerous goods law; coded or textual information.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="EmsCode">
+										<xs:annotation>
+											<xs:documentation>EmS code under the IMDG code for emergency measures at sea; coded value.</xs:documentation>
+										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="string">
 												<xs:pattern value="F-\p{Lu}, S-\p{Lu}"/>
@@ -1348,6 +1549,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="IataDgr">
+				<xs:annotation>
+					<xs:documentation>Transport information according to IATA-DGR for air transport of dangerous goods.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="UnNo" type="eSDScom:int4">
@@ -1404,14 +1608,42 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialPrecautionUser" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpecialPrecautionUser" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Special precautions for users during transport.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
-			<xs:element minOccurs="0" name="RegionBR" type="eSDScom:TransportBR"/>
-			<xs:element minOccurs="0" name="RegionCA" type="eSDScom:TransportCA"/>
-			<xs:element minOccurs="0" name="RegionCN" type="eSDScom:TransportCN"/>
-			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:TransportEU"> </xs:element>
-			<xs:element minOccurs="0" name="RegionMX" type="eSDScom:TransportMX"/>
-			<xs:element minOccurs="0" name="RegionUS" type="eSDScom:TransportUS"/>
+			<xs:element minOccurs="0" name="RegionBR" type="eSDScom:TransportBR">
+				<xs:annotation>
+					<xs:documentation>Transport information for Brazil.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionCA" type="eSDScom:TransportCA">
+				<xs:annotation>
+					<xs:documentation>Transport information for Canada.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionCN" type="eSDScom:TransportCN">
+				<xs:annotation>
+					<xs:documentation>Transport information for China.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:TransportEU">
+				<xs:annotation>
+					<xs:documentation>EU/ADR/RID/ADN-related transport information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionMX" type="eSDScom:TransportMX">
+				<xs:annotation>
+					<xs:documentation>Transport information for Mexico.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionUS" type="eSDScom:TransportUS">
+				<xs:annotation>
+					<xs:documentation>Transport information for USA.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 15 ========================================================= -->
@@ -1422,7 +1654,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 			<xs:element minOccurs="0" name="RegionAR" type="eSDScom:RegulationsAR"/>
-			<xs:element minOccurs="0" name="RegionBR" type="eSDScom:RegulationsBR"/>
+			<xs:element minOccurs="0" name="RegionBR" type="eSDScom:RegulationsBR">
+				<xs:annotation>
+					<xs:documentation>Regulatory information for Brazil.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="RegionCA" type="eSDScom:RegulationsCA"/>
 			<xs:element minOccurs="0" name="RegionCN" type="eSDScom:RegulationsCN"/>
 			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:RegulationsEU">
@@ -1431,8 +1667,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="RegionGB" type="eSDScom:RegulationsGB"/>
-			<xs:element minOccurs="0" name="RegionJP" type="eSDScom:RegulationsJP"/>
-			<xs:element minOccurs="0" name="RegionMX" type="eSDScom:RegulationsMX"/>
+			<xs:element minOccurs="0" name="RegionJP" type="eSDScom:RegulationsJP">
+				<xs:annotation>
+					<xs:documentation>Region-specific regulatory information for Japan.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RegionMX" type="eSDScom:RegulationsMX">
+				<xs:annotation>
+					<xs:documentation>Regulatory information for Mexico.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="RegionRU" minOccurs="0" type="eSDScom:RegulationsRU">
 				<xs:annotation>
 					<xs:documentation>This region is formed by countries having a customs union, as this gives the strongest indication of future alignment of (existing and new) legislation.</xs:documentation>
@@ -1443,7 +1687,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>Although an EU candidate, Turkish chemicals legislation is moving away from the EU again and thus treated as a separate region.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="RegionUS" type="eSDScom:RegulationsUS"/>
+			<xs:element minOccurs="0" name="RegionUS" type="eSDScom:RegulationsUS">
+				<xs:annotation>
+					<xs:documentation>Regulatory information for USA.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Section 16 ========================================================= -->
@@ -1518,6 +1766,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Identification data for the substance/mixture, uses and supplier.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 2 (Hazards identification) *******************************************************************************  -->
@@ -1525,15 +1774,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Hazards identification including classification, labelling and other hazards.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 3 (Composition/information on ingredients) ***********************************************************  -->
-			<xs:element name="Composition" minOccurs="1" maxOccurs="1" type="eSDScom:Composition"> </xs:element>
+			<xs:element name="Composition" minOccurs="1" maxOccurs="1" type="eSDScom:Composition">
+				<xs:annotation>
+					<xs:documentation>Composition or information on ingredients of a substance or mixture, including relevant hazardous constituents.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<!-- *******************************************************************  SECTION 4 (First aid measures) **********************************************************************************  -->
 			<xs:element name="FirstAidMeasures" minOccurs="1" maxOccurs="1" type="eSDScom:FirstAidMeasures">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>First aid measures according to Exposition; structured by route of exposure and urgency.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 5 (Firefighting measures) ******************************************************************************  -->
@@ -1541,6 +1796,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Requirements and advice for firefighting for the substance or mixture.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 6 (Accidental release measures) *********************************************************************  -->
@@ -1588,6 +1844,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Toxicological information on health hazards, exposure experience and test results.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 12 (Ecological information) *************************************************************************  -->
@@ -1595,6 +1852,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Ecological information zu ecotoxicity, persistence, degradability, bioaccumulation, mobility and other effects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SECTION 13 (Disposal considerations) ***********************************************************************  -->
@@ -1630,7 +1888,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 			</xs:element>
 			<!-- *******************************************************************  SDS MAIN BODY END ***********************************************************************************************  -->
-			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:AnnexesEU"/>
+			<xs:element minOccurs="0" name="RegionEU" type="eSDScom:AnnexesEU">
+				<xs:annotation>
+					<xs:documentation>EU-specific annexes or additional information for safe use.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Root node for data exchange: DatasheetFeed ========================= -->
@@ -1645,6 +1907,7 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:annotation>
 						<xs:appinfo>SDScomBau</xs:appinfo>
 						<xs:appinfo>SDScomChem</xs:appinfo>
+						<xs:documentation>Metadata and technical information from the exporting system.</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>

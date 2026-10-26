@@ -42,6 +42,9 @@ In theory, WHMIS is based on GHS revision 5 and then rolled back to be "compatib
     <xs:complexType name="ClassificationCA">
         <xs:sequence>
             <xs:element minOccurs="0" name="Whmis2015HazardClassification">
+                <xs:annotation>
+                    <xs:documentation>Hazard classification according to WHMIS 2015; classes, categories and H-statements.</xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">

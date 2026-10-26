@@ -26,8 +26,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					<xs:documentation>VEVA = Swiss Waste code (values differ from EWC, structure is the same.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Text" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Remark" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Text" type="eSDScom:Phrase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Suisse: data field in the area of EU-specific information; content as structured value, code or phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Remark" type="eSDScom:Phrase" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Suisse: data field in the area of EU-specific information; content as structured value, code or phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="CPID">
@@ -117,7 +125,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="NationalWasteLegislationCH" type="eSDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NationalWasteLegislationCH" type="eSDScom:NationalWasteLegislationCH" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>National Waste Legislation Ch: semantic data field in the area of EU-specific information; content as structured value, code or phrase.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="StorageClassCH" type="eSDScom:StorageClassEnumCH" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Classification of the chemical in accordance with Swiss guidance on storage. See https://www.kvu.ch/de/arbeitsgruppen?id=151</xs:documentation>

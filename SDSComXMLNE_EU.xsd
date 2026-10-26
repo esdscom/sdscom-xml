@@ -65,12 +65,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>REACH SU code for sector of use.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SuFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text sector of use (SU).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -133,12 +135,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>REACH PC code for product category.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="PcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text product category (PC).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -190,12 +194,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>REACH PROC code for process category.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="ProcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text process category (PROC).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -238,12 +244,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>REACH article category code (AC).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="AcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text REACH article category (AC).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -290,12 +298,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>REACH ERC code for environmental release category.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="ErcFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text environmental release category (ERC).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -320,12 +330,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>SPERC code for specific environmental release category.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="SpercFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text SPERC designation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -566,12 +578,14 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>EuPCS code for product category under Annex VIII CLP; coded value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="EupcsFulltext" type="eSDScom:Phrase">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>full text product category for the EuPCS code.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -599,12 +613,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element minOccurs="0" name="MainIntendedUse" type="eSDScom:EupcsCategory"/>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="SecondaryUses" type="eSDScom:EupcsCategory"/>
+					<xs:element minOccurs="0" name="MainIntendedUse" type="eSDScom:EupcsCategory">
+						<xs:annotation>
+							<xs:documentation>main intended use of the product or substance; short description of the intended use.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="SecondaryUses" type="eSDScom:EupcsCategory">
+						<xs:annotation>
+							<xs:documentation>Secondary or additional uses of the product.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="RelevantIdentifiedUse">
 						<xs:annotation>
 							<xs:appinfo>SDScomBau</xs:appinfo>
 							<xs:appinfo>SDScomChem</xs:appinfo>
+							<xs:documentation>Relevant identified use according to REACH/exposure scenario.</xs:documentation>
 						</xs:annotation>
 						<xs:complexType>
 							<xs:sequence>
@@ -648,22 +671,32 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 												<xs:annotation>
 													<xs:appinfo>SDScomBau</xs:appinfo>
 													<xs:appinfo>SDScomChem</xs:appinfo>
+													<xs:documentation>Specific environmental release category (SPERC) for the use.</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryNoIntendedRelease" type="eSDScom:ArticleCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomChem</xs:appinfo>
+													<xs:documentation>Article category without intended release; REACH use descriptor AC.</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element maxOccurs="unbounded" minOccurs="0" name="ArticleCategoryWithIntendedRelease" type="eSDScom:ArticleCategory">
 												<xs:annotation>
 													<xs:appinfo>SDScomChem</xs:appinfo>
+													<xs:documentation>Article category with intended release; REACH use descriptor.</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element maxOccurs="unbounded" minOccurs="0" name="CorrespondingExposureScenario">
+												<xs:annotation>
+													<xs:documentation>Corresponding exposure scenario for the identified use.</xs:documentation>
+												</xs:annotation>
 												<xs:complexType>
 													<xs:sequence>
-														<xs:element maxOccurs="1" minOccurs="0" name="ExposureScenarioName" type="eSDScom:string128"/>
+														<xs:element maxOccurs="1" minOccurs="0" name="ExposureScenarioName" type="eSDScom:string128">
+															<xs:annotation>
+																<xs:documentation>name of the exposure scenario.</xs:documentation>
+															</xs:annotation>
+														</xs:element>
 														<xs:element maxOccurs="1" minOccurs="0" name="LegalDocumentFileName" type="eSDScom:FileName">
 															<xs:annotation>
 																<xs:documentation> File name: For example, a locked PDF document. Static URL possible. </xs:documentation>
@@ -688,8 +721,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 												</xs:complexType>
 											</xs:element>
 										</xs:sequence>
-										<xs:attribute default="0" name="IdentifiedUseId" type="integer"/>
-										<xs:attribute default="true" name="PrintAsAttachment" type="boolean"/>
+										<xs:attribute default="0" name="IdentifiedUseId" type="integer">
+											<xs:annotation>
+												<xs:documentation>Identifier of the identified use; technical or internal identifier.</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+										<xs:attribute default="true" name="PrintAsAttachment" type="boolean">
+											<xs:annotation>
+												<xs:documentation>Indicates whether the identified use is to be output as an annex; yes/no.</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
 									</xs:complexType>
 								</xs:element>
 								<xs:element maxOccurs="unbounded" minOccurs="0" name="ProductType" type="eSDScom:Phrase">
@@ -745,10 +786,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="ExposureGroup">
+				<xs:annotation>
+					<xs:documentation>Exposure group for DNEL/DMEL, e.g. workers, consumers or general population.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Group" type="eSDScom:EffectLevelGroupEnum"/>
-						<xs:element minOccurs="0" name="GroupFulltext" type="eSDScom:Phrase"/>
+						<xs:element name="Group" type="eSDScom:EffectLevelGroupEnum">
+							<xs:annotation>
+								<xs:documentation>Short code of the exposure group; coded value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="GroupFulltext" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Full designation der exposure group, e.g. industrial user or consumer.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -758,12 +810,24 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Type" type="eSDScom:EffectLevelTypeEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="TypeFulltext" type="eSDScom:Phrase"/>
+						<xs:element name="Type" type="eSDScom:EffectLevelTypeEnum">
+							<xs:annotation>
+								<xs:documentation>type of effect level, e.g. acute/long-term, local/systemic; coded value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="TypeFulltext" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>full text description of the effect level type.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="1" name="DnelValue" type="eSDScom:NumericValueWithUnit"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="DnelValue" type="eSDScom:NumericValueWithUnit">
+				<xs:annotation>
+					<xs:documentation>Derived No-Effect Level (DNEL); unit depends on exposure route and population.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="AssessmentFactor" type="eSDScom:NumericValue">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the DNEL is very low and where more than 1 DNEL existing to show how high the influence on the deviation was.</xs:documentation>
@@ -779,7 +843,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="ExposureRouteFrequencyAndEffect" type="eSDScom:EffectLevelTypeEnum"/>
-			<xs:element maxOccurs="1" minOccurs="1" name="DmelValue" type="eSDScom:NumericValueWithUnit"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="DmelValue" type="eSDScom:NumericValueWithUnit">
+				<xs:annotation>
+					<xs:documentation>Derived Minimal Effect Level (DMEL); unit depends on exposure route and population.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="AssessmentFactor" type="eSDScom:NumericValue">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the DMEL is very low and where more than 1 DMEL existing to show how high the influence on the deviation was.</xs:documentation>
@@ -794,8 +862,16 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 			<xs:documentation> PNEC source: Chapter 8 </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="Type" type="eSDScom:PNECTypeEnum"/>
-			<xs:element maxOccurs="1" minOccurs="1" name="PnecValue" type="eSDScom:NumericValueWithUnit"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Type" type="eSDScom:PNECTypeEnum">
+				<xs:annotation>
+					<xs:documentation>PNEC compartment or type, e.g. freshwater, marine water, soil, sediment or sewage treatment plant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="PnecValue" type="eSDScom:NumericValueWithUnit">
+				<xs:annotation>
+					<xs:documentation>Predicted No-Effect Concentration (PNEC); unit depends on environmental compartment, often mg/L.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="AssessmentFactor" type="eSDScom:NumericValue">
 				<xs:annotation>
 					<xs:documentation>May be important in those cases where the PNEC is very low and where more than 1 PNEC existing to show how high the influence on the deviation was.</xs:documentation>
@@ -1831,6 +1907,9 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="SumiReference">
+				<xs:annotation>
+					<xs:documentation>Reference to SUMI/Safe Use of Mixtures Information; identifier or source.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SectorSumiCode" type="string">
@@ -1846,11 +1925,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" name="Title" type="eSDScom:Phrase"/>
+			<xs:element maxOccurs="unbounded" name="Title" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>Title or designation of the section, scenario or information block.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="GeneralDescription">
+				<xs:annotation>
+					<xs:documentation>General description of safe use of the mixture.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
 						<xs:element minOccurs="0" name="UseDescriptors">
+							<xs:annotation>
+								<xs:documentation>REACH use descriptors, e.g. SU, PROC, PC, ERC, AC or SPERC.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element minOccurs="0" name="SectorOfUse" type="eSDScom:SectorOfUse"/>
@@ -1868,9 +1957,15 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="OperationalConditions">
+				<xs:annotation>
+					<xs:documentation>Operational conditions for safe use, e.g. duration, amount, temperature or ventilation.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
 						<xs:element name="Properties">
+							<xs:annotation>
+								<xs:documentation>Properties in the context of operational conditions or safe use.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element minOccurs="0" name="MaxDuration" type="eSDScom:NumericValueWithUnit">
@@ -1878,13 +1973,21 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 											<xs:documentation>Maximum duration of the use/application.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="RangeOfApplication" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Scope or range of application of the information.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element minOccurs="0" name="AirExchangeRate" type="eSDScom:NumericValueWithUnitAndQualifier">
 										<xs:annotation>
 											<xs:documentation>Air exchange rate (equals VentilationRate in ESCom XML) is a minimum value.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other" type="eSDScom:Phrase"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="Other" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Other information not assigned to a more specific field.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1893,11 +1996,26 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="RiskManagementMeasures">
+				<xs:annotation>
+					<xs:documentation>risk management measures to limit exposure and emissions.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" name="RmmWorker" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmPictogram" type="eSDScom:RmmPictogramEnum"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" name="RmmWorker" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Worker-related risk management measure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmPictogram" type="eSDScom:RmmPictogramEnum">
+							<xs:annotation>
+								<xs:documentation>Pictogram for risk management measure; coded symbol</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="RmmEnvironment" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Environmental risk management measure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1908,7 +2026,11 @@ License: https://creativecommons.org/licenses/by-nd/4.0/legalcode
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="Text" type="eSDScom:Phrase"/>
-						<xs:element minOccurs="0" name="AgpaPictogram" type="eSDScom:AgpaPictogramEnum"/>
+						<xs:element minOccurs="0" name="AgpaPictogram" type="eSDScom:AgpaPictogramEnum">
+							<xs:annotation>
+								<xs:documentation>Pictogram for good practice or safe use; coded symbol.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2409,7 +2531,11 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:Atp12SupplementalHazardInformationEnum"/>
+			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:Atp12SupplementalHazardInformationEnum">
+				<xs:annotation>
+					<xs:documentation>code of supplemental hazard information in the ATP/CLP context.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
@@ -2446,7 +2572,11 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 					<xs:documentation>eSDScom (= EuPhraC, ESCom) phrase ID. Optional because user phrases and other phrase catalogues are allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:Atp12SpecialSupplementalLabelInfoEnum"/>
+			<xs:element minOccurs="1" name="PhraseCode" type="eSDScom:Atp12SpecialSupplementalLabelInfoEnum">
+				<xs:annotation>
+					<xs:documentation>code of special supplemental labelling according to CLP/ATP-Kontext.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="FullText" type="eSDScom:string1024"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="MergePhrase" type="eSDScom:MergePhrase"/>
 		</xs:sequence>
@@ -2715,8 +2845,16 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 	</xs:simpleType>
 	<xs:complexType name="Assessment">
 		<xs:sequence>
-			<xs:element name="Assessment" type="eSDScom:AssessmentEnum"/>
-			<xs:element minOccurs="0" name="AssessmentFulltext" type="eSDScom:Phrase"/>
+			<xs:element name="Assessment" type="eSDScom:AssessmentEnum">
+				<xs:annotation>
+					<xs:documentation>Assessment result for a legal provision; coded value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="AssessmentFulltext" type="eSDScom:Phrase">
+				<xs:annotation>
+					<xs:documentation>full text assessment for a legal provision.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ComponentEU">
@@ -2774,15 +2912,21 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>Index number under Annex VI CLP; coded value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="EcNo" type="eSDScom:EcNo">
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>EC number of the substance according to EU inventories; coded value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReachRegNo" type="eSDScom:ReachRegNo" minOccurs="0"/>
+			<xs:element name="ReachRegNo" type="eSDScom:ReachRegNo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>REACH registration number of the substance; alphanumeric value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ControlParametersEU">
@@ -2792,7 +2936,11 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 					<xs:documentation> Derived no effect level (DNEL): Where a Chemical Safety Report is required, the relevant DNELs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed in the safety data sheet. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedMinimalEffectLevel" type="eSDScom:DMEL"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedMinimalEffectLevel" type="eSDScom:DMEL">
+				<xs:annotation>
+					<xs:documentation>DMEL data for exposure routes, where no safe threshold can be derived.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="PredictedNoEffectConcentration" type="eSDScom:PNEC">
 				<xs:annotation>
 					<xs:documentation> Predicted no effect concentration (PNEC): Where a Chemical Safety Report is required, the relevant PNECs for the substance shall be given. For preparations, it is useful to provide values for those constituent substances which are required to be listed. </xs:documentation>
@@ -2867,6 +3015,9 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 	<xs:complexType name="TransportEU">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="AdrRid">
+				<xs:annotation>
+					<xs:documentation>Transport information under ADR/RID for road and rail.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="UnNo" type="eSDScom:int4">
@@ -2915,8 +3066,16 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								<xs:appinfo>SDScomChem</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdr" type="eSDScom:TransportHazardLabelAdrAdnEnum"/>
-						<xs:element maxOccurs="4" minOccurs="0" name="HazardLabelRid" type="eSDScom:TransportHazardLabelRidEnum"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabelAdr" type="eSDScom:TransportHazardLabelAdrAdnEnum">
+							<xs:annotation>
+								<xs:documentation>ADR label; number or code.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="4" minOccurs="0" name="HazardLabelRid" type="eSDScom:TransportHazardLabelRidEnum">
+							<xs:annotation>
+								<xs:documentation>RID label; number or code.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -2964,6 +3123,9 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="Adn">
+				<xs:annotation>
+					<xs:documentation>Transport information under ADN for inland waterway transport.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="UnNo" type="eSDScom:int4">
@@ -3012,7 +3174,11 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								<xs:documentation>There are a few cases in class 9 without a code. Leave empty then.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="eSDScom:TransportHazardLabelAdrAdnEnum"/>
+						<xs:element maxOccurs="3" minOccurs="0" name="HazardLabel" type="eSDScom:TransportHazardLabelAdrAdnEnum">
+							<xs:annotation>
+								<xs:documentation>Danger label under dangerous goods law; number or code.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="PackingGroup" type="eSDScom:PackingGroupEnum">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -3037,11 +3203,26 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="TransportInBulk">
+				<xs:annotation>
+					<xs:documentation>Information on bulk transport, e.g. MARPOL/IBC or ADN/ADR context.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ProductName" type="eSDScom:string128"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ShipType" type="eSDScom:Phrase"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="PollutionCategory" type="eSDScom:Phrase"/>
+						<xs:element minOccurs="0" name="ProductName" type="eSDScom:string128">
+							<xs:annotation>
+								<xs:documentation>Product name in transport or bulk transport context.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ShipType" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>ship type or tank type for bulk transport; coded value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="PollutionCategory" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Pollution category for bulk transport; coded value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -3053,8 +3234,15 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 			<xs:documentation>according to Directive 2012/18/EC</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Code" type="string"/>
+			<xs:element name="Code" type="string">
+				<xs:annotation>
+					<xs:documentation>code of a category, rule or classification; meaning from context.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="LowerTierQuantity">
+				<xs:annotation>
+					<xs:documentation>Lower-tier quantity threshold; typically expressed in t.</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="integer">
 						<xs:minInclusive value="0"/>
@@ -3063,6 +3251,9 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="UpperTierQuantity">
+				<xs:annotation>
+					<xs:documentation>Upper-tier quantity threshold; typically expressed in t.</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="integer">
 						<xs:minInclusive value="0"/>
@@ -3074,10 +3265,26 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 	</xs:complexType>
 	<xs:complexType name="SevesoEU">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryEU"/>
-			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryEU"/>
-			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryEU"/>
-			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryEU"/>
+			<xs:element minOccurs="0" name="HealthHazards" type="eSDScom:SevesoEntryEU">
+				<xs:annotation>
+					<xs:documentation>EU Seveso entry for health hazards; category or thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="PhysicalHazards" type="eSDScom:SevesoEntryEU">
+				<xs:annotation>
+					<xs:documentation>EU Seveso entry for physical hazards; category or thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="EnvironmentalHazards" type="eSDScom:SevesoEntryEU">
+				<xs:annotation>
+					<xs:documentation>EU Seveso entry for environmental hazards; category or thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="OtherHazards" type="eSDScom:SevesoEntryEU">
+				<xs:annotation>
+					<xs:documentation>EU Seveso entry for other hazards; category or thresholds.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RegulationsEU">
@@ -3093,7 +3300,11 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="AssessedLegislation" type="eSDScom:Assessment"> </xs:element>
+						<xs:element minOccurs="0" name="AssessedLegislation" type="eSDScom:Assessment">
+							<xs:annotation>
+								<xs:documentation>Assessed legislation or regulatory requirement.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="AuthorisationNo" type="eSDScom:string32">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
@@ -3104,14 +3315,20 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuAuthorisation" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>EU authorisation status or authorisation requirement, e.g. REACH Annex XIV.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOnUse" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>EU use restrictions, e.g. REACH Annex XVII.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOfOccupation" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="EuRestrictionsOfOccupation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>EU employment restrictions or occupational safety requirements.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="RestrictionsAccordingReach" type="eSDScom:Phrase">
 							<xs:annotation>
 								<xs:appinfo>SDScomChem</xs:appinfo>
@@ -3130,13 +3347,22 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="1" minOccurs="0" name="IsDetergent" type="boolean"> </xs:element>
+									<xs:element maxOccurs="1" minOccurs="0" name="IsDetergent" type="boolean">
+										<xs:annotation>
+											<xs:documentation>Indicates whether the product is a detergent; yes/no.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="1" minOccurs="0" name="NameDetergentsRegulation" type="eSDScom:string1024">
 										<xs:annotation>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>Designation of the applicable detergent regulation or information.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentInformation" type="eSDScom:Phrase"> </xs:element>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="DetergentInformation" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Information under detergent legislation, e.g. ingredients or labelling.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -3152,6 +3378,7 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 										<xs:annotation>
 											<xs:appinfo>SDScomBau</xs:appinfo>
 											<xs:appinfo>SDScomChem</xs:appinfo>
+											<xs:documentation>VOC content as mass fraction; unit % w/w.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element minOccurs="0" name="VocValue" type="eSDScom:NumericRangeWithUnitAndQualifier">
@@ -3177,8 +3404,16 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 							<xs:complexType>
 								<xs:sequence>
 									<xs:choice minOccurs="0">
-										<xs:element minOccurs="0" name="IsBiocide" type="boolean"/>
-										<xs:element minOccurs="0" name="IsTreatedArticle" type="boolean"/>
+										<xs:element minOccurs="0" name="IsBiocide" type="boolean">
+											<xs:annotation>
+												<xs:documentation>Indicates whether the product is a biocide; yes/no.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="IsTreatedArticle" type="boolean">
+											<xs:annotation>
+												<xs:documentation>Indicates whether it is a treated article; yes/no.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 									</xs:choice>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="CompositionInformation" type="eSDScom:Phrase">
 										<xs:annotation>
@@ -3190,13 +3425,25 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 											<xs:documentation>Specific for labels according to to Biocidal Products Regulation (EU) No 528/2012.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element minOccurs="0" name="AuthorizationNo" type="eSDScom:string20"/>
-									<xs:element minOccurs="0" name="MainGroup" type="eSDScom:Phrase"/>
+									<xs:element minOccurs="0" name="AuthorizationNo" type="eSDScom:string20">
+										<xs:annotation>
+											<xs:documentation>Authorisation number, e.g. for biocidal product or other regulatory authorisation.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element minOccurs="0" name="MainGroup" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>main group according to biocidal or regulatory system; codierter or textual value.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element minOccurs="0" name="ProductType" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element minOccurs="0" name="Seveso" type="eSDScom:SevesoEU"> </xs:element>
+						<xs:element minOccurs="0" name="Seveso" type="eSDScom:SevesoEU">
+							<xs:annotation>
+								<xs:documentation>Seveso classification or relevance for major accident legislation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="IndustrialEmissions">
 							<xs:annotation>
 								<xs:documentation>Directive 2010/75/EU This should be an exact value, not a range. But for reasons of ingredient nondisclosure, some companies decide to provide a range here.</xs:documentation>
@@ -3214,9 +3461,16 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 							</xs:complexType>
 						</xs:element>
 						<xs:element minOccurs="0" name="CertainFluorinatedGreenhouseGases">
+							<xs:annotation>
+								<xs:documentation>Information on certain fluorinated greenhouse gases according to relevant EU rules.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element minOccurs="0" name="FluorinatedGreenhouseGasesMethod" type="eSDScom:Phrase"/>
+									<xs:element minOccurs="0" name="FluorinatedGreenhouseGasesMethod" type="eSDScom:Phrase">
+										<xs:annotation>
+											<xs:documentation>Method for determining or assessing fluorinated greenhouse gases.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalInfo" type="eSDScom:Phrase"/>
 								</xs:sequence>
 							</xs:complexType>
@@ -3238,6 +3492,7 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				<xs:annotation>
 					<xs:appinfo>SDScomBau</xs:appinfo>
 					<xs:appinfo>SDScomChem</xs:appinfo>
+					<xs:documentation>National legislation or requirements for the product/substance.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3251,35 +3506,68 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAustria" type="eSDScom:RegulationsAT"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationAustria" type="eSDScom:RegulationsAT">
+							<xs:annotation>
+								<xs:documentation>National legislation for Austria; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBosniaAndHerzegovina">
 							<xs:annotation>
 								<xs:documentation>not a EU member and witout chemicals law - except for the Srpska province, which aligns its safety data sheet to the EU.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelgium"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBulgaria"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBelgium">
+							<xs:annotation>
+								<xs:documentation>National legislation for Belgium; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationBulgaria">
+							<xs:annotation>
+								<xs:documentation>National legislation for Bulgaria; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSwitzerland" type="eSDScom:RegulationsCH">
 							<xs:annotation>
 								<xs:documentation>no EU member, but has its legislation widely aligned to EU law, thus accepts safety data sheets in EU format.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="NationalLegislationCyprus"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCzechRepublic"/>
+						<xs:element minOccurs="0" name="NationalLegislationCyprus">
+							<xs:annotation>
+								<xs:documentation>National legislation for Cyprus; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCzechRepublic">
+							<xs:annotation>
+								<xs:documentation>National legislation for Czech Republic; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGermany" type="eSDScom:RegulationsDE">
 							<xs:annotation>
 								<xs:appinfo>SDScomBau</xs:appinfo>
 								<xs:appinfo>SDScomChem</xs:appinfo>
+								<xs:documentation>National legislation for Germany.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationDenmark" type="eSDScom:RegulationsDK"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationDenmark" type="eSDScom:RegulationsDK">
+							<xs:annotation>
+								<xs:documentation>National legislation for Denmark; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationEstonia">
+							<xs:annotation>
+								<xs:documentation>National legislation for Estonia; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSpain">
 							<xs:annotation>
 								<xs:documentation>Includes the Canaries. Includes Ceuta and Melilla which are not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFinland"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFinland">
+							<xs:annotation>
+								<xs:documentation>National legislation for Finland; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationFrance">
 							<xs:annotation>
 								<xs:documentation>includes French Guayana, Guadeloupe, Martinique, Réunion, Mayotte and Saint Martin, which are not part of the European Customs Union.</xs:documentation>
@@ -3290,24 +3578,56 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								<xs:documentation>No EU member anymore after March 29, 2019. Until deviating legislation is established, the UK will be covered with a EU safety data sheet. Includes Gibraltar, which is not part of the European Customs Union.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGreece"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCroatia"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationHungary"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIreland"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationGreece">
+							<xs:annotation>
+								<xs:documentation>National legislation for Greece; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationCroatia">
+							<xs:annotation>
+								<xs:documentation>National legislation for Croatia; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationHungary">
+							<xs:annotation>
+								<xs:documentation>National legislation for Hungary; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIreland">
+							<xs:annotation>
+								<xs:documentation>National legislation for Ireland; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationIceland">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but chemical legislation aligned with EU legislation.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationItaly"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationItaly">
+							<xs:annotation>
+								<xs:documentation>National legislation for Italy; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLiechtenstein">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLithuania"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLuxembourg"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLatvia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLithuania">
+							<xs:annotation>
+								<xs:documentation>National legislation for Lithuania; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLuxembourg">
+							<xs:annotation>
+								<xs:documentation>National legislation for Luxembourg; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationLatvia">
+							<xs:annotation>
+								<xs:documentation>National legislation for Latvia; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMonaco">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
@@ -3323,28 +3643,56 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMalta"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNetherlands"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationMalta">
+							<xs:annotation>
+								<xs:documentation>National legislation for Malta; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNetherlands">
+							<xs:annotation>
+								<xs:documentation>National legislation for Netherlands; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationNorway" type="eSDScom:RegulationsNO">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPoland"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPoland">
+							<xs:annotation>
+								<xs:documentation>National legislation for Poland; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationPortugal">
 							<xs:annotation>
 								<xs:documentation>includes the Azores and Madeira</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRomania"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationRomania">
+							<xs:annotation>
+								<xs:documentation>National legislation for Romania; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSerbia">
 							<xs:annotation>
 								<xs:documentation>EU candidate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSweden"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovenia"/>
-						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovakia"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSweden">
+							<xs:annotation>
+								<xs:documentation>National legislation for Sweden; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovenia">
+							<xs:annotation>
+								<xs:documentation>National legislation for Slovenia; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSlovakia">
+							<xs:annotation>
+								<xs:documentation>National legislation for Slovakia; structured value, code or phrase.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 						<xs:element maxOccurs="1" minOccurs="0" name="NationalLegislationSanMarino">
 							<xs:annotation>
 								<xs:documentation>not part of the EU, but closely connected and currently without relevant national regulations. This element is a placeholder.</xs:documentation>
@@ -3364,6 +3712,9 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="ChemicalSafetyAssessmentInfo">
+				<xs:annotation>
+					<xs:documentation>Information on the chemical safety assessment under REACH.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="ChemicalSafetyAssessmentCarriedOut" type="boolean">
@@ -3371,19 +3722,37 @@ CAUTION! Although outdated in the EU, this is still the basis for classification
 								<xs:documentation> Chemical safety assessment (CSA) carried out: To state if CSA has been performed on the substance or the individual substances of a mixture. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalSafetyAssessment" type="eSDScom:Phrase"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="ChemicalSafetyAssessment" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Indicates whether a chemical safety assessment was performed; yes/no.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="ChemicalSafetyReport">
+				<xs:annotation>
+					<xs:documentation>Information on the chemical safety report (CSR), if required or available.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="CsrRequired" type="boolean"/>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="CsrLocation" type="eSDScom:Phrase"/>
+						<xs:element minOccurs="0" name="CsrRequired" type="boolean">
+							<xs:annotation>
+								<xs:documentation>Indicates whether a chemical safety report is required; yes/no.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="CsrLocation" type="eSDScom:Phrase">
+							<xs:annotation>
+								<xs:documentation>Location or storage place of the chemical safety report.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="ExposureScenario">
+				<xs:annotation>
+					<xs:documentation>Exposure scenario or reference to it; describes uses, conditions and RMM.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="MixtureExposureScenarioInAnnex" type="boolean">
